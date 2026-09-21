@@ -193,22 +193,82 @@
           "title": "Personal Website"
         }
       }
+    },
+    "stories": {
+      "eyebrow": "Our Stories",
+      "title": "Our journey of success told in stories",
+      "items": {
+        "story3": {
+          "title": "Behind the scenes of Khaleej 24 program episodes"
+        },
+        "story2": {
+          "title": "How did we achieve our success in the media world?"
+        },
+        "story1": {
+          "title": "How does the web team innovate in your success?"
+        }
+      }
+    },
+    "blog": {
+      "eyebrow": "The Blog",
+      "title": "Your window to the digital knowledge world",
+      "publishedBy": "Published by",
+      "author": "Eng. Amr Adam",
+      "items": {
+        "item3": {
+          "title": "The latest digital design trends in 2024",
+          "tags": ["Design", "Marketing"]
+        },
+        "item2": {
+          "title": "The importance of SEO for website success",
+          "tags": ["Web"]
+        },
+        "item1": {
+          "title": "The role of AI in developing modern websites",
+          "tags": ["Web", "UI UX"]
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Contact Us",
+      "title": "Are you ready to take your business to a new level?",
+      "description": "Let us provide innovative digital solutions tailored to meet your needs.",
+      "button": "Contact Us"
     }
   },
   "footer": {
-    "description": "Your trusted partner in digital transformation. We build tailored solutions that drive success.",
-    "phone": "Phone",
-    "email": "Email",
-    "company": "Company",
-    "about": "About Us",
+    "desc": "Transforming business with innovative digital solutions for all needs",
     "services": "Services",
-    "portfolio": "Portfolio",
-    "careers": "Careers",
-    "support": "Support",
-    "faq": "FAQ",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "copyright": "© 2026 Target Digital Solutions. All Rights Reserved."
+    "servicesList": {
+      "webDev": "Web Design & Development",
+      "hosting": "Web Hosting",
+      "programming": "Programming Development",
+      "digital": "Digital Solutions",
+      "solutions": "Solutions",
+      "systems": "Systems"
+    },
+    "company": "Company",
+    "companyList": {
+      "about": "About Us",
+      "portfolio": "Our Work",
+      "contact": "Contact Us",
+      "blog": "Blog",
+      "careers": "Careers",
+      "terms": "Terms & Conditions"
+    },
+    "contactInfo": "Contact Information",
+    "contactList": {
+      "phone1": "01099900248",
+      "phone2": "01121044411",
+      "phone3": "01119997654",
+      "whatsapp": "01095301560",
+      "address": "8 Medhat Abdel Hamid St, Lebanon Square, Mohandeseen"
+    },
+    "newsletter": "Subscribe to our newsletter",
+    "newsletterText": "Be the first to know about our new offers and services! Subscribe now to receive the latest news directly to your inbox.",
+    "placeholder": "Enter your email",
+    "email1": "Web@TARGET-GROUP.ORG",
+    "email2": "Careers@TARGET-GROUP.ORG",
+    "copyright": "©{year} Target . All rights reserved"
   }
 }

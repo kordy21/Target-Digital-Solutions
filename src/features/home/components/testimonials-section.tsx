@@ -26,8 +26,8 @@ export function TestimonialsSection() {
 
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-16">
-      <div className="w-full max-w-7xl mx-auto bg-white rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
+      <div className="w-full max-w-7xl mx-auto bg-white dark:bg-zinc-900/50 rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-12">
@@ -48,7 +48,7 @@ export function TestimonialsSection() {
                 className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 rtl:pl-0 rtl:pr-4"
               >
                 {/* Card */}
-                <div className="h-full bg-[#f8f9fc] border border-border rounded-[24px] p-8 flex flex-col items-center text-center">
+                <div className="h-full bg-[#f8f9fc] dark:bg-zinc-800/50 border border-border rounded-[24px] p-8 flex flex-col items-center text-center">
                   <p className="font-cairo text-[14px] md:text-[15px] text-muted-foreground leading-[2.2] mb-12">
                     {t(`items.${item.id}.text`)}
                   </p>

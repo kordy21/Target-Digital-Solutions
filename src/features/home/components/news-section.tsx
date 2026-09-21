@@ -18,9 +18,9 @@ export function NewsSection() {
   const t = useTranslations("home.news");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-16">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
       {/* Side Bubbles */}
-      <div className="absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0 opacity-80">
+      <div className="absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30">
         <Image 
           src={Bubbles} 
           alt="Bubbles Decoration" 
@@ -44,8 +44,8 @@ export function NewsSection() {
           {newsItems.map((item) => (
             <div key={item.id} className="flex flex-col items-center text-center group cursor-pointer">
               {/* Card Container */}
-              <div className="w-full bg-white rounded-3xl p-4 md:p-6 shadow-sm border border-border mb-6 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-md">
-                <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-gray-50">
+              <div className="w-full bg-white dark:bg-zinc-900 rounded-3xl p-4 md:p-6 shadow-sm border border-border mb-6 transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-md">
+                <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-gray-50 dark:bg-zinc-800/50">
                   <Image 
                     src={item.image} 
                     alt={t(`items.${item.id}.title`)}

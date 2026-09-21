@@ -13,6 +13,9 @@ import { ExperienceSection } from "@/features/home/components/experience-section
 import { NewsSection } from "@/features/home/components/news-section";
 import { CertificatesSection } from "@/features/home/components/certificates-section";
 import { TestimonialsSection } from "@/features/home/components/testimonials-section";
+import { StoriesSection } from "@/features/home/components/stories-section";
+import { BlogSection } from "@/features/home/components/blog-section";
+import { CtaSection } from "@/features/home/components/cta-section";
 
 export default function Home() {
   return (
@@ -31,6 +34,9 @@ export default function Home() {
         <NewsSection />
         <CertificatesSection />
         <TestimonialsSection />
+        <StoriesSection />
+        <BlogSection />
+        <CtaSection />
       </main>
       <SiteFooter />
     </div>

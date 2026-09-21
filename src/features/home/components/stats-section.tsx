@@ -9,7 +9,7 @@ export function StatsSection() {
   const t = useTranslations("home.stats");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-16">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
         
         {/* Left Side (Image & Badge) */}

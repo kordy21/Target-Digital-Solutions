@@ -20,7 +20,7 @@ export function ToolsSection() {
   const t = useTranslations("home.tools");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-16">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
       <div className="w-full max-w-7xl mx-auto bg-background rounded-3xl border border-border shadow-sm p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         
         {/* Left Side (Content) */}

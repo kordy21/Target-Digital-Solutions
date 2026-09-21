@@ -59,9 +59,9 @@ export function CertificatesSection() {
   const t = useTranslations("home.certificates");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-4 md:px-12 py-16">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-4 md:px-12 bg-[#f8f9fc] dark:bg-transparent">
       {/* Top Left Bubbles */}
-      <div className="absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 opacity-80">
+      <div className="absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30">
         <Image 
           src={Bubbles} 
           alt="Bubbles Decoration" 
@@ -85,7 +85,7 @@ export function CertificatesSection() {
           {certificates.map((cert) => (
             <div 
               key={cert.id} 
-              className="bg-white rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-6 md:p-8 aspect-4/3 group"
+              className="bg-white dark:bg-zinc-100 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-6 md:p-8 aspect-4/3 group"
             >
               <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-110">
                 <Image 

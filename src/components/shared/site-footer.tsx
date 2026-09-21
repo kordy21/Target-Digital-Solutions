@@ -1,70 +1,240 @@
+"use client";
+
+import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { 
+  MessageCircle, 
+  Phone, 
+  MapPin, 
+  Send, 
+  Copy, 
+  Mail 
+} from "lucide-react";
+import FooterBg from "@/assets/footer.png";
+import TargetFooterLogo from "@/assets/targetfooter.png";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="w-full bg-footer-bg text-white pt-20 pb-10 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-16">
+    <footer className="relative w-full bg-[#2D2D2D] text-white overflow-hidden">
+      
+      {/* Background Image Overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+        style={{ 
+          backgroundImage: `url(${FooterBg.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      />
+
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-6 md:px-12 py-16 lg:py-24">
         
-        {/* Branding & Contact Info */}
-        <div className="flex flex-col gap-6 w-full md:w-1/3">
-          <div className="w-30 h-12.5 bg-white/10 rounded-md flex items-center justify-center">
-            <span className="font-cairo text-white font-bold">Logo</span>
-          </div>
-          <p className="text-white/70 font-cairo text-sm leading-relaxed max-w-xs">
-            {t("description")}
-          </p>
-          <div className="flex flex-col gap-2 mt-4 font-cairo text-sm text-white/90">
-            <span>{t("phone")}: +1 234 567 890</span>
-            <span>{t("email")}: info@targetdigital.com</span>
-          </div>
-        </div>
-
-        {/* Links Columns */}
-        <div className="flex flex-wrap gap-16 w-full md:w-2/3 justify-start md:justify-end">
+        {/* Top Section - 5 Columns */}
+        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 rtl:space-x-reverse">
           
-          <div className="flex flex-col gap-4">
-            <h4 className="font-cairo font-bold text-lg mb-2">{t("company")}</h4>
-            <FooterLink href="/about">{t("about")}</FooterLink>
-            <FooterLink href="/services">{t("services")}</FooterLink>
-            <FooterLink href="/portfolio">{t("portfolio")}</FooterLink>
-            <FooterLink href="/careers">{t("careers")}</FooterLink>
+          {/* Column 1: Logo & Socials */}
+          <div className="flex flex-col items-start lg:w-1/5 shrink-0 text-start">
+            <div className="w-48 h-auto mb-6">
+              <Image 
+                src={TargetFooterLogo} 
+                alt="Target Digital Solutions" 
+                className="w-full h-auto object-contain brightness-0 invert" 
+              />
+            </div>
+            <p className="font-cairo text-white/80 text-[14px] md:text-[15px] leading-relaxed mb-8 max-w-50">
+              {t("desc")}
+            </p>
+            <div className="flex items-center justify-start gap-3">
+              <SocialIcon><FacebookIcon className="w-4 h-4" /></SocialIcon>
+              <SocialIcon><TwitterIcon className="w-4 h-4" /></SocialIcon>
+              <SocialIcon><InstagramIcon className="w-4 h-4" /></SocialIcon>
+              <SocialIcon><Phone className="w-4 h-4" /></SocialIcon>
+              <SocialIcon><MessageCircle className="w-4 h-4" /></SocialIcon>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <h4 className="font-cairo font-bold text-lg mb-2">{t("support")}</h4>
-            <FooterLink href="/faq">{t("faq")}</FooterLink>
-            <FooterLink href="/contact">{t("contact")}</FooterLink>
-            <FooterLink href="/privacy">{t("privacy")}</FooterLink>
-            <FooterLink href="/terms">{t("terms")}</FooterLink>
+          {/* Column 2: Services */}
+          <div className="flex flex-col lg:w-1/6">
+            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("services")}</h4>
+            <div className="flex flex-col gap-4">
+              <FooterListLink>{t("servicesList.webDev")}</FooterListLink>
+              <FooterListLink>{t("servicesList.hosting")}</FooterListLink>
+              <FooterListLink>{t("servicesList.programming")}</FooterListLink>
+              <FooterListLink>{t("servicesList.digital")}</FooterListLink>
+              <FooterListLink>{t("servicesList.solutions")}</FooterListLink>
+              <FooterListLink>{t("servicesList.systems")}</FooterListLink>
+            </div>
+          </div>
+
+          {/* Column 3: Company */}
+          <div className="flex flex-col lg:w-1/6">
+            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("company")}</h4>
+            <div className="flex flex-col gap-4">
+              <FooterListLink>{t("companyList.about")}</FooterListLink>
+              <FooterListLink>{t("companyList.portfolio")}</FooterListLink>
+              <FooterListLink>{t("companyList.contact")}</FooterListLink>
+              <FooterListLink>{t("companyList.blog")}</FooterListLink>
+              <FooterListLink>{t("companyList.careers")}</FooterListLink>
+              <FooterListLink>{t("companyList.terms")}</FooterListLink>
+            </div>
+          </div>
+
+          {/* Column 4: Contact Info */}
+          <div className="flex flex-col lg:w-1/4">
+            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("contactInfo")}</h4>
+            <div className="flex flex-col gap-5 text-[14px] text-white/80 font-cairo">
+              
+              <div className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
+                <Phone className="w-5 h-5 opacity-70 group-hover:opacity-100" />
+                <span dir="ltr">{t("contactList.phone1")}</span>
+              </div>
+              
+              <div className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
+                <Phone className="w-5 h-5 opacity-70 group-hover:opacity-100" />
+                <span dir="ltr">{t("contactList.phone2")}</span>
+              </div>
+
+              <div className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
+                <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100" />
+                <span dir="ltr">{t("contactList.phone3")}</span>
+              </div>
+
+              <div className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
+                <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100" />
+                <span dir="ltr">{t("contactList.whatsapp")}</span>
+              </div>
+
+              <div className="flex items-start gap-3 group cursor-pointer hover:text-white transition-colors">
+                <MapPin className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 mt-1" />
+                <span className="leading-[1.6]">{t("contactList.address")}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 5: Newsletter */}
+          <div className="flex flex-col lg:w-1/4">
+            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("newsletter")}</h4>
+            <p className="font-cairo text-white/80 text-[13px] leading-relaxed mb-6">
+              {t("newsletterText")}
+            </p>
+            
+            <div className="relative w-full mb-6">
+              <input 
+                type="email" 
+                placeholder={t("placeholder")}
+                className="w-full bg-transparent border border-white/30 rounded-full px-6 py-3 font-cairo text-[14px] text-white outline-none focus:border-white transition-colors placeholder:text-white/40"
+              />
+              <button className="absolute top-1/2 -translate-y-1/2 left-2 w-9 h-9 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                <Send className="w-4 h-4 text-[#2D2D2D] rtl:-scale-x-100" />
+              </button>
+            </div>
+
+            <EmailBox email={t("email1")} />
+            <EmailBox email={t("email2")} />
           </div>
 
         </div>
-
       </div>
 
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white/50 font-cairo text-sm">
-          {t("copyright")}
-        </p>
-        <div className="flex gap-4">
-           {/* Social Icons Placeholders */}
-           <div className="w-8 h-8 rounded-full bg-white/10"></div>
-           <div className="w-8 h-8 rounded-full bg-white/10"></div>
-           <div className="w-8 h-8 rounded-full bg-white/10"></div>
+      {/* Bottom Bar */}
+      <div className="relative z-10 w-full bg-[#F8F9FC] text-[#2D2D2D]">
+        <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
+          <p className="font-cairo text-[13px] font-semibold tracking-wide">
+            {t("copyright", { year: new Date().getFullYear() })}
+          </p>
         </div>
       </div>
+
     </footer>
   );
 }
 
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+function SocialIcon({ children }: { children: React.ReactNode }) {
   return (
-    <Link href={href} className="text-white/70 hover:text-white font-cairo text-sm transition-colors">
+    <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white transition-colors">
       {children}
-    </Link>
+    </button>
+  );
+}
+
+function FooterListLink({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-2 group cursor-pointer text-white/70 hover:text-white transition-colors">
+      <div className="w-0 h-0 border-y-4 border-y-transparent border-r-[6px] border-r-white/50 group-hover:border-r-white transition-colors rtl:rotate-0 rotate-180" />
+      <span className="font-cairo text-[14px]">{children}</span>
+    </div>
+  );
+}
+
+function EmailBox({ email }: { email: string }) {
+  return (
+    <div className="flex items-center justify-between border border-white/20 rounded-full px-5 py-3 mb-3 group cursor-pointer hover:border-white/50 transition-colors">
+      <div className="flex items-center gap-3">
+        <Mail className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+        <span className="font-cairo text-[13px] text-white/80 group-hover:text-white transition-colors">{email}</span>
+      </div>
+      <Copy className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+    </div>
+  );
+}
+
+function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+}
+
+function TwitterIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+    </svg>
+  );
+}
+
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
   );
 }
