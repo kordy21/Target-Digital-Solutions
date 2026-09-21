@@ -8,6 +8,9 @@ import { ServicesSection } from "@/features/home/components/services-section";
 import { PortfolioSection } from "@/features/home/components/portfolio-section";
 import { ToolsSection } from "@/features/home/components/tools-section";
 import { StatsSection } from "@/features/home/components/stats-section";
+import { FeaturesSection } from "@/features/home/components/features-section";
+import { ExperienceSection } from "@/features/home/components/experience-section";
+import { NewsSection } from "@/features/home/components/news-section";
 
 export default function Home() {
   return (
@@ -21,6 +24,9 @@ export default function Home() {
         <PortfolioSection />
         <ToolsSection />
         <StatsSection />
+        <FeaturesSection />
+        <ExperienceSection />
+        <NewsSection />
       </main>
       <SiteFooter />
     </div>

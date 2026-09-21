@@ -106,6 +106,68 @@
         "team": { "value": "150+", "label": "Creative Programmers" },
         "data": { "value": "6TB+", "label": "Daily Data" }
       }
+    },
+    "features": {
+      "eyebrow": "What distinguishes Target?",
+      "title": "Experience, creativity, and advanced technologies that meet our clients' ambitions",
+      "items": {
+        "item1": {
+          "title": "Extensive Technical Experience",
+          "description": "An experienced team in building and developing effective digital solutions."
+        },
+        "item2": {
+          "title": "Integrated Digital Solutions",
+          "description": "We offer comprehensive services from design to programming and digital publishing."
+        },
+        "item3": {
+          "title": "Innovative Design",
+          "description": "Attractive and modern designs that keep pace with the latest digital market trends."
+        },
+        "item4": {
+          "title": "Continuous Technical Support",
+          "description": "A support team always available to provide fast and effective solutions."
+        },
+        "item5": {
+          "title": "Project Customization",
+          "description": "Customized solutions that meet each client's needs uniquely and accurately."
+        },
+        "item6": {
+          "title": "Commitment to Quality",
+          "description": "We are committed to providing the best quality with high-performance technology."
+        }
+      }
+    },
+    "experience": {
+      "eyebrow": "Do you know us?",
+      "title": "More than 15 years of experience",
+      "subtitle": "Get to know our team.",
+      "description": "We have a highly experienced team in design, programming, SEO, and web hosting services to support you around the clock.",
+      "button": "Learn more",
+      "stats": {
+        "years": {
+          "value": "15+",
+          "label": "Years of experience"
+        },
+        "employees": {
+          "value": "140+",
+          "label": "Employees in our team"
+        }
+      }
+    },
+    "news": {
+      "eyebrow": "Our News",
+      "title": "Follow the latest news and achievements",
+      "items": {
+        "item3": {
+          "title": "Target Company programs the Americana Company website"
+        },
+        "item2": {
+          "title": "Certificate of Appreciation from Helwan University"
+        },
+        "item1": {
+          "title": "Misr Travel Company and Target Company"
+        }
+      }
     }
   },
   "footer": {
