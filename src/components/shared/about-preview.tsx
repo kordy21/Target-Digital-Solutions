@@ -1,34 +1,109 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image, { StaticImageData } from "next/image";
+import { useCallback } from "react";
+import { useTranslations } from "next-intl";
+import Bubbles from "@/assets/bubbles.png";
+import Part1 from "@/assets/part1.png";
+import Part10 from "@/assets/part10.png";
+import Part2 from "@/assets/part2.png";
+import Part3 from "@/assets/part3.png";
+import Part4 from "@/assets/part4.png";
+import Part5 from "@/assets/part5.png";
+import Part6 from "@/assets/part6.png";
+import Part7 from "@/assets/part7.png";
+import Part8 from "@/assets/part8.png";
+import Part9 from "@/assets/part9.png";
+
+const partners = [Part1, Part2, Part3, Part4, Part5, Part6, Part7, Part8, Part9, Part10];
+
+// Group partners into pairs for a 2-row layout in the carousel
+const groupedPartners: StaticImageData[][] = [];
+for (let i = 0; i < partners.length; i += 2) {
+  groupedPartners.push(partners.slice(i, i + 2));
+}
 
 export function AboutPreview() {
+  const t = useTranslations("home.partners");
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, direction: "rtl", align: "start", slidesToScroll: 1 }, 
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   return (
-    <section className="py-24 px-6 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">
-      
-      {/* Visual Side (Mockups) */}
-      <div className="w-full lg:w-1/2 relative h-100 sm:h-125">
-        {/* Placeholder for the overlapping dashboards/images */}
-        <div className="absolute top-0 right-0 sm:right-10 w-[80%] h-[70%] bg-muted/40 rounded-2xl border border-border shadow-2xl overflow-hidden flex items-center justify-center">
-           <span className="font-cairo text-muted-foreground">Dashboard Image 1</span>
-        </div>
-        <div className="absolute bottom-0 left-0 sm:left-10 w-[70%] h-[60%] bg-muted/60 rounded-2xl border border-border shadow-2xl overflow-hidden flex items-center justify-center z-10 translate-y-10">
-           <span className="font-cairo text-muted-foreground">Dashboard Image 2</span>
-        </div>
+    <section className="relative w-full py-24 bg-[#F8F9FE] dark:bg-slate-950 overflow-hidden flex flex-col items-center justify-center">
+      {/* Side Bubbles */}
+      <div className="absolute top-2 left-0 h-1/2 pointer-events-none hidden md:block z-0">
+        <Image 
+          src={Bubbles} 
+          alt="Bubbles Decoration" 
+          className="h-full w-auto object-cover" 
+        />
       </div>
 
-      {/* Content Side */}
-      <div className="w-full lg:w-1/2 flex flex-col gap-6 text-start">
-        <span className="text-primary font-cairo text-[20px] font-bold">من نحن</span>
-        <h2 className="text-[40px] md:text-[50px] font-cairo font-extrabold text-foreground leading-[1.2]">
-          اكتشف قصة نجاحنا معنا
+      <div className="w-full max-w-7xl mx-auto px-12 relative z-10 flex flex-col items-center">
+        {/* Header Section */}
+        <span className="text-[#3b5bdb] dark:text-blue-400 font-cairo text-[20px] md:text-[24px] font-bold mb-2">
+          {t("eyebrow")}
+        </span>
+        <h2 className="text-[32px] md:text-[45px] font-cairo font-extrabold text-[#111827] dark:text-white leading-[1.2] text-center mb-16">
+          {t("title")}
         </h2>
-        <p className="text-[18px] md:text-[20px] font-cairo text-muted-foreground leading-relaxed">
-          نحن فريق من المبدعين الشغوفين ببناء حلول رقمية مبتكرة تلبي تطلعات عملائنا. من خلال خبرتنا الواسعة في تطوير الويب والتطبيقات، نضمن لك تقديم أفضل النتائج الممكنة.
-        </p>
-        <Button className="mt-4 h-13.75 px-8 rounded-full w-fit bg-foreground text-background hover:bg-foreground/90 font-cairo text-[18px]">
-          اقرأ المزيد عنا
-        </Button>
-      </div>
 
+        {/* Carousel Section */}
+        <div className="w-full relative flex items-center">
+          
+          {/* Right Arrow (Prev in RTL) */}
+          <button 
+            onClick={scrollPrev}
+            className="absolute -right-6 md:-right-12 z-20 w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+          >
+            <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
+
+          {/* Embla Viewport */}
+          <div className="overflow-hidden w-full px-4" ref={emblaRef} dir="rtl">
+            <div className="flex">
+              {groupedPartners.map((group, index) => (
+                <div 
+                  key={index} 
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 flex flex-col gap-12 items-center px-4"
+                >
+                  {group.map((imgSrc, imgIndex) => (
+                    <div key={imgIndex} className="w-full flex items-center justify-center h-20 md:h-24 transition-transform hover:scale-105">
+                      <Image 
+                        src={imgSrc} 
+                        alt={`Partner ${index * 2 + imgIndex + 1}`} 
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Left Arrow (Next in RTL) */}
+          <button 
+            onClick={scrollNext}
+            className="absolute -left-6 md:-left-12 z-20 w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
+
+        </div>
+      </div>
     </section>
   );
 }

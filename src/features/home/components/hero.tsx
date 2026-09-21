@@ -22,7 +22,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#07132F] overflow-hidden flex items-center">
+    <section className="relative w-full min-h-screen bg-[#07132F] overflow-hidden flex items-center border-b-3 border-black">
       <FloatingThemeToggle />
       
       {slidesData.map((slide, index) => (
@@ -72,7 +72,7 @@ export function Hero() {
       ))}
 
       {/* Hero Footer Wavy Shape */}
-      <div className="absolute -bottom-4 left-0 w-full z-20 pointer-events-none">
+      <div className="absolute -bottom-4 left-0 w-full z-20 pointer-events-none dark:hidden">
         <Image 
           src={HeroFooter} 
           alt="Footer Wave" 
