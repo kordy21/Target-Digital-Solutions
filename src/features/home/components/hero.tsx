@@ -22,9 +22,10 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#07132F] overflow-hidden flex items-center border-b-3 border-black">
+    <section className="relative w-full min-h-screen bg-brand-dark overflow-hidden flex items-center border-b-3 border-black">
       <FloatingThemeToggle />
       
+      {/* Dynamic Background Image based on current slide */}
       {slidesData.map((slide, index) => (
         <div 
           key={slide.id}

@@ -37,7 +37,7 @@ export function SiteHeader() {
         </div>
 
         {/* Center Pill */}
-        <div className="hidden lg:flex items-center bg-[#e8e8e8] dark:bg-white/5 rounded-xl px-4 py-2 gap-6">
+        <div className="hidden lg:flex items-center bg-accent rounded-xl px-4 py-2 gap-6">
           
           {/* Nav Links */}
           <nav className="flex items-center gap-5 pr-2">
@@ -128,7 +128,7 @@ export function SiteHeader() {
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="text-[15px] font-cairo font-semibold text-[#4A4A4A] dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+    <Link href={href} className="text-[15px] font-cairo font-semibold text-accent-foreground hover:text-black dark:hover:text-white transition-colors">
       {children}
     </Link>
   );
@@ -136,7 +136,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 
 function NavDropdown({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-[#4A4A4A] dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors group">
+    <div className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-accent-foreground hover:text-black dark:hover:text-white transition-colors group">
       <span>{label}</span>
       <ChevronDown className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
     </div>

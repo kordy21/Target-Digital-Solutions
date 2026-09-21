@@ -13,7 +13,7 @@ export function AboutUsSection() {
   const isRtl = locale === "ar";
 
   return (
-    <section className="relative w-full py-24 bg-[#F4F6FC] dark:bg-slate-900 overflow-hidden flex flex-col items-center justify-center">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
         
         {/* Image Section (Visual Left in RTL) */}
@@ -23,6 +23,7 @@ export function AboutUsSection() {
               src={UsImage} 
               alt="About Us" 
               fill 
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-contain" 
             />
           </div>
@@ -41,11 +42,11 @@ export function AboutUsSection() {
             {t("eyebrow")}
           </span>
           
-          <h2 className="text-[32px] md:text-[45px] lg:text-[55px] font-cairo font-extrabold text-[#111827] dark:text-white leading-[1.2] mb-8">
+          <h2 className="text-[32px] md:text-[45px] lg:text-[55px] font-cairo font-extrabold text-foreground leading-[1.2] mb-8">
             {t("title")}
           </h2>
           
-          <h3 className="text-[22px] md:text-[26px] font-cairo font-bold text-[#3b5bdb] dark:text-blue-400 mb-4">
+          <h3 className="text-[22px] md:text-[26px] font-cairo font-bold text-primary mb-4">
             {t("subtitle")}
           </h3>
           

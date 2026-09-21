@@ -3,13 +3,15 @@
 ## Colors
 | Token | Value | Tailwind Class | Notes |
 |-------|-------|----------------|-------|
-| Background Dark | `#000000` | `bg-background` (dark mode) / `bg-black` | Pure black is used for dark buttons and dark backgrounds. |
-| Background Light | `#FFFFFF` | `bg-background` (light mode) / `bg-white` | White is used for light theme base. |
-| Gray/Muted | `#E9E9E9` | `bg-muted` | Used for the header menu wrapper background. |
-| Border Gray | `#474747` | `border-border` / `border-gray-700` | Used for borders in the theme toggle. |
-| Text Light | `#FFFFFF` | `text-foreground` (dark mode) / `text-white` | |
-| Text Dark | `#000000` | `text-foreground` (light mode) / `text-black` | |
-| Primary / Accent Glow | `rgba(0, 0, 255, 1)` | `shadow-primary` | Used as a glow/shadow on primary call-to-action buttons. |
+| Background Light / Default | `#FFFFFF` (Light) / `#020617` (Dark) | `bg-background` | Base background color. |
+| Background Secondary | `#F8F9FE` (Light) / `#0f172a` (Dark) | `bg-secondary` | Alternating section backgrounds. |
+| Background Accent / Header Pills | `#E8E8E8` (Light) / `rgba(255,255,255,0.05)` (Dark) | `bg-accent` | Used for the header menu wrappers and language toggles. |
+| Text Light | `#FFFFFF` | `text-primary-foreground` | Used on primary buttons. |
+| Text Default / Dark | `#111827` (Light) / `#F8FAFC` (Dark) | `text-foreground` | Main headings and body text. |
+| Text Muted | `#4A4A4A` (Light) / `#D1D5DB` (Dark) | `text-accent-foreground` | Used for nav links and secondary text. |
+| Primary / Brand Accent | `#3B5BDB` (Light) / `#60A5FA` (Dark) | `text-primary`, `bg-primary` | Main brand color for subtitles, buttons, and eyebrows. |
+| Brand Dark Hero | `#07132F` | `bg-brand-dark` | Used strictly for the Hero section background. |
+| Footer Background | `#1A1A1A` | `bg-footer-bg` | Used strictly for the site footer. |
 
 ## Typography
 | Token | Value | Tailwind Class | Notes |

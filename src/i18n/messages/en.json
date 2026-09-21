@@ -35,9 +35,77 @@
       "description": "With many years of experience, we have been able to put the puzzle pieces together towards achieving our goals, making Target the perfect partner to explore the full potential of your brand.",
       "cta": "Learn More"
     },
+    "services": {
+      "eyebrow": "Target Digital Solutions Services",
+      "title": "We provide comprehensive solutions to meet your needs",
+      "tabs": {
+        "web": "Website Design & Development",
+        "hosting": "Hosting & Server Management",
+        "programming": "Programming Language Development",
+        "digital": "Digital Solutions",
+        "solutions": "Solutions",
+        "systems": "Systems"
+      },
+      "cards": {
+        "ui_design": {
+          "title": "UI User Interface Design",
+          "description": "Innovative interface design solutions to achieve an ideal user experience"
+        },
+        "web_dev": {
+          "title": "Website Development",
+          "description": "Developing integrated websites keeping pace with the latest technologies"
+        },
+        "app_dev": {
+          "title": "Application Development",
+          "description": "Creating smart applications ensuring smooth performance and excellent UX"
+        },
+        "ecommerce": {
+          "title": "E-Commerce Development",
+          "description": "Designing and developing innovative e-commerce stores to enhance digital shopping"
+        }
+      }
+    },
+    "portfolio": {
+      "eyebrow": "Latest Work",
+      "title": "Creative touches coming to life in every project",
+      "button": "Learn more",
+      "projects": {
+        "trs": "TRS Website",
+        "marka": "Marka Shipp Website",
+        "r2m": "R2M Website"
+      }
+    },
     "partners": {
       "eyebrow": "Success Partners",
       "title": "Trusted by Leading Brands"
+    },
+    "tools": {
+      "eyebrow": "Tools and Technologies",
+      "title": "Empowering success through innovative digital solutions",
+      "categories": {
+        "design": "Design"
+      },
+      "items": {
+        "figma": "Figma",
+        "photoshop": "Photoshop",
+        "illustrator": "Illustrator",
+        "xd": "XD"
+      }
+    },
+    "stats": {
+      "eyebrow": "Numbers that reflect our success",
+      "title": "What makes us the best choice to achieve your digital goals?",
+      "description": "\"We don't just believe in words, we let the numbers speak for our successes. In every project we complete, and every client we serve, we build a new success story that enriches our journey in the world of digital transformation.\"",
+      "satisfaction": {
+        "value": "97%",
+        "label": "Customer Satisfaction"
+      },
+      "items": {
+        "clients": { "value": "850+", "label": "Satisfied clients" },
+        "projects": { "value": "1200+", "label": "Websites & Apps" },
+        "team": { "value": "150+", "label": "Creative Programmers" },
+        "data": { "value": "6TB+", "label": "Daily Data" }
+      }
     }
   },
   "footer": {

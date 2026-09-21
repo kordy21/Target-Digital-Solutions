@@ -25,7 +25,7 @@ export function LanguageSwitcher() {
     <Button 
       variant="ghost" 
       onClick={toggleLocale}
-      className="flex items-center gap-1 bg-[#EBEBEB] dark:bg-white/10 text-[#4A4A4A] dark:text-gray-200 px-3 py-1.5 rounded-full cursor-pointer hover:bg-muted-foreground/20 dark:hover:bg-white/20 transition-colors font-cairo font-semibold h-9 text-sm"
+      className="flex items-center gap-1 bg-accent text-accent-foreground px-3 py-1.5 rounded-full cursor-pointer hover:bg-muted-foreground/20 dark:hover:bg-white/20 transition-colors font-cairo font-semibold h-9 text-sm"
     >
       <ChevronDown className="w-3 h-3" />
       <span className="mt-1">{locale === "ar" ? "EN" : "عربي"}</span>

@@ -3,34 +3,26 @@
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
+
 import Bubbles from "@/assets/bubbles.png";
-import Part1 from "@/assets/part1.png";
-import Part10 from "@/assets/part10.png";
-import Part2 from "@/assets/part2.png";
-import Part3 from "@/assets/part3.png";
-import Part4 from "@/assets/part4.png";
-import Part5 from "@/assets/part5.png";
-import Part6 from "@/assets/part6.png";
-import Part7 from "@/assets/part7.png";
-import Part8 from "@/assets/part8.png";
-import Part9 from "@/assets/part9.png";
+import R2M from "@/assets/R2M.png";
+import TRS from "@/assets/trs.png";
+import MarkaShip from "@/assets/markship.png";
 
-const partners = [Part1, Part2, Part3, Part4, Part5, Part6, Part7, Part8, Part9, Part10];
+const projects = [
+  { id: "trs", image: TRS },
+  { id: "marka", image: MarkaShip },
+  { id: "r2m", image: R2M },
+];
 
-// Group partners into pairs for a 2-row layout in the carousel
-const groupedPartners: StaticImageData[][] = [];
-for (let i = 0; i < partners.length; i += 2) {
-  groupedPartners.push(partners.slice(i, i + 2));
-}
-
-export function AboutPreview() {
-  const t = useTranslations("home.partners");
+export function PortfolioSection() {
+  const t = useTranslations("home.portfolio");
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, direction: "rtl", align: "start", slidesToScroll: 1 }, 
-    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
   const scrollPrev = useCallback(() => {
@@ -44,7 +36,7 @@ export function AboutPreview() {
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       {/* Side Bubbles */}
-      <div className="absolute top-2 left-0 h-1/2 pointer-events-none hidden md:block z-0">
+      <div className="absolute top-0 right-0 h-1/2 pointer-events-none hidden md:block z-0">
         <Image 
           src={Bubbles} 
           alt="Bubbles Decoration" 
@@ -52,7 +44,7 @@ export function AboutPreview() {
         />
       </div>
 
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">
           {t("eyebrow")}
@@ -75,20 +67,21 @@ export function AboutPreview() {
           {/* Embla Viewport */}
           <div className="overflow-hidden w-full px-4" ref={emblaRef} dir="rtl">
             <div className="flex">
-              {groupedPartners.map((group, index) => (
+              {projects.map((project) => (
                 <div 
-                  key={index} 
-                  className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 flex flex-col gap-12 items-center px-4"
+                  key={project.id} 
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] min-w-0 flex flex-col items-center px-4"
                 >
-                  {group.map((imgSrc, imgIndex) => (
-                    <div key={imgIndex} className="w-full flex items-center justify-center h-20 md:h-24 transition-transform hover:scale-105">
-                      <Image 
-                        src={imgSrc} 
-                        alt={`Partner ${index * 2 + imgIndex + 1}`} 
-                        className="max-w-full max-h-full object-contain"
-                      />
-                    </div>
-                  ))}
+                  <div className="w-full flex items-center justify-center transition-transform hover:scale-105 mb-6">
+                    <Image 
+                      src={project.image} 
+                      alt={t(`projects.${project.id}`)} 
+                      className="max-w-full h-auto object-contain"
+                    />
+                  </div>
+                  <h3 className="font-cairo text-[20px] md:text-[24px] font-semibold text-foreground text-center">
+                    {t(`projects.${project.id}`)}
+                  </h3>
                 </div>
               ))}
             </div>
@@ -101,7 +94,14 @@ export function AboutPreview() {
           >
             <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
           </button>
+        </div>
 
+        {/* Learn More Button */}
+        <div className="mt-16">
+          <button className="flex items-center gap-3 px-8 py-3 rounded-full border border-primary text-foreground hover:bg-primary hover:text-primary-foreground transition-colors font-cairo font-semibold text-[18px]">
+            <ArrowLeft className="w-5 h-5" />
+            <span>{t("button")}</span>
+          </button>
         </div>
       </div>
     </section>

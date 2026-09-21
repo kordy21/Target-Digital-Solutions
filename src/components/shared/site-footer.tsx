@@ -5,7 +5,7 @@ export function SiteFooter() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="w-full bg-[#1A1A1A] text-white pt-20 pb-10 px-6">
+    <footer className="w-full bg-footer-bg text-white pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-16">
         
         {/* Branding & Contact Info */}
