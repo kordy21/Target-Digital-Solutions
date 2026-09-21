@@ -3,6 +3,8 @@ import { SiteFooter } from "@/components/shared/site-footer";
 import { SiteHeader } from "@/components/shared/site-header";
 import { Hero } from "@/features/home/components/hero";
 
+import { AboutUsSection } from "@/features/home/components/about-us-section";
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -10,7 +12,7 @@ export default function Home() {
       <main className="flex-1 relative">
         <Hero />
         <AboutPreview />
-
+        <AboutUsSection />
       </main>
       <SiteFooter />
     </div>
