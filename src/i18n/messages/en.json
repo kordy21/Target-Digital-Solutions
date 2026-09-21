@@ -168,6 +168,31 @@
           "title": "Misr Travel Company and Target Company"
         }
       }
+    },
+    "certificates": {
+      "eyebrow": "Certificates and awards",
+      "title": "Achievements that tell our story and confirm our excellence"
+    },
+    "testimonials": {
+      "eyebrow": "Customer Reviews",
+      "title": "Their trust inspires us and their words reflect our success",
+      "items": {
+        "mahmoud": {
+          "text": "We dealt with Target Digital Solutions Company in our website project https://crystalshade.com.sa and found them to be credible and professional in dealing, fast in responding and meeting all our requests. We advise everyone to deal with them and thank them very much for all the services they provided us.",
+          "name": "Eng. Mahmoud Badawy",
+          "title": "Manager of Crystal Shade Company"
+        },
+        "mohamed": {
+          "text": "I was honored to work with Target Company to design our website for Lemonary Company - words cannot give them their due - creative ideas - wonderful designs - distinctive color harmony - speed in communication and preparation, and the most important feature is that they do not get tired of the many requests and modifications - and are always available for help and technical support - it was a distinct experience - I wish them success.",
+          "name": "Eng. Mohamed Al-Jabri",
+          "title": "Manager of Lemonary Company"
+        },
+        "tarek": {
+          "text": "We were honored to deal with Target Company and Engineer Amr Adam. The best dealing I have seen in my life. They are the best and accomplish the work perfectly and quickly, this is what distinguishes them. I wish them more success.",
+          "name": "Mr. Tarek El Tohamy",
+          "title": "Personal Website"
+        }
+      }
     }
   },
   "footer": {

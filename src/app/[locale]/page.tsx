@@ -11,6 +11,8 @@ import { StatsSection } from "@/features/home/components/stats-section";
 import { FeaturesSection } from "@/features/home/components/features-section";
 import { ExperienceSection } from "@/features/home/components/experience-section";
 import { NewsSection } from "@/features/home/components/news-section";
+import { CertificatesSection } from "@/features/home/components/certificates-section";
+import { TestimonialsSection } from "@/features/home/components/testimonials-section";
 
 export default function Home() {
   return (
@@ -27,6 +29,8 @@ export default function Home() {
         <FeaturesSection />
         <ExperienceSection />
         <NewsSection />
+        <CertificatesSection />
+        <TestimonialsSection />
       </main>
       <SiteFooter />
     </div>
