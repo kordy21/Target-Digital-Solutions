@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { useParams } from "next/navigation";
+import { ChevronDown } from "lucide-react";
 
 export function LanguageSwitcher() {
   const locale = useLocale();
@@ -24,9 +25,10 @@ export function LanguageSwitcher() {
     <Button 
       variant="ghost" 
       onClick={toggleLocale}
-      className="hidden sm:flex items-center gap-2 bg-muted/50 px-3 py-1.5 rounded-full cursor-pointer hover:bg-muted transition-colors font-cairo font-semibold h-10 text-sm"
+      className="flex items-center gap-1 bg-[#EBEBEB] text-[#4A4A4A] px-3 py-1.5 rounded-full cursor-pointer hover:bg-muted-foreground/20 transition-colors font-cairo font-semibold h-9 text-sm"
     >
-      {locale === "ar" ? "EN" : "عربي"}
+      <ChevronDown className="w-3 h-3" />
+      <span className="mt-1">{locale === "ar" ? "EN" : "عربي"}</span>
     </Button>
   );
 }

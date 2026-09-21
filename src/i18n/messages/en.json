@@ -6,18 +6,27 @@
     "about": "About Us",
     "services": "Services",
     "solutions": "Solutions",
+    "systems": "Systems",
     "portfolio": "Our Work",
-    "clients": "Clients",
+    "clients": "Our Clients",
     "info": "Information",
     "more": "More",
     "customer_area": "Customer Area"
   },
   "home": {
     "hero": {
-      "title": "Start the New Year with Amazing Offers!",
-      "subtitle": "Take advantage of exclusive discounts on our integrated digital services",
-      "cta_primary": "Book a Consultation",
-      "cta_secondary": "Our Work"
+      "slide1_title": "Are you ready to build your website?",
+      "slide1_subtitle": "Launch to the top with Target!",
+      "slide1_primary": "Learn More",
+      "slide1_secondary": "Start your journey now",
+      "slide2_title": "Towards a complete digital experience",
+      "slide2_subtitle": "Transforming businesses with innovative digital solutions for all needs",
+      "slide2_primary": "Our Services",
+      "slide2_secondary": "Book Consultation",
+      "slide3_title": "Start the New Year with Amazing Offers!",
+      "slide3_subtitle": "Take advantage of exclusive discounts on our integrated digital services",
+      "slide3_primary": "Discover offers now",
+      "slide3_secondary": "Book Consultation"
     },
     "services": {
       "eyebrow": "Our Offerings",
