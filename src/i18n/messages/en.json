@@ -1,0 +1,107 @@
+{
+  "Index": {
+    "title": "Home"
+  },
+  "header": {
+    "about": "About Us",
+    "services": "Services",
+    "solutions": "Solutions",
+    "portfolio": "Our Work",
+    "clients": "Clients",
+    "info": "Information",
+    "more": "More",
+    "customer_area": "Customer Area"
+  },
+  "home": {
+    "hero": {
+      "title": "Start the New Year with Amazing Offers!",
+      "subtitle": "Take advantage of exclusive discounts on our integrated digital services",
+      "cta_primary": "Book a Consultation",
+      "cta_secondary": "Our Work"
+    },
+    "services": {
+      "eyebrow": "Our Offerings",
+      "title": "Steps We Take to Meet Your Needs",
+      "description": "Comprehensive digital solutions tailored for your business.",
+      "items": {
+        "ui_ux": { "title": "UI/UX Design", "description": "Creating engaging and intuitive user experiences." },
+        "web": { "title": "Web Development", "description": "Building fast, scalable, and secure web applications." },
+        "mobile": { "title": "Mobile Apps", "description": "Native and cross-platform mobile solutions." },
+        "marketing": { "title": "Digital Marketing", "description": "Data-driven strategies to grow your brand." }
+      }
+    },
+    "portfolio": {
+      "eyebrow": "Our Portfolio",
+      "title": "Work We Are Proud Of",
+      "view_all": "View All Projects"
+    },
+    "identity": {
+      "eyebrow": "Identity Design",
+      "title": "Brand Identity Crafted By Experts",
+      "description": "We build strong, recognizable brands that resonate with your target audience."
+    },
+    "stats": {
+      "eyebrow": "Success Story",
+      "title": "What Makes You the Perfect Choice for Success",
+      "description": "A proven track record of delivering excellence across various industries.",
+      "years_experience": "Years Experience",
+      "projects": "Projects Completed",
+      "clients": "Happy Clients",
+      "support": "Support Available"
+    },
+    "why_us": {
+      "eyebrow": "Why Us",
+      "title": "Why Choose Us",
+      "items": {
+        "quality": { "title": "Top Quality", "description": "Delivering the highest standard in every project." },
+        "speed": { "title": "Fast Execution", "description": "Optimized workflows to meet your deadlines." },
+        "support": { "title": "Dedicated Support", "description": "Always here to help you succeed." },
+        "security": { "title": "Maximum Security", "description": "Your data is safe and protected with us." },
+        "time": { "title": "On-Time Delivery", "description": "We value your time and deliver as promised." },
+        "team": { "title": "Expert Team", "description": "Professionals with years of industry experience." }
+      }
+    },
+    "contact_cta": {
+      "title": "Do you want to build your project with us?",
+      "primary_action": "Let's Talk",
+      "secondary_action": "View Services"
+    },
+    "certificates": {
+      "eyebrow": "Awards & Recognition",
+      "title": "Certified Excellence"
+    },
+    "partners": {
+      "title": "Our Success Partners"
+    },
+    "testimonials": {
+      "eyebrow": "What They Say",
+      "title": "Client Testimonials",
+      "placeholder_text": "Target Digital Solutions transformed our business. Their professionalism and technical expertise are unmatched."
+    },
+    "social": {
+      "eyebrow": "Social Media",
+      "title": "Our Social Media Platforms"
+    },
+    "footer_cta": {
+      "eyebrow": "Let's Get Started",
+      "title": "Are you ready to build your project with us?",
+      "primary_action": "Let's Talk"
+    }
+  },
+  "footer": {
+    "description": "Your trusted partner in digital transformation. We build tailored solutions that drive success.",
+    "phone": "Phone",
+    "email": "Email",
+    "company": "Company",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "careers": "Careers",
+    "support": "Support",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2026 Target Digital Solutions. All Rights Reserved."
+  }
+}
