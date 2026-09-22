@@ -2,6 +2,71 @@
   "Index": {
     "title": "Home"
   },
+  "aboutPage": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "A journey of innovation and creativity where we provide integrated digital solutions"
+    },
+    "values": {
+      "goal": {
+        "title": "Our Goal",
+        "description": "Creating a unique experience for our clients by providing innovative solutions that align with digital advancements, and building strong, transparent relationships through excellence and integrity. We create custom solutions that meet their unique needs, offering the best service at the best price in the Arab world, while enhancing young and emerging talents technically and professionally to keep pace with digital and technological evolution."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "Our vision for the future is based on the conviction that our success is inextricably linked to the success of our clients. We aspire to provide appropriate solutions that deliver positive results for our clients and encourage our team to stay at the forefront of the ever-changing digital landscape. To live journeys of innovation and success, we want to shape the future of technology and software development in a way that makes us pioneers in the field nationally and regionally."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "Developing software solutions based on the latest available technologies and providing integrated digital marketing solutions that suit every client in one place; has enabled us to earn the trust and satisfaction of our clients."
+      },
+      "message": {
+        "title": "Our Message",
+        "description": "We strive to provide innovative, high-quality software solutions that meet market needs and exceed our clients' expectations, ensuring the delivery of products and services that contribute to promoting success and excellence. The company has established firm and solid values for dealing with its success partners, placing it in the front ranks."
+      },
+      "cta": "Learn More"
+    },
+    "video": {
+      "title": "A visual journey telling the stories of our success and creativity in every project"
+    },
+    "team": {
+      "eyebrow": "Our Team",
+      "title": "We make a difference with passion and creativity, to achieve your vision",
+      "members": {
+        "hussein": {
+          "name": "Hussein Nabil",
+          "role": "CEO"
+        },
+        "amr": {
+          "name": "Amr Adam",
+          "role": "Technical Manager"
+        },
+        "ali": {
+          "name": "Eng. Ali Mokhtar",
+          "role": "Editor-in-Chief"
+        }
+      },
+      "cta": "Learn More"
+    },
+    "process": {
+      "eyebrow": "How We Work?",
+      "title": "We transform ideas into innovative and effective digital solutions",
+      "steps": {
+        "step1": {
+          "title": "Defining Objectives",
+          "description": "After contacting us and holding a meeting to discuss all details, we begin studying the project, market, and technical requirements. We then create a strict timeline by defining the main objectives for website development."
+        },
+        "step2": {
+          "title": "Design & Development",
+          "description": "We start designing and developing the project based on the defined requirements..."
+        },
+        "step3": {
+          "title": "Launch & Support",
+          "description": "After development is complete, the project is tested and launched..."
+        }
+      }
+    }
+  },
   "header": {
     "about": "About Us",
     "services": "Services",

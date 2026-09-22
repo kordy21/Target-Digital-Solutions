@@ -44,7 +44,7 @@ export function ServicesSection() {
   const cards = getCardsData();
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
         <InteractiveParticles 
           mode="scatter-to-shape" 
@@ -54,7 +54,8 @@ export function ServicesSection() {
           particleColor="var(--foreground)"
         />
       </div>
-      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         
         {/* Header Section */}
         <FadeIn direction="up" className="flex flex-col items-center w-full">
@@ -118,6 +119,7 @@ export function ServicesSection() {
           </div>
           
         </div>
+      </div>
       </div>
     </section>
   );

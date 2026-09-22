@@ -22,16 +22,17 @@ export function NewsSection() {
   const t = useTranslations("home.news");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
         <InteractiveParticles 
-          mode="group-to-scatter" 
-          text="≡" 
+          mode="scatter-to-shape" 
+          text="T" 
           particleCount={80} 
           interactionRadius={150}
           particleColor="var(--foreground)"
         />
       </div>
+
       {/* Side Bubbles */}
       <motion.div 
         animate={{ y: [0, 20, 0], rotate: [0, 5, -5, 0] }}
@@ -45,7 +46,7 @@ export function NewsSection() {
         />
       </motion.div>
 
-      <div className="w-full flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center text-center mb-16">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">

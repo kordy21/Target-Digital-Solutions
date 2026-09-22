@@ -50,7 +50,7 @@ export function PortfolioSection() {
         />
       </motion.div>
 
-      <div className="w-full px-6 md:px-12 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center w-full">
           <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">

@@ -21,7 +21,7 @@ export function BlogSection() {
   const t = useTranslations("home.blog");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-40">
         <InteractiveParticles 
           mode="group-to-scatter" 
@@ -44,7 +44,8 @@ export function BlogSection() {
         />
       </motion.div>
 
-      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center text-center mb-16 w-full">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
@@ -118,6 +119,7 @@ export function BlogSection() {
             );
           })}
         </StaggerContainer>
+      </div>
       </div>
     </section>
   );

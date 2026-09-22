@@ -1,7 +1,6 @@
 import { MouseFollower } from "@/components/shared/mouse-follower";
 import { AboutPreview } from "@/components/shared/about-preview";
 import { Hero } from "@/features/home/components/hero";
-
 import { AboutUsSection } from "@/features/home/components/about-us-section";
 import { ServicesSection } from "@/features/home/components/services-section";
 import { PortfolioSection } from "@/features/home/components/portfolio-section";

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
 
 import ToolsImg from "@/assets/tools.png";
 import FigmaImg from "@/assets/figma.png";
@@ -21,7 +22,17 @@ export function ToolsSection() {
   const t = useTranslations("home.tools");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="scatter-to-shape" 
+          text="T" 
+          particleCount={80} 
+          interactionRadius={150}
+          particleColor="var(--foreground)"
+        />
+      </div>
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
       <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         
         {/* Left Side (Content) */}
@@ -75,6 +86,7 @@ export function ToolsSection() {
           />
         </FadeIn>
         
+      </div>
       </div>
     </section>
   );

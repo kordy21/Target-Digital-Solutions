@@ -26,7 +26,7 @@ export function FeaturesSection() {
   const t = useTranslations("home.features");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
         <InteractiveParticles 
           mode="group-to-scatter" 
@@ -36,7 +36,8 @@ export function FeaturesSection() {
           particleColor="var(--foreground)"
         />
       </div>
-      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         {/* Text Column */}
         <FadeIn direction="right" className="w-full lg:w-1/3 flex flex-col text-center lg:text-start lg:border-e lg:border-border lg:pe-12 lg:py-8">
@@ -75,6 +76,7 @@ export function FeaturesSection() {
           </StaggerContainer>
         </div>
 
+      </div>
       </div>
     </section>
   );

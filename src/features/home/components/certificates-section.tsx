@@ -63,7 +63,7 @@ export function CertificatesSection() {
   const t = useTranslations("home.certificates");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-4 md:px-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
         <InteractiveParticles 
           mode="scatter-to-shape" 
@@ -86,7 +86,7 @@ export function CertificatesSection() {
         />
       </motion.div>
 
-      <div className="w-full flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center text-center mb-16">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
@@ -98,7 +98,7 @@ export function CertificatesSection() {
         </FadeIn>
 
         {/* Certificates Rows */}
-        <div className="w-full relative py-8 max-w-7xl mx-auto">
+        <div className="w-full relative py-8 max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             {certificates.map((cert, index) => {
               const rowIndex = Math.floor(index / 5);

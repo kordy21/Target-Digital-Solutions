@@ -1,0 +1,108 @@
+"use client";
+
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { FadeIn } from "@/components/shared/animations";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
+
+export function ProcessSection() {
+  const t = useTranslations("aboutPage.process");
+
+  // We'll hardcode 3 steps and use state to handle the carousel
+  const steps = [
+    {
+      id: 1,
+      title: t("steps.step1.title"),
+      text: t("steps.step1.description"),
+    },
+    {
+      id: 2,
+      title: t("steps.step2.title"),
+      text: t("steps.step2.description"),
+    },
+    {
+      id: 3,
+      title: t("steps.step3.title"),
+      text: t("steps.step3.description"),
+    },
+  ];
+
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const handleNext = () => {
+    setCurrentStep((prev) => (prev + 1) % steps.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentStep((prev) => (prev - 1 + steps.length) % steps.length);
+  };
+
+  const activeStep = steps[currentStep];
+
+  return (
+    <section className="relative w-full py-20 bg-secondary overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="scatter-to-shape" 
+          text="P" 
+          particleCount={80} 
+          interactionRadius={150}
+          particleColor="var(--foreground)"
+        />
+      </div>
+      
+      <div className="w-full max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+        <FadeIn direction="up">
+          <div className="w-full bg-background rounded-[24px] shadow-sm border border-border/40 p-8 md:p-16 flex flex-col items-center text-center">
+            
+            {/* Header */}
+            <span className="text-primary font-cairo font-bold text-[14px] md:text-[16px] mb-4">
+              {t("eyebrow")}
+            </span>
+            <h2 className="text-foreground font-cairo font-bold text-[24px] md:text-[32px] max-w-2xl leading-[1.4] mb-16">
+              {t("title")}
+            </h2>
+
+            {/* Step Content Area */}
+            <div className="relative w-full flex items-center justify-between min-h-62.5">
+              {/* Prev Button */}
+              <button 
+                onClick={handlePrev}
+                className="w-10 h-10 flex items-center justify-center text-foreground/50 hover:text-foreground transition-colors shrink-0"
+              >
+                <ChevronRight className="w-6 h-6" /> {/* RTL: Right arrow goes to previous */}
+              </button>
+
+              {/* Active Step Info */}
+              <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-12">
+                <h3 className="text-foreground font-cairo font-bold text-[20px] md:text-[24px] mb-6">
+                  {activeStep.title}
+                </h3>
+                <p className="text-muted-foreground font-cairo text-[14px] md:text-[16px] leading-[1.8] max-w-3xl">
+                  {activeStep.text}
+                </p>
+              </div>
+
+              {/* Next Button */}
+              <button 
+                onClick={handleNext}
+                className="w-10 h-10 flex items-center justify-center text-foreground/50 hover:text-foreground transition-colors shrink-0"
+              >
+                <ChevronLeft className="w-6 h-6" /> {/* RTL: Left arrow goes to next */}
+              </button>
+            </div>
+
+            {/* Step Number Indicator */}
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mt-12 shadow-md">
+              <span className="text-white font-bold text-[24px]">
+                {activeStep.id}
+              </span>
+            </div>
+
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}

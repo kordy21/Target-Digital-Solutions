@@ -34,7 +34,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning data-scroll-behavior="smooth">
-      <body className="antialiased" suppressHydrationWarning>
+      <body className="antialiased bg-secondary" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
@@ -46,9 +46,9 @@ export default async function RootLayout({
               <SmoothScroller>
                 <CustomCursor />
                 <FloatingThemeToggle />
-                <div className="flex flex-col min-h-screen bg-secondary">
+                <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
                   <SiteHeader />
-                  <main className="flex-1 relative flex flex-col space-y-24 w-full mx-auto">
+                  <main className="flex-1 relative flex flex-col space-y-24 w-full bg-secondary">
                     {children}
                   </main>
                   <SiteFooter />

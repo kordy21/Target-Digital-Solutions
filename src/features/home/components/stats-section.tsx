@@ -12,7 +12,7 @@ export function StatsSection() {
   const t = useTranslations("home.stats");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 pb-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pb-12">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
         <InteractiveParticles 
           mode="scatter-to-shape" 
@@ -22,7 +22,7 @@ export function StatsSection() {
           particleColor="var(--foreground)"
         />
       </div>
-      <div className="w-full mx-auto flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 relative z-10">
         
         {/* Left Side (Image & Badge) */}
         <div className="relative w-full lg:w-5/12 rounded-2xl flex justify-center lg:justify-start">
