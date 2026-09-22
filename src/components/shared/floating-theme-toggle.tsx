@@ -20,14 +20,16 @@ export function FloatingThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed z-50 flex flex-col items-center bg-white/10 dark:bg-black/20 backdrop-blur-md rounded-full p-1 shadow-lg border border-white/20 bottom-4 left-4 origin-bottom-left scale-75 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 md:origin-center md:scale-100">
+    <div className="fixed z-50 flex flex-col items-center bg-background/80 backdrop-blur-md rounded-full p-1 shadow-lg border border-border bottom-4 left-4 origin-bottom-left scale-75 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 md:origin-center md:scale-100">
       
       {/* Dark Mode Button */}
       <button
         onClick={() => setTheme("dark")}
         className={cn(
           "flex flex-col items-center justify-center gap-2 w-10 h-24 rounded-full transition-all duration-300 hover:scale-110",
-          theme === "dark" ? "bg-white text-black shadow-md" : "text-white hover:text-foreground"
+          theme === "dark" 
+            ? "bg-foreground text-background shadow-md" 
+            : "text-muted-foreground hover:text-foreground"
         )}
       >
         <Moon className="w-4 h-4 transition-transform group-hover:rotate-12" />
@@ -39,7 +41,9 @@ export function FloatingThemeToggle() {
         onClick={() => setTheme("light")}
         className={cn(
           "flex flex-col items-center justify-center gap-2 w-10 h-24 rounded-full transition-all duration-300 mt-1 hover:scale-110",
-          theme === "light" ? "bg-white text-black shadow-md" : "text-muted-foreground hover:text-foreground"
+          theme === "light" 
+            ? "bg-foreground text-background shadow-md" 
+            : "text-muted-foreground hover:text-foreground"
         )}
       >
         <Sun className="w-4 h-4 transition-transform group-hover:rotate-90" />
