@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { FadeIn } from "@/components/shared/animations";
+import { motion } from "framer-motion";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 
 import Bubbles from "@/assets/bubbles.png";
 
@@ -59,44 +63,66 @@ export function CertificatesSection() {
   const t = useTranslations("home.certificates");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-4 md:px-12 bg-[#f8f9fc] dark:bg-transparent">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-4 md:px-12">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="scatter-to-shape" 
+          text="✔" 
+          particleCount={100} 
+          interactionRadius={150}
+          particleColor="var(--foreground)"
+        />
+      </div>
       {/* Top Left Bubbles */}
-      <div className="absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30">
+      <motion.div 
+        animate={{ y: [0, -15, 0], scale: [1, 1.05, 1], rotate: [0, -2, 2, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30"
+      >
         <Image 
           src={Bubbles} 
           alt="Bubbles Decoration" 
           className="h-full w-auto object-cover" 
         />
-      </div>
+      </motion.div>
 
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center relative z-10">
+      <div className="w-full flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <FadeIn direction="up" className="flex flex-col items-center text-center mb-16">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
           <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3]">
-            {t("title")}
+            <SplitTextReveal text={t("title")} />
           </h2>
-        </div>
+        </FadeIn>
 
-        {/* Certificates Grid */}
-        <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-          {certificates.map((cert) => (
-            <div 
-              key={cert.id} 
-              className="bg-white dark:bg-zinc-100 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex items-center justify-center p-6 md:p-8 aspect-4/3 group"
-            >
-              <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-110">
-                <Image 
-                  src={cert.image} 
-                  alt="Certificate Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-          ))}
+        {/* Certificates Rows */}
+        <div className="w-full relative py-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+            {certificates.map((cert, index) => {
+              const rowIndex = Math.floor(index / 5);
+              const direction = rowIndex % 2 === 0 ? "right" : "left";
+              
+              return (
+                <FadeIn key={cert.id} direction={direction} delay={0.05 * (index % 5)} className="w-full h-full">
+                  <div 
+                    className="bg-card text-card-foreground rounded-[24px] shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
+                  >
+                    <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
+                      <Image 
+                        src={cert.image} 
+                        alt="Certificate Logo"
+                        fill
+                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

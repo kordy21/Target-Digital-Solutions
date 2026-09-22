@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
+import { FadeIn } from "@/components/shared/animations";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
 
 import MahmoudImg from "@/assets/mahmoud.png";
 import MohamedImg from "@/assets/mohamed.png";
@@ -26,29 +28,39 @@ export function TestimonialsSection() {
 
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
-      <div className="w-full max-w-7xl mx-auto bg-white dark:bg-zinc-900/50 rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-12">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="scatter-to-shape" 
+          text="“" 
+          particleCount={100} 
+          interactionRadius={200}
+          particleColor="var(--foreground)"
+        />
+      </div>
+      <div className="relative z-10 w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-12">
+        <FadeIn direction="up" className="flex flex-col items-center text-center mb-12">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
           <h2 className="text-[28px] md:text-[36px] font-cairo font-extrabold text-foreground leading-[1.4]">
             {t("title")}
           </h2>
-        </div>
+        </FadeIn>
 
         {/* Carousel */}
-        <div className="w-full overflow-hidden" ref={emblaRef} dir="rtl">
-          <div className="flex -ml-4 rtl:ml-0 rtl:-mr-4">
-            {testimonials.map((item) => (
-              <div 
-                key={item.id} 
-                className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 rtl:pl-0 rtl:pr-4"
-              >
-                {/* Card */}
-                <div className="h-full bg-[#f8f9fc] dark:bg-zinc-800/50 border border-border rounded-[24px] p-8 flex flex-col items-center text-center">
+        <FadeIn delay={0.2} direction="up" className="w-full overflow-hidden" >
+          <div className="w-full overflow-hidden" ref={emblaRef} dir="rtl">
+            <div className="flex -ml-4 rtl:ml-0 rtl:-mr-4">
+              {testimonials.map((item) => (
+                <div 
+                  key={item.id} 
+                  className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 rtl:pl-0 rtl:pr-4 py-4"
+                >
+                  {/* Card */}
+                  <div className="h-full bg-secondary border border-border rounded-[24px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-grab active:cursor-grabbing">
                   <p className="font-cairo text-[14px] md:text-[15px] text-muted-foreground leading-[2.2] mb-12">
                     {t(`items.${item.id}.text`)}
                   </p>
@@ -59,6 +71,7 @@ export function TestimonialsSection() {
                         src={item.image} 
                         alt={t(`items.${item.id}.name`)} 
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover"
                       />
                     </div>
@@ -71,9 +84,10 @@ export function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -2,29 +2,44 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-
+import { Counter } from "@/components/shared/counter";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import HandsImg from "@/assets/hands.png";
 
 export function StatsSection() {
   const t = useTranslations("home.stats");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 pb-12">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="scatter-to-shape" 
+          text="+" 
+          particleCount={80} 
+          interactionRadius={150}
+          particleColor="var(--foreground)"
+        />
+      </div>
+      <div className="w-full mx-auto flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 relative z-10">
         
         {/* Left Side (Image & Badge) */}
         <div className="relative w-full lg:w-5/12 rounded-2xl flex justify-center lg:justify-start">
-          <div className="relative w-full max-w-100 aspect-4/5 rounded-2xl overflow-hidden">
-            <Image 
-              src={HandsImg} 
-              alt="Team Hands" 
-              fill
-              className="object-cover"
-            />
-          </div>
+          <FadeIn direction="right" delay={0.2} className="relative w-full aspect-4/5 rounded-2xl overflow-hidden">
+            <div className="relative w-full h-full transition-transform duration-700 hover:scale-105">
+              <Image 
+                src={HandsImg} 
+                alt="Team Hands" 
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </FadeIn>
 
           {/* Satisfaction Badge */}
-          <div className="absolute -bottom-12 left-20 w-40 h-40 md:w-48 md:h-48 rounded-full bg-white shadow-xl flex flex-col items-center justify-center z-10">
+          <FadeIn direction="up" delay={0.5} className="absolute -bottom-12 -left-6 md:-left-12 lg:left-12 w-40 h-40 md:w-48 md:h-48 rounded-full bg-white dark:bg-zinc-900 shadow-xl flex flex-col items-center justify-center z-20 hover:scale-110 transition-transform duration-500 cursor-pointer">
             {/* SVG Progress Ring */}
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" style={{ transform: 'rotate(-70deg)' }}>
               {/* Background track */}
@@ -32,14 +47,14 @@ export function StatsSection() {
               {/* Progress track (97%) */}
               <circle 
                 cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="16"
-                className="text-primary"
+                className="text-primary transition-all duration-1000 ease-out"
                 strokeDasharray="238.76"
                 strokeDashoffset={238.76 - (238.76 * 97) / 100}
               />
             </svg>
             <div className="flex flex-col items-center justify-center relative z-10 pt-2">
               <span className="font-cairo font-bold text-[32px] md:text-[40px] text-foreground leading-none mb-1 flex items-center justify-center gap-1" dir="ltr">
-                <span>{t("satisfaction.value").replace('%', '')}</span>
+                <Counter value={parseInt(t("satisfaction.value")) || 97} delay={0.6} />
                 <span className="text-primary">%</span>
               </span>
               <span className="font-cairo font-bold text-[15px] md:text-[18px] text-foreground text-center leading-tight">
@@ -47,45 +62,61 @@ export function StatsSection() {
               </span>
             </div>
             {/* The white pointer notch */}
-            <div className="absolute -top-3 right-8 w-10 h-10 md:w-12 md:h-12 bg-white rounded-md -z-50" style={{ transform: 'rotate(20deg)' }}></div>
-          </div>
+            <div className="absolute -top-3 right-8 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-zinc-900 rounded-md -z-10" style={{ transform: 'rotate(20deg)' }}></div>
+          </FadeIn>
         </div>
 
         {/* Right Side (Content) */}
         <div className="w-full lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-start pt-12 lg:pt-0">
           
-          <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
-            {t("eyebrow")}
-          </span>
-          <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
-            {t("title")}
-          </h2>
-          <p className="font-cairo text-[16px] md:text-[18px] text-muted-foreground leading-[1.8] mb-16 lg:max-w-2xl">
-            {t("description")}
-          </p>
+          <FadeIn direction="up" delay={0.1}>
+            <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4 inline-block">
+              {t("eyebrow")}
+            </span>
+          </FadeIn>
+          
+          <FadeIn direction="up" delay={0.2}>
+            <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
+              <SplitTextReveal text={t("title")} />
+            </h2>
+          </FadeIn>
+          
+          <FadeIn direction="up" delay={0.3}>
+            <p className="font-cairo text-[16px] md:text-[18px] text-muted-foreground leading-[1.8] mb-16 lg:max-w-2xl">
+              {t("description")}
+            </p>
+          </FadeIn>
 
           {/* Stats Grid */}
-          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          <StaggerContainer className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
             {["clients", "projects", "team", "data"].map((key) => {
               const value = t(`items.${key}.value`);
-              const numMatch = value.match(/(\d+(?:\.\d+)?(?:TB)?)/);
-              const numberPart = numMatch ? numMatch[1] : value.replace("+", "");
+              // Extract number part (including decimals and commas) and any letters (like TB, K, M)
+              const numMatch = value.match(/([\d.,]+)([a-zA-Z]*)/);
+              const rawString = numMatch ? numMatch[1].replace(/,/g, "") : value.replace(/[^\d.]/g, "");
+              const parsedValue = parseFloat(rawString);
+              const finalValue = isNaN(parsedValue) ? 0 : parsedValue;
+              const suffix = numMatch ? numMatch[2] : "";
               const hasPlus = value.includes("+");
 
               return (
-                <div key={key} className="flex flex-col items-center text-center">
-                  <div className="w-full h-px bg-muted-foreground/30 mb-6"></div>
-                  <div className="font-cairo font-bold text-[28px] md:text-[32px] text-foreground mb-2 flex items-center justify-center" dir="ltr">
-                    {numberPart}
-                    {hasPlus && <span className="text-primary ml-1">+</span>}
+                <StaggerItem key={key} className="flex flex-col items-center text-center group">
+                  <div className="w-full h-px bg-muted-foreground/30 mb-6 group-hover:bg-primary/50 transition-colors duration-500"></div>
+                  <div className="font-cairo font-bold text-[28px] md:text-[32px] text-foreground mb-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" dir="ltr">
+                    <Counter value={finalValue} delay={0} />
+                    {(suffix || hasPlus) && (
+                      <span className="text-primary ml-1">
+                        {suffix}{hasPlus ? "+" : ""}
+                      </span>
+                    )}
                   </div>
-                  <span className="font-cairo font-semibold text-[14px] md:text-[16px] text-muted-foreground">
+                  <span className="font-cairo font-semibold text-[14px] md:text-[16px] text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {t(`items.${key}.label`)}
                   </span>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </StaggerContainer>
           
         </div>
 

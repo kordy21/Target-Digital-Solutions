@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 .agents
+
+CLAUDE.md
+DESIGN_TOKENS.md
+PROJECT_SETUP_PLAN.md

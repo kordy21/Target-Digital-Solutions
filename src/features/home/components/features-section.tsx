@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 
 import Top1Img from "@/assets/top1.png";
 import Top2Img from "@/assets/top2.png";
@@ -24,40 +27,52 @@ export function FeaturesSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center px-6 md:px-12">
-      <div className="w-full max-w-7xl mx-auto bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="group-to-scatter" 
+          text="★" 
+          particleCount={80} 
+          interactionRadius={150}
+          particleColor="var(--foreground)"
+        />
+      </div>
+      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10">
         
         {/* Text Column */}
-        <div className="w-full lg:w-1/3 flex flex-col text-center lg:text-start lg:border-e lg:border-border lg:pe-12 lg:py-8">
+        <FadeIn direction="right" className="w-full lg:w-1/3 flex flex-col text-center lg:text-start lg:border-e lg:border-border lg:pe-12 lg:py-8">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
           <h2 className="text-[28px] md:text-[36px] font-cairo font-extrabold text-foreground leading-[1.4]">
-            {t("title")}
+            <SplitTextReveal text={t("title")} />
           </h2>
-        </div>
+        </FadeIn>
 
         {/* Features Grid */}
         <div className="w-full lg:w-2/3">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
             {features.map((feature) => (
-              <div key={feature.id} className="flex flex-col items-center text-center">
-                <div className="w-24 h-24 mb-6 relative transition-transform hover:-translate-y-2">
-                  <Image 
-                    src={feature.image} 
-                    alt={t(`items.${feature.id}.title`)} 
-                    fill
-                    className="object-contain"
-                  />
+              <StaggerItem key={feature.id}>
+                <div className="flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:bg-white/5 group border border-transparent hover:border-border cursor-default">
+                  <div className="w-24 h-24 mb-6 relative transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">
+                    <Image 
+                      src={feature.image} 
+                      alt={t(`items.${feature.id}.title`)} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain"
+                    />
+                  </div>
+                  <h3 className="font-cairo font-bold text-[18px] md:text-[20px] text-foreground mb-3">
+                    {t(`items.${feature.id}.title`)}
+                  </h3>
+                  <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
+                    {t(`items.${feature.id}.description`)}
+                  </p>
                 </div>
-                <h3 className="font-cairo font-bold text-[18px] md:text-[20px] text-foreground mb-3">
-                  {t(`items.${feature.id}.title`)}
-                </h3>
-                <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
-                  {t(`items.${feature.id}.description`)}
-                </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
 
       </div>

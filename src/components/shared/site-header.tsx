@@ -8,14 +8,27 @@ import { LanguageSwitcher } from "./language-switcher";
 import Image from "next/image";
 import Logo from "@/assets/TargetNavBar.png";
 import { useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const t = useTranslations("header");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
+  });
 
   return (
-    <div className="w-full flex justify-center z-50 px-6 md:px-18 py-6 bg-white dark:bg-slate-950 relative">
-      <header className="w-full flex items-center justify-between ">
+    <motion.div 
+      className={cn(
+        "w-full flex justify-center z-50 px-6 md:px-18 fixed top-0 left-0 right-0 transition-all duration-300",
+        isScrolled ? "py-3 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md shadow-sm" : "py-6 bg-white dark:bg-slate-950"
+      )}
+    >
+      <header className="w-full flex items-center justify-between">
         
         {/* Right Side: Hamburger & Logo (Visual right in RTL) */}
         <div className="flex items-center gap-4">
@@ -31,7 +44,7 @@ export function SiteHeader() {
           <div className="w-12 h-12 flex items-center justify-center">
             {/* Logo svg placeholder resembling the "g" in the image */}
             <Link href="/">
-              <Image src={Logo} alt="Logo" width={48} height={48} className="dark:brightness-0 dark:invert" />
+              <Image src={Logo} alt="Logo" width={48} height={48} style={{ width: "auto", height: "auto" }} className="dark:brightness-0 dark:invert" />
             </Link>
           </div>
         </div>
@@ -81,7 +94,7 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-slate-950">
           <div className="w-full flex items-center justify-between p-6">
             <div className="w-12 h-12 flex items-center justify-center">
-              <Image src={Logo} alt="Logo" width={48} height={48} className="dark:brightness-0 dark:invert" />
+              <Image src={Logo} alt="Logo" width={48} height={48} style={{ width: "auto", height: "auto" }} className="dark:brightness-0 dark:invert" />
             </div>
             <Button 
               variant="ghost" 
@@ -122,7 +135,7 @@ export function SiteHeader() {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 

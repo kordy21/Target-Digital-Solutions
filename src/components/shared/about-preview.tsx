@@ -6,6 +6,10 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/animations";
+import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import Bubbles from "@/assets/bubbles.png";
 import Part1 from "@/assets/part1.png";
 import Part10 from "@/assets/part10.png";
@@ -43,23 +47,38 @@ export function AboutPreview() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
+      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+        <InteractiveParticles 
+          mode="scatter-to-shape" 
+          text="∞" 
+          particleCount={80} 
+          interactionRadius={150}
+          particleColor="var(--foreground)"
+        />
+      </div>
       {/* Side Bubbles */}
-      <div className="absolute top-2 left-0 h-1/2 pointer-events-none hidden md:block z-0">
+      <motion.div 
+        animate={{ y: [0, 20, 0], rotate: [0, 3, -3, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-2 left-0 h-1/2 pointer-events-none hidden md:block z-0"
+      >
         <Image 
           src={Bubbles} 
           alt="Bubbles Decoration" 
           className="h-full w-auto object-cover" 
         />
-      </div>
+      </motion.div>
 
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center">
+      <div className="w-full px-6 md:px-12 flex flex-col items-center">
         {/* Section Header */}
-        <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">
-          {t("eyebrow")}
-        </span>
-        <h2 className="text-[32px] md:text-[45px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
-          {t("title")}
-        </h2>
+        <FadeIn direction="up" className="flex flex-col items-center w-full">
+          <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">
+            {t("eyebrow")}
+          </span>
+          <h2 className="text-[32px] md:text-[45px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
+            <SplitTextReveal text={t("title")} />
+          </h2>
+        </FadeIn>
 
         {/* Carousel Section */}
         <div className="w-full relative flex items-center">
@@ -67,7 +86,7 @@ export function AboutPreview() {
           {/* Right Arrow (Prev in RTL) */}
           <button 
             onClick={scrollPrev}
-            className="absolute -right-6 md:-right-12 z-20 w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+            className="absolute right-4 z-20 w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
           >
             <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
@@ -81,13 +100,18 @@ export function AboutPreview() {
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 flex flex-col gap-12 items-center px-4"
                 >
                   {group.map((imgSrc, imgIndex) => (
-                    <div key={imgIndex} className="w-full flex items-center justify-center h-20 md:h-24 transition-transform hover:scale-105">
+                    <motion.div 
+                      key={imgIndex} 
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="w-full flex items-center justify-center h-20 md:h-24 cursor-grab active:cursor-grabbing"
+                    >
                       <Image 
                         src={imgSrc} 
                         alt={`Partner ${index * 2 + imgIndex + 1}`} 
                         className="max-w-full max-h-full object-contain"
                       />
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               ))}
@@ -97,7 +121,7 @@ export function AboutPreview() {
           {/* Left Arrow (Next in RTL) */}
           <button 
             onClick={scrollNext}
-            className="absolute -left-6 md:-left-12 z-20 w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
+            className="absolute left-4 z-20 w-10 h-10 flex items-center justify-center text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
           >
             <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
           </button>

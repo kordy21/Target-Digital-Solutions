@@ -5,6 +5,11 @@ import { routing } from '@/i18n/routing';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { QueryProvider } from '@/providers/query-provider';
 import "../globals.css";
+import { SiteHeader } from "@/components/shared/site-header";
+import { SiteFooter } from "@/components/shared/site-footer";
+import { SmoothScroller } from "@/components/shared/smooth-scroller";
+import { CustomCursor } from "@/components/shared/custom-cursor";
+import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,7 +33,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
@@ -38,7 +43,17 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <QueryProvider>
-              {children}
+              <SmoothScroller>
+                <CustomCursor />
+                <FloatingThemeToggle />
+                <div className="flex flex-col min-h-screen bg-secondary">
+                  <SiteHeader />
+                  <main className="flex-1 relative flex flex-col space-y-24 w-full mx-auto">
+                    {children}
+                  </main>
+                  <SiteFooter />
+                </div>
+              </SmoothScroller>
             </QueryProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

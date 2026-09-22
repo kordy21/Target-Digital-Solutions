@@ -1,6 +1,5 @@
+import { MouseFollower } from "@/components/shared/mouse-follower";
 import { AboutPreview } from "@/components/shared/about-preview";
-import { SiteFooter } from "@/components/shared/site-footer";
-import { SiteHeader } from "@/components/shared/site-header";
 import { Hero } from "@/features/home/components/hero";
 
 import { AboutUsSection } from "@/features/home/components/about-us-section";
@@ -19,10 +18,10 @@ import { CtaSection } from "@/features/home/components/cta-section";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <SiteHeader />
-      <main className="flex-1 relative flex flex-col space-y-24 pb-24 bg-secondary">
-        <Hero />
+    <main className="w-full flex flex-col">
+      <MouseFollower />
+      <Hero />
+      <div className="flex flex-col gap-20 md:gap-12 py-20 md:py-32 overflow-hidden">
         <AboutPreview />
         <AboutUsSection />
         <ServicesSection />
@@ -37,8 +36,7 @@ export default function Home() {
         <StoriesSection />
         <BlogSection />
         <CtaSection />
-      </main>
-      <SiteFooter />
-    </div>
+      </div>
+    </main>
   );
 }

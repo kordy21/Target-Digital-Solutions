@@ -17,11 +17,11 @@ export function SiteFooter() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="relative w-full bg-[#2D2D2D] text-white overflow-hidden">
+    <footer className="relative w-full text-white overflow-hidden">
       
       {/* Background Image Overlay */}
       <div 
-        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{ 
           backgroundImage: `url(${FooterBg.src})`,
           backgroundSize: 'cover',
@@ -40,7 +40,7 @@ export function SiteFooter() {
               <Image 
                 src={TargetFooterLogo} 
                 alt="Target Digital Solutions" 
-                className="w-full h-auto object-contain brightness-0 invert" 
+                className="w-full h-auto object-contain" 
               />
             </div>
             <p className="font-cairo text-white/80 text-[14px] md:text-[15px] leading-relaxed mb-8 max-w-50">
@@ -114,7 +114,7 @@ export function SiteFooter() {
           </div>
 
           {/* Column 5: Newsletter */}
-          <div className="flex flex-col lg:w-1/4">
+          <div className="flex flex-col lg:w-1/3">
             <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("newsletter")}</h4>
             <p className="font-cairo text-white/80 text-[13px] leading-relaxed mb-6">
               {t("newsletterText")}
@@ -139,7 +139,7 @@ export function SiteFooter() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="relative z-10 w-full bg-[#F8F9FC] text-[#2D2D2D]">
+      <div className="relative z-10 w-full bg-secondary text-secondary-foreground border-t border-border">
         <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
           <p className="font-cairo text-[13px] font-semibold tracking-wide">
             {t("copyright", { year: new Date().getFullYear() })}

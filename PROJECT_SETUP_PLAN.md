@@ -1,4 +1,4 @@
-# Project Setup Plan
+PROJECT_SETUP_PLAN.md# Project Setup Plan
 
 ## Folder Structure
 
