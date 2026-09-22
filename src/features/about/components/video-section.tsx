@@ -30,7 +30,7 @@ export function VideoSection() {
               src={AboutVideo} 
               alt={t("title")}
               fill
-              sizes="100vw"
+              sizes="(max-width: 1536px) 100vw, 1536px"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             

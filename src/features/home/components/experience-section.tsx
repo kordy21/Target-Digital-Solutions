@@ -16,7 +16,7 @@ export function ExperienceSection() {
   const t = useTranslations("home.experience");
 
   return (
-    <section className="w-full flex flex-col lg:flex-row bg-[#f9f9fb] dark:bg-transparent overflow-hidden relative">
+    <section className="w-full bg-[#f9f9fb] dark:bg-transparent overflow-hidden relative">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20 hidden lg:block">
         <InteractiveParticles 
           mode="scatter-to-shape" 
@@ -27,8 +27,9 @@ export function ExperienceSection() {
         />
       </div>
       
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
       {/* Right Side / Image Area (First in DOM so it's right in RTL) */}
-      <div className="w-full lg:w-1/2 relative h-125 lg:h-auto min-h-125 lg:min-h-175 z-10">
+      <div className="w-full lg:w-1/2 relative h-125 lg:h-auto min-h-125 lg:min-h-175">
         <FadeIn direction="up" delay={0.1} className="w-full h-full relative">
           <Image 
             src={PeopleImg} 
@@ -120,6 +121,7 @@ export function ExperienceSection() {
             </MagneticButton>
           </StaggerItem>
         </StaggerContainer>
+      </div>
       </div>
 
     </section>
