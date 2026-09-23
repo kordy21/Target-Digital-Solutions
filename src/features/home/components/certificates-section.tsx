@@ -108,7 +108,7 @@ export function CertificatesSection() {
               return (
                 <FadeIn key={cert.id} direction={direction} delay={0.05 * (index % 5)} className="w-full h-full">
                   <div 
-                    className="bg-card text-card-foreground rounded-[24px] shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
+                    className="bg-background text-card-foreground rounded-[24px] shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
                   >
                     <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
                       <Image 

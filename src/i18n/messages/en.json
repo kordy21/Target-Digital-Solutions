@@ -449,5 +449,28 @@
         "platform": "Website Platform"
       }
     }
+  },
+  "clientsPage": {
+    "hero": {
+      "title": "Target Digital Solutions Clients",
+      "subtitle": "We are proud of our success partners who trusted our services"
+    },
+    "videos": {
+      "eyebrow": "Experiences that tell our success",
+      "title": "Listen to our clients and watch their success with us",
+      "client1": {
+        "name": "Eng. Mahmoud Nabawy",
+        "role": "Manager of Crystal Shad Company"
+      },
+      "client2": {
+        "name": "Mr. Tarek El Tohamy",
+        "role": "Personal Website"
+      },
+      "client3": {
+        "name": "Eng. Mohamed Al Jabry",
+        "role": "Manager of Lemonari Company"
+      },
+      "learnMore": "Learn More"
+    }
   }
 }
