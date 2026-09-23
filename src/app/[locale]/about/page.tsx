@@ -15,22 +15,23 @@ export default async function AboutPage() {
   const t = await getTranslations("aboutPage.hero");
 
   return (
-    <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
+    <main className="w-full min-h-screen overflow-hidden bg-background relative z-10">
       <PageHero 
         title={t("title")} 
         subtitle={t("subtitle")} 
         image={AboutHeroImg} 
       />
-      {/* Additional About sections will go here */}
-      <AboutUsSection />
-      <ValuesSection />
-      <VideoSection />
-      <TeamSection />
-      <ToolsSection />
-      <NewsSection />
-      <ProcessSection />
-      <CertificatesSection />
-      <CtaSection />
-    </div>
+      <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28">
+        <AboutUsSection />
+        <ValuesSection />
+        <VideoSection />
+        <TeamSection />
+        <ToolsSection />
+        <NewsSection />
+        <ProcessSection />
+        <CertificatesSection />
+        <CtaSection />
+      </div>
+    </main>
   );
 }

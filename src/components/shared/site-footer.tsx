@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import FooterBg from "@/assets/footer.png";
 import TargetFooterLogo from "@/assets/targetfooter.png";
+import { Link } from "@/i18n/routing";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
@@ -71,12 +72,12 @@ export function SiteFooter() {
           <div className="flex flex-col lg:w-1/6">
             <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("company")}</h4>
             <div className="flex flex-col gap-4">
-              <FooterListLink>{t("companyList.about")}</FooterListLink>
-              <FooterListLink>{t("companyList.portfolio")}</FooterListLink>
-              <FooterListLink>{t("companyList.contact")}</FooterListLink>
-              <FooterListLink>{t("companyList.blog")}</FooterListLink>
-              <FooterListLink>{t("companyList.careers")}</FooterListLink>
-              <FooterListLink>{t("companyList.terms")}</FooterListLink>
+              <FooterListLink href="/about">{t("companyList.about")}</FooterListLink>
+              <FooterListLink href="/portfolio">{t("companyList.portfolio")}</FooterListLink>
+              <FooterListLink href="/contact">{t("companyList.contact")}</FooterListLink>
+              <FooterListLink href="/blog">{t("companyList.blog")}</FooterListLink>
+              <FooterListLink href="/careers">{t("companyList.careers")}</FooterListLink>
+              <FooterListLink href="/faq">{t("companyList.terms")}</FooterListLink>
             </div>
           </div>
 
@@ -158,12 +159,12 @@ function SocialIcon({ children }: { children: React.ReactNode }) {
   );
 }
 
-function FooterListLink({ children }: { children: React.ReactNode }) {
+function FooterListLink({ children, href = "#" }: { children: React.ReactNode; href?: string }) {
   return (
-    <div className="flex items-center gap-2 group cursor-pointer text-white/70 hover:text-white transition-colors">
+    <Link href={href} className="flex items-center gap-2 group cursor-pointer text-white/70 hover:text-white transition-colors">
       <div className="w-0 h-0 border-y-4 border-y-transparent border-r-[6px] border-r-white/50 group-hover:border-r-white transition-colors rtl:rotate-0 rotate-180" />
       <span className="font-cairo text-[14px]">{children}</span>
-    </div>
+    </Link>
   );
 }
 

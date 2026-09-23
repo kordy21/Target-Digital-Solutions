@@ -51,7 +51,9 @@ export function SiteHeader() {
               <NavLink href="/portfolio">{t("portfolio")}</NavLink>
               <NavLink href="/clients">{t("clients")}</NavLink>
               <NavLink href="/info">{t("info")}</NavLink>
-              <NavDropdown label={t("more")} />
+              <NavDropdown label={t("more")}>
+                <NavLink href="/faq">{t("faq")}</NavLink>
+              </NavDropdown>
             </nav>
             
             <div className="flex items-center gap-2">
@@ -121,7 +123,7 @@ export function SiteHeader() {
               <NavLink href="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>{t("portfolio")}</NavLink>
               <NavLink href="/clients" onClick={() => setIsMobileMenuOpen(false)}>{t("clients")}</NavLink>
               <NavLink href="/info" onClick={() => setIsMobileMenuOpen(false)}>{t("info")}</NavLink>
-              <NavDropdown label={t("more")} onClick={() => setIsMobileMenuOpen(false)} />
+              <NavLink href="/faq" onClick={() => setIsMobileMenuOpen(false)}>{t("faq")}</NavLink>
               
               {/* Customer Area Button Inside Nav (Mobile) */}
               <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo h-12 mt-4">
@@ -158,11 +160,23 @@ function NavLink({ href, children, onClick }: { href: string; children: React.Re
   );
 }
 
-function NavDropdown({ label, onClick }: { label: string; onClick?: () => void }) {
+function NavDropdown({ label, children, onClick }: { label: string; children?: React.ReactNode; onClick?: () => void }) {
+  if (!children) {
+    return (
+      <div onClick={onClick} className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-accent-foreground hover:text-black dark:hover:text-white transition-colors group relative">
+        <span>{label}</span>
+        <ChevronDown className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
+      </div>
+    );
+  }
+
   return (
-    <div onClick={onClick} className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-accent-foreground hover:text-black dark:hover:text-white transition-colors group">
+    <div className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-accent-foreground hover:text-black dark:hover:text-white transition-colors group relative">
       <span>{label}</span>
       <ChevronDown className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 py-4 px-6 bg-white dark:bg-slate-900 border border-border shadow-lg rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 min-w-37.5 flex flex-col gap-3">
+        {children}
+      </div>
     </div>
   );
 }

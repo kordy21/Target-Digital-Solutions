@@ -76,7 +76,8 @@
     "clients": "Our Clients",
     "info": "Information",
     "more": "More",
-    "customer_area": "Customer Area"
+    "customer_area": "Customer Area",
+    "faq": "FAQ"
   },
   "home": {
     "hero": {
@@ -339,7 +340,7 @@
       "contact": "Contact Us",
       "blog": "Blog",
       "careers": "Careers",
-      "terms": "Terms & Conditions"
+      "terms": "FAQ"
     },
     "contactInfo": "Contact Information",
     "contactList": {
@@ -471,6 +472,109 @@
         "role": "Manager of Lemonari Company"
       },
       "learnMore": "Learn More"
+    }
+  },
+  "faqPage": {
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to your questions here! Explore our FAQ list to make your journey easier and get all the details you need in one place."
+    },
+    "questions": [
+      {
+        "q": "What is the goal of web development?",
+        "a": "Google provides digital marketing features for businesses by identifying the geographic location via Google Maps. You can add distinctive icons representing your activity and receive responses, ratings, and suggestions."
+      },
+      {
+        "q": "Standards for web development and design",
+        "a": "We ensure an easy user interface, excellent user experience, and a responsive design that works efficiently on all devices, adhering to the latest global security and speed standards."
+      },
+      {
+        "q": "How do you make your website successful despite thousands of competitors?",
+        "a": "By studying competitors, providing valuable and innovative content, optimizing for search engines (SEO), and focusing on a unique user experience that keeps customers returning."
+      },
+      {
+        "q": "Do you provide hosting with websites?",
+        "a": "Yes, we offer fast and secure hosting plans as part of our comprehensive services to ensure your website performs optimally without interruptions."
+      },
+      {
+        "q": "Is a website backup available?",
+        "a": "Absolutely, we perform regular backups (daily/weekly/monthly) to ensure no data is lost in case of any emergency."
+      },
+      {
+        "q": "How will website security be ensured?",
+        "a": "We use the best security protocols such as SSL certificates, perform regular updates to close vulnerabilities, and provide strong protection against attacks."
+      },
+      {
+        "q": "Is technical support and maintenance available?",
+        "a": "Yes, we provide technical support and regular maintenance to ensure the website remains in the best technical condition and to quickly resolve any issues."
+      },
+      {
+        "q": "Can the domain be transferred to you or another company?",
+        "a": "Yes, you have full freedom. We can help you transfer your domain to us or to another company whenever you wish."
+      },
+      {
+        "q": "Which is better: a custom website design or relying on a WordPress template?",
+        "a": "It depends on your needs; custom design offers full flexibility and higher security for large companies, while WordPress is a fast and economical solution for startups and blogs."
+      },
+      {
+        "q": "What is the best web development company in Egypt and the Arab world?",
+        "a": "At Target Digital Solutions, we take pride in being one of the leading companies thanks to our outstanding team and proven track record of successful projects across various sectors."
+      },
+      {
+        "q": "Will I be able to edit the content of my website?",
+        "a": "Yes, we provide an easy-to-use control panel that allows you to add, edit, or delete any content on the website without needing prior programming experience."
+      },
+      {
+        "q": "How will the website be tested and quality assured before launch?",
+        "a": "We conduct comprehensive testing covering speed, screen responsiveness, data security, and website functionalities to ensure it is bug-free before delivery."
+      },
+      {
+        "q": "How will the website be optimized for search engines?",
+        "a": "We build the code in a way that is compatible with Google algorithms, add meta tags, compress images, and improve website speed to ensure it ranks high in search results."
+      }
+    ]
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Discover available career opportunities and be part of our journey towards innovation and excellence in providing digital solutions"
+    },
+    "info": {
+      "phone": {
+        "title": "Contact Numbers",
+        "sales": "Sales",
+        "salesNum": "01121044411 - 01099900248",
+        "complaints": "Suggestions & Complaints",
+        "complaintsNum": "01119997654",
+        "whatsapp": "WhatsApp (Support)",
+        "whatsappNum": "01095301560"
+      },
+      "email": {
+        "title": "Email",
+        "sales": "Sales",
+        "salesEmail": "Web@TARGET-GROUP.ORG",
+        "careers": "Careers",
+        "careersEmail": "Careers@TARGET-GROUP.ORG",
+        "support": "Support Tickets",
+        "supportEmail": "Care@TARGET-GROUP.ORG"
+      },
+      "location": {
+        "title": "Location",
+        "company": "Company Address",
+        "address": "8 Medhat Abdel Hamid St., Lebanon Sq, Mohandseen, Giza, Egypt"
+      }
+    },
+    "form": {
+      "eyebrow": "Contact Us",
+      "title": "We are here to support you! Contact us now",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "subject": "Subject",
+      "message": "Any questions or inquiries? Let us know!",
+      "submit": "Send"
     }
   }
 }
