@@ -45,7 +45,7 @@ export function MouseFollower() {
     <>
       {/* Outer Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-primary/40 shadow-[0_0_10px_rgba(var(--primary),0.2)] pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-primary/40 shadow-[0_0_10px_rgba(var(--primary),0.2)] pointer-events-none z-9999"
         style={{
           x: outerX,
           y: outerY,
@@ -56,7 +56,7 @@ export function MouseFollower() {
       
       {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-9999"
         style={{
           x: innerX,
           y: innerY,

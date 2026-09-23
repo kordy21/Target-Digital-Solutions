@@ -72,9 +72,9 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
         <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
       </motion.div>
 
-      <div className="bg-card relative z-10 rounded-[24px] border border-border/40 p-8 md:p-12 mb-8 hover:shadow-lg transition-all duration-300">
+      <div className="bg-background relative z-10 rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 mb-8 hover:shadow-lg transition-all duration-300">
         <div className={cn(
-          "flex flex-col gap-6 items-center",
+          "flex flex-col gap-6 items-center w-full",
           isEven ? "lg:flex-row-reverse" : "lg:flex-row"
         )}>
         

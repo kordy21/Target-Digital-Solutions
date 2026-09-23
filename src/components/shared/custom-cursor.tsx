@@ -67,7 +67,7 @@ export function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-primary pointer-events-none z-[9999] opacity-0 mix-blend-difference hidden md:block"
+      className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-primary pointer-events-none z-9999 opacity-0 mix-blend-difference hidden md:block"
       style={{
         transform: "translate(-50%, -50%)"
       }}

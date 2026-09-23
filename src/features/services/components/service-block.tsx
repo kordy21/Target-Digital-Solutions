@@ -57,19 +57,17 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
   const currentBubble2 = bubble2Styles[index % bubble2Styles.length];
 
   return (
-    <section className="relative w-full py-16 md:py-18 overflow-hidden">
+    <section className="relative w-full py-12 overflow-hidden">
       {/* Alternating Background with Particles */}
       {isEven && (
-        <div className="absolute inset-0 z-0 bg-secondary">
-          <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-            <InteractiveParticles 
-              mode="scatter-to-shape" 
-              text="T" 
-              particleCount={60} 
-              interactionRadius={150}
-              particleColor="var(--primary)"
-            />
-          </div>
+        <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
+          <InteractiveParticles 
+            mode="scatter-to-shape" 
+            text="T" 
+            particleCount={60} 
+            interactionRadius={150}
+            particleColor="var(--primary)"
+          />
         </div>
       )}
 
@@ -96,11 +94,12 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
         <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
       </motion.div>
 
-      <div className="w-full mx-auto px-6 md:px-12 relative z-10">
-        <div className={cn(
-          "flex flex-col gap-12 lg:gap-16 items-center",
-          !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-        )}>
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+          <div className={cn(
+            "flex flex-col gap-12 lg:gap-16 items-center w-full",
+            !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+          )}>
           
           {/* Text Side */}
           <div className="w-full lg:w-1/2 flex flex-col text-start">
@@ -129,7 +128,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               {service.cards.map((card, cardIndex) => (
                 <StaggerItem key={cardIndex}>
-                  <div className="bg-card hover:shadow-lg transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
+                  <div className="bg-secondary hover:shadow-lg transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
                     {/* Image */}
                     <motion.div 
                       animate={{ y: [0, -10, 0] }}
@@ -158,6 +157,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
             </StaggerContainer>
           </div>
 
+        </div>
         </div>
       </div>
     </section>
