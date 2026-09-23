@@ -1,3 +1,4 @@
+import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 import { useTranslations } from "next-intl";
 import { PageHero } from "@/components/shared/page-hero";
 import { ServiceBlock } from "@/features/services/components/service-block";

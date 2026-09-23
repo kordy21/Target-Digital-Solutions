@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { motion } from "framer-motion";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 
 import Bubbles from "@/assets/bubbles.png";
@@ -64,15 +63,6 @@ export function CertificatesSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="✔" 
-          particleCount={100} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
       {/* Top Left Bubbles */}
       <motion.div 
         animate={{ y: [0, -15, 0], scale: [1, 1.05, 1], rotate: [0, -2, 2, 0] }}
@@ -87,7 +77,7 @@ export function CertificatesSection() {
         />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center text-center mb-8">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">

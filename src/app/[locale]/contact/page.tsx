@@ -1,9 +1,9 @@
 "use client";
 
+import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 import GlobalHero from "@/assets/globalHero.png";
 import Bubbles from "@/assets/bubbles.png";
 import { PageHero } from "@/components/shared/page-hero";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -18,13 +18,6 @@ export default function ContactPage() {
     <main className="w-full min-h-screen relative overflow-hidden bg-background">
       {/* Background Particles */}
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20 top-[60vh]">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="@" 
-          particleCount={100} 
-          interactionRadius={150}
-          particleColor="var(--primary)"
-        />
       </div>
 
       {/* Background Bubbles */}
@@ -50,9 +43,9 @@ export default function ContactPage() {
       />
       
       <div className="relative z-10 w-full flex flex-col items-center bg-secondary">
-        <ContactInfoCards />
-        <ContactFormSection />
-        <ContactMapSection />
+        <ScaleIn delay={0.1}><ContactInfoCards /></ScaleIn>
+        <FadeIn delay={0.1} direction="up"><ContactFormSection /></FadeIn>
+        <ZoomIn delay={0.1}><ContactMapSection /></ZoomIn>
       </div>
     </main>
   );

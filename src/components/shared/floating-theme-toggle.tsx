@@ -20,34 +20,34 @@ export function FloatingThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed z-50 flex flex-col items-center bg-background/80 backdrop-blur-md rounded-full p-1 shadow-lg border border-border bottom-4 left-4 origin-bottom-left scale-75 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 md:origin-center md:scale-100">
+    <div className="absolute z-40 flex flex-col items-center bg-slate-400/40 dark:bg-slate-700/50 backdrop-blur-lg rounded-full shadow-xl border border-[#474747] bottom-4 left-4 origin-bottom-left scale-75 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 md:origin-center md:scale-100 w-12">
       
       {/* Dark Mode Button */}
       <button
         onClick={() => setTheme("dark")}
         className={cn(
-          "flex flex-col items-center justify-center gap-2 w-10 h-24 rounded-full transition-all duration-300 hover:scale-110",
+          "flex flex-col items-center justify-center gap-3 w-10 h-28 rounded-full transition-all duration-300",
           theme === "dark" 
-            ? "bg-foreground text-background shadow-md" 
-            : "text-muted-foreground hover:text-foreground"
+            ? "bg-white text-black shadow-md" 
+            : "text-black dark:text-white/90 hover:text-black dark:hover:text-white"
         )}
       >
-        <Moon className="w-4 h-4 transition-transform group-hover:rotate-12" />
-        <span className="text-xs font-cairo font-semibold -rotate-90 origin-center whitespace-nowrap mt-2">Dark</span>
+        <Moon className="w-5 h-5" strokeWidth={1.5} />
+        <span className="text-[15px] font-cairo font-medium -rotate-90 origin-center whitespace-nowrap">Dark</span>
       </button>
 
       {/* Light Mode Button */}
       <button
         onClick={() => setTheme("light")}
         className={cn(
-          "flex flex-col items-center justify-center gap-2 w-10 h-24 rounded-full transition-all duration-300 mt-1 hover:scale-110",
+          "flex flex-col items-center justify-center gap-3 w-10 h-28 rounded-full transition-all duration-300",
           theme === "light" 
-            ? "bg-foreground text-background shadow-md" 
-            : "text-muted-foreground hover:text-foreground"
+            ? "bg-white text-black shadow-md" 
+            : "text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white"
         )}
       >
-        <Sun className="w-4 h-4 transition-transform group-hover:rotate-90" />
-        <span className="text-xs font-cairo font-semibold -rotate-90 origin-center whitespace-nowrap mt-2">Light</span>
+        <Sun className="w-5 h-5" strokeWidth={1.5} />
+        <span className="text-[15px] font-cairo font-medium -rotate-90 origin-center whitespace-nowrap">Light</span>
       </button>
 
     </div>

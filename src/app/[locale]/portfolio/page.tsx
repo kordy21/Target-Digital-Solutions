@@ -1,3 +1,4 @@
+import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 import { useTranslations } from "next-intl";
 import { PageHero } from "@/components/shared/page-hero";
 import GlobalHero from "@/assets/globalHero.png";
@@ -15,7 +16,7 @@ export default function PortfolioPage() {
         image={GlobalHero}
       />
 
-      <PortfolioList />
+      <FadeIn direction="up" delay={0.1}><PortfolioList /></FadeIn>
     </main>
   );
 }

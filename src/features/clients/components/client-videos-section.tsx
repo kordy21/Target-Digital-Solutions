@@ -2,7 +2,6 @@
 
 import Bubbles from "@/assets/bubbles.png";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -56,15 +55,6 @@ export function ClientVideosSection() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Background Particles */}
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="▶" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--primary)"
-        />
-      </div>
 
       {/* Background Bubbles */}
       <motion.div 
@@ -82,7 +72,7 @@ export function ClientVideosSection() {
         <Image src={Bubbles} alt="Bubbles" style={{ width: 'auto', height: 'auto' }} className="h-full w-auto object-contain" />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         <div className="w-full rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col items-center">
           
           {/* Header Section */}

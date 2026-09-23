@@ -1,5 +1,6 @@
 "use client";
 
+import { ZoomIn } from "@/components/shared/animations";
 import { useTranslations } from "next-intl";
 import { getCategories } from "@/features/portfolio/data/portfolio-data";
 import { cn } from "@/lib/utils";
@@ -19,7 +20,7 @@ export function PortfolioFilter({ activeCategory, onSelect }: PortfolioFilterPro
         {categories.map((category, index) => {
           const isActive = activeCategory === category.id;
           return (
-            <div key={category.id} className="flex items-center gap-2 md:gap-4">
+            <ZoomIn delay={index * 0.05} key={category.id} className="flex items-center gap-2 md:gap-4">
               <button
                 onClick={() => onSelect(category.id)}
                 className={cn(
@@ -40,7 +41,7 @@ export function PortfolioFilter({ activeCategory, onSelect }: PortfolioFilterPro
               {index < categories.length - 1 && (
                 <span className="text-muted-foreground/30 font-light text-[18px]">/</span>
               )}
-            </div>
+            </ZoomIn>
           );
         })}
       </div>

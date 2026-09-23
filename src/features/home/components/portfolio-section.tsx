@@ -3,6 +3,7 @@
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ZoomIn } from "@/components/shared/animations";
 import Image from "next/image";
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
@@ -51,7 +52,7 @@ export function PortfolioSection() {
         />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center w-full">
           <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">
@@ -76,8 +77,9 @@ export function PortfolioSection() {
           {/* Embla Viewport */}
           <div className="overflow-hidden w-full px-4" ref={emblaRef} dir="rtl">
             <div className="flex">
-              {projects.map((project) => (
-                <div 
+              {projects.map((project, index) => (
+                <ZoomIn
+                  delay={index * 0.1}
                   key={project.id} 
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] min-w-0 flex flex-col items-center px-4"
                 >
@@ -95,7 +97,7 @@ export function PortfolioSection() {
                   <h3 className="font-cairo text-[20px] md:text-[24px] font-semibold text-foreground text-center">
                     {t(`projects.${project.id}`)}
                   </h3>
-                </div>
+                </ZoomIn>
               ))}
             </div>
           </div>

@@ -15,25 +15,27 @@ import { StoriesSection } from "@/features/home/components/stories-section";
 import { BlogSection } from "@/features/home/components/blog-section";
 import { CtaSection } from "@/features/home/components/cta-section";
 
+import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
+
 export default function Home() {
   return (
     <main className="w-full flex flex-col">
       <Hero />
-      <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
-        <AboutPreview />
-        <AboutUsSection />
-        <ServicesSection />
-        <PortfolioSection />
-        <ToolsSection />
-        <StatsSection />
-        <FeaturesSection />
-        <ExperienceSection />
-        <NewsSection />
-        <CertificatesSection />
-        <TestimonialsSection />
-        <StoriesSection />
-        <BlogSection />
-        <CtaSection />
+      <div className="flex flex-col w-full gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
+        <FadeIn direction="up"><AboutPreview /></FadeIn>
+        <ZoomIn delay={0.1}><AboutUsSection /></ZoomIn>
+        <SlideIn direction="left" delay={0.1}><ServicesSection /></SlideIn>
+        <ScaleIn delay={0.1}><PortfolioSection /></ScaleIn>
+        <FlipIn direction="x" delay={0.1}><ToolsSection /></FlipIn>
+        <FadeIn direction="up" delay={0.1}><StatsSection /></FadeIn>
+        <SlideIn direction="right" delay={0.1}><FeaturesSection /></SlideIn>
+        <ZoomIn delay={0.1}><ExperienceSection /></ZoomIn>
+        <ScaleIn delay={0.1}><NewsSection /></ScaleIn>
+        <FlipIn direction="y" delay={0.1}><CertificatesSection /></FlipIn>
+        <FadeIn direction="up" delay={0.1}><TestimonialsSection /></FadeIn>
+        <SlideIn direction="left" delay={0.1}><StoriesSection /></SlideIn>
+        <ZoomIn delay={0.1}><BlogSection /></ZoomIn>
+        <ScaleIn delay={0.1}><CtaSection /></ScaleIn>
       </div>
     </main>
   );

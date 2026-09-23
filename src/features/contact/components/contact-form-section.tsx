@@ -9,7 +9,7 @@ export function ContactFormSection() {
   const t = useTranslations("contactPage.form");
 
   return (
-    <section className="w-full mx-auto px-6 md:px-12 py-16">
+    <section className="w-full mx-auto px-6 md:px-20 py-16">
       <div className="text-center mb-12 font-cairo">
         <h4 className="text-primary font-bold text-lg mb-2">{t("eyebrow")}</h4>
         <h2 className="text-foreground font-extrabold text-3xl md:text-4xl">{t("title")}</h2>

@@ -9,7 +9,6 @@ import { SiteHeader } from "@/components/shared/site-header";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { SmoothScroller } from "@/components/shared/smooth-scroller";
 import { MouseFollower } from "@/components/shared/mouse-follower";
-import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,8 +27,6 @@ export default async function RootLayout({
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
@@ -45,7 +42,6 @@ export default async function RootLayout({
             <QueryProvider>
               <SmoothScroller>
                 <MouseFollower />
-                <FloatingThemeToggle />
                 <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
                   <SiteHeader />
                   <main className="flex-1 relative flex flex-col space-y-24 w-full bg-secondary">

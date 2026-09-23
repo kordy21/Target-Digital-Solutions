@@ -2,10 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
+import { ZoomIn } from "@/components/shared/animations";
 import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
 import { FadeIn } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 
 import MahmoudImg from "@/assets/mahmoud.png";
 import MohamedImg from "@/assets/mohamed.png";
@@ -29,16 +29,7 @@ export function TestimonialsSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center py-12">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="“" 
-          particleCount={100} 
-          interactionRadius={200}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
       <div className="relative z-10 w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         
         {/* Section Header */}
@@ -55,7 +46,7 @@ export function TestimonialsSection() {
         <FadeIn delay={0.2} direction="up" className="w-full overflow-hidden" >
           <div className="w-full overflow-hidden" ref={emblaRef} dir="rtl">
             <div className="flex -ml-4 rtl:ml-0 rtl:-mr-4">
-              {testimonials.map((item) => (
+              {testimonials.map((item, index) => (
                 <div 
                   key={item.id} 
                   className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 rtl:pl-0 rtl:pr-4 py-4"

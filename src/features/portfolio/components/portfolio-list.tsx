@@ -1,10 +1,10 @@
 "use client";
 
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { getProjects } from "@/features/portfolio/data/portfolio-data";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { PortfolioFilter } from "./portfolio-filter";
+import { FadeIn } from "@/components/shared/animations";
 import { ProjectCard } from "./project-card";
 
 export function PortfolioList() {
@@ -21,16 +21,9 @@ export function PortfolioList() {
       
       {/* Background Particles (applied broadly to the list area) */}
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-5 dark:opacity-10">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="T" 
-          particleCount={50} 
-          interactionRadius={150}
-          particleColor="var(--primary)"
-        />
       </div>
 
-      <div className="w-full mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full mx-auto px-6 md:px-20 relative z-10">
         {/* Filter */}
         <PortfolioFilter activeCategory={activeCategory} onSelect={setActiveCategory} />
 
@@ -39,7 +32,7 @@ export function PortfolioList() {
           
           {/* Map Projects */}
           {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <FadeIn key={project.id} delay={index * 0.1}><ProjectCard project={project} index={index} /></FadeIn>
           ))}
 
           {/* Empty State */}

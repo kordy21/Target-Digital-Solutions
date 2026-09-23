@@ -5,7 +5,6 @@ import { useTranslations, useLocale } from "next-intl";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 
@@ -19,16 +18,7 @@ export function CtaSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-12 group">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="T" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-20 relative z-10">
       <div className="relative w-full bg-background rounded-3xl border border-border shadow-sm overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100">
         
         {/* Background Pattern */}

@@ -1,9 +1,9 @@
 "use client";
 
+import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 import Bubbles from "@/assets/bubbles.png";
 import GlobalHero from "@/assets/globalHero.png";
 import { StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { PageHero } from "@/components/shared/page-hero";
 import { FAQItem } from "@/features/faq/components/faq-item";
 import { motion } from "framer-motion";
@@ -22,13 +22,6 @@ export default function FAQPage() {
     <main className="w-full min-h-screen relative overflow-hidden">
       {/* Background Particles */}
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20 top-[60vh]">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="?" 
-          particleCount={120} 
-          interactionRadius={150}
-          particleColor="var(--primary)"
-        />
       </div>
 
       {/* Background Bubbles */}

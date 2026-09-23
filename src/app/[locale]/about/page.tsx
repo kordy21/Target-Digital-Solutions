@@ -1,3 +1,4 @@
+import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/shared/page-hero";
 import AboutHeroImg from "@/assets/aboutHero.png";
@@ -22,15 +23,15 @@ export default async function AboutPage() {
         image={AboutHeroImg} 
       />
       <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28">
-        <AboutUsSection />
-        <ValuesSection />
-        <VideoSection />
-        <TeamSection />
-        <ToolsSection />
-        <NewsSection />
-        <ProcessSection />
-        <CertificatesSection />
-        <CtaSection />
+        <SlideIn delay={0.1} direction="left"><AboutUsSection /></SlideIn>
+        <SlideIn delay={0.1} direction="left"><ValuesSection /></SlideIn>
+        <FadeIn delay={0.1} direction="up"><VideoSection /></FadeIn>
+        <SlideIn delay={0.1} direction="left"><TeamSection /></SlideIn>
+        <ScaleIn delay={0.1}><ToolsSection /></ScaleIn>
+        <FadeIn delay={0.1} direction="up"><NewsSection /></FadeIn>
+        <SlideIn delay={0.1} direction="left"><ProcessSection /></SlideIn>
+        <ZoomIn delay={0.1}><CertificatesSection /></ZoomIn>
+        <FadeIn delay={0.1} direction="up"><CtaSection /></FadeIn>
       </div>
     </main>
   );

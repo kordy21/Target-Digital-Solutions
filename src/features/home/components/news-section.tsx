@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 
 import Bubbles from "@/assets/bubbles.png";
@@ -23,15 +22,6 @@ export function NewsSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="T" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
 
       {/* Side Bubbles */}
       <motion.div 
@@ -47,7 +37,7 @@ export function NewsSection() {
         />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center text-center mb-8">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
@@ -60,25 +50,37 @@ export function NewsSection() {
 
         {/* Cards Grid */}
         <StaggerContainer className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsItems.map((item) => (
+          {newsItems.map((item, index) => (
             <StaggerItem key={item.id} className="flex flex-col items-center text-center group cursor-pointer">
               {/* Card Container */}
               <div className="w-full bg-card text-card-foreground rounded-3xl p-4 md:p-6 shadow-sm border border-border mb-6 transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-2xl">
-                <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-secondary">
-                  <Image 
-                    src={item.image} 
-                    alt={t(`items.${item.id}.title`)}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
+                <ZoomIn delay={index * 0.1}>
+                  <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-secondary">
+                    <Image 
+                      src={item.image} 
+                      alt={t(`items.${item.id}.title`)}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                </ZoomIn>
               </div>
               
-              {/* Title */}
-              <h3 className="font-cairo font-bold text-[18px] md:text-[20px] text-foreground px-4 leading-[1.6] group-hover:text-primary transition-colors">
-                {t(`items.${item.id}.title`)}
-              </h3>
+              {/* Title & Description */}
+              <FadeIn delay={index * 0.1 + 0.1}>
+                <h3 className="font-cairo font-bold text-[18px] md:text-[20px] text-foreground px-4 leading-[1.6] group-hover:text-primary transition-colors">
+                  {t(`items.${item.id}.title`)}
+                </h3>
+              </FadeIn>
+              
+              {t.has(`items.${item.id}.description`) && (
+                <SlideIn delay={index * 0.1 + 0.2} direction="up">
+                  <p className="font-cairo text-[12px] md:text-[14px] text-muted-foreground px-4 mt-3 leading-[1.8] text-center line-clamp-3">
+                    {t(`items.${item.id}.description`)}
+                  </p>
+                </SlideIn>
+              )}
             </StaggerItem>
           ))}
         </StaggerContainer>

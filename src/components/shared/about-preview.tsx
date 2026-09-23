@@ -8,7 +8,6 @@ import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import Bubbles from "@/assets/bubbles.png";
 import Part1 from "@/assets/part1.png";
@@ -47,15 +46,6 @@ export function AboutPreview() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="∞" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
       {/* Side Bubbles */}
       <motion.div 
         animate={{ y: [0, 20, 0], rotate: [0, 3, -3, 0] }}
@@ -70,7 +60,7 @@ export function AboutPreview() {
         />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center w-full">
           <span className="text-primary font-cairo text-lg md:text-[24px] font-bold mb-2">

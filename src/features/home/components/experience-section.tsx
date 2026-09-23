@@ -6,7 +6,6 @@ import { ArrowLeft, Play } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { MagneticButton } from "@/components/shared/magnetic-button";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 
 import PeopleImg from "@/assets/people.png";
 import PersonVector from "@/assets/personvector.png";
@@ -18,13 +17,6 @@ export function ExperienceSection() {
   return (
     <section className="w-full bg-[#f9f9fb] dark:bg-transparent overflow-hidden relative">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20 hidden lg:block">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="~" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
       </div>
       
       <div className="w-full max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">

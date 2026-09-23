@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { getProcessSteps } from "../data/about-data";
 
 export function ProcessSection() {
@@ -27,17 +26,8 @@ export function ProcessSection() {
 
   return (
     <section className="relative w-full py-20 bg-secondary overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="P" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
       
-      <div className="w-full max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-5xl mx-auto px-6 md:px-20 relative z-10">
         <FadeIn direction="up">
           <div className="w-full bg-background rounded-[24px] shadow-sm border border-border/40 p-6 md:p-16 flex flex-col items-center text-center">
             
@@ -60,7 +50,7 @@ export function ProcessSection() {
               </button>
 
               {/* Active Step Info */}
-              <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-12">
+              <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-20">
                 <h3 className="text-foreground font-cairo font-bold text-[20px] md:text-[24px] mb-6">
                   {activeStep.title}
                 </h3>

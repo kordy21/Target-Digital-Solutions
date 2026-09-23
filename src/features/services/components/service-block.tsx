@@ -3,7 +3,6 @@
 import Image, { StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "next-intl";
@@ -59,17 +58,6 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
   return (
     <section className="relative w-full py-12 overflow-hidden">
       {/* Alternating Background with Particles */}
-      {isEven && (
-        <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-          <InteractiveParticles 
-            mode="scatter-to-shape" 
-            text="T" 
-            particleCount={60} 
-            interactionRadius={150}
-            particleColor="var(--primary)"
-          />
-        </div>
-      )}
 
       {/* Decorative Animated Bubbles */}
       <motion.div 
@@ -94,7 +82,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
         <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
           <div className={cn(
             "flex flex-col gap-12 lg:gap-16 items-center w-full",

@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeIn } from "@/components/shared/animations";
+import { FadeIn, SlideIn, ZoomIn } from "@/components/shared/animations";
 
 import Bubbles from "@/assets/bubbles.png";
 import { TiltCard } from "@/components/shared/animations/tilt-card";
@@ -110,28 +110,46 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-8">
               {/* Visits */}
               <div className="flex items-center gap-4">
+                <ZoomIn delay={index * 0.1 + 0.1}>
                   <Image src={project.stats.visits.icon} alt="Visits" width={80} height={80} className="object-contain" />
+                </ZoomIn>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.visits.label}</h3>
-                  <p className="text-primary font-cairo font-bold text-[18px]">{project.stats.visits.value}</p>
+                  <FadeIn delay={index * 0.1 + 0.2}>
+                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.visits.label}</h3>
+                  </FadeIn>
+                  <SlideIn delay={index * 0.1 + 0.3} direction="up">
+                    <p className="text-primary font-cairo font-bold text-[18px]">{project.stats.visits.value}</p>
+                  </SlideIn>
                 </div>
               </div>
 
               {/* Country */}
               <div className="flex items-center gap-4">
+                <ZoomIn delay={index * 0.1 + 0.1}>
                   <Image src={project.stats.country.icon} alt="Country" width={80} height={80} className="object-contain" />
+                </ZoomIn>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.country.label}</h3>
-                  <p className="text-primary font-cairo font-bold text-[18px]">{project.stats.country.value}</p>
+                  <FadeIn delay={index * 0.1 + 0.2}>
+                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.country.label}</h3>
+                  </FadeIn>
+                  <SlideIn delay={index * 0.1 + 0.3} direction="up">
+                    <p className="text-primary font-cairo font-bold text-[18px]">{project.stats.country.value}</p>
+                  </SlideIn>
                 </div>
               </div>
 
               {/* Platform */}
               <div className="flex items-center gap-4">
+                <ZoomIn delay={index * 0.1 + 0.1}>
                   <Image src={project.stats.platform.icon} alt="Platform" width={80} height={80} className="object-contain" />
+                </ZoomIn>
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.platform.label}</h3>
-                  <p className="text-primary font-cairo font-bold text-[16px]">{project.stats.platform.value}</p>
+                  <FadeIn delay={index * 0.1 + 0.2}>
+                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.platform.label}</h3>
+                  </FadeIn>
+                  <SlideIn delay={index * 0.1 + 0.3} direction="up">
+                    <p className="text-primary font-cairo font-bold text-[16px]">{project.stats.platform.value}</p>
+                  </SlideIn>
                 </div>
               </div>
 

@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 
 import Top1Img from "@/assets/top1.png";
@@ -27,16 +26,7 @@ export function FeaturesSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="group-to-scatter" 
-          text="★" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
       <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         {/* Text Column */}
@@ -52,24 +42,30 @@ export function FeaturesSection() {
         {/* Features Grid */}
         <div className="w-full lg:w-2/3">
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8">
-            {features.map((feature) => (
+            {features.map((feature, index) => (
               <StaggerItem key={feature.id}>
                 <div className="flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:bg-white/5 group border border-transparent hover:border-border cursor-default">
-                  <div className="w-24 h-24 mb-6 relative transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">
-                    <Image 
-                      src={feature.image} 
-                      alt={t(`items.${feature.id}.title`)} 
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-contain"
-                    />
-                  </div>
-                  <h3 className="font-cairo font-bold text-[18px] md:text-[20px] text-foreground mb-3">
-                    {t(`items.${feature.id}.title`)}
-                  </h3>
-                  <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
-                    {t(`items.${feature.id}.description`)}
-                  </p>
+                  <ZoomIn delay={index * 0.1}>
+                    <div className="w-24 h-24 mb-6 relative transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">
+                      <Image 
+                        src={feature.image} 
+                        alt={t(`items.${feature.id}.title`)} 
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-contain"
+                      />
+                    </div>
+                  </ZoomIn>
+                  <FadeIn delay={index * 0.1 + 0.1}>
+                    <h3 className="font-cairo font-bold text-[18px] md:text-[20px] text-foreground mb-3">
+                      {t(`items.${feature.id}.title`)}
+                    </h3>
+                  </FadeIn>
+                  <SlideIn delay={index * 0.1 + 0.2} direction="up">
+                    <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
+                      {t(`items.${feature.id}.description`)}
+                    </p>
+                  </SlideIn>
                 </div>
               </StaggerItem>
             ))}

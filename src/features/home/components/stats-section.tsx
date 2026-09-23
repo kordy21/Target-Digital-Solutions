@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { Counter } from "@/components/shared/counter";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import HandsImg from "@/assets/hands.png";
 import { motion } from "framer-motion";
 
@@ -14,16 +13,7 @@ export function StatsSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pb-12">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="+" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 relative z-10">
         
         {/* Left Side (Image & Badge) */}
         <div className="relative w-full lg:w-5/12 rounded-2xl flex justify-center lg:justify-start">
@@ -128,7 +118,6 @@ export function StatsSection() {
           </StaggerContainer>
           
         </div>
-
       </div>
     </section>
   );

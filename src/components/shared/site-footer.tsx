@@ -13,6 +13,7 @@ import {
 import FooterBg from "@/assets/footer.png";
 import TargetFooterLogo from "@/assets/targetfooter.png";
 import { Link } from "@/i18n/routing";
+import { StaggerContainer, StaggerItem, FadeIn } from "@/components/shared/animations";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
@@ -30,12 +31,12 @@ export function SiteFooter() {
         }}
       />
 
-      <div className="relative z-30 w-full mx-auto px-6 md:px-12 py-16 lg:py-24">
+      <div className="relative z-30 w-full mx-auto px-6 md:px-20 py-16 lg:py-24">
         {/* Top Section - 5 Columns */}
-        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 rtl:space-x-reverse">
+        <StaggerContainer delayChildren={0.2} staggerChildren={0.15} className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 rtl:space-x-reverse">
           
           {/* Column 1: Logo & Socials */}
-          <div className="flex flex-col items-start lg:w-1/5 shrink-0 text-start">
+          <StaggerItem className="flex flex-col items-start lg:w-1/5 shrink-0 text-start">
             <div className="w-48 h-auto mb-6">
               <Image 
                 src={TargetFooterLogo} 
@@ -53,10 +54,10 @@ export function SiteFooter() {
               <SocialIcon><Phone className="w-4 h-4" /></SocialIcon>
               <SocialIcon><MessageCircle className="w-4 h-4" /></SocialIcon>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Column 2: Services */}
-          <div className="flex flex-col lg:w-1/6">
+          <StaggerItem className="flex flex-col lg:w-1/6">
             <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("services")}</h4>
             <div className="flex flex-col gap-4">
               <FooterListLink>{t("servicesList.webDev")}</FooterListLink>
@@ -66,10 +67,10 @@ export function SiteFooter() {
               <FooterListLink>{t("servicesList.solutions")}</FooterListLink>
               <FooterListLink>{t("servicesList.systems")}</FooterListLink>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Column 3: Company */}
-          <div className="flex flex-col lg:w-1/6">
+          <StaggerItem className="flex flex-col lg:w-1/6">
             <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("company")}</h4>
             <div className="flex flex-col gap-4">
               <FooterListLink href="/about">{t("companyList.about")}</FooterListLink>
@@ -79,10 +80,10 @@ export function SiteFooter() {
               <FooterListLink href="/careers">{t("companyList.careers")}</FooterListLink>
               <FooterListLink href="/faq">{t("companyList.terms")}</FooterListLink>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Column 4: Contact Info */}
-          <div className="flex flex-col lg:w-1/4">
+          <StaggerItem className="flex flex-col lg:w-1/4">
             <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("contactInfo")}</h4>
             <div className="flex flex-col gap-5 text-[14px] text-white/80 font-cairo">
               
@@ -111,10 +112,10 @@ export function SiteFooter() {
                 <span className="leading-[1.6]">{t("contactList.address")}</span>
               </div>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Column 5: Newsletter */}
-          <div className="flex flex-col lg:w-1/3">
+          <StaggerItem className="flex flex-col lg:w-1/3">
             <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("newsletter")}</h4>
             <p className="font-cairo text-white/80 text-[13px] leading-relaxed mb-6">
               {t("newsletterText")}
@@ -133,9 +134,9 @@ export function SiteFooter() {
 
             <EmailBox email={t("email1")} />
             <EmailBox email={t("email2")} />
-          </div>
+          </StaggerItem>
 
-        </div>
+        </StaggerContainer>
       </div>
 
       {/* Bottom Bar */}

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -17,16 +16,7 @@ export function ValuesSection() {
 
   return (
     <section className="relative w-full overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="V" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         {/* Grid and routing wrapper */}
 
         <div className="flex flex-col relative z-10">

@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 
 import ToolsImg from "@/assets/tools.png";
 import FigmaImg from "@/assets/figma.png";
@@ -23,16 +22,7 @@ export function ToolsSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="T" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
       <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
         
         {/* Left Side (Content) */}
@@ -58,18 +48,22 @@ export function ToolsSection() {
             </StaggerItem>
 
             <div className="grid grid-cols-4 md:flex md:flex-wrap justify-center lg:justify-start gap-4 md:gap-12 w-full">
-              {tools.map((tool) => (
+              {tools.map((tool, index) => (
                 <StaggerItem key={tool.id} className="flex flex-col items-center gap-2 md:gap-4 text-center">
-                  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                    <Image 
-                      src={tool.image} 
-                      alt={t(`items.${tool.id}`)} 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="font-cairo font-semibold text-foreground text-[10px] md:text-base leading-tight">
-                    {t(`items.${tool.id}`)}
-                  </span>
+                  <ZoomIn delay={index * 0.1}>
+                    <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-transform hover:scale-110">
+                      <Image 
+                        src={tool.image} 
+                        alt={t(`items.${tool.id}`)} 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </ZoomIn>
+                  <SlideIn delay={index * 0.1 + 0.1} direction="up">
+                    <span className="font-cairo font-semibold text-foreground text-[10px] md:text-base leading-tight">
+                      {t(`items.${tool.id}`)}
+                    </span>
+                  </SlideIn>
                 </StaggerItem>
               ))}
             </div>

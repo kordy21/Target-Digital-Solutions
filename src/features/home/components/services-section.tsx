@@ -4,8 +4,7 @@ import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 
 import Serv1 from "@/assets/serv1.png";
@@ -53,16 +52,7 @@ export function ServicesSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20">
-        <InteractiveParticles 
-          mode="scatter-to-shape" 
-          text="✦" 
-          particleCount={80} 
-          interactionRadius={150}
-          particleColor="var(--foreground)"
-        />
-      </div>
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
       <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         
         {/* Header Section */}
@@ -126,26 +116,32 @@ export function ServicesSection() {
           {/* Cards Grid Section */}
           <div className="w-full lg:w-2/3 flex flex-col items-center">
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-              {cards.map((card) => (
+              {cards.map((card, index) => (
                 <StaggerItem key={card.id}>
                   <div 
                     className="bg-secondary rounded-[20px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl group cursor-default h-full"
                   >
-                    <div className="relative w-24 h-24 md:w-32 md:h-32 mb-6 transition-transform duration-500 group-hover:scale-110">
-                      <Image
-                        src={card.image}
-                        alt={t(`cards.${card.id}.title`)}
-                        fill
-                        sizes="128px"
-                        className="object-contain"
-                      />
-                    </div>
-                    <h4 className="font-cairo font-bold text-[20px] text-foreground mb-3">
-                      {t(`cards.${card.id}.title`)}
-                    </h4>
-                    <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
-                      {t(`cards.${card.id}.description`)}
-                    </p>
+                    <ZoomIn delay={index * 0.1}>
+                      <div className="relative w-24 h-24 md:w-32 md:h-32 mb-6 transition-transform duration-500 group-hover:scale-110">
+                        <Image
+                          src={card.image}
+                          alt={t(`cards.${card.id}.title`)}
+                          fill
+                          sizes="128px"
+                          className="object-contain"
+                        />
+                      </div>
+                    </ZoomIn>
+                    <FadeIn delay={index * 0.1 + 0.1}>
+                      <h4 className="font-cairo font-bold text-[20px] text-foreground mb-3">
+                        {t(`cards.${card.id}.title`)}
+                      </h4>
+                    </FadeIn>
+                    <SlideIn delay={index * 0.1 + 0.2} direction="up">
+                      <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
+                        {t(`cards.${card.id}.description`)}
+                      </p>
+                    </SlideIn>
                   </div>
                 </StaggerItem>
               ))}
