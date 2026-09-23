@@ -1,4 +1,4 @@
-import { MouseFollower } from "@/components/shared/mouse-follower";
+
 import { AboutPreview } from "@/components/shared/about-preview";
 import { Hero } from "@/features/home/components/hero";
 import { AboutUsSection } from "@/features/home/components/about-us-section";
@@ -18,7 +18,6 @@ import { CtaSection } from "@/features/home/components/cta-section";
 export default function Home() {
   return (
     <main className="w-full flex flex-col">
-      <MouseFollower />
       <Hero />
       <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
         <AboutPreview />

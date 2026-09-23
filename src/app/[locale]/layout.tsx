@@ -8,7 +8,7 @@ import "../globals.css";
 import { SiteHeader } from "@/components/shared/site-header";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { SmoothScroller } from "@/components/shared/smooth-scroller";
-import { CustomCursor } from "@/components/shared/custom-cursor";
+import { MouseFollower } from "@/components/shared/mouse-follower";
 import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
 
 export function generateStaticParams() {
@@ -44,7 +44,7 @@ export default async function RootLayout({
           >
             <QueryProvider>
               <SmoothScroller>
-                <CustomCursor />
+                <MouseFollower />
                 <FloatingThemeToggle />
                 <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
                   <SiteHeader />

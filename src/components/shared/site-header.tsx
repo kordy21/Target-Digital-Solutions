@@ -10,6 +10,7 @@ import Logo from "@/assets/TargetNavBar.png";
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { MagneticWrapper } from "@/components/shared/animations/magnetic-wrapper";
 
 export function SiteHeader() {
   const t = useTranslations("header");
@@ -47,7 +48,7 @@ export function SiteHeader() {
               <NavLink href="/services">{t("services")}</NavLink>
               <NavDropdown label={t("solutions")} />
               <NavDropdown label={t("systems")} />
-              <NavDropdown label={t("portfolio")} />
+              <NavLink href="/portfolio">{t("portfolio")}</NavLink>
               <NavLink href="/clients">{t("clients")}</NavLink>
               <NavLink href="/info">{t("info")}</NavLink>
               <NavDropdown label={t("more")} />
@@ -85,9 +86,11 @@ export function SiteHeader() {
 
             {/* Desktop CTA Button */}
             <div className="hidden lg:flex items-center">
-              <Button className="rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo px-8 h-12">
-                {t("customer_area")}
-              </Button>
+              <MagneticWrapper>
+                <Button className="rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo px-8 h-12">
+                  {t("customer_area")}
+                </Button>
+              </MagneticWrapper>
             </div>
           </div>
         </header>
@@ -115,7 +118,7 @@ export function SiteHeader() {
               <NavLink href="/services" onClick={() => setIsMobileMenuOpen(false)}>{t("services")}</NavLink>
               <NavDropdown label={t("solutions")} onClick={() => setIsMobileMenuOpen(false)} />
               <NavDropdown label={t("systems")} onClick={() => setIsMobileMenuOpen(false)} />
-              <NavDropdown label={t("portfolio")} onClick={() => setIsMobileMenuOpen(false)} />
+              <NavLink href="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>{t("portfolio")}</NavLink>
               <NavLink href="/clients" onClick={() => setIsMobileMenuOpen(false)}>{t("clients")}</NavLink>
               <NavLink href="/info" onClick={() => setIsMobileMenuOpen(false)}>{t("info")}</NavLink>
               <NavDropdown label={t("more")} onClick={() => setIsMobileMenuOpen(false)} />

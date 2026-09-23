@@ -416,5 +416,38 @@
       "c2_title": "Real Estate",
       "c2_desc": "Advanced real estate systems to easily manage, sell, and rent properties."
     }
+  },
+  "portfolioPage": {
+    "hero": {
+      "title": "Target Digital Solutions Portfolio",
+      "subtitle": "Creative touches that come alive in every project, enhancing engagement and driving success"
+    },
+    "categories": {
+      "all": "All",
+      "programming": "Programming Language",
+      "mobile": "Mobile Apps",
+      "websites": "Websites",
+      "delivery": "Delivery Apps",
+      "ecommerce": "E-Commerce"
+    },
+    "project": {
+      "visits": "Visits",
+      "country": "Country",
+      "platforms": "Platforms",
+      "technologies": "Technologies",
+      "visitWebsite": "Visit Website"
+    },
+    "projects": {
+      "ters": {
+        "title": "1- Ters",
+        "country": "Saudi Arabia",
+        "platform": "Website Platform"
+      },
+      "lemonary": {
+        "title": "2- Lemonary",
+        "country": "Saudi Arabia",
+        "platform": "Website Platform"
+      }
+    }
   }
 }

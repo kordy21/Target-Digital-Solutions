@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { PageHero } from "@/components/shared/page-hero";
 import { ServiceBlock } from "@/features/services/components/service-block";
 import { getServices } from "@/features/services/data/services-data";
-import ServicesHero from "@/assets/servicesHero.png";
+import GlobalHero from "@/assets/globalHero.png";
 
 export default function ServicesPage() {
   const t = useTranslations("servicesPage");
@@ -14,7 +14,7 @@ export default function ServicesPage() {
       <PageHero 
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}
-        image={ServicesHero}
+        image={GlobalHero}
       />
 
       {/* Services Blocks */}

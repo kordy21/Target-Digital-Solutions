@@ -29,8 +29,7 @@ export function SiteFooter() {
         }}
       />
 
-      <div className="relative z-30 w-full max-w-7xl mx-auto px-6 md:px-12 py-16 lg:py-24">
-        
+      <div className="relative z-30 w-full mx-auto px-6 md:px-12 py-16 lg:py-24">
         {/* Top Section - 5 Columns */}
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 rtl:space-x-reverse">
           
@@ -140,7 +139,7 @@ export function SiteFooter() {
 
       {/* Bottom Bar */}
       <div className="relative z-10 w-full bg-secondary text-secondary-foreground border-t border-border">
-        <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
+        <div className="w-full mx-auto px-6 py-4 flex items-center justify-center">
           <p className="font-cairo text-[13px] font-semibold tracking-wide">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
