@@ -15,7 +15,7 @@ export default async function AboutPage() {
   const t = await getTranslations("aboutPage.hero");
 
   return (
-    <div className="w-full flex flex-col min-h-screen space-y-24 mb-12 md:mb-24">
+    <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
       <PageHero 
         title={t("title")} 
         subtitle={t("subtitle")} 

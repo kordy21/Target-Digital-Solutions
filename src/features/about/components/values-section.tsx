@@ -86,12 +86,12 @@ export function ValuesSection() {
                   {/* Text */}
                   <FadeIn 
                     direction={isEven ? "right" : "left"} 
-                    className="w-full flex flex-col text-center lg:text-start px-6"
+                    className="w-full flex flex-col text-center lg:text-start"
                   >
                     <h3 className="text-xl md:text-[40px] font-cairo font-bold text-foreground mb-4">
                       {item.title}
                     </h3>
-                    <p className="text-[16px] md:text-[18px] font-cairo text-muted-foreground leading-[1.8]">
+                    <p className="text-[14px] md:text-[18px] font-cairo text-muted-foreground leading-[1.8]">
                       {item.text}
                     </p>
                   </FadeIn>

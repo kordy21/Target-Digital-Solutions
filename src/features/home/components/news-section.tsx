@@ -58,7 +58,7 @@ export function NewsSection() {
         </FadeIn>
 
         {/* Cards Grid */}
-        <StaggerContainer className="w-full grid grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsItems.map((item) => (
             <StaggerItem key={item.id} className="flex flex-col items-center text-center group cursor-pointer">
               {/* Card Container */}

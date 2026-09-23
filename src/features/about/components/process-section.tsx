@@ -39,13 +39,13 @@ export function ProcessSection() {
       
       <div className="w-full max-w-5xl mx-auto px-6 md:px-12 relative z-10">
         <FadeIn direction="up">
-          <div className="w-full bg-background rounded-[24px] shadow-sm border border-border/40 p-8 md:p-16 flex flex-col items-center text-center">
+          <div className="w-full bg-background rounded-[24px] shadow-sm border border-border/40 p-6 md:p-16 flex flex-col items-center text-center">
             
             {/* Header */}
             <span className="text-primary font-cairo font-bold text-[14px] md:text-[16px] mb-4">
               {t("eyebrow")}
             </span>
-            <h2 className="text-foreground font-cairo font-bold text-[24px] md:text-[32px] max-w-2xl leading-[1.4] mb-16">
+            <h2 className="text-foreground font-cairo font-bold text-xl md:text-[32px] max-w-2xl leading-[1.4] mb-8">
               {t("title")}
             </h2>
 
@@ -56,7 +56,7 @@ export function ProcessSection() {
                 onClick={handlePrev}
                 className="w-10 h-10 flex items-center justify-center text-foreground/50 hover:text-foreground transition-colors shrink-0"
               >
-                <ChevronRight className="w-6 h-6" /> {/* RTL: Right arrow goes to previous */}
+                <ChevronLeft className="w-6 h-6 rtl:rotate-180" />
               </button>
 
               {/* Active Step Info */}
@@ -64,7 +64,7 @@ export function ProcessSection() {
                 <h3 className="text-foreground font-cairo font-bold text-[20px] md:text-[24px] mb-6">
                   {activeStep.title}
                 </h3>
-                <p className="text-muted-foreground font-cairo text-[14px] md:text-[16px] leading-[1.8] max-w-3xl">
+                <p className="text-muted-foreground font-cairo text-[12px] md:text-[16px] leading-[1.8] max-w-5xl">
                   {activeStep.text}
                 </p>
               </div>
@@ -74,15 +74,8 @@ export function ProcessSection() {
                 onClick={handleNext}
                 className="w-10 h-10 flex items-center justify-center text-foreground/50 hover:text-foreground transition-colors shrink-0"
               >
-                <ChevronLeft className="w-6 h-6" /> {/* RTL: Left arrow goes to next */}
+                <ChevronRight className="w-6 h-6 rtl:rotate-180" />
               </button>
-            </div>
-
-            {/* Step Number Indicator */}
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mt-12 shadow-md">
-              <span className="text-white font-bold text-[24px]">
-                {activeStep.id}
-              </span>
             </div>
 
           </div>

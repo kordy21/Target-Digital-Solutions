@@ -7,7 +7,7 @@ import About2 from "@/assets/about2.png";
 import About3 from "@/assets/about3.png";
 import About4 from "@/assets/about4.png";
 
-export const getProcessSteps = (t: any) => [
+export const getProcessSteps = (t: (key: string) => string) => [
   {
     id: 1,
     title: t("steps.step1.title"),
@@ -25,7 +25,7 @@ export const getProcessSteps = (t: any) => [
   },
 ];
 
-export const getTeamMembers = (t: any) => [
+export const getTeamMembers = (t: (key: string) => string) => [
   {
     id: "ali",
     name: t("members.ali.name"),
@@ -46,7 +46,7 @@ export const getTeamMembers = (t: any) => [
   },
 ];
 
-export const getValues = (t: any) => [
+export const getValues = (t: (key: string) => string) => [
   {
     id: "goal",
     title: t("goal.title"),
