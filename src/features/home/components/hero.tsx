@@ -26,12 +26,10 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-brand-dark overflow-hidden flex items-center border-b-3 border-black mt-24">
-
-
+    <section className="relative w-full min-h-[80vh] bg-brand-dark overflow-hidden flex items-center border-b-3 border-black mt-24">
       {/* Dynamic Background Image based on current slide */}
       {slidesData.map((slide, index) => (
-        <div 
+        <div
           key={slide.id}
           className={cn(
             "absolute inset-0 w-full h-full transition-opacity duration-1000",
@@ -41,10 +39,9 @@ export function Hero() {
           {/* Background Image */}
           <Image 
             src={slide.image} 
-            alt={`Slide ${slide.id + 1}`} 
+            alt={`Slide ${slide.id + 1}`}
             fill
-            sizes="100vw"
-            className="object-cover object-center" 
+            className="object-cover object-left" 
             priority
           />
           
