@@ -8,40 +8,12 @@ import { InteractiveParticles } from "@/components/shared/interactive-particles"
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import About1 from "@/assets/about1.png";
-import About2 from "@/assets/about2.png";
-import About3 from "@/assets/about3.png";
-import About4 from "@/assets/about4.png";
+import { getValues } from "../data/about-data";
 
 export function ValuesSection() {
   const t = useTranslations("aboutPage.values");
 
-  const values = [
-    {
-      id: "goal",
-      title: t("goal.title"),
-      text: t("goal.description"),
-      image: About1,
-    },
-    {
-      id: "vision",
-      title: t("vision.title"),
-      text: t("vision.description"),
-      image: About2,
-    },
-    {
-      id: "mission",
-      title: t("mission.title"),
-      text: t("mission.description"),
-      image: About3,
-    },
-    {
-      id: "message",
-      title: t("message.title"),
-      text: t("message.description"),
-      image: About4,
-    },
-  ];
+  const values = getValues(t);
 
   return (
     <section className="relative w-full overflow-hidden">

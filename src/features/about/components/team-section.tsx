@@ -7,35 +7,14 @@ import { InteractiveParticles } from "@/components/shared/interactive-particles"
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import Team1 from "@/assets/team1.png";
-import Team2 from "@/assets/team2.png";
-import Team3 from "@/assets/team3.png";
 import Logo from "@/assets/logo.svg";
+import { getTeamMembers } from "../data/about-data";
 
 export function TeamSection() {
   const t = useTranslations("aboutPage.team");
 
 
-  const team = [
-    {
-      id: "ali",
-      name: t("members.ali.name"),
-      role: t("members.ali.role"),
-      image: Team3,
-    },
-    {
-      id: "amr",
-      name: t("members.amr.name"),
-      role: t("members.amr.role"),
-      image: Team2,
-    },
-    {
-      id: "hussein",
-      name: t("members.hussein.name"),
-      role: t("members.hussein.role"),
-      image: Team1,
-    },
-  ];
+  const team = getTeamMembers(t);
 
   return (
     <section className="relative w-full overflow-hidden">

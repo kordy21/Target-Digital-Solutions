@@ -3,22 +3,25 @@
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
-import { useParams } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const params = useParams();
 
   const toggleLocale = () => {
     const nextLocale = locale === "ar" ? "en" : "ar";
+    const url = pathname === "/" ? "" : pathname;
+    // Navigate using the next-intl router, preserving the search parameters
     router.replace(
-      // @ts-expect-error -- TypeScript struggles with the generic params typing in next-intl router
-      { pathname, params },
+      `${url}${window.location.search}`,
       { locale: nextLocale }
     );
+    
+    // Optional: force a refresh if you need to ensure clean RTL/LTR layout transitions 
+    // and avoid React 19 script tag errors (similar to what hard navigation did)
+    router.refresh();
   };
 
   return (

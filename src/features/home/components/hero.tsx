@@ -45,7 +45,7 @@ export function Hero() {
             fill
             sizes="100vw"
             className="object-cover object-center" 
-            priority={index === 0}
+            priority
           />
           
           {/* Content Overlay */}

@@ -5,28 +5,13 @@ import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { InteractiveParticles } from "@/components/shared/interactive-particles";
+import { getProcessSteps } from "../data/about-data";
 
 export function ProcessSection() {
   const t = useTranslations("aboutPage.process");
 
   // We'll hardcode 3 steps and use state to handle the carousel
-  const steps = [
-    {
-      id: 1,
-      title: t("steps.step1.title"),
-      text: t("steps.step1.description"),
-    },
-    {
-      id: 2,
-      title: t("steps.step2.title"),
-      text: t("steps.step2.description"),
-    },
-    {
-      id: 3,
-      title: t("steps.step3.title"),
-      text: t("steps.step3.description"),
-    },
-  ];
+  const steps = getProcessSteps(t);
 
   const [currentStep, setCurrentStep] = useState(0);
 

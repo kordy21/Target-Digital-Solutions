@@ -26,6 +26,7 @@ class Particle {
   friction: number;
   ease: number;
   angle: number; // Random rotation
+  influence: number; // How "pulled" toward the shape target this particle currently is (0-1)
 
   constructor(x: number, y: number, tx: number, ty: number) {
     this.x = x;
@@ -40,6 +41,7 @@ class Particle {
     this.friction = Math.random() * 0.04 + 0.92;
     this.ease = Math.random() * 0.05 + 0.05;
     this.angle = Math.random() * Math.PI * 2;
+    this.influence = 0;
   }
 }
 
@@ -62,15 +64,15 @@ export function InteractiveParticles({
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    
+
     // Defer the initial check to avoid synchronous setState warning
     const timer = setTimeout(() => {
       setPrefersReducedMotion(mediaQuery.matches);
     }, 0);
-    
+
     const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener("change", handleMotionChange);
-    
+
     return () => {
       clearTimeout(timer);
       mediaQuery.removeEventListener("change", handleMotionChange);
@@ -101,9 +103,9 @@ export function InteractiveParticles({
 
     let tintedLogoCanvas: HTMLCanvasElement | null = null;
     let logoLoaded = false;
-    
+
     const logoImg = new window.Image();
-    
+
     const setupTintedCanvas = () => {
       const tCanvas = document.createElement("canvas");
       tCanvas.width = 48;
@@ -123,7 +125,7 @@ export function InteractiveParticles({
     logoImg.onload = setupTintedCanvas;
     // Next.js static imports usually have .src for URLs
     logoImg.src = typeof LogoSvg === "string" ? LogoSvg : (LogoSvg as { src: string }).src;
-    
+
     if (logoImg.complete && logoImg.naturalWidth !== 0) {
       setupTintedCanvas();
     }
@@ -135,7 +137,7 @@ export function InteractiveParticles({
       if (width === 0 || height === 0) return;
       canvas.width = width;
       canvas.height = height;
-      
+
       const targetPoints = getShapePoints(text, width, height);
       particles = [];
 
@@ -149,7 +151,7 @@ export function InteractiveParticles({
       for (let i = 0; i < count; i++) {
         const point = targetPoints[i];
         if (!point) continue;
-        
+
         // Random scatter position
         const rx = Math.random() * width;
         const ry = Math.random() * height;
@@ -174,7 +176,7 @@ export function InteractiveParticles({
       const offCanvas = document.createElement("canvas");
       const offCtx = offCanvas.getContext("2d", { willReadFrequently: true });
       if (!offCtx) return [];
-      
+
       offCanvas.width = w;
       offCanvas.height = h;
 
@@ -206,7 +208,7 @@ export function InteractiveParticles({
         const j = Math.floor(Math.random() * (i + 1));
         [points[i], points[j]] = [points[j], points[i]];
       }
-      
+
       return points;
     };
 
@@ -231,21 +233,26 @@ export function InteractiveParticles({
         const radiusSq = interactionRadius * interactionRadius;
 
         if (mode === "scatter-to-shape") {
-          // A: If mouse is close, move to target shape (tx, ty), else idle scatter (ox, oy)
-          let targetX = p.ox;
-          let targetY = p.oy;
-          
-          if (isMouseActive && distSq < radiusSq) {
-            // Mouse is near, lerp to shape
-            targetX = p.tx;
-            targetY = p.ty;
+          // Idle target: scatter origin + gentle ambient drift
+          const idleX = p.ox + Math.sin(Date.now() * 0.001 + p.tx) * 10;
+          const idleY = p.oy + Math.cos(Date.now() * 0.001 + p.ty) * 10;
+
+          // Instead of a hard on/off switch (which flickers whenever a
+          // particle sits near the radius boundary while the mouse is
+          // stationary), compute a smooth 0->1 influence based on distance.
+          let targetInfluence = 0;
+          if (isMouseActive) {
+            const dist = Math.sqrt(distSq);
+            targetInfluence = dist < interactionRadius ? 1 - dist / interactionRadius : 0;
           }
 
-          // Gentle idle drift if not active
-          if (!isMouseActive || distSq >= radiusSq) {
-            targetX += Math.sin(Date.now() * 0.001 + p.tx) * 10;
-            targetY += Math.cos(Date.now() * 0.001 + p.ty) * 10;
-          }
+          // Ease the influence itself so it can't snap or oscillate near
+          // the boundary — this is what removes the jitter/stutter when
+          // the cursor stops moving inside the particle area.
+          p.influence += (targetInfluence - p.influence) * 0.08;
+
+          const targetX = idleX + (p.tx - idleX) * p.influence;
+          const targetY = idleY + (p.ty - idleY) * p.influence;
 
           p.x += (targetX - p.x) * p.ease;
           p.y += (targetY - p.y) * p.ease;
@@ -256,7 +263,7 @@ export function InteractiveParticles({
             const dist = Math.sqrt(distSq);
             const force = (interactionRadius - dist) / interactionRadius;
             const angle = Math.atan2(dy, dx);
-            
+
             p.vx -= Math.cos(angle) * force * 2;
             p.vy -= Math.sin(angle) * force * 2;
           }
@@ -276,11 +283,11 @@ export function InteractiveParticles({
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.angle);
-        
+
         // Increased scale to make particles bigger
-        const scale = p.size / 10; 
+        const scale = p.size / 10;
         ctx.scale(scale, scale);
-        
+
         if (tintedLogoCanvas && logoLoaded) {
           ctx.drawImage(tintedLogoCanvas, -24, -36);
         } else {
@@ -290,7 +297,7 @@ export function InteractiveParticles({
           ctx.fillStyle = resolvedColor || particleColor;
           ctx.fill();
         }
-        
+
         ctx.restore();
       });
 
@@ -329,7 +336,7 @@ export function InteractiveParticles({
         active: true,
       };
     };
-    
+
     const handleMouseLeave = () => {
       mouseRef.current.active = false;
     };
