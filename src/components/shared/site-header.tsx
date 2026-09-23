@@ -11,8 +11,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { ChevronDown, X } from "lucide-react";
+import { ChevronDown, X, Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState } from "react";
 import { LanguageSwitcher } from "./language-switcher";
@@ -22,6 +23,7 @@ export function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -36,8 +38,7 @@ export function SiteHeader() {
         )}
       >
         <header className="w-full flex items-center">
-          {/* Logo & Mobile Menu (Flex 1, Start) */}
-          <div className="flex-1 flex items-center justify-start gap-4">
+          <div className="flex items-center justify-between lg:justify-start w-full gap-4 lg:flex-1">
             {/* Desktop Menu Icon to match screenshot */}
             <Button 
               variant="ghost" 
@@ -45,7 +46,7 @@ export function SiteHeader() {
               className="bg-transparent hover:bg-transparent px-0 hidden lg:flex" 
               onClick={() => setIsMobileMenuOpen(true)}
             >
-              <Image src={MenuImg} alt="Menu" className="w-8 h-8 object-contain dark:invert" />
+              <Image src={MenuImg} alt="Menu" className="w-8 h-8 object-contain dark:invert ltr:-scale-x-100" />
             </Button>
 
             <div className="h-20 flex items-center justify-center">
@@ -54,16 +55,22 @@ export function SiteHeader() {
               </Link>
             </div>
             
-            {/* Mobile Controls (Lang + Menu) */}
-            <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Controls (Theme + Lang + Menu) */}
+            <div className="flex lg:hidden items-center gap-1">
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-secondary/50 hover:bg-secondary text-foreground transition-colors mr-2"
+              >
+                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
               <LanguageSwitcher />
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="bg-transparent hover:bg-transparent px-0" 
+                className="bg-transparent hover:bg-transparent px-0 ml-1" 
                 onClick={() => setIsMobileMenuOpen(true)}
               >
-                <Image src={MenuImg} alt="Menu" className="w-8 h-8 object-contain dark:invert" />
+                <Image src={MenuImg} alt="Menu" className="w-7 h-7 object-contain dark:invert rtl:-scale-x-100" />
               </Button>
             </div>
           </div>
@@ -109,13 +116,13 @@ export function SiteHeader() {
 
           {/* Desktop CTA Button (Flex 1, End) */}
           <div className="flex-1 flex justify-end items-center">
-            <SlideIn direction="left" delay={0.4} className="hidden lg:flex items-center">
+            <div className="hidden lg:flex items-center">
               <MagneticWrapper>
                 <Button className="rounded-2xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo px-8 h-12 font-bold">
                   {t("customer_area")}
                 </Button>
               </MagneticWrapper>
-            </SlideIn>
+            </div>
           </div>
         </header>
       </motion.div>
@@ -136,37 +143,43 @@ export function SiteHeader() {
             </Button>
           </div>
           
-          <div className="flex flex-col gap-6 p-8 overflow-y-auto">
-            <nav className="flex flex-col gap-6">
-              <NavLink href="/about" onClick={() => setIsMobileMenuOpen(false)}>{t("about")}</NavLink>
-              <NavLink href="/services" onClick={() => setIsMobileMenuOpen(false)}>{t("services")}</NavLink>
-              <NavDropdown label={t("solutions")} onClick={() => setIsMobileMenuOpen(false)} />
-              <NavDropdown label={t("systems")} onClick={() => setIsMobileMenuOpen(false)} />
-              <NavLink href="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>{t("portfolio")}</NavLink>
-              <NavLink href="/clients" onClick={() => setIsMobileMenuOpen(false)}>{t("clients")}</NavLink>
-              <NavLink href="/info" onClick={() => setIsMobileMenuOpen(false)}>{t("info")}</NavLink>
-              <NavLink href="/faq" onClick={() => setIsMobileMenuOpen(false)}>{t("faq")}</NavLink>
-              
-              {/* Customer Area Button Inside Nav (Mobile) */}
-              <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo h-12 mt-4">
-                {t("customer_area")}
-              </Button>
-            </nav>
+            <StaggerContainer delayChildren={0.1} staggerChildren={0.05} className="flex flex-col gap-6 p-8 overflow-y-auto">
+              <nav className="flex flex-col gap-6">
+                <StaggerItem><NavLink href="/about" onClick={() => setIsMobileMenuOpen(false)}>{t("about")}</NavLink></StaggerItem>
+                <StaggerItem><NavLink href="/services" onClick={() => setIsMobileMenuOpen(false)}>{t("services")}</NavLink></StaggerItem>
+                <StaggerItem><NavDropdown label={t("solutions")} onClick={() => setIsMobileMenuOpen(false)} /></StaggerItem>
+                <StaggerItem><NavDropdown label={t("systems")} onClick={() => setIsMobileMenuOpen(false)} /></StaggerItem>
+                <StaggerItem><NavLink href="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>{t("portfolio")}</NavLink></StaggerItem>
+                <StaggerItem><NavLink href="/clients" onClick={() => setIsMobileMenuOpen(false)}>{t("clients")}</NavLink></StaggerItem>
+                <StaggerItem><NavLink href="/info" onClick={() => setIsMobileMenuOpen(false)}>{t("info")}</NavLink></StaggerItem>
+                <StaggerItem><NavLink href="/faq" onClick={() => setIsMobileMenuOpen(false)}>{t("faq")}</NavLink></StaggerItem>
+                
+                {/* Customer Area Button Inside Nav (Mobile) */}
+                <StaggerItem>
+                  <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo h-12 mt-4">
+                    {t("customer_area")}
+                  </Button>
+                </StaggerItem>
+              </nav>
 
-            <div className="w-full h-px bg-border my-2"></div>
+              <StaggerItem>
+                <div className="w-full h-px bg-border my-2"></div>
+              </StaggerItem>
 
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
-                <Image src={PhoneImg} alt="Phone" className="w-5 h-5 object-contain" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
-                <Image src={WhatsappImg} alt="Whatsapp" className="w-5 h-5 object-contain" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
-                <Image src={MessengerImg} alt="Messenger" className="w-5 h-5 object-contain" />
-              </div>
-            </div>
-          </div>
+              <StaggerItem>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
+                    <Image src={PhoneImg} alt="Phone" className="w-5 h-5 object-contain" />
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
+                    <Image src={WhatsappImg} alt="Whatsapp" className="w-5 h-5 object-contain" />
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
+                    <Image src={MessengerImg} alt="Messenger" className="w-5 h-5 object-contain" />
+                  </div>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
         </div>
       )}
     </>

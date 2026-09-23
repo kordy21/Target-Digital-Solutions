@@ -7,7 +7,7 @@ import Image, { StaticImageData } from "next/image";
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { FadeIn } from "@/components/shared/animations";
+import { FadeIn, ZoomIn, ScaleIn } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import Bubbles from "@/assets/bubbles.png";
 import Part1 from "@/assets/part1.png";
@@ -90,20 +90,35 @@ export function AboutPreview() {
                   key={index} 
                   className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 flex flex-col gap-12 items-center px-4"
                 >
-                  {group.map((imgSrc, imgIndex) => (
-                    <motion.div 
-                      key={imgIndex} 
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      className="w-full flex items-center justify-center h-10 md:h-16 cursor-grab active:cursor-grabbing"
-                    >
-                      <Image 
-                        src={imgSrc} 
-                        alt={`Partner ${index * 2 + imgIndex + 1}`} 
-                        className="max-w-full max-h-full object-contain"
-                      />
-                    </motion.div>
-                  ))}
+                  {group.map((imgSrc, imgIndex) => {
+                    const isEven = imgIndex % 2 === 0;
+                    return (
+                      <motion.div 
+                        key={imgIndex} 
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className="w-full flex items-center justify-center h-10 md:h-16 cursor-grab active:cursor-grabbing"
+                      >
+                        {isEven ? (
+                          <ZoomIn delay={(index * 2 + imgIndex) * 0.1}>
+                            <Image 
+                              src={imgSrc} 
+                              alt={`Partner ${index * 2 + imgIndex + 1}`} 
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </ZoomIn>
+                        ) : (
+                          <ScaleIn delay={(index * 2 + imgIndex) * 0.1}>
+                            <Image 
+                              src={imgSrc} 
+                              alt={`Partner ${index * 2 + imgIndex + 1}`} 
+                              className="max-w-full max-h-full object-contain"
+                            />
+                          </ScaleIn>
+                        )}
+                      </motion.div>
+                    );
+                  })}
                 </div>
               ))}
             </div>

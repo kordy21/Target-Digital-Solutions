@@ -43,21 +43,21 @@ export function Hero() {
             src={slide.image} 
             alt={`Slide ${slide.id + 1}`}
             fill
-            className="object-cover object-left" 
+            className="object-cover object-left ltr:-scale-x-100" 
             priority
           />
           
           {/* Content Overlay */}
           <div className="absolute inset-0 w-full px-6 md:px-20 flex flex-col justify-center pb-20">
-            {/* Text & CTA (Visually Right in RTL) */}
-            <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-start lg:ml-auto">
+            {/* Text & CTA (Visually Right in RTL, Left in LTR) */}
+            <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-start rtl:lg:ml-auto">
               <h1 className="text-[40px] md:text-[60px] lg:text-[70px] font-cairo font-extrabold text-white leading-[1.2] drop-shadow-lg">
                 <SplitTextReveal text={t(slide.titleKey as Parameters<typeof t>[0])} />
               </h1>
               <FadeIn delay={0.4} direction="up">
                 <p className="text-[18px] md:text-[24px] font-cairo text-white/90 leading-relaxed mb-4 flex items-center justify-center lg:justify-start gap-3">
+                  <Image src={Herologo} alt="Target Logo" className="hidden md:block w-8 h-8 md:w-10 md:h-10 object-contain shrink-0 brightness-0 invert" />
                   {t(slide.subtitleKey as Parameters<typeof t>[0])} 
-                  <Image src={Herologo} alt="Target Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain shrink-0 brightness-0 invert" />
                 </p>
                 
                 {/* Buttons */}
@@ -97,7 +97,7 @@ export function Hero() {
       </motion.div>
 
       {/* Carousel Dots */}
-      <div className="absolute bottom-14 left-16 z-30 flex items-center gap-6 bg-white/10 dark:bg-black/20 backdrop-blur-md px-8 py-2 rounded-full shadow-lg">
+      <div className="absolute bottom-14 rtl:left-6 rtl:md:left-16 ltr:right-6 ltr:md:right-16 z-30 flex items-center gap-6 bg-white/10 dark:bg-black/20 backdrop-blur-md px-8 py-2 rounded-full shadow-lg">
         <span className="text-white font-cairo text-lg font-bold">
           {currentSlide + 1}
         </span>
@@ -108,7 +108,6 @@ export function Hero() {
           {slidesData.length}
         </span>
       </div>
-
       <FloatingThemeToggle />
     </section>
   );

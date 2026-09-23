@@ -56,7 +56,7 @@ export function ServicesSection() {
       <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
         
         {/* Header Section */}
-        <FadeIn direction="up" className="flex flex-col items-center w-full">
+        <FadeIn direction="up" className="flex flex-col items-center w-full mb-6">
           <span className="text-primary font-cairo text-lg md:text-[22px] font-bold mb-2 block">
             {t("eyebrow")}
           </span>
@@ -69,7 +69,7 @@ export function ServicesSection() {
         <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-24">
           
           {/* Tabs Section (Visual Right in RTL, Visual Left in LTR) - ordered first in DOM so it shows up appropriately depending on dir */}
-          <div className="w-full lg:w-1/3 relative flex items-center">
+          <div className="w-full lg:w-1/3 relative flex">
             {/* Left Arrow (Mobile Only) */}
             <button 
               onClick={() => scrollTabs(-200)}
@@ -82,12 +82,10 @@ export function ServicesSection() {
               ref={scrollContainerRef}
               className="w-full overflow-x-auto lg:overflow-visible pb-0 snap-x scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar:none]"
             >
-              <StaggerContainer 
-                className="grid grid-rows-2 grid-flow-col auto-cols-max lg:flex lg:flex-col gap-3 lg:gap-6 w-max lg:w-full px-6 lg:px-0" 
-                staggerChildren={0.05}
-              >
-                {TABS.map((tab) => (
-                  <StaggerItem key={tab} className="shrink-0 snap-start">
+              <div className="grid grid-rows-2 grid-flow-col auto-cols-max lg:flex lg:flex-col gap-3 lg:gap-6 w-max lg:w-full px-6 lg:px-0"> 
+                {TABS.map((tab, index) => {
+                  const animationType = index % 3;
+                  const content = (
                     <button
                       onClick={() => setActiveTab(tab)}
                       className={cn(
@@ -99,9 +97,23 @@ export function ServicesSection() {
                     >
                       {t(`tabs.${tab}`)}
                     </button>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
+                  );
+
+                  return animationType === 0 ? (
+                    <ZoomIn key={tab} className="shrink-0 snap-start" delay={index * 0.1}>
+                      {content}
+                    </ZoomIn>
+                  ) : animationType === 1 ? (
+                    <SlideIn direction="up" key={tab} className="shrink-0 snap-start" delay={index * 0.1}>
+                      {content}
+                    </SlideIn>
+                  ) : (
+                    <FadeIn direction="none" key={tab} className="shrink-0 snap-start" delay={index * 0.1}>
+                      {content}
+                    </FadeIn>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Right Arrow (Mobile Only) */}
