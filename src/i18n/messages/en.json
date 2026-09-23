@@ -166,10 +166,22 @@
         "label": "Customer Satisfaction"
       },
       "items": {
-        "clients": { "value": "850+", "label": "Satisfied clients" },
-        "projects": { "value": "1200+", "label": "Websites & Apps" },
-        "team": { "value": "150+", "label": "Creative Programmers" },
-        "data": { "value": "6TB+", "label": "Daily Data" }
+        "clients": {
+          "value": "850+",
+          "label": "Satisfied clients"
+        },
+        "projects": {
+          "value": "1200+",
+          "label": "Websites & Apps"
+        },
+        "team": {
+          "value": "150+",
+          "label": "Creative Programmers"
+        },
+        "data": {
+          "value": "6TB+",
+          "label": "Daily Data"
+        }
       }
     },
     "features": {
@@ -282,15 +294,23 @@
       "items": {
         "item3": {
           "title": "The latest digital design trends in 2024",
-          "tags": ["Design", "Marketing"]
+          "tags": [
+            "Design",
+            "Marketing"
+          ]
         },
         "item2": {
           "title": "The importance of SEO for website success",
-          "tags": ["Web"]
+          "tags": [
+            "Web"
+          ]
         },
         "item1": {
           "title": "The role of AI in developing modern websites",
-          "tags": ["Web", "UI UX"]
+          "tags": [
+            "Web",
+            "UI UX"
+          ]
         }
       }
     },
@@ -335,5 +355,66 @@
     "email1": "Web@TARGET-GROUP.ORG",
     "email2": "Careers@TARGET-GROUP.ORG",
     "copyright": "©{year} Target . All rights reserved"
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Target Digital Solutions Services",
+      "subtitle": "We provide comprehensive and innovative solutions tailored to meet your needs, with a focus on quality and efficiency."
+    },
+    "learnMore": "Learn More",
+    "s1": {
+      "title": "1- Websites and Apps Design & Development",
+      "desc1": "We provide website and application design, development, and management services to help your business stand out in today's highly competitive internet market.",
+      "desc2": "Our talented team of developers and UI/UX designers work closely with you to design a website that reflects your brand's unique identity and meets your individual needs.",
+      "c1_title": "UI Design",
+      "c1_desc": "Innovative interface design solutions to achieve optimal user experience.",
+      "c2_title": "Web Development",
+      "c2_desc": "Comprehensive web development keeping pace with the latest digital technologies and innovations."
+    },
+    "s2": {
+      "title": "2- Servers and Domains Hosting & Management",
+      "desc1": "We offer website design and development services with specialized expertise aimed at creating innovative and effective digital platforms. Additionally, we provide comprehensive hosting solutions and professional server and domain management, ensuring website stability and high performance.",
+      "desc2": "Our services are tailored to meet the needs of our clients, helping them achieve a strong digital presence that reflects their identity and achieves their goals.",
+      "c1_title": "Host Your Website",
+      "c1_desc": "Comprehensive web development keeping pace with the latest digital technologies and innovations.",
+      "c2_title": "Server Management",
+      "c2_desc": "Reliable server management with high performance and integrated security."
+    },
+    "s3": {
+      "title": "3- Programming Language Development",
+      "desc1": "We offer website design, development, and management services using the latest programming languages and advanced technologies to ensure an outstanding digital experience.",
+      "desc2": "We focus on developing innovative and effective solutions that support your business aspirations, ensuring high performance and compliance with global standards.",
+      "c1_title": "WordPress Development",
+      "c1_desc": "Innovative interface design solutions to achieve optimal user experience.",
+      "c2_title": "Custom Development",
+      "c2_desc": "Comprehensive web development keeping pace with the latest digital technologies and innovations."
+    },
+    "s4": {
+      "title": "4- Digital Solutions",
+      "desc1": "We provide website and application design, development, and management services to meet all your digital needs, focusing on creativity, efficiency, and innovation.",
+      "desc2": "We work on transforming your ideas into comprehensive digital solutions that enhance your digital presence and drive your business towards success in a fast-paced tech world, ensuring a seamless user experience and high-quality performance.",
+      "c1_title": "Content Creation",
+      "c1_desc": "We create content that inspires your audience and enhances your brand identity.",
+      "c2_title": "SEO",
+      "c2_desc": "We improve your website's visibility to top search engine results."
+    },
+    "s5": {
+      "title": "5- Corporate & E-Commerce Solutions",
+      "desc1": "We provide innovative solutions that meet the needs of e-commerce and corporate businesses, from website design to developing distinct user interfaces.",
+      "desc2": "We focus on improving performance and highlighting your brand using the latest technologies and strategies. Whether you are seeking an integrated e-commerce platform or a website that reflects your corporate identity, we are here to support you.",
+      "c1_title": "E-Commerce",
+      "c1_desc": "Innovative interface design solutions to achieve optimal user experience.",
+      "c2_title": "Corporate",
+      "c2_desc": "Comprehensive web development keeping pace with the latest digital technologies and innovations."
+    },
+    "s6": {
+      "title": "6- Real Estate & Educational Systems",
+      "desc1": "We offer integrated systems to meet your diverse needs, including ERP systems for efficient operations management, innovative educational solutions to develop learning, and advanced real estate systems that facilitate property project management.",
+      "desc2": "With our advanced technologies, we ensure the delivery of customized solutions suited for various sectors.",
+      "c1_title": "Educational",
+      "c1_desc": "Innovative educational systems to develop online learning and interactive experiences.",
+      "c2_title": "Real Estate",
+      "c2_desc": "Advanced real estate systems to easily manage, sell, and rent properties."
+    }
   }
 }

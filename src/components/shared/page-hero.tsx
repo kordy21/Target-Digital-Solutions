@@ -12,7 +12,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, subtitle, image }: PageHeroProps) {
   return (
-    <section className="relative w-full min-h-[40vh] md:min-h-[80vh] flex items-center justify-start overflow-hidden mt-24">
+    <section className="relative w-full min-h-[60vh] md:min-h-[80vh] flex items-center justify-start overflow-hidden mt-6">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -29,7 +29,7 @@ export function PageHero({ title, subtitle, image }: PageHeroProps) {
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center">
-        <div className="max-w-2xl text-white">
+        <div className="max-w-2xl text-white pt-12">
           <h1 className="text-[36px] md:text-[56px] font-cairo font-extrabold mb-4 leading-[1.2]">
             <SplitTextReveal text={title} />
           </h1>

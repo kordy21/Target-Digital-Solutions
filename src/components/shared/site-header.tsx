@@ -44,7 +44,7 @@ export function SiteHeader() {
           <div className="hidden lg:flex items-center bg-accent rounded-xl px-4 py-2 gap-6">
             <nav className="flex items-center gap-5 pr-2">
               <NavLink href="/about">{t("about")}</NavLink>
-              <NavDropdown label={t("services")} />
+              <NavLink href="/services">{t("services")}</NavLink>
               <NavDropdown label={t("solutions")} />
               <NavDropdown label={t("systems")} />
               <NavDropdown label={t("portfolio")} />
@@ -112,7 +112,7 @@ export function SiteHeader() {
           <div className="flex flex-col gap-6 p-8 overflow-y-auto">
             <nav className="flex flex-col gap-6">
               <NavLink href="/about" onClick={() => setIsMobileMenuOpen(false)}>{t("about")}</NavLink>
-              <NavDropdown label={t("services")} onClick={() => setIsMobileMenuOpen(false)} />
+              <NavLink href="/services" onClick={() => setIsMobileMenuOpen(false)}>{t("services")}</NavLink>
               <NavDropdown label={t("solutions")} onClick={() => setIsMobileMenuOpen(false)} />
               <NavDropdown label={t("systems")} onClick={() => setIsMobileMenuOpen(false)} />
               <NavDropdown label={t("portfolio")} onClick={() => setIsMobileMenuOpen(false)} />
