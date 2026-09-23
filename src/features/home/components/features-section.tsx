@@ -44,14 +44,14 @@ export function FeaturesSection() {
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
-          <h2 className="text-[28px] md:text-[36px] font-cairo font-extrabold text-foreground leading-[1.4]">
+          <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.4]">
             <SplitTextReveal text={t("title")} />
           </h2>
         </FadeIn>
 
         {/* Features Grid */}
         <div className="w-full lg:w-2/3">
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8">
             {features.map((feature) => (
               <StaggerItem key={feature.id}>
                 <div className="flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:bg-white/5 group border border-transparent hover:border-border cursor-default">

@@ -88,7 +88,7 @@ export function ValuesSection() {
                     direction={isEven ? "right" : "left"} 
                     className="w-full flex flex-col text-center lg:text-start px-6"
                   >
-                    <h3 className="text-[28px] md:text-[36px] font-cairo font-bold text-foreground mb-4">
+                    <h3 className="text-xl md:text-[40px] font-cairo font-bold text-foreground mb-4">
                       {item.title}
                     </h3>
                     <p className="text-[16px] md:text-[18px] font-cairo text-muted-foreground leading-[1.8]">

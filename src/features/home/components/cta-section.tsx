@@ -55,7 +55,7 @@ export function CtaSection() {
           </StaggerItem>
           
           <StaggerItem>
-            <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
+            <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
               <SplitTextReveal text={t("title")} />
             </h2>
           </StaggerItem>
@@ -80,7 +80,7 @@ export function CtaSection() {
         <div className="relative z-10 w-full lg:w-1/2 flex items-end justify-center pt-10 px-10 order-1 lg:order-0 bg-[#f8f9fc]/50 dark:bg-transparent lg:bg-transparent">
           <motion.div 
             animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="relative w-full max-w-100 aspect-square"
           >
             <Image 

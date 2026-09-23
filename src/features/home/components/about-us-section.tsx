@@ -50,7 +50,7 @@ export function AboutUsSection() {
           </StaggerItem>
           
           <StaggerItem>
-            <h2 className="text-[32px] md:text-[45px] lg:text-[55px] font-cairo font-extrabold text-foreground leading-[1.2] mb-8">
+            <h2 className="text-2xl md:text-[45px] lg:text-[55px] font-cairo font-extrabold text-foreground leading-[1.2] mb-8">
               <SplitTextReveal text={t("title")} />
             </h2>
           </StaggerItem>

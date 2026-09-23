@@ -45,7 +45,7 @@ export function ToolsSection() {
           </StaggerItem>
           
           <StaggerItem>
-            <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-12">
+            <h2 className="text-2xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-12">
               {t("title")}
             </h2>
           </StaggerItem>
@@ -57,17 +57,17 @@ export function ToolsSection() {
               </span>
             </StaggerItem>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12 w-full">
+            <div className="grid grid-cols-4 md:flex md:flex-wrap justify-center lg:justify-start gap-4 md:gap-12 w-full">
               {tools.map((tool) => (
-                <StaggerItem key={tool.id} className="flex flex-col items-center gap-4">
-                  <div className="w-16 h-16 flex items-center justify-center">
+                <StaggerItem key={tool.id} className="flex flex-col items-center gap-2 md:gap-4 text-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
                     <Image 
                       src={tool.image} 
                       alt={t(`items.${tool.id}`)} 
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="font-cairo font-semibold text-foreground">
+                  <span className="font-cairo font-semibold text-foreground text-[10px] md:text-base leading-tight">
                     {t(`items.${tool.id}`)}
                   </span>
                 </StaggerItem>
@@ -82,7 +82,7 @@ export function ToolsSection() {
           <Image 
             src={ToolsImg} 
             alt="Tools and Technologies Illustration" 
-            className="w-full max-w-md h-auto object-contain"
+            className="w-full max-w-70 md:max-w-md h-auto object-contain"
           />
         </FadeIn>
         

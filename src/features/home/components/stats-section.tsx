@@ -7,6 +7,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/anima
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import HandsImg from "@/assets/hands.png";
+import { motion } from "framer-motion";
 
 export function StatsSection() {
   const t = useTranslations("home.stats");
@@ -39,31 +40,39 @@ export function StatsSection() {
           </FadeIn>
 
           {/* Satisfaction Badge */}
-          <FadeIn direction="up" delay={0.5} className="absolute -bottom-12 -left-6 md:-left-12 lg:left-12 w-40 h-40 md:w-48 md:h-48 rounded-full bg-white dark:bg-zinc-900 shadow-xl flex flex-col items-center justify-center z-20 hover:scale-110 transition-transform duration-500 cursor-pointer">
-            {/* SVG Progress Ring */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" style={{ transform: 'rotate(-70deg)' }}>
-              {/* Background track */}
-              <circle cx="50" cy="50" r="38" fill="none" stroke="#cbd5e1" strokeWidth="16" />
-              {/* Progress track (97%) */}
-              <circle 
-                cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="16"
-                className="text-primary transition-all duration-1000 ease-out"
-                strokeDasharray="238.76"
-                strokeDashoffset={238.76 - (238.76 * 97) / 100}
-              />
-            </svg>
-            <div className="flex flex-col items-center justify-center relative z-10 pt-2">
-              <span className="font-cairo font-bold text-[32px] md:text-[40px] text-foreground leading-none mb-1 flex items-center justify-center gap-1" dir="ltr">
-                <Counter value={parseInt(t("satisfaction.value")) || 97} delay={0.6} />
-                <span className="text-primary">%</span>
-              </span>
-              <span className="font-cairo font-bold text-[15px] md:text-[18px] text-foreground text-center leading-tight">
-                {t("satisfaction.label")}
-              </span>
-            </div>
-            {/* The white pointer notch */}
-            <div className="absolute -top-3 right-8 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-zinc-900 rounded-md -z-10" style={{ transform: 'rotate(20deg)' }}></div>
-          </FadeIn>
+          <div className="absolute -bottom-12 -left-6 md:-left-12 lg:left-12 z-20">
+            <FadeIn direction="up" delay={0.5}>
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-white dark:bg-zinc-900 shadow-xl flex flex-col items-center justify-center hover:scale-110 transition-transform duration-500 cursor-pointer relative"
+              >
+                {/* SVG Progress Ring */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" style={{ transform: 'rotate(-70deg)' }}>
+                  {/* Background track */}
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="#cbd5e1" strokeWidth="16" />
+                  {/* Progress track (97%) */}
+                  <circle 
+                    cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="16"
+                    className="text-primary transition-all duration-1000 ease-out"
+                    strokeDasharray="238.76"
+                    strokeDashoffset={238.76 - (238.76 * 97) / 100}
+                  />
+                </svg>
+                <div className="flex flex-col items-center justify-center relative z-10 pt-1 max-w-[65%]">
+                  <span className="font-cairo font-bold text-[28px] md:text-[36px] text-foreground leading-none mb-1 flex items-center justify-center gap-1" dir="ltr">
+                    <Counter value={parseInt(t("satisfaction.value")) || 97} delay={0.6} />
+                    <span className="text-primary">%</span>
+                  </span>
+                  <span className="font-cairo font-bold text-[12px] md:text-[14px] text-foreground text-center leading-tight">
+                    {t("satisfaction.label")}
+                  </span>
+                </div>
+                {/* The white pointer notch */}
+                <div className="absolute -top-3 right-8 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-zinc-900 rounded-md -z-10" style={{ transform: 'rotate(20deg)' }}></div>
+              </motion.div>
+            </FadeIn>
+          </div>
         </div>
 
         {/* Right Side (Content) */}
@@ -76,7 +85,7 @@ export function StatsSection() {
           </FadeIn>
           
           <FadeIn direction="up" delay={0.2}>
-            <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
+            <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
               <SplitTextReveal text={t("title")} />
             </h2>
           </FadeIn>

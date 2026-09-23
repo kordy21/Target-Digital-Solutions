@@ -20,7 +20,7 @@ export default function Home() {
     <main className="w-full flex flex-col">
       <MouseFollower />
       <Hero />
-      <div className="flex flex-col gap-20 md:gap-12 py-20 md:py-32 overflow-hidden">
+      <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
         <AboutPreview />
         <AboutUsSection />
         <ServicesSection />

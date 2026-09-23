@@ -48,17 +48,17 @@ export function NewsSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="flex flex-col items-center text-center mb-16">
+        <FadeIn direction="up" className="flex flex-col items-center text-center mb-8">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
-          <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3]">
+          <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3]">
             <SplitTextReveal text={t("title")} />
           </h2>
         </FadeIn>
 
         {/* Cards Grid */}
-        <StaggerContainer className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <StaggerContainer className="w-full grid grid-cols-2 lg:grid-cols-3 gap-8">
           {newsItems.map((item) => (
             <StaggerItem key={item.id} className="flex flex-col items-center text-center group cursor-pointer">
               {/* Card Container */}

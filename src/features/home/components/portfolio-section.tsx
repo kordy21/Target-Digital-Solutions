@@ -56,7 +56,7 @@ export function PortfolioSection() {
           <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">
             {t("eyebrow")}
           </span>
-          <h2 className="text-[32px] md:text-[45px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
+          <h2 className="text-xl md:text-[45px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
             {t("title")}
           </h2>
         </FadeIn>

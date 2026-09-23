@@ -35,7 +35,7 @@ export function TeamSection() {
             <span className="text-primary font-cairo font-bold text-[14px] md:text-[16px] mb-4 block">
               {t("eyebrow")}
             </span>
-            <h2 className="text-foreground font-cairo font-bold text-[28px] md:text-[36px] max-w-2xl leading-[1.4]">
+            <h2 className="text-foreground font-cairo font-bold text-xl md:text-[40px] max-w-2xl leading-[1.4]">
               {t("title")}
             </h2>
           </FadeIn>

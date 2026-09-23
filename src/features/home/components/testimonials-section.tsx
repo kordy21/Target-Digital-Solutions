@@ -46,7 +46,7 @@ export function TestimonialsSection() {
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
-          <h2 className="text-[28px] md:text-[36px] font-cairo font-extrabold text-foreground leading-[1.4]">
+          <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.4]">
             {t("title")}
           </h2>
         </FadeIn>

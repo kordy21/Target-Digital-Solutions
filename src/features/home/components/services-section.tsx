@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { InteractiveParticles } from "@/components/shared/interactive-particles";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
@@ -13,13 +14,20 @@ import Serv3 from "@/assets/serv3.png";
 import Serv4 from "@/assets/serv4.png";
 import { cn } from "@/lib/utils";
 
-type TabKey = "web" | "hosting" | "programming" | "digital" | "solutions" | "systems";
+type TabKey = "web" | "programming" | "digital" | "solutions" | "systems" | "hosting";
 
-const TABS: TabKey[] = ["web", "hosting", "programming", "digital", "solutions", "systems"];
+const TABS: TabKey[] = ["web", "programming", "digital", "solutions", "systems" , "hosting"];
 
 export function ServicesSection() {
   const t = useTranslations("home.services");
   const [activeTab, setActiveTab] = useState<TabKey>("web");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollTabs = (amount: number) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: amount, behavior: "smooth" });
+    }
+  };
 
   // Since we only have images for the first tab, we'll reuse them for all tabs for now.
   const getCardsData = () => [
@@ -59,10 +67,10 @@ export function ServicesSection() {
         
         {/* Header Section */}
         <FadeIn direction="up" className="flex flex-col items-center w-full">
-          <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-2 block">
+          <span className="text-primary font-cairo text-lg md:text-[22px] font-bold mb-2 block">
             {t("eyebrow")}
           </span>
-          <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
+          <h2 className="text-2xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-8">
             <SplitTextReveal text={t("title")} />
           </h2>
         </FadeIn>
@@ -71,23 +79,49 @@ export function ServicesSection() {
         <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-24">
           
           {/* Tabs Section (Visual Right in RTL, Visual Left in LTR) - ordered first in DOM so it shows up appropriately depending on dir */}
-          <StaggerContainer className="w-full lg:w-1/3 flex flex-col gap-6" staggerChildren={0.05}>
-            {TABS.map((tab) => (
-              <StaggerItem key={tab}>
-                <button
-                  onClick={() => setActiveTab(tab)}
-                  className={cn(
-                    "text-start font-cairo text-[20px] md:text-[24px] transition-colors duration-200",
-                    activeTab === tab
-                      ? "text-primary font-bold"
-                      : "text-muted-foreground hover:text-foreground font-semibold"
-                  )}
-                >
-                  {t(`tabs.${tab}`)}
-                </button>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <div className="w-full lg:w-1/3 relative flex items-center">
+            {/* Left Arrow (Mobile Only) */}
+            <button 
+              onClick={() => scrollTabs(-200)}
+              className="cursor-pointer lg:hidden absolute -left-8 z-20 w-8 h-8 flex items-center justify-center text-foreground"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <div 
+              ref={scrollContainerRef}
+              className="w-full overflow-x-auto lg:overflow-visible pb-0 snap-x scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar:none]"
+            >
+              <StaggerContainer 
+                className="grid grid-rows-2 grid-flow-col auto-cols-max lg:flex lg:flex-col gap-3 lg:gap-6 w-max lg:w-full px-6 lg:px-0" 
+                staggerChildren={0.05}
+              >
+                {TABS.map((tab) => (
+                  <StaggerItem key={tab} className="shrink-0 snap-start">
+                    <button
+                      onClick={() => setActiveTab(tab)}
+                      className={cn(
+                        "text-start font-cairo text-[16px] lg:text-[24px] transition-all duration-300 whitespace-nowrap px-6 py-2.5 lg:px-0 lg:py-0 rounded-full lg:rounded-none",
+                        activeTab === tab
+                          ? "bg-primary text-primary-foreground lg:text-primary lg:bg-transparent font-bold shadow-md lg:shadow-none"
+                          : "bg-secondary text-muted-foreground lg:bg-transparent hover:text-foreground font-semibold hover:bg-secondary/80 lg:hover:bg-transparent"
+                      )}
+                    >
+                      {t(`tabs.${tab}`)}
+                    </button>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+
+            {/* Right Arrow (Mobile Only) */}
+            <button 
+              onClick={() => scrollTabs(200)}
+              className="cursor-pointer lg:hidden absolute -right-8 z-20 w-8 h-8 flex items-center justify-center text-foreground"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
 
           {/* Cards Grid Section */}
           <div className="w-full lg:w-2/3 flex flex-col items-center">
@@ -97,7 +131,7 @@ export function ServicesSection() {
                   <div 
                     className="bg-secondary rounded-[20px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl group cursor-default h-full"
                   >
-                    <div className="relative w-32 h-32 mb-6 transition-transform duration-500 group-hover:scale-110">
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 mb-6 transition-transform duration-500 group-hover:scale-110">
                       <Image
                         src={card.image}
                         alt={t(`cards.${card.id}.title`)}

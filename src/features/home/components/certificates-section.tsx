@@ -88,18 +88,18 @@ export function CertificatesSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="flex flex-col items-center text-center mb-16">
+        <FadeIn direction="up" className="flex flex-col items-center text-center mb-8">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
             {t("eyebrow")}
           </span>
-          <h2 className="text-[28px] md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3]">
+          <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3]">
             <SplitTextReveal text={t("title")} />
           </h2>
         </FadeIn>
 
         {/* Certificates Rows */}
         <div className="w-full relative py-8 max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
             {certificates.map((cert, index) => {
               const rowIndex = Math.floor(index / 5);
               const direction = rowIndex % 2 === 0 ? "right" : "left";
