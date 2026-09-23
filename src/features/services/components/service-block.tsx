@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
+import Bubbles from "@/assets/bubbles.png";
 
 interface ServiceCard {
   image: string | StaticImageData;
@@ -34,6 +35,27 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
   const isRTL = locale === "ar";
   const isEven = index % 2 === 0;
 
+  const bubble1Styles = [
+    "top-10 right-10 h-32 md:h-48",
+    "top-20 left-20 h-24 md:h-32 rotate-90",
+    "top-1/4 right-0 h-40 md:h-56 -rotate-90",
+    "top-10 left-1/3 h-32 md:h-48 rotate-180",
+    "top-1/3 right-10 h-24 md:h-32",
+    "top-0 left-10 h-40 md:h-64 rotate-90",
+  ];
+
+  const bubble2Styles = [
+    "bottom-10 left-10 h-40 md:h-64",
+    "bottom-20 right-20 h-32 md:h-48 rotate-180",
+    "bottom-1/4 left-0 h-24 md:h-40 rotate-90",
+    "bottom-10 right-1/3 h-40 md:h-56 -rotate-90",
+    "bottom-1/3 left-10 h-32 md:h-48 rotate-180",
+    "bottom-0 right-10 h-24 md:h-32",
+  ];
+
+  const currentBubble1 = bubble1Styles[index % bubble1Styles.length];
+  const currentBubble2 = bubble2Styles[index % bubble2Styles.length];
+
   return (
     <section className="relative w-full py-16 md:py-18 overflow-hidden">
       {/* Alternating Background with Particles */}
@@ -50,6 +72,29 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
           </div>
         </div>
       )}
+
+      {/* Decorative Animated Bubbles */}
+      <motion.div 
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className={cn(
+          "absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block",
+          currentBubble1
+        )}
+      >
+        <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
+      </motion.div>
+
+      <motion.div 
+        animate={{ y: [0, 30, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className={cn(
+          "absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block",
+          currentBubble2
+        )}
+      >
+        <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
+      </motion.div>
 
       <div className="w-full mx-auto px-6 md:px-12 relative z-10">
         <div className={cn(

@@ -45,7 +45,8 @@ export function PortfolioSection() {
       >
         <Image 
           src={Bubbles}
-          alt="Bubbles Decoration" 
+          alt="Bubbles Decoration"
+          style={{ width: 'auto', height: 'auto' }} 
           className="h-full w-auto object-cover" 
         />
       </motion.div>

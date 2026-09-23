@@ -41,7 +41,8 @@ export function NewsSection() {
       >
         <Image 
           src={Bubbles} 
-          alt="Bubbles Decoration" 
+          alt="Bubbles Decoration"
+          style={{ width: 'auto', height: 'auto' }} 
           className="h-full w-auto object-cover scale-x-[-1]" 
         />
       </motion.div>
