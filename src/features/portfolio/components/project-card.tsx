@@ -13,7 +13,9 @@ import { motion } from "framer-motion";
 
 export interface ProjectData {
   title: string;
+  description?: string;
   image: string | StaticImageData;
+  mockupImage?: string | StaticImageData;
   link: string;
   stats: {
     visits: { label: string; value: string; icon: string | StaticImageData };
@@ -22,6 +24,28 @@ export interface ProjectData {
     tech: { label: string; icons: (string | StaticImageData)[]; iconMain: string | StaticImageData };
     visitWebsite?: string;
   };
+  extendedStats?: {
+    launchYear: string;
+    rating: string;
+  };
+  bannerImage?: string | StaticImageData;
+  screensImage?: string | StaticImageData;
+  steps?: {
+    id: number;
+    description: string;
+    image: string | StaticImageData;
+  }[];
+  features?: {
+    id: number;
+    title: string;
+    image: string | StaticImageData;
+  }[];
+  tools?: {
+    id: number;
+    title: string;
+    image: string | StaticImageData;
+    bgColor?: string;
+  }[];
 }
 
 export function ProjectCard({ project, index }: { project: ProjectData, index: number }) {
@@ -173,15 +197,17 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
             {/* Visit Button */}
             <div className="mt-4">
               <MagneticWrapper>
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(project.link, '_blank');
+                  }}
                   className={buttonVariants({ variant: "outline", className: "h-12 px-8 flex rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-base font-bold gap-3" })}
                 >
                   <Link2 className="w-5 h-5" />
                   <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
-                </a>
+                </button>
               </MagneticWrapper>
             </div>
           </FadeIn>

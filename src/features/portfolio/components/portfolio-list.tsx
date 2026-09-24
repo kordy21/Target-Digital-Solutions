@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PortfolioFilter } from "./portfolio-filter";
 import { FadeIn } from "@/components/shared/animations";
 import { ProjectCard } from "./project-card";
+import { Link } from "@/i18n/routing";
 
 export function PortfolioList() {
   const t = useTranslations("portfolioPage");
@@ -32,7 +33,11 @@ export function PortfolioList() {
           
           {/* Map Projects */}
           {filteredProjects.map((project, index) => (
-            <FadeIn key={project.id} delay={index * 0.1}><ProjectCard project={project} index={index} /></FadeIn>
+            <FadeIn key={project.id} delay={index * 0.1}>
+              <Link href={`/portfolio/details`} className="block">
+                <ProjectCard project={project} index={index} />
+              </Link>
+            </FadeIn>
           ))}
 
           {/* Empty State */}

@@ -446,18 +446,74 @@
       "country": "Country",
       "platforms": "Platforms",
       "technologies": "Technologies",
-      "visitWebsite": "Visit Website"
+      "visitWebsite": "Visit Website",
+      "launchYear": "Launch Year",
+      "rating": "Rating",
+      "screensTitle": "Website Screens",
+      "screensSubtitle": "Displaying Website Interface Designs",
+      "stepsTitle": "What We Did",
+      "stepsSubtitle": "Discover the steps to success",
+      "steps": {
+        "1": "We began by analyzing client requirements, studying competitors, and the target market to determine the best design strategy.",
+        "2": "We developed a user flow map and site architecture to ensure easy navigation and access to repair and spare parts services.",
+        "3": "We designed attractive interfaces that align with the TRS identity, focusing on simplicity and ease of use.",
+        "4": "We used the WordPress platform to develop the site professionally and easily. After testing it for efficiency, we delivered it to the client ready for launch."
+      },
+      "featuresTitle": "What makes the site unique?",
+      "featuresSubtitle": "Discover your destination's features",
+      "toolsTitle": "Tools and Technologies",
+      "toolsSubtitle": "Discover how we achieved your success in front of the audience"
     },
     "projects": {
       "ters": {
         "title": "1- Ters",
         "country": "Saudi Arabia",
-        "platform": "Website Platform"
+        "platform": "Website Platform",
+        "description": "Welcome to Ters, your premier destination for exceptional car care in Riyadh. Founded in Al Munsiyah, we specialize in delivering high-quality services designed to enhance and protect your vehicle's appearance.",
+        "steps": {
+          "1": "We began by analyzing client requirements, studying competitors, and the target market to determine the best design strategy.",
+          "2": "We developed a user flow map and site architecture to ensure easy navigation and access to repair and spare parts services.",
+          "3": "We designed attractive interfaces that align with the TRS identity, focusing on simplicity and ease of use.",
+          "4": "We used the WordPress platform to develop the site professionally and easily. After testing it for efficiency, we delivered it to the client ready for launch."
+        },
+        "features": {
+          "1": "Fast communication with support team",
+          "2": "Works smoothly on all devices",
+          "3": "Ability to book service in simple steps",
+          "4": "Simple design and easy navigation"
+        },
+        "tools": {
+          "1": "Figma",
+          "2": "Photoshop",
+          "3": "Illustrator",
+          "4": "WordPress",
+          "5": "XD"
+        }
       },
       "lemonary": {
         "title": "2- Lemonary",
         "country": "Saudi Arabia",
-        "platform": "Website Platform"
+        "platform": "Website Platform",
+        "description": "Lemonary is a leading platform providing the best digital solutions, helping companies achieve their goals through innovative designs and exceptional user experiences.",
+        "steps": {
+          "1": "We began by analyzing client requirements, studying competitors, and the target market to determine the best design strategy.",
+          "2": "We developed a user flow map and site architecture to ensure easy navigation and access to repair and spare parts services.",
+          "3": "We designed attractive interfaces that align with the TRS identity, focusing on simplicity and ease of use.",
+          "4": "We used the WordPress platform to develop the site professionally and easily. After testing it for efficiency, we delivered it to the client ready for launch."
+        },
+        "features": {
+          "1": "Fast communication with support team",
+          "2": "Works smoothly on all devices",
+          "3": "Ability to book service in simple steps",
+          "4": "Simple design and easy navigation"
+        },
+        "tools": {
+          "1": "Figma",
+          "2": "Photoshop",
+          "3": "Illustrator",
+          "4": "WordPress",
+          "5": "XD"
+        }
       }
     }
   },
@@ -600,6 +656,12 @@
     "hero": {
       "title": "Solutions",
       "description": "We provide innovative solutions that meet the needs of e-commerce and businesses, from web design to developing exceptional user interfaces."
+    }
+  },
+  "projectPage": {
+    "hero": {
+      "title": "Target Digital Solutions Works",
+      "description": "Creative touches that come to life in every project, enhancing interaction and bringing success"
     }
   }
 }
