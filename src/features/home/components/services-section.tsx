@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { SectionHeading } from "@/components/shared/section-heading";
 
 import Serv1 from "@/assets/serv1.png";
 import Serv2 from "@/assets/serv2.png";
@@ -53,16 +53,14 @@ export function ServicesSection() {
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+      <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         
         {/* Header Section */}
-        <FadeIn direction="up" className="flex flex-col items-center w-full mb-6">
-          <span className="text-primary font-cairo text-lg md:text-[22px] font-bold mb-2 block">
-            {t("eyebrow")}
-          </span>
-          <h2 className="text-2xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-8">
-            <SplitTextReveal text={t("title")} />
-          </h2>
+        <FadeIn direction="up" className="w-full mb-12">
+          <SectionHeading 
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+          />
         </FadeIn>
 
         {/* Content Layout */}
@@ -89,9 +87,9 @@ export function ServicesSection() {
                     <button
                       onClick={() => setActiveTab(tab)}
                       className={cn(
-                        "text-start font-cairo text-[16px] lg:text-[24px] transition-all duration-300 whitespace-nowrap px-6 py-2.5 lg:px-0 lg:py-0 rounded-full lg:rounded-none",
+                        "text-start font-cairo text-base lg:text-2xl transition-all duration-300 whitespace-nowrap px-6 py-2.5 lg:px-0 lg:py-0 rounded-full lg:rounded-none",
                         activeTab === tab
-                          ? "bg-primary text-primary-foreground lg:text-primary lg:bg-transparent font-bold shadow-md lg:shadow-none"
+                          ? "bg-primary text-primary-foreground lg:text-primary lg:bg-transparent font-bold lg:shadow-none hover:shadow-md transition-shadow duration-300"
                           : "bg-secondary text-muted-foreground lg:bg-transparent hover:text-foreground font-semibold hover:bg-secondary/80 lg:hover:bg-transparent"
                       )}
                     >
@@ -131,7 +129,7 @@ export function ServicesSection() {
               {cards.map((card, index) => (
                 <StaggerItem key={card.id}>
                   <div 
-                    className="bg-secondary rounded-[20px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl group cursor-default h-full"
+                    className="bg-secondary rounded-[20px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-md group cursor-default h-full"
                   >
                     <ZoomIn delay={index * 0.1}>
                       <div className="relative w-24 h-24 md:w-32 md:h-32 mb-6 transition-transform duration-500 group-hover:scale-110">
@@ -145,12 +143,12 @@ export function ServicesSection() {
                       </div>
                     </ZoomIn>
                     <FadeIn delay={index * 0.1 + 0.1}>
-                      <h4 className="font-cairo font-bold text-[20px] text-foreground mb-3">
+                      <h4 className="font-cairo font-bold text-xl text-foreground mb-3">
                         {t(`cards.${card.id}.title`)}
                       </h4>
                     </FadeIn>
                     <SlideIn delay={index * 0.1 + 0.2} direction="up">
-                      <p className="font-cairo text-[14px] text-muted-foreground leading-[1.6]">
+                      <p className="font-cairo text-sm text-muted-foreground leading-relaxed">
                         {t(`cards.${card.id}.description`)}
                       </p>
                     </SlideIn>

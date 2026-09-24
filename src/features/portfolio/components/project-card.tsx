@@ -6,9 +6,9 @@ import Bubbles from "@/assets/bubbles.png";
 import { TiltCard } from "@/components/shared/animations/tilt-card";
 import { MagneticWrapper } from "@/components/shared/animations/magnetic-wrapper";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { Link2 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { Button } from "@/components/ui/button";
 
 export interface ProjectData {
   title: string;
@@ -72,7 +72,7 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
         <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
       </motion.div>
 
-      <div className="bg-background relative z-10 rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 mb-8 hover:shadow-lg transition-all duration-300">
+      <div className="bg-background relative z-10 rounded-3xl border border-border p-8 md:p-12 lg:p-16 mb-8 hover:shadow-md transition-all duration-300">
         <div className={cn(
           "flex flex-col gap-6 items-center w-full",
           isEven ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -102,7 +102,7 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
         {/* Content Side */}
         <div className="w-full lg:w-1/2 flex flex-col">
           <FadeIn direction={!isEven ? "right" : "left"} className="w-full flex flex-col">
-            <h2 className="text-2xl md:text-[32px] font-cairo font-bold text-foreground mb-8">
+            <h2 className="text-2xl md:text-3xl font-cairo font-bold text-foreground mb-8">
               {project.title}
             </h2>
 
@@ -115,10 +115,10 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                 </ZoomIn>
                 <div className="flex flex-col gap-2">
                   <FadeIn delay={index * 0.1 + 0.2}>
-                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.visits.label}</h3>
+                    <h3 className="text-xl font-cairo font-bold text-foreground">{project.stats.visits.label}</h3>
                   </FadeIn>
                   <SlideIn delay={index * 0.1 + 0.3} direction="up">
-                    <p className="text-primary font-cairo font-bold text-[18px]">{project.stats.visits.value}</p>
+                    <p className="text-primary font-cairo font-bold text-lg">{project.stats.visits.value}</p>
                   </SlideIn>
                 </div>
               </div>
@@ -130,10 +130,10 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                 </ZoomIn>
                 <div className="flex flex-col gap-2">
                   <FadeIn delay={index * 0.1 + 0.2}>
-                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.country.label}</h3>
+                    <h3 className="text-xl font-cairo font-bold text-foreground">{project.stats.country.label}</h3>
                   </FadeIn>
                   <SlideIn delay={index * 0.1 + 0.3} direction="up">
-                    <p className="text-primary font-cairo font-bold text-[18px]">{project.stats.country.value}</p>
+                    <p className="text-primary font-cairo font-bold text-lg">{project.stats.country.value}</p>
                   </SlideIn>
                 </div>
               </div>
@@ -145,10 +145,10 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                 </ZoomIn>
                 <div className="flex flex-col gap-2">
                   <FadeIn delay={index * 0.1 + 0.2}>
-                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.platform.label}</h3>
+                    <h3 className="text-xl font-cairo font-bold text-foreground">{project.stats.platform.label}</h3>
                   </FadeIn>
                   <SlideIn delay={index * 0.1 + 0.3} direction="up">
-                    <p className="text-primary font-cairo font-bold text-[16px]">{project.stats.platform.value}</p>
+                    <p className="text-primary font-cairo font-bold text-base">{project.stats.platform.value}</p>
                   </SlideIn>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                 <div className="flex gap-2">
                   <Image src={project.stats.tech.iconMain} alt="Tech" width={80} height={80} className="object-contain" />
                   <div className="flex flex-col gap-2">
-                    <h3 className="text-[20px] font-cairo font-bold text-foreground">{project.stats.tech.label}</h3>
+                    <h3 className="text-xl font-cairo font-bold text-foreground">{project.stats.tech.label}</h3>
                     <div className="flex items-center gap-2">
                       {project.stats.tech.icons.map((techIcon: string | StaticImageData, i: number) => (
                         <Image key={i} src={techIcon} alt="Tech Icon" width={20} height={20} className="object-contain" />
@@ -172,15 +172,16 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
             {/* Visit Button */}
             <div className="mt-4">
               <MagneticWrapper>
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-3 px-8 py-3 rounded-full border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-[16px] font-bold"
-                >
-                  <Link2 className="w-5 h-5" />
-                  <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
-                </a>
+                <Button variant="outline" asChild className="h-12 px-8 rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-base font-bold gap-3">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Link2 className="w-5 h-5" />
+                    <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
+                  </a>
+                </Button>
               </MagneticWrapper>
             </div>
           </FadeIn>

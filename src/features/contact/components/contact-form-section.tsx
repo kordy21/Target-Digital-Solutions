@@ -4,15 +4,19 @@ import { FadeIn } from "@/components/shared/animations";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import LionBg from "@/assets/lioncta.png";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { Button } from "@/components/ui/button";
 
 export function ContactFormSection() {
   const t = useTranslations("contactPage.form");
 
   return (
     <section className="w-full mx-auto px-6 md:px-20 py-16">
-      <div className="text-center mb-12 font-cairo">
-        <h4 className="text-primary font-bold text-lg mb-2">{t("eyebrow")}</h4>
-        <h2 className="text-foreground font-extrabold text-3xl md:text-4xl">{t("title")}</h2>
+      <div className="w-full mb-12">
+        <SectionHeading 
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+        />
       </div>
 
       <div className="flex flex-col md:flex-row-reverse gap-12 items-center justify-between">
@@ -61,12 +65,13 @@ export function ContactFormSection() {
                 className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm md:text-base focus:outline-none focus:border-primary transition-colors text-foreground placeholder:text-muted-foreground resize-none" 
               />
 
-              <button 
+              <Button 
                 type="submit" 
-                className="w-32 bg-transparent border border-foreground text-foreground hover:bg-foreground hover:text-background font-bold py-3 px-6 rounded-3xl transition-colors mt-2 flex items-center justify-center gap-2 self-start group"
+                variant="outline"
+                className="w-32 rounded-3xl mt-2 flex items-center justify-center gap-2 self-start group border-foreground text-foreground hover:bg-foreground hover:text-background h-12 text-base font-bold font-cairo"
               >
                 {t("submit")} <span className="rtl:rotate-180 inline-block transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">&rarr;</span>
-              </button>
+              </Button>
             </form>
           </FadeIn>
         </div>

@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { SectionHeading } from "@/components/shared/section-heading";
 
 import Logo from "@/assets/logo.svg";
 import { getTeamMembers } from "../data/about-data";
+import { MagneticButton } from "@/components/shared/magnetic-button";
 
 export function TeamSection() {
   const t = useTranslations("aboutPage.team");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
 
 
   const team = getTeamMembers(t);
@@ -20,16 +24,12 @@ export function TeamSection() {
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-16 flex flex-col items-center">
-          <FadeIn direction="up">
-            <span className="text-primary font-cairo font-bold text-[14px] md:text-[16px] mb-4 block">
-              {t("eyebrow")}
-            </span>
-            <h2 className="text-foreground font-cairo font-bold text-xl md:text-[40px] max-w-2xl leading-[1.4]">
-              {t("title")}
-            </h2>
-          </FadeIn>
-        </div>
+        <FadeIn direction="up" className="w-full mb-16">
+          <SectionHeading 
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+          />
+        </FadeIn>
 
         {/* Carousel / Grid Container */}
         <div className="relative w-full flex items-center justify-center">
@@ -48,7 +48,7 @@ export function TeamSection() {
                 delay={index * 0.1}
                 className="w-full"
               >
-                <div className="w-full bg-[#8EA3BD] dark:bg-muted rounded-[24px] overflow-hidden flex flex-col shadow-lg border border-border/10 group">
+                <div className="w-full bg-[#8EA3BD] dark:bg-muted rounded-[24px] overflow-hidden flex flex-col border border-border/10 group hover:shadow-md transition-shadow duration-300">
                   
                   {/* Top Image Area */}
                   <div className="relative w-full aspect-4/5 flex items-end justify-center pt-8 overflow-hidden">
@@ -80,10 +80,10 @@ export function TeamSection() {
 
                   {/* Bottom Text Area */}
                   <div className="w-full bg-background flex flex-col items-center justify-center p-6 md:py-8 z-20 border-t border-border/20">
-                    <h3 className="text-foreground font-cairo font-bold text-[20px] mb-2">
+                    <h3 className="text-foreground font-cairo font-bold text-xl mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-primary font-cairo text-[16px]">
+                    <p className="text-primary font-cairo text-base">
                       {member.role}
                     </p>
                   </div>
@@ -101,12 +101,15 @@ export function TeamSection() {
 
         {/* CTA Button */}
         <FadeIn direction="up" className="w-full flex justify-center mt-16">
-          <Button 
-            variant="outline" 
-            className="rounded-full px-8 h-12 font-cairo text-[16px] border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-          >
-            {t("cta")}
-          </Button>
+          <MagneticButton>
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+            >
+              <span>{t("cta")}</span>
+              {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+            </Button>
+          </MagneticButton>
         </FadeIn>
 
       </div>

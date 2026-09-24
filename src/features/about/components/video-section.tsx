@@ -14,7 +14,7 @@ export function VideoSection() {
     <section className="relative w-full overflow-hidden">
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         <FadeIn direction="up">
-          <div className="relative w-full aspect-video md:aspect-21/9 rounded-[24px] overflow-hidden group cursor-pointer shadow-xl">
+          <div className="relative w-full aspect-video md:aspect-21/9 rounded-[24px] overflow-hidden group cursor-pointer hover:shadow-md transition-shadow duration-300">
             {/* Background Image */}
             <Image 
               src={AboutVideo} 

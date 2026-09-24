@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { motion } from "framer-motion";
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { SectionHeading } from "@/components/shared/section-heading";
 
 import Bubbles from "@/assets/bubbles.png";
 
@@ -79,13 +79,11 @@ export function CertificatesSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="flex flex-col items-center text-center mb-8">
-          <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
-            {t("eyebrow")}
-          </span>
-          <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3]">
-            <SplitTextReveal text={t("title")} />
-          </h2>
+        <FadeIn direction="up" className="w-full mb-12">
+          <SectionHeading 
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+          />
         </FadeIn>
 
         {/* Certificates Rows */}
@@ -98,7 +96,7 @@ export function CertificatesSection() {
               return (
                 <FadeIn key={cert.id} direction={direction} delay={0.05 * (index % 5)} className="w-full h-full">
                   <div 
-                    className="bg-background text-card-foreground rounded-[24px] shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
+                    className="bg-background text-card-foreground rounded-[24px] hover:shadow-md transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
                   >
                     <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
                       <Image 

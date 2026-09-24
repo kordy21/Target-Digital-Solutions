@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import Bubbles from "@/assets/bubbles.png";
+import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/shared/magnetic-button";
 
 interface ServiceCard {
   image: string | StaticImageData;
@@ -83,7 +85,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
       </motion.div>
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-        <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+        <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
           <div className={cn(
             "flex flex-col gap-12 lg:gap-16 items-center w-full",
             !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -92,21 +94,23 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
           {/* Text Side */}
           <div className="w-full lg:w-1/2 flex flex-col text-start">
             <FadeIn direction={!isEven ? "right" : "left"}>
-              <h2 className="text-2xl md:text-[32px] font-cairo font-bold text-primary mb-6 leading-[1.4]">
+              <h2 className="text-2xl md:text-3xl font-cairo font-bold text-primary mb-6 leading-snug">
                 {service.title}
               </h2>
-              <p className="text-muted-foreground font-cairo text-[16px] md:text-[18px] leading-[1.8] mb-6">
+              <p className="text-muted-foreground font-cairo text-base md:text-lg leading-relaxed mb-6">
                 {service.desc1}
               </p>
-              <p className="text-muted-foreground font-cairo text-[16px] md:text-[18px] leading-[1.8] mb-10">
+              <p className="text-muted-foreground font-cairo text-base md:text-lg leading-relaxed mb-10">
                 {service.desc2}
               </p>
               
               <div className="flex items-center gap-4">
-                <button className="flex items-center gap-3 px-8 py-3 rounded-full border border-primary text-foreground hover:bg-primary hover:text-white transition-colors font-cairo text-[16px] font-bold">
-                  {isRTL ? <ArrowLeft className="w-5 h-5" /> : <ArrowRight className="w-5 h-5" />}
-                  {t("learnMore")}
-                </button>
+                <MagneticButton>
+                  <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+                    <span>{t("learnMore")}</span>
+                    {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+                  </Button>
+                </MagneticButton>
               </div>
             </FadeIn>
           </div>
@@ -116,7 +120,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               {service.cards.map((card, cardIndex) => (
                 <StaggerItem key={cardIndex}>
-                  <div className="bg-secondary hover:shadow-lg transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
+                  <div className="bg-secondary hover:shadow-md transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
                     {/* Image */}
                     <motion.div 
                       animate={{ y: [0, -10, 0] }}
@@ -133,10 +137,10 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
                     </motion.div>
                     
                     {/* Content */}
-                    <h3 className="text-[20px] md:text-[22px] font-cairo font-bold text-foreground mb-4">
+                    <h3 className="text-xl md:text-2xl font-cairo font-bold text-foreground mb-4">
                       {card.title}
                     </h3>
-                    <p className="text-muted-foreground font-cairo text-[14px] leading-[1.8]">
+                    <p className="text-muted-foreground font-cairo text-sm leading-relaxed">
                       {card.desc}
                     </p>
                   </div>

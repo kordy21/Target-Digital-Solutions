@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Counter } from "@/components/shared/counter";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { SectionHeading } from "@/components/shared/section-heading";
 import HandsImg from "@/assets/hands.png";
 import { motion } from "framer-motion";
 
@@ -50,11 +50,11 @@ export function StatsSection() {
                   />
                 </svg>
                 <div className="flex flex-col items-center justify-center relative z-10 pt-1 max-w-[65%]">
-                  <span className="font-cairo font-bold text-[28px] md:text-[36px] text-foreground leading-none mb-1 flex items-center justify-center gap-1" dir="ltr">
+                  <span className="font-cairo font-bold text-3xl md:text-4xl text-foreground leading-none mb-1 flex items-center justify-center gap-1" dir="ltr">
                     <Counter value={parseInt(t("satisfaction.value")) || 97} delay={0.6} />
                     <span className="text-primary">%</span>
                   </span>
-                  <span className="font-cairo font-bold text-[12px] md:text-[14px] text-foreground text-center leading-tight">
+                  <span className="font-cairo font-bold text-xs md:text-sm text-foreground text-center leading-tight">
                     {t("satisfaction.label")}
                   </span>
                 </div>
@@ -68,22 +68,14 @@ export function StatsSection() {
         {/* Right Side (Content) */}
         <div className="w-full lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-start pt-12 lg:pt-0">
           
-          <FadeIn direction="up" delay={0.1}>
-            <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4 inline-block">
-              {t("eyebrow")}
-            </span>
-          </FadeIn>
-          
-          <FadeIn direction="up" delay={0.2}>
-            <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
-              <SplitTextReveal text={t("title")} />
-            </h2>
-          </FadeIn>
-          
-          <FadeIn direction="up" delay={0.3}>
-            <p className="font-cairo text-[16px] md:text-[18px] text-muted-foreground leading-[1.8] mb-16 lg:max-w-2xl">
-              {t("description")}
-            </p>
+          <FadeIn direction="up" delay={0.1} className="w-full mb-16 lg:max-w-2xl">
+            <SectionHeading 
+              eyebrow={t("eyebrow")}
+              title={t("title")}
+              description={t("description")}
+              align="left"
+              className="lg:items-start lg:text-start items-center text-center"
+            />
           </FadeIn>
 
           {/* Stats Grid */}
@@ -101,7 +93,7 @@ export function StatsSection() {
               return (
                 <StaggerItem key={key} className="flex flex-col items-center text-center group">
                   <div className="w-full h-px bg-muted-foreground/30 mb-6 group-hover:bg-primary/50 transition-colors duration-500"></div>
-                  <div className="font-cairo font-bold text-[28px] md:text-[32px] text-foreground mb-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" dir="ltr">
+                  <div className="font-cairo font-bold text-3xl md:text-4xl text-foreground mb-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" dir="ltr">
                     <Counter value={finalValue} delay={0} />
                     {(suffix || hasPlus) && (
                       <span className="text-primary ml-1">
@@ -109,7 +101,7 @@ export function StatsSection() {
                       </span>
                     )}
                   </div>
-                  <span className="font-cairo font-semibold text-[14px] md:text-[16px] text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                  <span className="font-cairo font-semibold text-sm md:text-base text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {t(`items.${key}.label`)}
                   </span>
                 </StaggerItem>

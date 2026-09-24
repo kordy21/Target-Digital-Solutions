@@ -38,7 +38,7 @@ export function BlogSection() {
       </motion.div>
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-      <div className="w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+      <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         {/* Section Header */}
         <FadeIn direction="up" className="flex flex-col items-center text-center mb-8 w-full">
           <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
@@ -56,7 +56,7 @@ export function BlogSection() {
 
             return (
               <StaggerItem key={item.id}>
-                <div className="relative group w-full h-112.5 md:h-125 rounded-[24px] overflow-hidden border border-border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-2 cursor-pointer">
+                <div className="relative group w-full h-112.5 md:h-125 rounded-[24px] overflow-hidden border border-border bg-card text-card-foreground hover:shadow-md transition-all duration-500 hover:-translate-y-2 cursor-pointer">
                   {/* Hover Background Image */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
                     <Image 

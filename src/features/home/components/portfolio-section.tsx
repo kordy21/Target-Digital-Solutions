@@ -3,17 +3,19 @@
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { ZoomIn } from "@/components/shared/animations";
 import Image from "next/image";
 import { useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { FadeIn } from "@/components/shared/animations";
+import { FadeIn, ZoomIn } from "@/components/shared/animations";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { Button } from "@/components/ui/button";
 
 import Bubbles from "@/assets/bubbles.png";
 import R2M from "@/assets/R2M.png";
 import TRS from "@/assets/trs.png";
 import MarkaShip from "@/assets/markship.png";
+import { MagneticButton } from "@/components/shared/magnetic-button";
 
 const projects = [
   { id: "trs", image: TRS },
@@ -23,6 +25,8 @@ const projects = [
 
 export function PortfolioSection() {
   const t = useTranslations("home.portfolio");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, direction: "rtl", align: "start", slidesToScroll: 1 }, 
     [Autoplay({ delay: 4000, stopOnInteraction: false })]
@@ -54,13 +58,11 @@ export function PortfolioSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="flex flex-col items-center w-full">
-          <span className="text-primary font-cairo text-[20px] md:text-[24px] font-bold mb-2">
-            {t("eyebrow")}
-          </span>
-          <h2 className="text-xl md:text-[45px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
-            {t("title")}
-          </h2>
+        <FadeIn direction="up" className="w-full mb-16">
+          <SectionHeading 
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+          />
         </FadeIn>
 
         {/* Carousel Section */}
@@ -69,7 +71,7 @@ export function PortfolioSection() {
           {/* Right Arrow (Prev in RTL) */}
           <button 
             onClick={scrollPrev}
-            className="absolute top-1/2 -translate-y-1/2 right-0 sm:-right-4 md:-right-8 lg:-right-12 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center  text-gray-800 dark:text-gray-300"
+            className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-20 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 dark:text-gray-300"
           >
             <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
@@ -94,7 +96,7 @@ export function PortfolioSection() {
                       className="max-w-full h-auto object-contain"
                     />
                   </motion.div>
-                  <h3 className="font-cairo text-[20px] md:text-[24px] font-semibold text-foreground text-center">
+                  <h3 className="font-cairo text-xl md:text-2xl font-semibold text-foreground text-center">
                     {t(`projects.${project.id}`)}
                   </h3>
                 </ZoomIn>
@@ -111,12 +113,13 @@ export function PortfolioSection() {
           </button>
         </div>
 
-        {/* Learn More Button */}
-        <div className="mt-16">
-          <button className="flex items-center gap-3 px-8 py-3 rounded-full border border-primary text-foreground hover:bg-primary hover:text-primary-foreground transition-colors font-cairo font-semibold text-[18px]">
-            <ArrowLeft className="w-5 h-5" />
-            <span>{t("button")}</span>
-          </button>
+        <div className="mb-2 mt-16 w-full flex justify-center">
+          <MagneticButton>
+            <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+              <span>{t("button")}</span>
+              {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+            </Button>
+          </MagneticButton>
         </div>
       </div>
     </section>

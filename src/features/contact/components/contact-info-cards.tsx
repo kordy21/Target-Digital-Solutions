@@ -15,7 +15,7 @@ export function ContactInfoCards() {
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Location Card */}
         <StaggerItem>
-          <div className="bg-background rounded-3xl p-8 flex flex-col items-center text-center shadow-sm h-full hover:border-primary/50 transition-colors">
+          <div className="bg-background rounded-3xl p-8 flex flex-col items-center text-center h-full hover:border-primary/50 transition-colors hover:shadow-md">
             <div className="w-30 h-30 mb-6 flex items-center justify-center relative">
               <Image src={LocationIcon} alt="Location" className="w-full h-full object-contain" />
             </div>
@@ -32,7 +32,7 @@ export function ContactInfoCards() {
 
         {/* Email Card */}
         <StaggerItem>
-          <div className="bg-background rounded-3xl p-8 flex flex-col items-center text-center shadow-sm h-full hover:border-primary/50 transition-colors">
+          <div className="bg-background rounded-3xl p-8 flex flex-col items-center text-center h-full hover:border-primary/50 transition-colors hover:shadow-md">
             <div className="w-30 h-30 mb-6 flex items-center justify-center relative">
               <Image src={MessageIcon} alt="Message" className="w-full h-full object-contain" />
             </div>
@@ -57,7 +57,7 @@ export function ContactInfoCards() {
 
         {/* Phone Card */}
         <StaggerItem>
-          <div className="bg-background rounded-3xl p-8 flex flex-col items-center text-center shadow-sm h-full hover:border-primary/50 transition-colors">
+          <div className="bg-background rounded-3xl p-8 flex flex-col items-center text-center h-full hover:border-primary/50 transition-colors hover:shadow-md">
             <div className="w-30 h-30 mb-6 flex items-center justify-center relative">
               <Image src={PhoneIcon} alt="Phone" className="w-full h-full object-contain" />
             </div>

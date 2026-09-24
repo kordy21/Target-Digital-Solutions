@@ -1,16 +1,16 @@
-import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
-import { getTranslations } from "next-intl/server";
-import { PageHero } from "@/components/shared/page-hero";
 import AboutHeroImg from "@/assets/aboutHero.png";
-import { AboutUsSection } from "@/features/home/components/about-us-section";
+import { FadeIn, ScaleIn, SlideIn, ZoomIn } from "@/components/shared/animations";
+import { PageHero } from "@/components/shared/page-hero";
+import { ProcessSection } from "@/features/about/components/process-section";
+import { TeamSection } from "@/features/about/components/team-section";
 import { ValuesSection } from "@/features/about/components/values-section";
 import { VideoSection } from "@/features/about/components/video-section";
-import { TeamSection } from "@/features/about/components/team-section";
-import { ProcessSection } from "@/features/about/components/process-section";
-import { ToolsSection } from "@/features/home/components/tools-section";
-import { NewsSection } from "@/features/home/components/news-section";
+import { AboutUsSection } from "@/features/home/components/about-us-section";
 import { CertificatesSection } from "@/features/home/components/certificates-section";
 import { CtaSection } from "@/features/home/components/cta-section";
+import { NewsSection } from "@/features/home/components/news-section";
+import { ToolsSection } from "@/features/home/components/tools-section";
+import { getTranslations } from "next-intl/server";
 
 export default async function AboutPage() {
   const t = await getTranslations("aboutPage.hero");

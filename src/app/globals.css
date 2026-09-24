@@ -50,6 +50,9 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  
+  --text-4\.5xl: 2.5rem; /* 40px */
+  --text-5\.5xl: 3.4375rem; /* 55px */
 }
 
 :root {

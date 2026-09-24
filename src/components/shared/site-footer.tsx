@@ -44,7 +44,7 @@ export function SiteFooter() {
                 className="w-full h-auto object-contain" 
               />
             </div>
-            <p className="font-cairo text-white/80 text-[14px] md:text-[15px] leading-relaxed mb-8 max-w-50">
+            <p className="font-cairo text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-50">
               {t("desc")}
             </p>
             <div className="flex items-center justify-start gap-3">
@@ -58,7 +58,7 @@ export function SiteFooter() {
 
           {/* Column 2: Services */}
           <StaggerItem className="flex flex-col lg:w-1/6">
-            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("services")}</h4>
+            <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("services")}</h4>
             <div className="flex flex-col gap-4">
               <FooterListLink>{t("servicesList.webDev")}</FooterListLink>
               <FooterListLink>{t("servicesList.hosting")}</FooterListLink>
@@ -71,7 +71,7 @@ export function SiteFooter() {
 
           {/* Column 3: Company */}
           <StaggerItem className="flex flex-col lg:w-1/6">
-            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("company")}</h4>
+            <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("company")}</h4>
             <div className="flex flex-col gap-4">
               <FooterListLink href="/about">{t("companyList.about")}</FooterListLink>
               <FooterListLink href="/portfolio">{t("companyList.portfolio")}</FooterListLink>
@@ -84,8 +84,8 @@ export function SiteFooter() {
 
           {/* Column 4: Contact Info */}
           <StaggerItem className="flex flex-col lg:w-1/4">
-            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("contactInfo")}</h4>
-            <div className="flex flex-col gap-5 text-[14px] text-white/80 font-cairo">
+            <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("contactInfo")}</h4>
+            <div className="flex flex-col gap-5 text-sm text-white/80 font-cairo">
               
               <div className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
                 <Phone className="w-5 h-5 opacity-70 group-hover:opacity-100" />
@@ -116,8 +116,8 @@ export function SiteFooter() {
 
           {/* Column 5: Newsletter */}
           <StaggerItem className="flex flex-col lg:w-1/3">
-            <h4 className="font-cairo font-bold text-[18px] mb-6 text-white">{t("newsletter")}</h4>
-            <p className="font-cairo text-white/80 text-[13px] leading-relaxed mb-6">
+            <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("newsletter")}</h4>
+            <p className="font-cairo text-white/80 text-xs leading-relaxed mb-6">
               {t("newsletterText")}
             </p>
             
@@ -125,9 +125,9 @@ export function SiteFooter() {
               <input 
                 type="email" 
                 placeholder={t("placeholder")}
-                className="w-full bg-transparent border border-white/30 rounded-full px-6 py-3 font-cairo text-[14px] text-white outline-none focus:border-white transition-colors placeholder:text-white/40"
+                className="w-full bg-transparent border border-white/30 rounded-full pr-12 pl-6 rtl:pl-12 rtl:pr-6 py-3 font-cairo text-sm text-white outline-none focus:border-white transition-colors placeholder:text-white/40"
               />
-              <button className="absolute top-1/2 -translate-y-1/2 left-2 w-9 h-9 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+              <button className="absolute top-1/2 -translate-y-1/2 right-2 rtl:right-auto rtl:left-2 w-9 h-9 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
                 <Send className="w-4 h-4 text-[#2D2D2D] rtl:-scale-x-100" />
               </button>
             </div>
@@ -142,7 +142,7 @@ export function SiteFooter() {
       {/* Bottom Bar */}
       <div className="relative z-10 w-full bg-secondary text-secondary-foreground border-t border-border">
         <div className="w-full mx-auto px-6 py-4 flex items-center justify-center">
-          <p className="font-cairo text-[13px] font-semibold tracking-wide">
+          <p className="font-cairo text-xs font-semibold tracking-wide">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
@@ -164,7 +164,7 @@ function FooterListLink({ children, href = "#" }: { children: React.ReactNode; h
   return (
     <Link href={href} className="flex items-center gap-2 group cursor-pointer text-white/70 hover:text-white transition-colors">
       <div className="w-0 h-0 border-y-4 border-y-transparent border-r-[6px] border-r-white/50 group-hover:border-r-white transition-colors rtl:rotate-0 rotate-180" />
-      <span className="font-cairo text-[14px]">{children}</span>
+      <span className="font-cairo text-sm">{children}</span>
     </Link>
   );
 }
@@ -174,7 +174,7 @@ function EmailBox({ email }: { email: string }) {
     <div className="flex items-center justify-between border border-white/20 rounded-full px-5 py-3 mb-3 group cursor-pointer hover:border-white/50 transition-colors">
       <div className="flex items-center gap-3">
         <Mail className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-        <span className="font-cairo text-[13px] text-white/80 group-hover:text-white transition-colors">{email}</span>
+        <span className="font-cairo text-xs text-white/80 group-hover:text-white transition-colors">{email}</span>
       </div>
       <Copy className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
     </div>

@@ -28,14 +28,14 @@ export function PageHero({ title, subtitle, image }: PageHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-20 flex flex-col justify-center">
+      <div className="relative z-20 w-full mx-auto px-6 md:px-18 flex flex-col justify-center">
         <div className="max-w-2xl text-white pt-12">
-          <h1 className="text-[36px] md:text-[56px] font-cairo font-extrabold mb-4 leading-[1.2]">
+          <h1 className="text-4xl md:text-6xl font-cairo font-extrabold mb-4 leading-tight">
             <SplitTextReveal text={title} />
           </h1>
           {subtitle && (
             <FadeIn delay={0.2} direction="up">
-              <p className="text-[16px] md:text-[20px] font-cairo text-white/90 leading-relaxed font-medium">
+              <p className="text-base md:text-xl font-cairo text-white/90 leading-relaxed font-medium">
                 {subtitle}
               </p>
             </FadeIn>

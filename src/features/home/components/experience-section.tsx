@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { ArrowLeft, Play } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { MagneticButton } from "@/components/shared/magnetic-button";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { Button } from "@/components/ui/button";
 
 import PeopleImg from "@/assets/people.png";
 import PersonVector from "@/assets/personvector.png";
@@ -13,6 +15,8 @@ import PeopleVector from "@/assets/peoplevector.png";
 
 export function ExperienceSection() {
   const t = useTranslations("home.experience");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
 
   return (
     <section className="w-full bg-[#f9f9fb] dark:bg-transparent overflow-hidden relative">
@@ -42,7 +46,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Stats Box Overlay */}
-        <FadeIn direction="up" delay={0.2} className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-w-140 h-auto flex rounded-t-3xl overflow-hidden shadow-2xl z-20">
+        <FadeIn direction="up" delay={0.2} className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] max-w-140 h-auto flex rounded-t-3xl overflow-hidden z-20 hover:shadow-md transition-shadow duration-300">
           
           {/* Black/Dark Stat */}
           <div className="w-1/2 bg-[#0a0a0a] dark:bg-zinc-900 p-6 md:p-8 flex items-center justify-between">
@@ -50,10 +54,10 @@ export function ExperienceSection() {
               <Image src={PeopleVector} alt="Employees" className="w-full h-full object-contain brightness-0 invert" />
             </div>
             <div className="flex flex-col text-white">
-              <span className="font-cairo font-bold text-[32px] md:text-[40px] leading-none mb-2" dir="ltr">
+              <span className="font-cairo font-bold text-3xl md:text-4xl leading-none mb-2" dir="ltr">
                 {t("stats.employees.value")}
               </span>
-              <span className="font-cairo font-semibold text-[14px] text-white/90">
+              <span className="font-cairo font-semibold text-sm text-white/90">
                 {t("stats.employees.label")}
               </span>
             </div>
@@ -65,10 +69,10 @@ export function ExperienceSection() {
               <Image src={PersonVector} alt="Years" className="w-full h-full object-contain brightness-0 invert" />
             </div>
             <div className="flex flex-col text-white">
-              <span className="font-cairo font-bold text-[32px] md:text-[40px] leading-none mb-2" dir="ltr">
+              <span className="font-cairo font-bold text-3xl md:text-4xl leading-none mb-2" dir="ltr">
                 {t("stats.years.value")}
               </span>
-              <span className="font-cairo font-semibold text-[14px] text-white/90">
+              <span className="font-cairo font-semibold text-sm text-white/90">
                 {t("stats.years.label")}
               </span>
             </div>
@@ -80,36 +84,23 @@ export function ExperienceSection() {
       {/* Left Side / Content Area */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 py-16 md:p-16 lg:p-24 bg-white dark:bg-transparent lg:bg-transparent relative z-10">
         <StaggerContainer className="max-w-xl flex flex-col items-start text-start w-full">
-          <StaggerItem>
-            <span className="font-cairo text-gray-500 dark:text-gray-400 text-[16px] md:text-[18px] font-semibold mb-4 block">
-              {t("eyebrow")}
-            </span>
-          </StaggerItem>
-          
-          <StaggerItem>
-            <h2 className="text-[32px] md:text-[48px] font-cairo font-extrabold text-foreground leading-[1.3] mb-6">
-              <SplitTextReveal text={t("title")} />
-            </h2>
-          </StaggerItem>
-          
-          <StaggerItem>
-            <h3 className="text-primary font-cairo text-[22px] md:text-[28px] font-semibold mb-6">
-              {t("subtitle")}
-            </h3>
-          </StaggerItem>
-          
-          <StaggerItem>
-            <p className="font-cairo text-[16px] md:text-[18px] text-gray-600 dark:text-gray-300 leading-[1.8] mb-12">
-              {t("description")}
-            </p>
+          <StaggerItem className="w-full mb-8">
+            <SectionHeading 
+              eyebrow={t("eyebrow")}
+              title={t("title")}
+              subtitle={t("subtitle")}
+              description={t("description")}
+              align="left"
+              className="items-start text-start"
+            />
           </StaggerItem>
           
           <StaggerItem>
             <MagneticButton>
-              <button className="flex items-center gap-4 px-8 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-foreground hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors font-cairo font-semibold text-[16px]">
-                <ArrowLeft className="w-5 h-5" />
+              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
                 <span>{t("button")}</span>
-              </button>
+                {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+              </Button>
             </MagneticButton>
           </StaggerItem>
         </StaggerContainer>

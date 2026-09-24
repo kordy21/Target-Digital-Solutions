@@ -2,10 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import { ZoomIn } from "@/components/shared/animations";
 import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
-import { FadeIn } from "@/components/shared/animations";
+import { FadeIn, ZoomIn } from "@/components/shared/animations";
+import { SectionHeading } from "@/components/shared/section-heading";
 
 import MahmoudImg from "@/assets/mahmoud.png";
 import MohamedImg from "@/assets/mohamed.png";
@@ -24,22 +24,18 @@ export function TestimonialsSection() {
     direction: "rtl", // Important for Arabic RTL
     align: "start",
   });
-  
-
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center py-12">
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-      <div className="relative z-10 w-full bg-background rounded-3xl border border-border shadow-sm p-8 md:p-12 lg:p-16 flex flex-col items-center">
+      <div className="relative z-10 w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         
         {/* Section Header */}
-        <FadeIn direction="up" className="flex flex-col items-center text-center mb-12">
-          <span className="text-primary font-cairo text-[18px] md:text-[22px] font-bold mb-4">
-            {t("eyebrow")}
-          </span>
-          <h2 className="text-xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.4]">
-            {t("title")}
-          </h2>
+        <FadeIn direction="up" className="w-full mb-12">
+          <SectionHeading 
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+          />
         </FadeIn>
 
         {/* Carousel */}
@@ -52,8 +48,8 @@ export function TestimonialsSection() {
                   className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 rtl:pl-0 rtl:pr-4 py-4"
                 >
                   {/* Card */}
-                  <div className="h-full bg-secondary border border-border rounded-[24px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-grab active:cursor-grabbing">
-                  <p className="font-cairo text-[14px] md:text-[15px] text-muted-foreground leading-[2.2] mb-12">
+                  <div className="h-full bg-secondary border border-border rounded-[24px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-md cursor-grab active:cursor-grabbing">
+                  <p className="font-cairo text-sm md:text-[15px] text-muted-foreground leading-loose mb-12">
                     {t(`items.${item.id}.text`)}
                   </p>
                   
@@ -67,10 +63,10 @@ export function TestimonialsSection() {
                         className="object-cover"
                       />
                     </div>
-                    <h3 className="font-cairo font-bold text-[18px] text-foreground mb-1">
+                    <h3 className="font-cairo font-bold text-lg text-foreground mb-1">
                       {t(`items.${item.id}.name`)}
                     </h3>
-                    <span className="font-cairo font-semibold text-[14px] text-foreground">
+                    <span className="font-cairo font-semibold text-sm text-foreground">
                       {t(`items.${item.id}.title`)}
                     </span>
                   </div>

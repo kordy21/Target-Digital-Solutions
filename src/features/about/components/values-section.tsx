@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/shared/animations";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { getValues } from "../data/about-data";
+import { MagneticButton } from "@/components/shared/magnetic-button";
 
 export function ValuesSection() {
   const t = useTranslations("aboutPage.values");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
 
   const values = getValues(t);
 
@@ -78,10 +82,10 @@ export function ValuesSection() {
                     direction={isEven ? "right" : "left"} 
                     className="w-full flex flex-col text-center lg:text-start"
                   >
-                    <h3 className="text-xl md:text-[40px] font-cairo font-bold text-foreground mb-4">
+                    <h3 className="text-xl md:text-4xl font-cairo font-bold text-foreground mb-4">
                       {item.title}
                     </h3>
-                    <p className="text-[14px] md:text-[18px] font-cairo text-muted-foreground leading-[1.8]">
+                    <p className="text-sm md:text-lg font-cairo text-muted-foreground leading-relaxed">
                       {item.text}
                     </p>
                   </FadeIn>
@@ -91,12 +95,15 @@ export function ValuesSection() {
           })}
         </div>
 
-        <Button 
-          variant="outline" 
-          className="flex justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-[16px] border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-        >
-          {t("cta")}
-        </Button>
+        <MagneticButton>
+          <Button 
+            variant="outline" 
+            className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+          >
+            {t("cta")}
+            {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+          </Button>
+        </MagneticButton>
       </div>
     </section>
   );

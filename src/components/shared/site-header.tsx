@@ -5,13 +5,13 @@ import MessengerImg from "@/assets/messanger.png";
 import PhoneImg from "@/assets/phonevector.png";
 import Logo from "@/assets/TargetNavBar.png";
 import WhatsappImg from "@/assets/whatsapp.png";
-import { SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import { StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { MagneticWrapper } from "@/components/shared/animations/magnetic-wrapper";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { ChevronDown, X, Moon, Sun } from "lucide-react";
+import { ChevronDown, Moon, Sun, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
@@ -88,6 +88,7 @@ export function SiteHeader() {
               <StaggerItem>
                 <NavDropdown label={t("more")}>
                   <NavLink href="/faq">{t("faq")}</NavLink>
+                  <NavLink href="/careers">{t("careers")}</NavLink>
                 </NavDropdown>
               </StaggerItem>
             </nav>
@@ -95,17 +96,17 @@ export function SiteHeader() {
             <div className="flex items-center gap-3">
               <StaggerItem>
                 <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
-                  <Image src={MessengerImg} alt="Messenger" className="w-4 h-4 object-contain" />
+                  <Image src={MessengerImg} alt="Messenger" className="w-4 h-4 object-contain dark:invert" />
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
-                  <Image src={WhatsappImg} alt="Whatsapp" className="w-5 h-5 object-contain" />
+                  <Image src={WhatsappImg} alt="Whatsapp" className="w-5 h-5 object-contain dark:invert" />
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">
-                  <Image src={PhoneImg} alt="Phone" className="w-4 h-4 object-contain" />
+                  <Image src={PhoneImg} alt="Phone" className="w-4 h-4 object-contain dark:invert" />
                 </div>
               </StaggerItem>
               <StaggerItem>
@@ -118,7 +119,7 @@ export function SiteHeader() {
           <div className="flex-1 flex justify-end items-center">
             <div className="hidden lg:flex items-center">
               <MagneticWrapper>
-                <Button className="rounded-2xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo px-8 h-12 font-bold">
+                <Button className="rounded-2xl bg-foreground text-background hover:bg-foreground/80 font-cairo px-8 h-12 font-bold text-base">
                   {t("customer_area")}
                 </Button>
               </MagneticWrapper>
@@ -153,10 +154,11 @@ export function SiteHeader() {
                 <StaggerItem><NavLink href="/clients" onClick={() => setIsMobileMenuOpen(false)}>{t("clients")}</NavLink></StaggerItem>
                 <StaggerItem><NavLink href="/info" onClick={() => setIsMobileMenuOpen(false)}>{t("info")}</NavLink></StaggerItem>
                 <StaggerItem><NavLink href="/faq" onClick={() => setIsMobileMenuOpen(false)}>{t("faq")}</NavLink></StaggerItem>
+                <StaggerItem><NavLink href="/careers" onClick={() => setIsMobileMenuOpen(false)}>{t("careers")}</NavLink></StaggerItem>
                 
                 {/* Customer Area Button Inside Nav (Mobile) */}
                 <StaggerItem>
-                  <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full rounded-xl bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 text-[16px] font-cairo h-12 mt-4">
+                  <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full rounded-xl bg-foreground text-background hover:bg-foreground/80 font-cairo h-12 mt-4 text-base">
                     {t("customer_area")}
                   </Button>
                 </StaggerItem>
@@ -188,7 +190,7 @@ export function SiteHeader() {
 
 function NavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
   return (
-    <Link href={href} onClick={onClick} className="text-[15px] font-cairo font-semibold text-black dark:text-white transition-colors">
+    <Link href={href} onClick={onClick} className="text-[15px] font-cairo font-semibold text-foreground transition-colors">
       {children}
     </Link>
   );
@@ -197,7 +199,7 @@ function NavLink({ href, children, onClick }: { href: string; children: React.Re
 function NavDropdown({ label, children, onClick }: { label: string; children?: React.ReactNode; onClick?: () => void }) {
   if (!children) {
     return (
-      <div onClick={onClick} className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-black dark:text-white transition-colors group relative">
+      <div onClick={onClick} className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-foreground transition-colors group relative">
         <span>{label}</span>
         <ChevronDown className="w-3.5 h-3.5" />
       </div>
@@ -205,7 +207,7 @@ function NavDropdown({ label, children, onClick }: { label: string; children?: R
   }
 
   return (
-    <div className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-black dark:text-white transition-colors group relative">
+    <div className="flex items-center gap-1 cursor-pointer text-[15px] font-cairo font-semibold text-foreground transition-colors group relative">
       <span>{label}</span>
       <ChevronDown className="w-3.5 h-3.5" />
       <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 py-4 px-6 bg-white dark:bg-slate-900 border border-border shadow-lg rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 min-w-37.5 flex flex-col gap-3">

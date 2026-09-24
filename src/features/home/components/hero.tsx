@@ -51,11 +51,11 @@ export function Hero() {
           <div className="absolute inset-0 w-full px-6 md:px-20 flex flex-col justify-center pb-20">
             {/* Text & CTA (Visually Right in RTL, Left in LTR) */}
             <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-start rtl:lg:ml-auto">
-              <h1 className="text-[40px] md:text-[60px] lg:text-[70px] font-cairo font-extrabold text-white leading-[1.2] drop-shadow-lg">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-cairo font-extrabold text-white leading-tight drop-shadow-lg">
                 <SplitTextReveal text={t(slide.titleKey as Parameters<typeof t>[0])} />
               </h1>
               <FadeIn delay={0.4} direction="up">
-                <p className="text-[18px] md:text-[24px] font-cairo text-white/90 leading-relaxed mb-4 flex items-center justify-center lg:justify-start gap-3">
+                <p className="text-lg md:text-2xl font-cairo text-white/90 leading-relaxed mb-4 flex items-center justify-center lg:justify-start gap-3">
                   <Image src={Herologo} alt="Target Logo" className="hidden md:block w-8 h-8 md:w-10 md:h-10 object-contain shrink-0 brightness-0 invert" />
                   {t(slide.subtitleKey as Parameters<typeof t>[0])} 
                 </p>
@@ -64,13 +64,13 @@ export function Hero() {
                 <div className="flex flex-col sm:flex-row gap-4 mt-10 w-full md:w-auto justify-center lg:justify-start rtl:space-x-reverse">
                   {/* Primary Action (Solid White in design) */}
                   <MagneticButton>
-                    <Button className="h-14 px-10 rounded-full text-[18px] font-cairo bg-white text-black hover:bg-white/90 hover:scale-105 transition-all w-full sm:w-auto cursor-pointer">
+                    <Button className="h-14 px-10 rounded-full text-lg font-cairo bg-white text-black hover:bg-white/90 hover:scale-105 transition-all w-full sm:w-auto cursor-pointer">
                       {t(slide.primaryActionKey as Parameters<typeof t>[0])}
                     </Button>
                   </MagneticButton>
                   {/* Secondary Action (Outlined in design) */}
                   <MagneticButton>
-                    <Button className="h-14 px-10 rounded-full text-[18px] font-cairo bg-transparent border border-white text-white hover:bg-white/10 hover:scale-105 transition-all w-full sm:w-auto cursor-pointer">
+                    <Button variant="outline" className="h-14 px-10 rounded-full text-lg font-cairo bg-transparent border-white text-white hover:bg-white/10 hover:text-white hover:scale-105 transition-all w-full sm:w-auto cursor-pointer">
                       {t(slide.secondaryActionKey as Parameters<typeof t>[0])}
                     </Button>
                   </MagneticButton>

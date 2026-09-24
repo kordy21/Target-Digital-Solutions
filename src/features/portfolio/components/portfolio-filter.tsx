@@ -24,13 +24,13 @@ export function PortfolioFilter({ activeCategory, onSelect }: PortfolioFilterPro
               <button
                 onClick={() => onSelect(category.id)}
                 className={cn(
-                  "font-cairo text-[14px] md:text-[18px] font-bold transition-colors flex items-center gap-2",
+                  "font-cairo text-sm md:text-lg font-bold transition-colors flex items-center gap-2",
                   isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 <span>{category.label}</span>
                 <span className={cn(
-                  "text-[12px] md:text-[14px]",
+                  "text-xs md:text-sm",
                   isActive ? "text-primary" : "text-muted-foreground"
                 )}>
                   {category.count.toString().padStart(2, '0')}
@@ -39,7 +39,7 @@ export function PortfolioFilter({ activeCategory, onSelect }: PortfolioFilterPro
               
               {/* Divider except for last item */}
               {index < categories.length - 1 && (
-                <span className="text-muted-foreground/30 font-light text-[18px]">/</span>
+                <span className="text-muted-foreground/30 font-light text-lg">/</span>
               )}
             </ZoomIn>
           );

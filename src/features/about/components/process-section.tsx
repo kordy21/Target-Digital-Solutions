@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SectionHeading } from "@/components/shared/section-heading";
 import { getProcessSteps } from "../data/about-data";
 
 export function ProcessSection() {
@@ -29,15 +30,15 @@ export function ProcessSection() {
       
       <div className="w-full max-w-5xl mx-auto px-6 md:px-20 relative z-10">
         <FadeIn direction="up">
-          <div className="w-full bg-background rounded-[24px] shadow-sm border border-border/40 p-6 md:p-16 flex flex-col items-center text-center">
+          <div className="w-full bg-background rounded-[24px] border border-border/40 p-6 md:p-16 flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300">
             
             {/* Header */}
-            <span className="text-primary font-cairo font-bold text-[14px] md:text-[16px] mb-4">
-              {t("eyebrow")}
-            </span>
-            <h2 className="text-foreground font-cairo font-bold text-xl md:text-[32px] max-w-2xl leading-[1.4] mb-8">
-              {t("title")}
-            </h2>
+            <div className="w-full mb-8">
+              <SectionHeading 
+                eyebrow={t("eyebrow")}
+                title={t("title")}
+              />
+            </div>
 
             {/* Step Content Area */}
             <div className="relative w-full flex items-center justify-between min-h-62.5">
@@ -51,10 +52,10 @@ export function ProcessSection() {
 
               {/* Active Step Info */}
               <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-20">
-                <h3 className="text-foreground font-cairo font-bold text-[20px] md:text-[24px] mb-6">
+                <h3 className="text-foreground font-cairo font-bold text-xl md:text-2xl mb-6">
                   {activeStep.title}
                 </h3>
-                <p className="text-muted-foreground font-cairo text-[12px] md:text-[16px] leading-[1.8] max-w-5xl">
+                <p className="text-muted-foreground font-cairo text-xs md:text-base leading-relaxed max-w-5xl">
                   {activeStep.text}
                 </p>
               </div>

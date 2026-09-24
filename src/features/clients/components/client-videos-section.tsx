@@ -10,7 +10,9 @@ import Image from "next/image";
 import Client1 from "@/assets/client1.png";
 import Client2 from "@/assets/client2.png";
 import Client3 from "@/assets/client3.png";
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/shared/magnetic-button";
 
 const CustomPlayIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -76,13 +78,11 @@ export function ClientVideosSection() {
         <div className="w-full rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col items-center">
           
           {/* Header Section */}
-          <FadeIn direction="up" className="flex flex-col items-center w-full mb-12">
-            <span className="text-primary font-cairo text-lg md:text-[22px] font-bold mb-2 block text-center">
-              {t("eyebrow")}
-            </span>
-            <h2 className="text-2xl md:text-[40px] font-cairo font-extrabold text-foreground leading-[1.4] text-center max-w-3xl">
-              <SplitTextReveal text={t("title")} />
-            </h2>
+          <FadeIn direction="up" className="w-full mb-12">
+            <SectionHeading 
+              eyebrow={t("eyebrow")}
+              title={t("title")}
+            />
           </FadeIn>
 
           {/* Videos Grid */}
@@ -119,10 +119,12 @@ export function ClientVideosSection() {
           </StaggerContainer>
 
           {/* Action Button */}
-          <button className="flex items-center gap-3 px-8 py-3 rounded-full border border-primary text-foreground hover:bg-primary hover:text-white transition-colors font-cairo text-[16px] font-bold">
-            {isRTL ? <ArrowLeft className="w-5 h-5" /> : <ArrowRight className="w-5 h-5" />}
-            {t("learnMore")}
-          </button>
+          <MagneticButton>
+            <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+              <span>{t("learnMore")}</span>
+              {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+            </Button>
+          </MagneticButton>
 
         </div>
       </div>

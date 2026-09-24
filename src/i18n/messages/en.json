@@ -77,7 +77,14 @@
     "info": "Information",
     "more": "More",
     "customer_area": "Customer Area",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "nav": {
+      "more": {
+        "careers": "Careers"
+      },
+      "careers": "Careers"
+    },
+    "careers": "Careers"
   },
   "home": {
     "hero": {
@@ -355,7 +362,10 @@
     "placeholder": "Enter your email",
     "email1": "Web@TARGET-GROUP.ORG",
     "email2": "Careers@TARGET-GROUP.ORG",
-    "copyright": "©{year} Target . All rights reserved"
+    "copyright": "©{year} Target . All rights reserved",
+    "links": {
+      "careers": "Careers"
+    }
   },
   "servicesPage": {
     "hero": {
@@ -575,6 +585,21 @@
       "subject": "Subject",
       "message": "Any questions or inquiries? Let us know!",
       "submit": "Send"
+    }
+  },
+  "careersPage": {
+    "hero": {
+      "title": "Careers",
+      "description": "Discover available career opportunities and be part of our journey towards innovation and excellence in providing digital solutions."
+    },
+    "card": {
+      "viewDetails": "View Details"
+    }
+  },
+  "solutionsPage": {
+    "hero": {
+      "title": "Solutions",
+      "description": "We provide innovative solutions that meet the needs of e-commerce and businesses, from web design to developing exceptional user interfaces."
     }
   }
 }

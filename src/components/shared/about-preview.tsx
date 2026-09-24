@@ -7,8 +7,8 @@ import Image, { StaticImageData } from "next/image";
 import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { FadeIn, ZoomIn, ScaleIn } from "@/components/shared/animations";
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { FadeIn } from "@/components/shared/animations";
+import { SectionHeading } from "@/components/shared/section-heading";
 import Bubbles from "@/assets/bubbles.png";
 import Part1 from "@/assets/part1.png";
 import Part10 from "@/assets/part10.png";
@@ -62,13 +62,11 @@ export function AboutPreview() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="flex flex-col items-center w-full">
-          <span className="text-primary font-cairo text-lg md:text-[24px] font-bold mb-2">
-            {t("eyebrow")}
-          </span>
-          <h2 className="text-xl md:text-[45px] font-cairo font-extrabold text-foreground leading-[1.2] text-center mb-16">
-            <SplitTextReveal text={t("title")} />
-          </h2>
+        <FadeIn direction="up" className="w-full mb-16">
+          <SectionHeading 
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+          />
         </FadeIn>
 
         {/* Carousel Section */}
@@ -91,31 +89,18 @@ export function AboutPreview() {
                   className="flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 flex flex-col gap-12 items-center px-4"
                 >
                   {group.map((imgSrc, imgIndex) => {
-                    const isEven = imgIndex % 2 === 0;
                     return (
                       <motion.div 
                         key={imgIndex} 
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className="w-full flex items-center justify-center h-10 md:h-16 cursor-grab active:cursor-grabbing"
+                        className="w-full flex items-center justify-center h-12 md:h-20 cursor-grab active:cursor-grabbing"
                       >
-                        {isEven ? (
-                          <ZoomIn delay={(index * 2 + imgIndex) * 0.1}>
-                            <Image 
-                              src={imgSrc} 
-                              alt={`Partner ${index * 2 + imgIndex + 1}`} 
-                              className="max-w-full max-h-full object-contain"
-                            />
-                          </ZoomIn>
-                        ) : (
-                          <ScaleIn delay={(index * 2 + imgIndex) * 0.1}>
-                            <Image 
-                              src={imgSrc} 
-                              alt={`Partner ${index * 2 + imgIndex + 1}`} 
-                              className="max-w-full max-h-full object-contain"
-                            />
-                          </ScaleIn>
-                        )}
+                        <Image 
+                          src={imgSrc} 
+                          alt={`Partner ${index * 2 + imgIndex + 1}`} 
+                          className="max-w-full max-h-full object-contain"
+                        />
                       </motion.div>
                     );
                   })}
