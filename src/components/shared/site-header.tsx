@@ -27,7 +27,10 @@ export function SiteHeader() {
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {

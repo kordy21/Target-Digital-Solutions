@@ -325,7 +325,7 @@ export function ParticleHeading({
   /** 
    * دالة الـ Animation الأساسية (بتتنده 60 مرة في الثانية)
    */
-  const animate = useCallback(() => {
+  const animate = useCallback(function tick() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -333,7 +333,7 @@ export function ParticleHeading({
 
     // توفير استهلاك المعالج: لو التاب بتاع المتصفح مش ظاهر، بنوقف الرسم لكن بنكمل الـ Loop
     if (document.visibilityState === "hidden") {
-      rafRef.current = requestAnimationFrame(animate);
+      rafRef.current = requestAnimationFrame(tick);
       return;
     }
 
@@ -362,7 +362,7 @@ export function ParticleHeading({
       p.draw(ctx);
     });
 
-    rafRef.current = requestAnimationFrame(animate);
+    rafRef.current = requestAnimationFrame(tick);
   }, []);
 
   useEffect(() => {
