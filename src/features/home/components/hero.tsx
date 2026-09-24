@@ -12,7 +12,7 @@ import Herologo from "@/assets/herologo.png";
 import { FadeIn } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { MagneticButton } from "@/components/shared/magnetic-button";
-import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
+
 import { slidesData } from "../data/hero-slides";
 
 export function Hero() {
@@ -108,7 +108,6 @@ export function Hero() {
           {slidesData.length}
         </span>
       </div>
-      <FloatingThemeToggle />
     </section>
   );
 }

@@ -13,6 +13,7 @@ import { CertificatesSection } from "@/features/home/components/certificates-sec
 import { TestimonialsSection } from "@/features/home/components/testimonials-section";
 import { StoriesSection } from "@/features/home/components/stories-section";
 import { BlogSection } from "@/features/home/components/blog-section";
+import { InteractiveLogoSection } from "@/features/home/components/interactive-logo-section";
 import { CtaSection } from "@/features/home/components/cta-section";
 
 import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
@@ -28,6 +29,7 @@ export default function Home() {
         <ScaleIn delay={0.1}><PortfolioSection /></ScaleIn>
         <FlipIn direction="x" delay={0.1}><ToolsSection /></FlipIn>
         <FadeIn direction="up" delay={0.1}><StatsSection /></FadeIn>
+        <ScaleIn delay={0.1}><InteractiveLogoSection /></ScaleIn>
         <SlideIn direction="right" delay={0.1}><FeaturesSection /></SlideIn>
         <ZoomIn delay={0.1}><ExperienceSection /></ZoomIn>
         <ScaleIn delay={0.1}><NewsSection /></ScaleIn>

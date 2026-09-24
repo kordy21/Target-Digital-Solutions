@@ -30,23 +30,24 @@ export function FeaturesSection() {
       <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 hover:shadow-md transition-shadow duration-300">
         
         {/* Text Column */}
-        <FadeIn direction="right" className="w-full lg:w-1/3 flex flex-col lg:border-e lg:border-border lg:pe-12 lg:py-8">
+        <FadeIn direction="right" className="w-full lg:w-[40%] flex flex-col lg:border-e lg:border-border lg:pe-6 lg:py-4">
           <SectionHeading 
             eyebrow={t("eyebrow")}
             title={t("title")}
             align="left"
+            disableParticles={true}
             className="lg:items-start lg:text-start items-center text-center"
           />
         </FadeIn>
 
         {/* Features Grid */}
         <div className="w-full lg:w-2/3">
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-4">
             {features.map((feature, index) => (
               <StaggerItem key={feature.id}>
-                <div className="flex flex-col items-center text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-white/5 group border border-transparent hover:border-border cursor-default">
+                <div className="flex flex-col p-6 rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-white/5 group border border-transparent hover:border-border cursor-default">
                   <ZoomIn delay={index * 0.1}>
-                    <div className="w-24 h-24 mb-6 relative transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">
+                    <div className="w-24 h-24 mx-auto mb-6 relative transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">
                       <Image 
                         src={feature.image} 
                         alt={t(`items.${feature.id}.title`)} 

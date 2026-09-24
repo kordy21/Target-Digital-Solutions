@@ -67,7 +67,6 @@ export function StatsSection() {
 
         {/* Right Side (Content) */}
         <div className="w-full lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-start pt-12 lg:pt-0">
-          
           <FadeIn direction="up" delay={0.1} className="w-full mb-16 lg:max-w-2xl">
             <SectionHeading 
               eyebrow={t("eyebrow")}
@@ -75,6 +74,7 @@ export function StatsSection() {
               description={t("description")}
               align="left"
               className="lg:items-start lg:text-start items-center text-center"
+              disableParticles={true}
             />
           </FadeIn>
 

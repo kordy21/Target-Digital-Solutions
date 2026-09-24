@@ -108,6 +108,18 @@
       "description": "With many years of experience, we have been able to put the puzzle pieces together towards achieving our goals, making Target the perfect partner to explore the full potential of your brand.",
       "cta": "Learn More"
     },
+    "manifesto": {
+      "eyebrow": "Our Philosophy",
+      "title": "Building the Digital Future with Confidence & Creativity",
+      "description": "At Target Digital Solutions, we don't just deliver services — we build real partnerships that grow with you. Every project that passes through our hands carries our signature: precision in execution and passion for innovation.",
+      "pillars": {
+        "speed": "Speed",
+        "quality": "Quality",
+        "trust": "Trust",
+        "innovation": "Innovation"
+      },
+      "cta": "Discover Our Story"
+    },
     "services": {
       "eyebrow": "Target Digital Solutions Services",
       "title": "We provide comprehensive solutions to meet your needs",
@@ -663,5 +675,10 @@
       "title": "Target Digital Solutions Works",
       "description": "Creative touches that come to life in every project, enhancing interaction and bringing success"
     }
+  },
+  "InteractiveLogo": {
+    "slogan": "Building Your Digital Future",
+    "description": "We create smart digital solutions that drive your business growth in the digital transformation era with a touch of creativity.",
+    "contactUs": "Contact Us"
   }
 }

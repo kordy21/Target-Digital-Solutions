@@ -35,6 +35,7 @@ export function ToolsSection() {
               eyebrow={t("eyebrow")}
               title={t("title")}
               align="left"
+              disableParticles={true}
               className="lg:items-start lg:text-start items-center text-center"
             />
           </StaggerItem>

@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
+import BlogHoverImg from "@/assets/bloghover.png";
 import Bubbles from "@/assets/bubbles.png";
 import EngAmrImg from "@/assets/engamr.png";
-import BlogHoverImg from "@/assets/bloghover.png";
 
 const blogItems = [
   { id: "item3" },
@@ -57,8 +57,8 @@ export function BlogSection() {
             return (
               <StaggerItem key={item.id}>
                 <div className="relative group w-full h-112.5 md:h-125 rounded-[24px] overflow-hidden border border-border bg-card text-card-foreground hover:shadow-md transition-all duration-500 hover:-translate-y-2 cursor-pointer">
-                  {/* Hover Background Image */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                  {/* Background Image (Always visible) */}
+                  <div className="absolute inset-0 z-0">
                     <Image 
                       src={BlogHoverImg} 
                       alt="Blog Post Background" 
@@ -77,12 +77,12 @@ export function BlogSection() {
                     <div className="flex items-center gap-3 self-start rtl:self-end">
                       <div className="flex flex-col items-end rtl:items-start ltr:items-end">
                         <FadeIn delay={0.2}>
-                          <span className="text-[12px] md:text-[13px] text-muted-foreground group-hover:text-white/80 transition-colors font-cairo">
+                          <span className="text-[12px] md:text-[13px] text-white/80 transition-colors font-cairo">
                             {t("publishedBy")}
                           </span>
                         </FadeIn>
                         <SlideIn delay={0.3} direction="up">
-                          <span className="text-[14px] md:text-[16px] font-bold text-foreground group-hover:text-white transition-colors font-cairo">
+                          <span className="text-[14px] md:text-[16px] font-bold text-white transition-colors font-cairo">
                             {t("author")}
                           </span>
                         </SlideIn>
@@ -97,7 +97,7 @@ export function BlogSection() {
                     {/* Bottom section: Title & Tags */}
                     <div className="flex flex-col items-start w-full">
                       <FadeIn delay={0.5}>
-                        <h3 className="text-[20px] md:text-[24px] font-bold font-cairo text-foreground group-hover:text-white transition-colors leading-normal mb-6">
+                        <h3 className="text-[20px] md:text-[24px] font-bold font-cairo text-white transition-colors leading-normal mb-6">
                           {t(`items.${item.id}.title`)}
                         </h3>
                       </FadeIn>
@@ -106,7 +106,7 @@ export function BlogSection() {
                         {tags.map((tag: string, idx: number) => (
                           <span 
                             key={idx} 
-                            className="px-4 py-1.5 rounded-full text-[12px] md:text-[13px] font-semibold font-cairo bg-secondary text-secondary-foreground group-hover:bg-white/20 group-hover:text-white group-hover:backdrop-blur-md transition-colors border border-transparent group-hover:border-white/30"
+                            className="px-4 py-1.5 rounded-full text-[12px] md:text-[13px] font-semibold font-cairo bg-white/20 text-white backdrop-blur-md transition-colors border border-white/30"
                           >
                             {tag}
                           </span>

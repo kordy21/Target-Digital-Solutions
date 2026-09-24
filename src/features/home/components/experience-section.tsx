@@ -91,6 +91,7 @@ export function ExperienceSection() {
               description={t("description")}
               align="left"
               className="items-start text-start"
+              disableParticles={true}
             />
           </StaggerItem>
           

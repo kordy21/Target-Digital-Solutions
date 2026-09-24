@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
+import { FadeIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 import Bubbles from "@/assets/bubbles.png";
 import News1Img from "@/assets/news1.png";
@@ -71,14 +71,6 @@ export function NewsSection() {
                   {t(`items.${item.id}.title`)}
                 </h3>
               </FadeIn>
-              
-              {t.has(`items.${item.id}.description`) && (
-                <SlideIn delay={index * 0.1 + 0.2} direction="up">
-                  <p className="font-cairo text-xs md:text-sm text-muted-foreground px-4 mt-3 leading-loose text-center line-clamp-3">
-                    {t(`items.${item.id}.description`)}
-                  </p>
-                </SlideIn>
-              )}
             </StaggerItem>
           ))}
         </StaggerContainer>

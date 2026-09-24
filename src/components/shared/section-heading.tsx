@@ -2,6 +2,9 @@ import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { cn } from "@/lib/utils";
 
 
+
+import { ParticleHeading } from "@/components/shared/particle-heading";
+
 interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
@@ -9,6 +12,7 @@ interface SectionHeadingProps {
   description?: string;
   align?: "left" | "center" | "right";
   className?: string;
+  disableParticles?: boolean;
 }
 
 export function SectionHeading({
@@ -18,12 +22,16 @@ export function SectionHeading({
   description,
   align = "center",
   className,
+  disableParticles = false,
 }: SectionHeadingProps) {
   const alignmentClasses = {
     left: "items-start text-start",
     center: "items-center text-center",
     right: "items-end text-end",
   };
+
+  // Use the brand logo shape
+  const shape = "logo";
 
   return (
     <div className={cn("flex flex-col w-full", alignmentClasses[align], className)}>
@@ -33,10 +41,18 @@ export function SectionHeading({
         </span>
       )}
       
-      <div className={cn("mb-6", subtitle ? "mb-4" : "mb-10")}>
-        <h2 className="text-4xl md:text-4.5xl lg:text-5xl font-cairo font-extrabold text-foreground leading-tight">
-          <SplitTextReveal text={title} />
-        </h2>
+      <div className={cn("mb-6 w-full flex flex-col", alignmentClasses[align], subtitle ? "mb-4" : "mb-10")}>
+        {disableParticles ? (
+          <h2 className="text-4xl md:text-4.5xl lg:text-5xl font-cairo font-extrabold text-foreground leading-tight">
+            <SplitTextReveal text={title} />
+          </h2>
+        ) : (
+          <ParticleHeading shape={shape} canvasPadding={60}>
+            <h2 className="text-4xl md:text-4.5xl lg:text-5xl font-cairo font-extrabold text-foreground leading-tight">
+              <SplitTextReveal text={title} />
+            </h2>
+          </ParticleHeading>
+        )}
       </div>
 
       {subtitle && (
