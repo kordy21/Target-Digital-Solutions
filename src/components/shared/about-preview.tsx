@@ -81,7 +81,7 @@ export function AboutPreview() {
           </button>
 
           {/* Embla Viewport */}
-          <div className="overflow-hidden w-full px-4" ref={emblaRef} dir="rtl">
+          <div className="overflow-hidden w-full px-4 py-1" ref={emblaRef} dir="rtl">
             <div className="flex">
               {groupedPartners.map((group, index) => (
                 <div 
@@ -94,7 +94,7 @@ export function AboutPreview() {
                         key={imgIndex} 
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        className="w-full flex items-center justify-center h-12 md:h-20 cursor-grab active:cursor-grabbing"
+                        className="w-full flex items-center justify-center h-12 md:h-20 cursor-grab active:cursor-grabbing py-1"
                       >
                         <Image 
                           src={imgSrc} 

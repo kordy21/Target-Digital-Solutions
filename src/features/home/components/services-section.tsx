@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
+import { SectionHeading } from "@/components/shared/section-heading";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft } from "lucide-react";
-import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
+import { useRef, useState } from "react";
 
 import Serv1 from "@/assets/serv1.png";
 import Serv2 from "@/assets/serv2.png";
@@ -21,12 +20,6 @@ export function ServicesSection() {
   const t = useTranslations("home.services");
   const [activeTab, setActiveTab] = useState<TabKey>("web");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  const scrollTabs = (amount: number) => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: amount, behavior: "smooth" });
-    }
-  };
 
   // Since we only have images for the first tab, we'll reuse them for all tabs for now.
   const getCardsData = () => [
@@ -56,7 +49,7 @@ export function ServicesSection() {
       <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         
         {/* Header Section */}
-        <FadeIn direction="up" className="w-full mb-12">
+        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
           <SectionHeading 
             eyebrow={t("eyebrow")}
             title={t("title")}
@@ -65,32 +58,23 @@ export function ServicesSection() {
 
         {/* Content Layout */}
         <div className="w-full flex flex-col lg:flex-row gap-12 lg:gap-24">
-          
           {/* Tabs Section (Visual Right in RTL, Visual Left in LTR) - ordered first in DOM so it shows up appropriately depending on dir */}
           <div className="w-full lg:w-1/3 relative flex">
-            {/* Left Arrow (Mobile Only) */}
-            <button 
-              onClick={() => scrollTabs(-200)}
-              className="cursor-pointer lg:hidden absolute -left-8 z-20 w-8 h-8 flex items-center justify-center text-foreground"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
             <div 
               ref={scrollContainerRef}
-              className="w-full overflow-x-auto lg:overflow-visible pb-0 snap-x scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar:none]"
+              className="w-full"
             >
-              <div className="grid grid-rows-2 grid-flow-col auto-cols-max lg:flex lg:flex-col gap-3 lg:gap-6 w-max lg:w-full px-6 lg:px-0"> 
+              <div className="flex flex-col gap-4 lg:gap-6 w-full"> 
                 {TABS.map((tab, index) => {
                   const animationType = index % 3;
                   const content = (
                     <button
                       onClick={() => setActiveTab(tab)}
                       className={cn(
-                        "text-start font-cairo text-base lg:text-2xl transition-all duration-300 whitespace-nowrap px-6 py-2.5 lg:px-0 lg:py-0 rounded-full lg:rounded-none",
+                        "text-start font-cairo text-base md:text-lg lg:text-2xl transition-all duration-300 whitespace-nowrap",
                         activeTab === tab
-                          ? "bg-primary text-primary-foreground lg:text-primary lg:bg-transparent font-bold lg:shadow-none hover:shadow-md transition-shadow duration-300"
-                          : "bg-secondary text-muted-foreground lg:bg-transparent hover:text-foreground font-semibold hover:bg-secondary/80 lg:hover:bg-transparent"
+                          ? "text-primary font-bold"
+                          : "text-muted-foreground hover:text-foreground font-semibold"
                       )}
                     >
                       {t(`tabs.${tab}`)}
@@ -113,14 +97,6 @@ export function ServicesSection() {
                 })}
               </div>
             </div>
-
-            {/* Right Arrow (Mobile Only) */}
-            <button 
-              onClick={() => scrollTabs(200)}
-              className="cursor-pointer lg:hidden absolute -right-8 z-20 w-8 h-8 flex items-center justify-center text-foreground"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
           </div>
 
           {/* Cards Grid Section */}

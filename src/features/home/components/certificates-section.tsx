@@ -79,7 +79,7 @@ export function CertificatesSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-12">
+        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
             <SectionHeading 
               eyebrow={t("eyebrow")}
               title={t("title")}
@@ -90,7 +90,7 @@ export function CertificatesSection() {
 
         {/* Certificates Rows */}
         <div className="w-full relative py-8 max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
             {certificates.map((cert, index) => {
               const rowIndex = Math.floor(index / 5);
               const direction = rowIndex % 2 === 0 ? "right" : "left";

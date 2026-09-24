@@ -29,14 +29,12 @@ export function ToolsSection() {
         
         {/* Left Side (Content) */}
         <StaggerContainer className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-start">
-          
-          <StaggerItem className="w-full mb-12">
+          <StaggerItem className="w-full">
             <SectionHeading 
               eyebrow={t("eyebrow")}
               title={t("title")}
-              align="left"
               disableParticles={true}
-              className="lg:items-start lg:text-start items-center text-center"
+              className="lg:items-start lg:text-start"
             />
           </StaggerItem>
 

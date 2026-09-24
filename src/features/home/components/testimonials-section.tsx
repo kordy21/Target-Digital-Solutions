@@ -30,7 +30,7 @@ export function TestimonialsSection() {
       <div className="relative z-10 w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-12">
+        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
           <SectionHeading 
             eyebrow={t("eyebrow")}
             title={t("title")}

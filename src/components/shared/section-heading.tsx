@@ -36,19 +36,19 @@ export function SectionHeading({
   return (
     <div className={cn("flex flex-col w-full", alignmentClasses[align], className)}>
       {eyebrow && (
-        <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 block">
+        <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full text-center md:text-start">
           {eyebrow}
         </span>
       )}
       
-      <div className={cn("mb-6 w-full flex flex-col", alignmentClasses[align], subtitle ? "mb-4" : "mb-10")}>
+      <div className={cn("w-full flex flex-col", alignmentClasses[align], subtitle ? "mb-4" : "mb-10")}>
         {disableParticles ? (
-          <h2 className="text-4xl md:text-4.5xl lg:text-5xl font-cairo font-extrabold text-foreground leading-tight">
+          <h2 className="text-xl md:text-4.5xl lg:text-5xl text-center md:text-start font-cairo font-extrabold text-foreground leading-tight">
             <SplitTextReveal text={title} />
           </h2>
         ) : (
           <ParticleHeading shape={shape} canvasPadding={60}>
-            <h2 className="text-4xl md:text-4.5xl lg:text-5xl font-cairo font-extrabold text-foreground leading-tight">
+            <h2 className="text-xl md:text-4.5xl lg:text-5xl mb-6 text-center md:text-start font-cairo font-extrabold text-foreground leading-tight">
               <SplitTextReveal text={title} />
             </h2>
           </ParticleHeading>
@@ -56,13 +56,13 @@ export function SectionHeading({
       </div>
 
       {subtitle && (
-        <h3 className="text-xl md:text-2xl font-cairo font-bold text-primary mb-4">
+        <h3 className="text-xl md:text-2xl font-cairo font-bold text-primary mb-4 w-full text-center md:text-start">
           {subtitle}
         </h3>
       )}
 
       {description && (
-        <p className="text-base md:text-lg font-cairo text-muted-foreground leading-loose lg:max-w-2xl">
+        <p className="text-base md:text-lg text-center md:text-start font-cairo text-muted-foreground leading-loose lg:max-w-2xl">
           {description}
         </p>
       )}

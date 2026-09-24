@@ -71,7 +71,7 @@ export function PortfolioSection() {
           {/* Right Arrow (Prev in RTL) */}
           <button 
             onClick={scrollPrev}
-            className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-20 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 dark:text-gray-300"
+            className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-18 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 dark:text-gray-300"
           >
             <ArrowRight className="w-6 h-6 md:w-8 md:h-8" />
           </button>
@@ -93,7 +93,7 @@ export function PortfolioSection() {
                     <Image 
                       src={project.image} 
                       alt={t(`projects.${project.id}`)} 
-                      className="max-w-full h-auto object-contain"
+                      className="max-w-full h-auto object-contain pr-4"
                     />
                   </motion.div>
                   <h3 className="font-cairo text-xl md:text-2xl font-semibold text-foreground text-center">
@@ -107,7 +107,7 @@ export function PortfolioSection() {
           {/* Left Arrow (Next in RTL) */}
           <button 
             onClick={scrollNext}
-            className="absolute top-1/2 -translate-y-1/2 left-0 sm:-left-4 md:-left-8 lg:-left-12 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 dark:text-gray-300"
+            className="absolute top-1/2 -translate-y-1/2 left-0 sm:-left-4 md:-left-8 lg:-left-18 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 dark:text-gray-300"
           >
             <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
           </button>

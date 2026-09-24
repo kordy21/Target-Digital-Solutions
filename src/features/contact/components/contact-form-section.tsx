@@ -12,7 +12,7 @@ export function ContactFormSection() {
 
   return (
     <section className="w-full mx-auto px-6 md:px-20 py-16">
-      <div className="w-full mb-12">
+      <div className="w-full mb-0 md:mb-12">
         <SectionHeading 
           eyebrow={t("eyebrow")}
           title={t("title")}

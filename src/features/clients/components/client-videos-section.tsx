@@ -78,7 +78,7 @@ export function ClientVideosSection() {
         <div className="w-full rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col items-center">
           
           {/* Header Section */}
-          <FadeIn direction="up" className="w-full mb-12">
+          <FadeIn direction="up" className="w-full mb-0 md:mb-12">
             <SectionHeading 
               eyebrow={t("eyebrow")}
               title={t("title")}
@@ -86,7 +86,7 @@ export function ClientVideosSection() {
           </FadeIn>
 
           {/* Videos Grid */}
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mb-12">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mb-0 md:mb-12">
             {clients.map((client) => (
               <StaggerItem key={client.id} className="flex flex-col items-center text-center group cursor-pointer">
                 <div className="relative w-full aspect-4/5 rounded-[24px] overflow-hidden mb-6 bg-secondary">
