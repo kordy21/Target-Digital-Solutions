@@ -8,13 +8,30 @@ import { motion } from "framer-motion";
 import { Link2 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { ProjectData } from "./project-card";
+import Bubbles from "@/assets/bubbles.png";
 
 export function ProjectDetailsContent({ project }: { project: ProjectData }) {
   return (
-    <div className="w-full relative py-12">
+    <div className="w-full relative py-12 md:py-24">
+      {/* Decorative Animated Bubbles */}
+      <motion.div 
+        animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-10 right-10 h-40 md:h-64"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 40, 0], x: [0, -15, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-10 left-10 h-32 md:h-48 rotate-180"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
       {/* Container */}
-      <div className="w-full mx-auto px-6 md:px-20 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 w-full">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 w-full bg-background rounded-[2.5rem] p-10 md:p-16 border border-border shadow-sm hover:shadow-md transition-shadow duration-300">
           {/* Content Side */}
           <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-start items-center lg:items-start">
             <FadeIn direction="left" className="w-full flex flex-col items-center lg:items-start">

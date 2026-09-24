@@ -17,7 +17,7 @@ export function Counter({
   direction = "up",
   className,
   delay = 0,
-  formatter = (v) => Intl.NumberFormat("en-US").format(v),
+  formatter = (v) => Intl.NumberFormat("en-US").format(Math.round(v)),
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
@@ -30,7 +30,7 @@ export function Counter({
   });
   
   const formattedValue = useTransform(springValue, (latest) => 
-    formatter(Math.round(latest))
+    formatter(latest)
   );
 
   useEffect(() => {

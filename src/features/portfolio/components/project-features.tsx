@@ -4,6 +4,8 @@ import { FadeIn, SlideIn, ZoomIn } from "@/components/shared/animations";
 import Image from "next/image";
 import { ProjectData } from "./project-card";
 import { useTranslations } from "next-intl";
+import Bubbles from "@/assets/bubbles.png";
+import { motion } from "framer-motion";
 
 export function ProjectFeatures({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -12,7 +14,23 @@ export function ProjectFeatures({ project }: { project: ProjectData }) {
 
   return (
     <section className="w-full relative px-6 md:px-20 py-16">
-      <div className="w-full max-w-screen-xl mx-auto flex flex-col items-center border border-border rounded-[2.5rem] bg-background p-10 md:p-16 shadow-sm relative overflow-hidden">
+      {/* Decorative Animated Bubbles */}
+      <motion.div 
+        animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-0 -right-7.5 h-40 md:h-64"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 40, 0], x: [0, -10, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-10 -left-2.5 h-32 md:h-48 rotate-180"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col items-center border border-border rounded-[2.5rem] bg-background p-10 md:p-16 shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden z-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-3 mb-16 relative z-10">

@@ -34,9 +34,7 @@ export default async function ProjectDetailsPage() {
       />
       
       {/* Details Section */}
-      <section className="w-full max-w-screen-2xl mx-auto py-10 relative overflow-hidden z-10">
-        <ProjectDetailsContent project={project} />
-      </section>
+      <ProjectDetailsContent project={project} />
 
       {/* Stats Banner Section */}
       <ProjectStatsBanner project={project} />

@@ -7,6 +7,8 @@ import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Bubbles from "@/assets/bubbles.png";
+import { motion } from "framer-motion";
 
 export function ProjectTools({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -27,8 +29,24 @@ export function ProjectTools({ project }: { project: ProjectData }) {
   };
 
   return (
-    <section className="w-full relative px-6 md:px-20 py-24 bg-secondary/20">
-      <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+    <section className="w-full relative px-6 md:px-20 py-24">
+      {/* Decorative Animated Bubbles */}
+      <motion.div 
+        animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-[20%] -left-5 h-32 md:h-48 rotate-90"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 30, 0], x: [0, 15, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-[10%] right-10 h-40 md:h-56 -rotate-90"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col items-center relative z-10">
         
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-3 mb-16 relative z-10">

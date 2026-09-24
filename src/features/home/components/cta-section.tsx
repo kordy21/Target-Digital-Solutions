@@ -18,7 +18,7 @@ export function CtaSection() {
   const isRTL = locale === "ar";
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-12 group">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-12 pb-16 md:pb-24 group">
       <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-20 relative z-10">
       <div className="relative w-full bg-background rounded-3xl border border-border overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100 hover:shadow-md transition-shadow duration-300">
         

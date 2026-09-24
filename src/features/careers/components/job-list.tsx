@@ -4,6 +4,9 @@ import { FadeIn } from "@/components/shared/animations";
 import { jobCategories, jobs } from "@/data/careers";
 import { useLocale } from "next-intl";
 import { useState } from "react";
+import Bubbles from "@/assets/bubbles.png";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { JobCard } from "./job-card";
 
 export function JobList() {
@@ -16,7 +19,24 @@ export function JobList() {
     : jobs.filter(job => job.categoryId === activeCategory);
 
   return (
-    <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 py-20">
+    <section className="w-full relative px-6 md:px-20 py-24 bg-background">
+      {/* Decorative Animated Bubbles */}
+      <motion.div 
+        animate={{ y: [0, -30, 0], x: [0, -10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-10 -left-5 h-40 md:h-64 rotate-180"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 40, 0], x: [0, 15, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-1/4 right-0 h-32 md:h-48 -rotate-90"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col bg-background rounded-[2.5rem] p-10 md:p-16 border border-border shadow-sm hover:shadow-md transition-shadow duration-300 relative z-10 overflow-hidden">
       
       {/* Filters */}
       <div className="w-full flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-16">
@@ -69,6 +89,7 @@ export function JobList() {
         )}
       </div>
 
-    </div>
+      </div>
+    </section>
   );
 }

@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import Bubbles from "@/assets/bubbles.png";
 
 export function ProjectSteps({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -43,10 +44,26 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
 
   return (
     <section
-      className="w-full relative px-6 md:px-20 py-24 overflow-hidden"
+      className="w-full relative px-6 md:px-20 py-24"
       ref={containerRef}
     >
-      <div className="w-full max-w-screen-2xl mx-auto flex flex-col items-center">
+      {/* Decorative Animated Bubbles */}
+      <motion.div 
+        animate={{ y: [0, -30, 0], x: [0, -10, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-20 -left-5 h-40 md:h-64 rotate-180"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 40, 0], x: [0, 15, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-1/4 right-0 h-32 md:h-48 -rotate-90"
+      >
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col items-center relative z-10 overflow-hidden">
 
         {/* ── Header ── */}
         <div className="flex flex-col items-center text-center gap-4 mb-16">
@@ -168,16 +185,16 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
             className={cn(
               "absolute top-0 bottom-0 z-0",
               isRTL
-                ? "right-[22px] border-r-4 border-dashed border-primary/20"
-                : "left-[22px] border-l-4 border-dashed border-primary/20"
+                ? "right-5.5 border-r-4 border-dashed border-primary/20"
+                : "left-5.5 border-l-4 border-dashed border-primary/20"
             )}
           />
           <motion.div
             className={cn(
               "absolute top-0 z-0 origin-top",
               isRTL
-                ? "right-[22px] border-r-4 border-dashed border-primary"
-                : "left-[22px] border-l-4 border-dashed border-primary"
+                ? "right-5.5 border-r-4 border-dashed border-primary"
+                : "left-5.5 border-l-4 border-dashed border-primary"
             )}
             style={{ scaleY: pathLength, height: "100%" }}
           />
