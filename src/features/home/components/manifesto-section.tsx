@@ -29,14 +29,14 @@ export function ManifestoSection() {
       <motion.div
         animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-15 hidden md:block top-10 -right-5 h-56 md:h-80"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 -right-5 h-56 md:h-80"
       >
         <Image src={Bubbles} alt="" aria-hidden className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div
         animate={{ y: [0, 40, 0], x: [0, -15, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        className="absolute pointer-events-none z-0 opacity-20 dark:opacity-10 hidden md:block bottom-10 -left-5 h-40 md:h-64 rotate-180"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 -left-5 h-40 md:h-64 rotate-180"
       >
         <Image src={Bubbles} alt="" aria-hidden className="h-full w-auto object-contain" />
       </motion.div>

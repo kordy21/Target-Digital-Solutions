@@ -16,12 +16,12 @@ export function ProjectStatsBanner({ project }: { project: ProjectData }) {
   }
 
   return (
-    <div className="w-full relative px-6 md:px-20 py-16 z-20 overflow-hidden">
+    <div className="w-full relative px-6 md:px-20 z-20 overflow-hidden">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, 30, 0], x: [0, 15, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block -top-2.5 left-20 h-40 md:h-56 rotate-45"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block -top-2.5 left-20 h-40 md:h-56 rotate-45"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>

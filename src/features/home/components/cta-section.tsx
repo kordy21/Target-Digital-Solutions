@@ -20,7 +20,7 @@ export function CtaSection() {
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-12 pb-16 md:pb-24 group">
       <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-20 relative z-10">
-      <div className="relative w-full bg-background rounded-3xl border border-border overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100 hover:shadow-md transition-shadow duration-300">
+      <div className="relative w-full bg-background rounded-3xl border border-border overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
         
         {/* Background Pattern */}
         <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none">
@@ -65,7 +65,7 @@ export function CtaSection() {
         {/* Image Side (Left in visual) */}
         <div className="relative z-10 w-full lg:w-1/2 flex items-end justify-center pt-10 px-10 order-1 lg:order-0 bg-[#f8f9fc]/50 dark:bg-transparent lg:bg-transparent">
           <motion.div 
-            animate={{ y: [0, -20, 0] }}
+            animate={{ y: [], x: [0, 15, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="relative w-full max-w-100 aspect-square"
           >
@@ -74,7 +74,7 @@ export function CtaSection() {
               alt="CTA Mascot" 
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-              className="object-contain" 
+              className="object-contain transition-transform duration-500 group-hover:scale-105" 
             />
           </motion.div>
         </div>

@@ -15,19 +15,19 @@ export function ProjectMockups({ project }: { project: ProjectData }) {
   }
 
   return (
-    <section className="w-full relative px-6 md:px-20 py-24">
+    <section className="w-full relative px-6 md:px-20">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -40, 0], x: [0, -15, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-[10%] left-0 h-48 md:h-72 rotate-90"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-[10%] left-0 h-48 md:h-72 rotate-90"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [0, 30, 0], x: [0, 15, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-[20%] right-0 h-32 md:h-48 -rotate-90"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-[20%] right-0 h-32 md:h-48 -rotate-90"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>

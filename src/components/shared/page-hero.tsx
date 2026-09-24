@@ -28,7 +28,7 @@ export function PageHero({ title, subtitle, image }: PageHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 w-full mx-auto px-6 md:px-18 flex flex-col justify-center">
+      <div className="relative z-20 w-full max-w-screen-2xl mx-auto px-6 md:px-18 flex flex-col justify-center">
         <div className="max-w-2xl text-white pt-12">
           <h1 className="text-4xl w-2/3 md:text-6xl font-cairo font-extrabold mb-4 leading-tight">
             <SplitTextReveal text={title} />

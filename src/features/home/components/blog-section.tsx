@@ -21,13 +21,13 @@ export function BlogSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-40">
+      <div className="absolute inset-0 z-0 pointer-events-auto ">
       </div>
       {/* Side Bubbles */}
       <motion.div 
         animate={{ y: [0, 15, 0], scale: [1, 1.05, 1], rotate: [0, 2, -2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30"
+        className="opacity-40 dark:opacity-20 absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0"
       >
         <Image 
           src={Bubbles} 
@@ -82,7 +82,7 @@ export function BlogSection() {
                           </span>
                         </FadeIn>
                         <SlideIn delay={0.3} direction="up">
-                          <span className="text-[14px] md:text-[16px] font-bold text-white transition-colors font-cairo">
+                          <span className="text-[14px] md:text-[16px] font-bold text-white transition-all duration-300 font-cairo group-hover:-translate-y-0.5 inline-block">
                             {t("author")}
                           </span>
                         </SlideIn>
@@ -97,7 +97,7 @@ export function BlogSection() {
                     {/* Bottom section: Title & Tags */}
                     <div className="flex flex-col items-start w-full">
                       <FadeIn delay={0.5}>
-                        <h3 className="text-[20px] md:text-[24px] font-bold font-cairo text-white transition-colors leading-normal mb-6">
+                        <h3 className="text-[20px] md:text-[24px] font-bold font-cairo text-white transition-all duration-300 leading-normal mb-6 group-hover:-translate-y-1">
                           {t(`items.${item.id}.title`)}
                         </h3>
                       </FadeIn>
@@ -106,7 +106,7 @@ export function BlogSection() {
                         {tags.map((tag: string, idx: number) => (
                           <span 
                             key={idx} 
-                            className="px-4 py-1.5 rounded-full text-[12px] md:text-[13px] font-semibold font-cairo bg-white/20 text-white backdrop-blur-md transition-colors border border-white/30"
+                            className="px-4 py-1.5 rounded-full text-[12px] md:text-[13px] font-semibold font-cairo bg-white/20 text-white backdrop-blur-md transition-transform duration-300 border border-white/30 group-hover:-translate-y-1 group-hover:scale-105"
                           >
                             {tag}
                           </span>

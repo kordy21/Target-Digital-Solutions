@@ -1,6 +1,8 @@
 "use client";
 
-import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
+import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";import Bubbles from "@/assets/bubbles.png";
+import { motion } from "framer-motion";
+
 import { SectionHeading } from "@/components/shared/section-heading";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -45,6 +47,14 @@ export function ServicesSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
+      {/* Decorative Animated Bubbles */}
+      <motion.div animate={{ y: [0, -30, 0], x: [0, 20, 0] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block -top-10 left-1/4 h-32 md:h-56 rotate-90">
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div animate={{ y: [0, 40, 0], x: [0, -20, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 right-10 h-40 md:h-64 rotate-180">
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
       <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         

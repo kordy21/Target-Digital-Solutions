@@ -24,7 +24,7 @@ export function PortfolioList() {
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-5 dark:opacity-10">
       </div>
 
-      <div className="w-full mx-auto px-6 md:px-20 relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         {/* Filter */}
         <PortfolioFilter activeCategory={activeCategory} onSelect={setActiveCategory} />
 

@@ -7,14 +7,13 @@ export default async function CareersPage() {
   const t = await getTranslations("careersPage.hero");
 
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <main className="flex min-h-screen flex-col items-center bg-secondary">
       {/* Hero Section */}
       <PageHero 
         title={t("title")}
         subtitle={t("description")}
         image={GlobalHeroImg}
       />
-      
       {/* Jobs Section */}
       <JobList />
     </main>

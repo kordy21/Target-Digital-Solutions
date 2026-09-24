@@ -1,6 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import Image from "next/image";import Bubbles from "@/assets/bubbles.png";
+import { motion } from "framer-motion";
+
 import { useTranslations } from "next-intl";
 import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -26,6 +28,14 @@ export function FeaturesSection() {
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
+      {/* Decorative Animated Bubbles */}
+      <motion.div animate={{ y: [0, 30, 0], x: [0, -30, 0] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 right-20 h-24 md:h-40 rotate-45">
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div animate={{ y: [0, -40, 0], x: [0, 30, 0] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 left-10 h-32 md:h-56 -rotate-90">
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
       <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 hover:shadow-md transition-shadow duration-300">
         
@@ -58,12 +68,12 @@ export function FeaturesSection() {
                     </div>
                   </ZoomIn>
                   <FadeIn delay={index * 0.1 + 0.1}>
-                    <h3 className="font-cairo font-bold text-lg md:text-xl text-foreground mb-3">
+                    <h3 className="font-cairo font-bold text-lg md:text-xl text-foreground mb-3 group-hover:-translate-y-1 transition-transform duration-300">
                       {t(`items.${feature.id}.title`)}
                     </h3>
                   </FadeIn>
                   <SlideIn delay={index * 0.1 + 0.2} direction="up">
-                    <p className="font-cairo text-sm text-muted-foreground leading-relaxed">
+                    <p className="font-cairo text-sm text-muted-foreground leading-relaxed group-hover:-translate-y-1 transition-transform duration-300 delay-75">
                       {t(`items.${feature.id}.description`)}
                     </p>
                   </SlideIn>

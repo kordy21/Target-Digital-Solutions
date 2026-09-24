@@ -26,12 +26,12 @@ export function SolutionCard({ solution }: { solution: Solution }) {
       {/* Text Content */}
       <div className="flex flex-col items-start justify-start text-start px-2 mt-2">
         <StaggerItem>
-          <h3 className="font-cairo font-bold text-xl md:text-2xl text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
+          <h3 className="font-cairo font-bold text-xl md:text-2xl text-foreground mb-1 group-hover:text-primary transition-all duration-300 transform group-hover:rtl:-translate-x-1 group-hover:ltr:translate-x-1">
             {isRTL ? solution.titleAr : solution.titleEn}
           </h3>
         </StaggerItem>
         <StaggerItem>
-          <span className="font-cairo text-sm text-muted-foreground/80 font-medium">
+          <span className="font-cairo text-sm text-muted-foreground/80 font-medium transition-all duration-300 transform group-hover:rtl:-translate-x-1 group-hover:ltr:translate-x-1 inline-block">
             {isRTL ? solution.subtitleAr : solution.subtitleEn}
           </span>
         </StaggerItem>

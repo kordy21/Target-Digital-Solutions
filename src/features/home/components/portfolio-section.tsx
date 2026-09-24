@@ -46,7 +46,7 @@ export function PortfolioSection() {
       <motion.div 
         animate={{ y: [0, -15, 0], scale: [1, 1.05, 1], rotate: [0, -2, 2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-20 right-0 h-1/2 pointer-events-none hidden md:block z-0"
+        className="opacity-40 dark:opacity-20 absolute -top-20 right-0 h-1/2 pointer-events-none hidden md:block z-0"
       >
         <Image 
           src={Bubbles}
@@ -96,7 +96,7 @@ export function PortfolioSection() {
                       className="max-w-full h-auto object-contain pr-4"
                     />
                   </motion.div>
-                  <h3 className="font-cairo text-xl md:text-2xl font-semibold text-foreground text-center">
+                  <h3 className="font-cairo text-xl md:text-2xl font-semibold text-foreground text-center group-hover:-translate-y-1 transition-transform duration-300">
                     {t(`projects.${project.id}`)}
                   </h3>
                 </ZoomIn>

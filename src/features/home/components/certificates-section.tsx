@@ -67,7 +67,7 @@ export function CertificatesSection() {
       <motion.div 
         animate={{ y: [0, -15, 0], scale: [1, 1.05, 1], rotate: [0, -2, 2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30"
+        className="opacity-40 dark:opacity-20 absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0"
       >
         <Image 
           src={Bubbles} 
@@ -98,7 +98,7 @@ export function CertificatesSection() {
               return (
                 <FadeIn key={cert.id} direction={direction} delay={0.05 * (index % 5)} className="w-full h-full">
                   <div 
-                    className="bg-background text-card-foreground rounded-[24px] hover:shadow-md transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
+                    className="bg-background text-card-foreground rounded-[24px] hover:shadow-md hover:-translate-y-2 transition-all duration-300 flex items-center justify-center p-6 md:p-8 aspect-4/3 group w-full border border-border/50 h-full"
                   >
                     <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-110">
                       <Image 

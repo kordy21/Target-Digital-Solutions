@@ -3,13 +3,14 @@
 import { FadeIn, SlideIn, ZoomIn } from "@/components/shared/animations";
 
 import Bubbles from "@/assets/bubbles.png";
-import { TiltCard } from "@/components/shared/animations/tilt-card";
 import { MagneticWrapper } from "@/components/shared/animations/magnetic-wrapper";
+import { TiltCard } from "@/components/shared/animations/tilt-card";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link2 } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
-import { buttonVariants } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLocale } from "next-intl";
+import Image, { StaticImageData } from "next/image";
 
 export interface ProjectData {
   title: string;
@@ -49,6 +50,8 @@ export interface ProjectData {
 }
 
 export function ProjectCard({ project, index }: { project: ProjectData, index: number }) {
+  const locale = useLocale();
+  const isRTL = locale === "ar";
   const isEven = index % 2 === 0;
 
   const bubble1Styles = [
@@ -76,10 +79,10 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
     <div className="relative w-full">
       {/* Decorative Animated Bubbles */}
       <motion.div 
-        animate={{ y: [0, -20, 0] }}
+        animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className={cn(
-          "absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block",
+          "          absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block",
           currentBubble1
         )}
       >
@@ -87,10 +90,10 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
       </motion.div>
 
       <motion.div 
-        animate={{ y: [0, 30, 0] }}
+        animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className={cn(
-          "absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block",
+          "absolute pointer-events-none z-0 hidden md:block",
           currentBubble2
         )}
       >
@@ -197,17 +200,17 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
             {/* Visit Button */}
             <div className="mt-4">
               <MagneticWrapper>
-                <button 
+                <Button 
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     window.open(project.link, '_blank');
                   }}
-                  className={buttonVariants({ variant: "outline", className: "h-12 px-8 flex rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-base font-bold gap-3" })}
+                  variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
                 >
-                  <Link2 className="w-5 h-5" />
                   <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
-                </button>
+                  {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+                </Button>
               </MagneticWrapper>
             </div>
           </FadeIn>

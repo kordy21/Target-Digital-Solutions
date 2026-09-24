@@ -33,25 +33,27 @@ export default async function ProjectDetailsPage() {
         image={GlobalHeroImg}
       />
       
-      {/* Details Section */}
-      <ProjectDetailsContent project={project} />
+      <div className="flex flex-col w-full gap-12 md:gap-26 py-16 overflow-hidden">
+        {/* Details Section */}
+        <ProjectDetailsContent project={project} />
 
-      {/* Stats Banner Section */}
-      <ProjectStatsBanner project={project} />
+        {/* Stats Banner Section */}
+        <ProjectStatsBanner project={project} />
 
-      {/* Mockups Section */}
-      <ProjectMockups project={project} />
+        {/* Mockups Section */}
+        <ProjectMockups project={project} />
 
-      {/* Steps Section */}
-      <ProjectSteps project={project} />
+        {/* Steps Section */}
+        <ProjectSteps project={project} />
 
-      {/* Features Section */}
-      <ProjectFeatures project={project} />
+        {/* Features Section */}
+        <ProjectFeatures project={project} />
 
-      {/* Tools Section */}
-      <ProjectTools project={project} />
+        {/* Tools Section */}
+        <ProjectTools project={project} />
 
-      <ScaleIn delay={0.1}><CtaSection /></ScaleIn>
+        <ScaleIn delay={0.1}><CtaSection /></ScaleIn>
+      </div>
     </main>
   );
 }

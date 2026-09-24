@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Bubbles from "@/assets/bubbles.png";
 import { useTranslations, useLocale } from "next-intl";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,6 +21,14 @@ export function ValuesSection() {
 
   return (
     <section className="relative w-full overflow-hidden">
+      {/* Decorative Animated Bubbles */}
+      <motion.div animate={{ y: [0, 40, 0], x: [0, 20, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 left-10 h-32 md:h-48 rotate-45">
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+      <motion.div animate={{ y: [0, -30, 0], x: [0, -15, 0] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 right-10 h-40 md:h-64 -rotate-90">
+        <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
+      </motion.div>
+
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         {/* Grid and routing wrapper */}
 

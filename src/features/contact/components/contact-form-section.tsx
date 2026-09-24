@@ -11,7 +11,7 @@ export function ContactFormSection() {
   const t = useTranslations("contactPage.form");
 
   return (
-    <section className="w-full mx-auto px-6 md:px-20 py-16">
+    <section className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 py-16">
       <div className="w-full mb-0 md:mb-12">
         <SectionHeading 
           eyebrow={t("eyebrow")}

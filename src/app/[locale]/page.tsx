@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main className="w-full flex flex-col">
       <Hero />
-      <div className="flex flex-col w-full gap-12 md:gap-26 py-16 md:py-28 overflow-hidden">
+      <div className="flex flex-col w-full gap-12 md:gap-26 py-16 overflow-hidden">
         <FadeIn direction="up"><AboutPreview /></FadeIn>
         <ZoomIn delay={0.1}><AboutUsSection /></ZoomIn>
         <SlideIn direction="left" delay={0.1}><ServicesSection /></SlideIn>

@@ -27,7 +27,7 @@ export function StoriesSection() {
       <motion.div 
         animate={{ y: [0, -20, 0], scale: [1, 1.05, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30"
+        className="opacity-40 dark:opacity-20 absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0"
       >
         <Image 
           src={Bubbles} 

@@ -17,21 +17,21 @@ export default function ContactPage() {
   return (
     <main className="w-full min-h-screen relative overflow-hidden bg-background">
       {/* Background Particles */}
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20 top-[60vh]">
+      <div className="absolute inset-0 z-0 pointer-events-auto top-[60vh]">
       </div>
 
       {/* Background Bubbles */}
       <motion.div 
-        animate={{ y: [0, -20, 0] }}
+        animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 top-[90vh] right-10 h-32 md:h-64 rotate-90 hidden md:block"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 top-[90vh] right-10 h-32 md:h-64 rotate-90 hidden md:block"
       >
         <Image src={Bubbles} alt="Bubbles" style={{ width: 'auto', height: 'auto' }} className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
-        animate={{ y: [0, 30, 0] }}
+        animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 bottom-80 left-10 h-40 md:h-56 -rotate-90 hidden md:block"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 bottom-80 left-10 h-40 md:h-56 -rotate-90 hidden md:block"
       >
         <Image src={Bubbles} alt="Bubbles" style={{ width: 'auto', height: 'auto' }} className="h-full w-auto object-contain" />
       </motion.div>
@@ -43,9 +43,9 @@ export default function ContactPage() {
       />
       
       <div className="relative z-10 w-full flex flex-col items-center bg-secondary">
-        <ScaleIn delay={0.1}><ContactInfoCards /></ScaleIn>
-        <FadeIn delay={0.1} direction="up"><ContactFormSection /></FadeIn>
-        <ZoomIn delay={0.1}><ContactMapSection /></ZoomIn>
+        <ScaleIn delay={0.1} className="w-full"><ContactInfoCards /></ScaleIn>
+        <FadeIn delay={0.1} direction="up" className="w-full"><ContactFormSection /></FadeIn>
+        <ZoomIn delay={0.1} className="w-full"><ContactMapSection /></ZoomIn>
       </div>
     </main>
   );

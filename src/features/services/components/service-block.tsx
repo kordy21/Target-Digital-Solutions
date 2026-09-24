@@ -63,7 +63,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
 
       {/* Decorative Animated Bubbles */}
       <motion.div 
-        animate={{ y: [0, -20, 0] }}
+        animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className={cn(
           "absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block",
@@ -74,10 +74,10 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
       </motion.div>
 
       <motion.div 
-        animate={{ y: [0, 30, 0] }}
+        animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className={cn(
-          "absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block",
+          "absolute pointer-events-none z-0  dark:hidden md:block",
           currentBubble2
         )}
       >
@@ -85,7 +85,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
       </motion.div>
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-        <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
+        <div className="w-full p-8 md:p-8 flex flex-col items-center">
           <div className={cn(
             "flex flex-col gap-12 lg:gap-16 items-center w-full",
             !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
@@ -94,13 +94,13 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
           {/* Text Side */}
           <div className="w-full lg:w-1/2 flex flex-col text-start">
             <FadeIn direction={!isEven ? "right" : "left"}>
-              <h2 className="text-2xl md:text-3xl font-cairo font-bold text-primary mb-6 leading-snug">
+              <h2 className="text-2xl md:text-3xl font-cairo font-bold text-primary mb-6 leading-snug hover:-translate-y-1 transition-transform duration-300 cursor-default">
                 {service.title}
               </h2>
-              <p className="text-muted-foreground font-cairo text-base md:text-lg leading-relaxed mb-6">
+              <p className="text-muted-foreground font-cairo text-base md:text-lg leading-relaxed mb-6 hover:-translate-y-1 transition-transform duration-300 cursor-default">
                 {service.desc1}
               </p>
-              <p className="text-muted-foreground font-cairo text-base md:text-lg leading-relaxed mb-10">
+              <p className="text-muted-foreground font-cairo text-base md:text-lg leading-relaxed mb-10 hover:-translate-y-1 transition-transform duration-300 cursor-default">
                 {service.desc2}
               </p>
               
@@ -120,10 +120,10 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               {service.cards.map((card, cardIndex) => (
                 <StaggerItem key={cardIndex}>
-                  <div className="bg-secondary hover:shadow-md transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
+                  <div className="bg-background hover:shadow-lg hover:-translate-y-2 transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
                     {/* Image */}
                     <motion.div 
-                      animate={{ y: [0, -10, 0] }}
+                      animate={{ y: [], x: [0, 15, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: cardIndex * 0.2 }}
                       className="relative w-32 h-32 md:w-40 md:h-40 mb-6 flex justify-center items-center"
                     >
@@ -137,10 +137,10 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
                     </motion.div>
                     
                     {/* Content */}
-                    <h3 className="text-xl md:text-2xl font-cairo font-bold text-foreground mb-4">
+                    <h3 className="text-xl md:text-2xl font-cairo font-bold text-foreground mb-4 group-hover:-translate-y-1 transition-transform duration-300">
                       {card.title}
                     </h3>
-                    <p className="text-muted-foreground font-cairo text-sm leading-relaxed">
+                    <p className="text-muted-foreground font-cairo text-sm leading-relaxed group-hover:-translate-y-1 transition-transform duration-300 delay-75">
                       {card.desc}
                     </p>
                   </div>

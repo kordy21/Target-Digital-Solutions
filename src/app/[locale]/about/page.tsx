@@ -22,7 +22,7 @@ export default async function AboutPage() {
         subtitle={t("subtitle")} 
         image={AboutHeroImg} 
       />
-      <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28">
+      <div className="flex flex-col gap-12 md:gap-26 py-16 md:py-28 bg-secondary">
         <SlideIn delay={0.1} direction="left"><AboutUsSection /></SlideIn>
         <SlideIn delay={0.1} direction="left"><ValuesSection /></SlideIn>
         <FadeIn delay={0.1} direction="up"><VideoSection /></FadeIn>

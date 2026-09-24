@@ -1,30 +1,34 @@
 "use client";
 
+import Bubbles from "@/assets/bubbles.png";
 import { FadeIn, SlideIn, ZoomIn } from "@/components/shared/animations";
 import { MagneticWrapper } from "@/components/shared/animations/magnetic-wrapper";
 import { TiltCard } from "@/components/shared/animations/tilt-card";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link2 } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { ProjectData } from "./project-card";
-import Bubbles from "@/assets/bubbles.png";
+import { useLocale } from "next-intl";
 
 export function ProjectDetailsContent({ project }: { project: ProjectData }) {
+  const locale = useLocale();
+  const isRTL = locale === "ar";
+
   return (
-    <div className="w-full relative py-12 md:py-24">
+    <div className="w-full relative py-12">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-10 right-10 h-40 md:h-64"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 right-10 h-40 md:h-64"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [0, 40, 0], x: [0, -15, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-10 left-10 h-32 md:h-48 rotate-180"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 left-10 h-32 md:h-48 rotate-180"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
@@ -47,7 +51,7 @@ export function ProjectDetailsContent({ project }: { project: ProjectData }) {
               )}
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 mb-12 w-full place-items-center sm:place-items-start">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 mb-12 w-fit mx-auto lg:mx-0 place-items-start">
                 {/* Visits */}
                 <div className="flex items-center gap-4">
                   <ZoomIn delay={0.1}>
@@ -109,9 +113,25 @@ export function ProjectDetailsContent({ project }: { project: ProjectData }) {
                 </div>
               </div>
             </FadeIn>
+                    {/* Visit Button */}
+        <div className="mt-2 flex justify-center lg:justify-start w-full">
+              <MagneticWrapper>
+                <Button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(project.link, '_blank');
+                  }}
+                  variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+                >
+                  <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
+                  {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+                </Button>
+              </MagneticWrapper>
+        </div>
           </div>
 
-                    {/* Mockup Image Side */}
+          {/* Mockup Image Side */}
           <div className="w-full lg:w-1/2 flex justify-center items-center relative perspective-[1000px]">
             <FadeIn direction="right" className="w-full relative h-80 md:h-125 flex items-center justify-center">
               <TiltCard className="relative w-full h-full">
@@ -131,22 +151,7 @@ export function ProjectDetailsContent({ project }: { project: ProjectData }) {
               </TiltCard>
             </FadeIn>
           </div>
-        </div>
-
-        {/* Visit Button */}
-        <div className="mt-2 flex justify-center lg:justify-start w-full">
-          <MagneticWrapper>
-            <button 
-              onClick={(e) => {
-                e.preventDefault();
-                window.open(project.link, '_blank');
-              }}
-              className={buttonVariants({ variant: "outline", className: "h-14 px-10 flex rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-base font-bold gap-3" })}
-            >
-              <Link2 className="w-5 h-5" />
-              <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
-            </button>
-          </MagneticWrapper>
+          
         </div>
       </div>
     </div>

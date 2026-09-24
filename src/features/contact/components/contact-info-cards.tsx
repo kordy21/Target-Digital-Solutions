@@ -11,7 +11,7 @@ export function ContactInfoCards() {
   const t = useTranslations("contactPage.info");
 
   return (
-    <section className="w-full mx-auto px-6 md:px-24 py-16">
+    <section className="w-full max-w-screen-2xl mx-auto px-6 md:px-24 py-16">
       <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Location Card */}
         <StaggerItem>

@@ -36,7 +36,7 @@ export function SectionHeading({
   return (
     <div className={cn("flex flex-col w-full", alignmentClasses[align], className)}>
       {eyebrow && (
-        <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full text-center md:text-start">
+        <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
           {eyebrow}
         </span>
       )}

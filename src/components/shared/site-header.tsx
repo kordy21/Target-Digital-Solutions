@@ -15,7 +15,7 @@ import { ChevronDown, Moon, Sun, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LanguageSwitcher } from "./language-switcher";
 
 export function SiteHeader() {
@@ -24,6 +24,11 @@ export function SiteHeader() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -61,7 +66,7 @@ export function SiteHeader() {
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="w-8 h-8 flex items-center justify-center rounded-full bg-secondary/50 hover:bg-secondary text-foreground transition-colors mr-2"
               >
-                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                {mounted ? (theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />) : <div className="w-4 h-4" />}
               </button>
               <LanguageSwitcher />
               <Button 
@@ -148,8 +153,8 @@ export function SiteHeader() {
               <nav className="flex flex-col gap-6">
                 <StaggerItem><NavLink href="/about" onClick={() => setIsMobileMenuOpen(false)}>{t("about")}</NavLink></StaggerItem>
                 <StaggerItem><NavLink href="/services" onClick={() => setIsMobileMenuOpen(false)}>{t("services")}</NavLink></StaggerItem>
-                <StaggerItem><NavDropdown label={t("solutions")} onClick={() => setIsMobileMenuOpen(false)} /></StaggerItem>
-                <StaggerItem><NavDropdown label={t("systems")} onClick={() => setIsMobileMenuOpen(false)} /></StaggerItem>
+                <StaggerItem><NavLink href="/solutions" onClick={() => setIsMobileMenuOpen(false)}>{t("solutions")}</NavLink></StaggerItem>
+                <StaggerItem><NavLink href="/systems" onClick={() => setIsMobileMenuOpen(false)}>{t("systems")}</NavLink></StaggerItem>
                 <StaggerItem><NavLink href="/portfolio" onClick={() => setIsMobileMenuOpen(false)}>{t("portfolio")}</NavLink></StaggerItem>
                 <StaggerItem><NavLink href="/clients" onClick={() => setIsMobileMenuOpen(false)}>{t("clients")}</NavLink></StaggerItem>
                 <StaggerItem><NavLink href="/info" onClick={() => setIsMobileMenuOpen(false)}>{t("info")}</NavLink></StaggerItem>

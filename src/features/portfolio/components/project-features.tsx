@@ -18,14 +18,14 @@ export function ProjectFeatures({ project }: { project: ProjectData }) {
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-0 -right-7.5 h-40 md:h-64"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-0 -right-7.5 h-40 md:h-64"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [0, 40, 0], x: [0, -10, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-10 -left-2.5 h-32 md:h-48 rotate-180"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 -left-2.5 h-32 md:h-48 rotate-180"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>

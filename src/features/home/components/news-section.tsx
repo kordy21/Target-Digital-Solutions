@@ -27,7 +27,7 @@ export function NewsSection() {
       <motion.div 
         animate={{ y: [0, 20, 0], rotate: [0, 5, -5, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0 opacity-80 dark:opacity-30"
+        className="opacity-40 dark:opacity-20 absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0"
       >
         <Image 
           src={Bubbles} 
@@ -67,7 +67,7 @@ export function NewsSection() {
               
               {/* Title & Description */}
               <FadeIn delay={index * 0.1 + 0.1}>
-                <h3 className="font-cairo font-bold text-lg md:text-xl text-foreground px-4 leading-relaxed group-hover:text-primary transition-colors">
+                <h3 className="font-cairo font-bold text-lg md:text-xl text-foreground px-4 leading-relaxed group-hover:text-primary group-hover:-translate-y-1 transition-all duration-300">
                   {t(`items.${item.id}.title`)}
                 </h3>
               </FadeIn>

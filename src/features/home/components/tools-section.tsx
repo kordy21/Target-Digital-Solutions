@@ -62,7 +62,7 @@ export function ToolsSection() {
                     </motion.div>
                   </ZoomIn>
                   <SlideIn delay={index * 0.1 + 0.1} direction="up">
-                    <span className="font-cairo font-semibold text-foreground text-xs md:text-base leading-tight">
+                    <span className="font-cairo font-semibold text-foreground text-xs md:text-base leading-tight group-hover:-translate-y-1 group-hover:text-primary transition-all duration-300 inline-block">
                       {t(`items.${tool.id}`)}
                     </span>
                   </SlideIn>

@@ -44,21 +44,21 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
 
   return (
     <section
-      className="w-full relative px-6 md:px-20 py-24"
+      className="w-full relative px-6 md:px-20"
       ref={containerRef}
     >
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, -10, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute pointer-events-none z-0 opacity-40 dark:opacity-20 hidden md:block top-20 -left-5 h-40 md:h-64 rotate-180"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-20 -left-5 h-40 md:h-64 rotate-180"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [0, 40, 0], x: [0, 15, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute pointer-events-none z-0 opacity-30 dark:opacity-10 hidden md:block bottom-1/4 right-0 h-32 md:h-48 -rotate-90"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-1/4 right-0 h-32 md:h-48 -rotate-90"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
@@ -115,7 +115,7 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
                 strokeWidth="5"
                 strokeDasharray="18 22"
                 strokeLinecap="round"
-                className="text-primary opacity-20"
+                className="text-primary "
               />
               {/* animated fill */}
               <path
@@ -182,20 +182,10 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
         <div className="md:hidden w-full relative">
           {/* Vertical dashed line — on the START edge (right in RTL, left in LTR) */}
           <div
-            className={cn(
-              "absolute top-0 bottom-0 z-0",
-              isRTL
-                ? "right-5.5 border-r-4 border-dashed border-primary/20"
-                : "left-5.5 border-l-4 border-dashed border-primary/20"
-            )}
+            className="absolute top-0 bottom-0 z-0 ltr:left-5.5 rtl:right-5.5 ltr:border-l-4 rtl:border-r-4 border-dashed border-primary/20"
           />
           <motion.div
-            className={cn(
-              "absolute top-0 z-0 origin-top",
-              isRTL
-                ? "right-5.5 border-r-4 border-dashed border-primary"
-                : "left-5.5 border-l-4 border-dashed border-primary"
-            )}
+            className="absolute top-0 z-0 origin-top ltr:left-5.5 rtl:right-5.5 ltr:border-l-4 rtl:border-r-4 border-dashed border-primary"
             style={{ scaleY: pathLength, height: "100%" }}
           />
 
@@ -203,23 +193,15 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
             {project.steps.map((step) => (
               <div
                 key={step.id}
-                className={cn(
-                  "flex items-start gap-5 relative",
-                  isRTL ? "flex-row-reverse" : "flex-row"
-                )}
+                className="flex items-start gap-5 relative flex-row"
               >
                 {/* Dot */}
-                <div className="w-11 h-11 shrink-0 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-20 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                <div className="w-11 h-11 shrink-0 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg z-20 shadow-[0_0_20px_rgba(37,99,235,0.4)] relative">
                   {step.id}
                 </div>
 
                 {/* Content */}
-                <div
-                  className={cn(
-                    "flex flex-col gap-4 flex-1",
-                    isRTL ? "items-end text-end" : "items-start text-start"
-                  )}
-                >
+                <div className="flex flex-col gap-4 flex-1 items-start text-start">
                   <Image
                     src={step.image}
                     alt={`Step ${step.id}`}
