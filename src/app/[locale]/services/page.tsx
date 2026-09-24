@@ -1,9 +1,8 @@
-import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
-import { useTranslations } from "next-intl";
+import GlobalHero from "@/assets/globalHero.png";
 import { PageHero } from "@/components/shared/page-hero";
 import { ServiceBlock } from "@/features/services/components/service-block";
 import { getServices } from "@/features/services/data/services-data";
-import GlobalHero from "@/assets/globalHero.png";
+import { useTranslations } from "next-intl";
 
 export default function ServicesPage() {
   const t = useTranslations("servicesPage");

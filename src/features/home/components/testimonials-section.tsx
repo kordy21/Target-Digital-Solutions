@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import useEmblaCarousel from "embla-carousel-react";
-import { FadeIn, ZoomIn } from "@/components/shared/animations";
+import { FadeIn } from "@/components/shared/animations";
 import { SectionHeading } from "@/components/shared/section-heading";
+import useEmblaCarousel from "embla-carousel-react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 import MahmoudImg from "@/assets/mahmoud.png";
 import MohamedImg from "@/assets/mohamed.png";
@@ -42,7 +41,7 @@ export function TestimonialsSection() {
         <FadeIn delay={0.2} direction="up" className="w-full overflow-hidden" >
           <div className="w-full overflow-hidden" ref={emblaRef} dir="rtl">
             <div className="flex -ml-4 rtl:ml-0 rtl:-mr-4">
-              {testimonials.map((item, index) => (
+              {testimonials.map((item) => (
                 <div 
                   key={item.id} 
                   className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4 rtl:pl-0 rtl:pr-4 py-4"
@@ -81,3 +80,4 @@ export function TestimonialsSection() {
     </section>
   );
 }
+

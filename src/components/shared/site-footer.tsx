@@ -13,7 +13,7 @@ import {
 import FooterBg from "@/assets/footer.png";
 import TargetFooterLogo from "@/assets/targetfooter.png";
 import { Link } from "@/i18n/routing";
-import { StaggerContainer, StaggerItem, FadeIn } from "@/components/shared/animations";
+import { StaggerContainer, StaggerItem } from "@/components/shared/animations";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
@@ -239,3 +239,4 @@ function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+

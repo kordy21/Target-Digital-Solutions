@@ -1,6 +1,5 @@
 "use client";
 
-import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 import Bubbles from "@/assets/bubbles.png";
 import GlobalHero from "@/assets/globalHero.png";
 import { StaggerContainer, StaggerItem } from "@/components/shared/animations";

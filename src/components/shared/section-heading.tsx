@@ -1,6 +1,6 @@
 import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -53,3 +53,4 @@ export function SectionHeading({
     </div>
   );
 }
+

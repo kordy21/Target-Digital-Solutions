@@ -1,8 +1,8 @@
-import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
-import { useTranslations } from "next-intl";
-import { PageHero } from "@/components/shared/page-hero";
 import GlobalHero from "@/assets/globalHero.png";
+import { FadeIn } from "@/components/shared/animations";
+import { PageHero } from "@/components/shared/page-hero";
 import { PortfolioList } from "@/features/portfolio/components/portfolio-list";
+import { useTranslations } from "next-intl";
 
 export default function PortfolioPage() {
   const t = useTranslations("portfolioPage");

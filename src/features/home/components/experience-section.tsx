@@ -1,17 +1,16 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
-import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, Play } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 
 import PeopleImg from "@/assets/people.png";
-import PersonVector from "@/assets/personvector.png";
 import PeopleVector from "@/assets/peoplevector.png";
+import PersonVector from "@/assets/personvector.png";
 
 export function ExperienceSection() {
   const t = useTranslations("home.experience");
@@ -110,3 +109,4 @@ export function ExperienceSection() {
     </section>
   );
 }
+

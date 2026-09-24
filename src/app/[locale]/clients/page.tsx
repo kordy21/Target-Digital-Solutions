@@ -1,4 +1,4 @@
-import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
+import { FadeIn, SlideIn, FlipIn } from "@/components/shared/animations";
 import GlobalHero from "@/assets/globalHero.png";
 import { PageHero } from "@/components/shared/page-hero";
 import { CertificatesSection } from "@/features/home/components/certificates-section";

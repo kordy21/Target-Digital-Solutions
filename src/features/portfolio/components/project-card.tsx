@@ -8,7 +8,8 @@ import { MagneticWrapper } from "@/components/shared/animations/magnetic-wrapper
 import { cn } from "@/lib/utils";
 import { Link2 } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export interface ProjectData {
   title: string;
@@ -172,16 +173,15 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
             {/* Visit Button */}
             <div className="mt-4">
               <MagneticWrapper>
-                <Button variant="outline" asChild className="h-12 px-8 rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-base font-bold gap-3">
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <Link2 className="w-5 h-5" />
-                    <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
-                  </a>
-                </Button>
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={buttonVariants({ variant: "outline", className: "h-12 px-8 flex rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors font-cairo text-base font-bold gap-3" })}
+                >
+                  <Link2 className="w-5 h-5" />
+                  <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
+                </a>
               </MagneticWrapper>
             </div>
           </FadeIn>
@@ -191,3 +191,4 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
     </div>
   );
 }
+

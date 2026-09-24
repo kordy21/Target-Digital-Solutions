@@ -1,15 +1,15 @@
 "use client";
 
-import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
-import GlobalHero from "@/assets/globalHero.png";
 import Bubbles from "@/assets/bubbles.png";
+import GlobalHero from "@/assets/globalHero.png";
+import { FadeIn, ScaleIn, ZoomIn } from "@/components/shared/animations";
 import { PageHero } from "@/components/shared/page-hero";
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { ContactInfoCards } from "@/features/contact/components/contact-info-cards";
 import { ContactFormSection } from "@/features/contact/components/contact-form-section";
+import { ContactInfoCards } from "@/features/contact/components/contact-info-cards";
 import { ContactMapSection } from "@/features/contact/components/contact-map-section";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function ContactPage() {
   const t = useTranslations("contactPage");
