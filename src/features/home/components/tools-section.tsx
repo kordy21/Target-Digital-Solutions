@@ -26,7 +26,15 @@ export function ToolsSection() {
   const locale = useLocale();
   const isRTL = locale === "ar";
   const [emblaRef] = useEmblaCarousel(
-    { loop: false, direction: isRTL ? "rtl" : "ltr", align: "start", slidesToScroll: 1 }, 
+    { 
+      loop: false, 
+      direction: isRTL ? "rtl" : "ltr", 
+      align: "center", 
+      slidesToScroll: 1,
+      breakpoints: {
+        '(min-width: 1024px)': { align: 'start' }
+      }
+    }, 
     [Autoplay({ delay: 3500, stopOnInteraction: false })]
   );
 
@@ -58,7 +66,7 @@ export function ToolsSection() {
             </StaggerItem>
 
             <div className="w-full overflow-hidden py-4" ref={emblaRef} dir={isRTL ? "rtl" : "ltr"}>
-              <div className="flex -mx-2">
+              <div className="flex justify-center lg:justify-start -mx-2">
                 {tools.map((tool, index) => (
                   <div key={`${tool.id}-${index}`} className="flex-[0_0_25%] sm:flex-[0_0_20%] min-w-0 px-2 cursor-grab active:cursor-grabbing">
                     <div className="flex flex-col items-center gap-2 md:gap-4 text-center group">

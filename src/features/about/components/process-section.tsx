@@ -25,24 +25,24 @@ export function ProcessSection() {
   const activeStep = steps[currentStep];
 
   return (
-    <section className="relative w-full py-20 bg-secondary overflow-hidden">
+    <section className="relative w-full bg-secondary overflow-hidden">
       
-      <div className="w-full max-w-5xl mx-auto px-6 md:px-20 relative z-10">
+      <div className="w-full mx-auto px-6 md:px-20 relative z-10">
         <FadeIn direction="up">
           <div className="w-full bg-background rounded-[24px] border border-border/40 p-6 md:p-16 flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300">
             
             {/* Header */}
-            <div className="w-full mb-8">
+            <div className="w-full">
               <div className={`flex flex-col w-full items-center text-center`}>
-  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
-    {t("eyebrow")}
-  </span>
-  <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
-    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-      {t("title")}
-    </h2>
-  </div>
-</div>
+                <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+                  {t("eyebrow")}
+                </span>
+                <div className={`w-full flex flex-col items-center text-center mb-2`}>
+                  <h2 className="text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                    {t("title")}
+                  </h2>
+                </div>
+              </div>
             </div>
 
             {/* Step Content Area */}
@@ -60,7 +60,7 @@ export function ProcessSection() {
                 <h3 className="text-foreground font-cairo font-bold text-xl md:text-2xl mb-6">
                   {activeStep.title}
                 </h3>
-                <p className="text-muted-foreground font-cairo text-xs md:text-base leading-relaxed max-w-5xl">
+                <p className="text-muted-foreground font-cairo text-xs md:text-base leading-relaxed max-w-3xl">
                   {activeStep.text}
                 </p>
               </div>

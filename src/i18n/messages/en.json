@@ -680,5 +680,11 @@
     "slogan": "Building Your Digital Future",
     "description": "We create smart digital solutions that drive your business growth in the digital transformation era with a touch of creativity.",
     "contactUs": "Contact Us"
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Oops! Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "backHome": "Back to Home"
   }
 }

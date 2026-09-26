@@ -1,16 +1,15 @@
+import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
+import { MouseFollower } from "@/components/shared/mouse-follower";
+import { SiteFooter } from "@/components/shared/site-footer";
+import { SiteHeader } from "@/components/shared/site-header";
+import { SmoothScroller } from "@/components/shared/smooth-scroller";
+import { routing } from '@/i18n/routing';
+import { QueryProvider } from '@/providers/query-provider';
+import { ThemeProvider } from '@/providers/theme-provider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
-import { ThemeProvider } from '@/providers/theme-provider';
-import { QueryProvider } from '@/providers/query-provider';
 import "../globals.css";
-import { SiteHeader } from "@/components/shared/site-header";
-import { SiteFooter } from "@/components/shared/site-footer";
-import { SmoothScroller } from "@/components/shared/smooth-scroller";
-import { MouseFollower } from "@/components/shared/mouse-follower";
-import { FloatingThemeToggle } from "@/components/shared/floating-theme-toggle";
-import { ScrollShadow } from "@/components/shared/scroll-shadow";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -50,7 +49,6 @@ export default async function RootLayout({
                     <FloatingThemeToggle />
                     {children}
                   </main>
-                  <ScrollShadow />
                   <SiteFooter />
                 </div>
               </SmoothScroller>

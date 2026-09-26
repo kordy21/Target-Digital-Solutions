@@ -54,13 +54,14 @@ export function SiteHeader() {
     <>
       <motion.div 
         className={cn(
-          "w-full flex py-1 justify-center items-center z-50 px-6 md:px-20 fixed top-0 left-0 right-0 transition-all duration-300",
-          isScrolled ? "bg-white dark:bg-slate-950 md:bg-white/90 md:dark:bg-slate-950/90 md:backdrop-blur-md shadow-sm" : "bg-white dark:bg-slate-950"
+          "w-full py-1 justify-center items-center z-50 px-6 md:px-20 fixed top-0 left-0 right-0 transition-all duration-300",
+          isScrolled ? "bg-white dark:bg-slate-950 md:bg-white/90 md:dark:bg-slate-950/90 md:backdrop-blur-md shadow-sm" : "bg-white dark:bg-slate-950",
+          isMobileMenuOpen ? "hidden" : "flex"
         )}
       >
-        <header className="w-full flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between">
+        <header className="w-full flex items-center justify-between">
           <div className="flex items-center gap-4">
-            {/* Desktop Menu Icon to match screenshot */}
+            {/* Desktop Menu Icon */}
             <Button 
               variant="ghost" 
               size="icon" 
@@ -70,30 +71,32 @@ export function SiteHeader() {
               <Image src={MenuImg} alt="Menu" className="w-8 h-8 object-contain dark:invert ltr:-scale-x-100" />
             </Button>
 
+            {/* Mobile Menu Icon (Before Logo) */}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="bg-transparent hover:bg-transparent px-0 flex lg:hidden" 
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Image src={MenuImg} alt="Menu" className="w-7 h-7 object-contain dark:invert ltr:-scale-x-100" />
+            </Button>
+
             <div className="h-20 flex items-center justify-center">
               <Link href="/">
                 <Image src={Logo} alt="Logo" width={40} height={40} priority className="dark:brightness-0 dark:invert" />
               </Link>
             </div>
-            
-            {/* Mobile Controls (Theme + Lang + Menu) */}
-            <div className="flex lg:hidden items-center gap-1 ml-auto rtl:mr-auto rtl:ml-0">
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-secondary/50 hover:bg-secondary text-foreground transition-colors mr-2"
-              >
-                {mounted ? (theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />) : <div className="w-4 h-4" />}
-              </button>
-              <LanguageSwitcher />
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="bg-transparent hover:bg-transparent px-0 ml-1" 
-                onClick={() => setIsMobileMenuOpen(true)}
-              >
-                <Image src={MenuImg} alt="Menu" className="w-7 h-7 object-contain dark:invert rtl:-scale-x-100" />
-              </Button>
-            </div>
+          </div>
+
+          {/* Mobile Controls (Theme + Lang) - On the other side */}
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-secondary/50 hover:bg-secondary text-foreground transition-colors"
+            >
+              {mounted ? (theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />) : <div className="w-4 h-4" />}
+            </button>
+            <LanguageSwitcher />
           </div>
 
           {/* Center Pill (Desktop Only - perfectly centered) */}
@@ -141,10 +144,10 @@ export function SiteHeader() {
           </StaggerContainer>
 
           {/* Desktop CTA Button (Flex 1, End) */}
-          <div className="flex justify-end items-center">
-            <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex justify-end items-center">
+            <div className="flex items-center">
               <MagneticWrapper>
-                <Button className="rounded-2xl bg-foreground text-background hover:bg-foreground/80 font-cairo px-8 h-12 font-bold text-base">
+                <Button className="rounded-2xl bg-foreground text-background hover:bg-foreground/80 font-cairo px-4 h-12  text-base">
                   {t("customer_area")}
                 </Button>
               </MagneticWrapper>
@@ -185,7 +188,7 @@ export function SiteHeader() {
                 </Button>
               </div>
               
-              <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 flex flex-col gap-6 min-h-0 overscroll-contain" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
+              <div className="flex-1 overflow-y-auto overflow-x-hidden p-6 flex flex-col gap-6 min-h-0 overscroll-contain [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none" data-lenis-prevent="true" data-lenis-prevent-wheel="true" data-lenis-prevent-touch="true">
                 <nav className="flex flex-col gap-6">
                   <NavLink href="/about" onClick={() => setIsMobileMenuOpen(false)} hasDropdown isMobile>{t("about")}</NavLink>
                   <NavLink href="/services" onClick={() => setIsMobileMenuOpen(false)} hasDropdown isMobile>{t("services")}</NavLink>
@@ -209,7 +212,7 @@ export function SiteHeader() {
                   </Button>
                 </nav>
 
-                <div className="w-full h-px bg-border my-2"></div>
+                
 
                 <div className="flex items-center gap-4 mb-4 justify-center">
                   <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center cursor-pointer transition-colors hover:bg-black/10 dark:hover:bg-white/20">

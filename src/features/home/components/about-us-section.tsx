@@ -28,7 +28,7 @@ export function AboutUsSection() {
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-18 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-52 items-center justify-between relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-18 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-52 items-center justify-between relative z-10">
         {/* Image Section (Visual Left in RTL) */}
         <FadeIn direction="up" className="order-2 flex flex-col items-center">
           <motion.div 

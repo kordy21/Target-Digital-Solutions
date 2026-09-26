@@ -89,7 +89,7 @@ export function ValuesSection() {
                   {/* Text */}
                   <FadeIn 
                     direction={isEven ? "right" : "left"} 
-                    className="w-full flex flex-col text-center lg:text-start"
+                    className="w-full flex flex-col text-center lg:text-start md:mx-12"
                   >
                     <h3 className="text-xl md:text-4xl font-cairo font-bold text-foreground mb-4">
                       {item.title}
@@ -104,16 +104,17 @@ export function ValuesSection() {
           })}
         </div>
 
-        <MagneticButton>
-          <Button 
-            variant="outline" 
-            className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
-bg-transparent"
-          >
-            {t("cta")}
-            {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
-          </Button>
-        </MagneticButton>
+        <div className="flex justify-center w-full mt-6 md:mt-12">
+          <MagneticButton>
+            <Button 
+              variant="outline" 
+              className="flex items-center gap-3 justify-center rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group bg-transparent"
+            >
+              {t("cta")}
+              {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
+            </Button>
+          </MagneticButton>
+        </div>
       </div>
     </section>
   );
