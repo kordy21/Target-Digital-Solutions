@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { getProcessSteps } from "../data/about-data";
 
 export function ProcessSection() {
@@ -34,10 +33,16 @@ export function ProcessSection() {
             
             {/* Header */}
             <div className="w-full mb-8">
-              <SectionHeading 
-                eyebrow={t("eyebrow")}
-                title={t("title")}
-              />
+              <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
             </div>
 
             {/* Step Content Area */}

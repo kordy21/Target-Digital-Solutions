@@ -71,7 +71,7 @@ export function InteractiveGrid({
         
         // منحنيات متماثلة ومرفوعة من الأطراف عشان نزود عدد النقط يمين وشمال
         const centeredX = gridX - canvas.width / 2;
-        const mountainTop = canvas.height * 0.15 + Math.cos(centeredX * 0.0025) * 130 + Math.cos(centeredX * 0.01) * 20;
+        const mountainTop = canvas.height * 0.15 + Math.cos(centeredX * 0.0025) * 180 + Math.cos(centeredX * 0.01) * 40;
         
         for (let j = 0; j < rows; j++) {
           const gridY = j * particleSpacing + offsetY;

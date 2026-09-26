@@ -28,7 +28,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[85vh] bg-brand-dark overflow-hidden flex items-center border-b-3 border-black mt-20">
+    <section className="relative w-full min-h-[80vh] bg-brand-dark overflow-hidden flex items-center border-b-3 border-black mt-20">
       {/* Dynamic Background Image based on current slide */}
       {slidesData.map((slide, index) => (
         <div

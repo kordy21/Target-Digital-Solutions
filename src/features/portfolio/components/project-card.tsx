@@ -113,7 +113,7 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
               <motion.div 
                 animate={{ rotate: [-2, 2, -2], y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-full h-full"
+                className="relative w-full h-full group overflow-hidden rounded-3xl"
               >
                 <Image 
                   src={project.image} 
@@ -122,6 +122,8 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                   className="object-contain drop-shadow-2xl"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
+                {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+                <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
               </motion.div>
             </TiltCard>
           </FadeIn>
@@ -206,7 +208,8 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                     e.stopPropagation();
                     window.open(project.link, '_blank');
                   }}
-                  variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+                  variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent"
                 >
                   <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
                   {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}

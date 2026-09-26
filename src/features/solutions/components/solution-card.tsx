@@ -21,6 +21,8 @@ export function SolutionCard({ solution }: { solution: Solution }) {
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
         />
+        {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+        <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
       </StaggerItem>
 
       {/* Text Content */}

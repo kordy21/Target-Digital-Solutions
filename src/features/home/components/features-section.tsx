@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";import Bubbles from "@/assets/bubbles.png";
+import Image from "next/image";
+import Bubbles from "@/assets/bubbles.png";
 import { motion } from "framer-motion";
 
 import { useTranslations } from "next-intl";
 import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 
 import Top1Img from "@/assets/top1.png";
 import Top2Img from "@/assets/top2.png";
@@ -37,17 +37,19 @@ export function FeaturesSection() {
       </motion.div>
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-      <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 hover:shadow-md transition-shadow duration-300">
-        
+      <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row  gap-12 lg:gap-16 hover:shadow-md transition-shadow duration-300">
         {/* Text Column */}
-        <FadeIn direction="right" className="w-full lg:w-[40%] flex flex-col lg:border-e lg:border-border lg:pe-6 lg:py-4">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-            align="left"
-            disableParticles={true}
-            className="lg:items-start lg:text-start items-center text-center"
-          />
+        <FadeIn direction="right" className="w-full lg:w-[30%] flex flex-col lg:border-e lg:border-border lg:pe-6 lg:py-4">
+          <div className={`flex flex-col w-full items-center lg:items-start lg:text-start`}>
+            <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+              {t("eyebrow")}
+            </span>
+            <div className={`w-full flex flex-col items-start text-start`}>
+              <h2 className="text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                {t("title")}
+              </h2>
+            </div>
+          </div>
         </FadeIn>
 
         {/* Features Grid */}
@@ -55,9 +57,9 @@ export function FeaturesSection() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-4">
             {features.map((feature, index) => (
               <StaggerItem key={feature.id}>
-                <div className="flex flex-col p-6 rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-white/5 group border border-transparent hover:border-border cursor-default">
+                <div className="flex flex-col">
                   <ZoomIn delay={index * 0.1}>
-                    <div className="w-24 h-24 mx-auto mb-6 relative transition-transform duration-500 group-hover:-translate-y-3 group-hover:scale-110">
+                    <div className="w-24 h-24 relative">
                       <Image 
                         src={feature.image} 
                         alt={t(`items.${feature.id}.title`)} 
@@ -73,7 +75,7 @@ export function FeaturesSection() {
                     </h3>
                   </FadeIn>
                   <SlideIn delay={index * 0.1 + 0.2} direction="up">
-                    <p className="font-cairo text-sm text-muted-foreground leading-relaxed group-hover:-translate-y-1 transition-transform duration-300 delay-75">
+                    <p className="font-cairo w-3/4 text-sm text-muted-foreground leading-relaxed group-hover:-translate-y-1 transition-transform duration-300 delay-75">
                       {t(`items.${feature.id}.description`)}
                     </p>
                   </SlideIn>

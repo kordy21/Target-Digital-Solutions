@@ -2,7 +2,6 @@
 
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { MagneticButton } from "@/components/shared/magnetic-button";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -18,14 +17,14 @@ export function ExperienceSection() {
   const isRTL = locale === "ar";
 
   return (
-    <section className="w-full bg-[#f9f9fb] dark:bg-transparent overflow-hidden relative">
+    <section className="w-full bg-background overflow-hidden relative">
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-10 dark:opacity-20 hidden lg:block">
       </div>
       
       <div className="w-full max-w-screen-2xl mx-auto flex flex-col lg:flex-row relative z-10">
       {/* Right Side / Image Area (First in DOM so it's right in RTL) */}
       <div className="w-full lg:w-1/2 relative h-125 lg:h-auto min-h-125 lg:min-h-175">
-        <FadeIn direction="up" delay={0.1} className="w-full h-full relative">
+        <FadeIn direction="up" delay={0.1} className="w-full h-full relative group overflow-hidden">
           <Image 
             src={PeopleImg} 
             alt="Team Working" 
@@ -33,6 +32,8 @@ export function ExperienceSection() {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
             className="object-cover"
           />
+          {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+          <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
         </FadeIn>
         
         {/* Play Button Overlay */}
@@ -84,20 +85,28 @@ export function ExperienceSection() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 py-16 md:p-16 lg:p-24 bg-white dark:bg-transparent lg:bg-transparent relative z-10">
         <StaggerContainer className="max-w-xl flex flex-col items-start text-start w-full">
           <StaggerItem className="w-full mb-8">
-            <SectionHeading 
-              eyebrow={t("eyebrow")}
-              title={t("title")}
-              subtitle={t("subtitle")}
-              description={t("description")}
-              align="left"
-              className="items-start text-start"
-              disableParticles={true}
-            />
+            <div className={`flex flex-col w-full items-start text-start items-start text-start`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-start text-start mb-4`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+  <h3 className="text-xl md:text-2xl font-cairo font-bold text-primary mb-4 w-full text-start">
+    {t("subtitle")}
+  </h3>
+  <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl mt-4">
+    {t("description")}
+  </p>
+</div>
           </StaggerItem>
           
           <StaggerItem>
             <MagneticButton>
-              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent">
                 <span>{t("button")}</span>
                 {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
               </Button>

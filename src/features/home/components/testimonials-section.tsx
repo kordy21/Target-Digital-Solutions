@@ -1,7 +1,6 @@
 "use client";
 
 import { FadeIn } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -25,16 +24,22 @@ export function TestimonialsSection() {
   });
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center py-12">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-      <div className="relative z-10 w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
+      <div className="relative z-10 w-full bg-background rounded-3xl border-2 border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-          />
+        <FadeIn direction="up" className="w-full">
+          <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
         </FadeIn>
 
         {/* Carousel */}

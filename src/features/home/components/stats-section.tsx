@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Counter } from "@/components/shared/counter";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 import HandsImg from "@/assets/hands.png";
 import { motion } from "framer-motion";
 
@@ -12,13 +11,13 @@ export function StatsSection() {
   const t = useTranslations("home.stats");
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pb-12">
+    <section className="relative w-full flex flex-col items-center justify-center">
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24 relative z-10">
         
         {/* Left Side (Image & Badge) */}
         <div className="relative w-full lg:w-5/12 rounded-2xl flex justify-center lg:justify-start">
           <FadeIn direction="right" delay={0.2} className="relative w-full aspect-4/5 rounded-2xl overflow-hidden">
-            <div className="relative w-full h-full transition-transform duration-700 hover:scale-105">
+            <div className="relative w-full h-full transition-transform duration-700 hover:scale-105 group overflow-hidden">
               <Image 
                 src={HandsImg} 
                 alt="Team Hands" 
@@ -26,6 +25,8 @@ export function StatsSection() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 className="object-cover"
               />
+              {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+              <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
             </div>
           </FadeIn>
 
@@ -67,19 +68,24 @@ export function StatsSection() {
 
         {/* Right Side (Content) */}
         <div className="w-full lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-start pt-12 lg:pt-0">
-          <FadeIn direction="up" delay={0.1} className="w-full mb-16 lg:max-w-2xl">
-            <SectionHeading 
-              eyebrow={t("eyebrow")}
-              title={t("title")}
-              description={t("description")}
-              align="left"
-              className="lg:items-start lg:text-start items-center text-center"
-              disableParticles={true}
-            />
+          <FadeIn direction="up" delay={0.1} className="w-full lg:max-w-2xl">
+            <div className={`flex flex-col w-full items-center lg:items-start lg:text-start`}>
+              <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+                {t("eyebrow")}
+              </span>
+              <div className={`w-full flex flex-col items-start text-start`}>
+                <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                  {t("title")}
+                </h2>
+              </div>
+              <p className="font-cairo font-semibold text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl">
+                {t("description")}
+              </p>
+            </div>
           </FadeIn>
 
           {/* Stats Grid */}
-          <StaggerContainer className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          <StaggerContainer className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 mt-6">
             {["clients", "projects", "team", "data"].map((key) => {
               const value = t(`items.${key}.value`);
               // Extract number part (including decimals and commas) and any letters (like TB, K, M)
@@ -91,9 +97,9 @@ export function StatsSection() {
               const hasPlus = value.includes("+");
 
               return (
-                <StaggerItem key={key} className="flex flex-col items-center text-center group">
+                <StaggerItem key={key} className="flex flex-col items-start text-start group">
                   <div className="w-full h-px bg-muted-foreground/30 mb-6 group-hover:bg-primary/50 transition-colors duration-500"></div>
-                  <div className="font-cairo font-bold text-3xl md:text-4xl text-foreground mb-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" dir="ltr">
+                  <div className="font-cairo font-bold text-3xl md:text-4xl text-foreground mb-2 flex items-center group-hover:scale-110 transition-transform duration-300" dir="ltr">
                     <Counter value={finalValue} delay={0} />
                     {(suffix || hasPlus) && (
                       <span className="text-primary ml-1">

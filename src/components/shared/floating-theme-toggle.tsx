@@ -20,7 +20,7 @@ export function FloatingThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="hidden lg:flex absolute z-40 flex-col items-center bg-slate-400/40 dark:bg-slate-700/50 backdrop-blur-lg rounded-full shadow-xl border border-[#474747] bottom-4 rtl:left-4 ltr:right-4 origin-bottom-left scale-75 md:bottom-auto md:top-[50vh] md:-translate-y-1/2 md:rtl:left-18 md:ltr:right-6 md:origin-center md:scale-100 w-12">
+    <div className="hidden lg:flex absolute z-40 flex-col items-center bg-slate-400/40 dark:bg-slate-700/50 backdrop-blur-lg rounded-full shadow-xl border border-[#474747] bottom-4 rtl:left-4 ltr:right-4 origin-bottom-left scale-75 md:bottom-auto md:top-[53vh] md:-translate-y-1/2 md:rtl:left-12 md:ltr:right-12 md:origin-center md:scale-100 w-12">
       
       {/* Dark Mode Button */}
       <button

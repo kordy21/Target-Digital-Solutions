@@ -8,7 +8,6 @@ import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 import Bubbles from "@/assets/bubbles.png";
 import Part1 from "@/assets/part1.png";
 import Part10 from "@/assets/part10.png";
@@ -62,11 +61,17 @@ export function AboutPreview() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-16">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-          />
+        <FadeIn direction="up" className="w-full">
+          <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
         </FadeIn>
 
         {/* Carousel Section */}

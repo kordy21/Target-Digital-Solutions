@@ -1,9 +1,9 @@
 "use client";
 
-import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";import Bubbles from "@/assets/bubbles.png";
+import { FadeIn, SlideIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
+import Bubbles from "@/assets/bubbles.png";
 import { motion } from "framer-motion";
 
-import { SectionHeading } from "@/components/shared/section-heading";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 type TabKey = "web" | "programming" | "digital" | "solutions" | "systems" | "hosting";
 
-const TABS: TabKey[] = ["web", "programming", "digital", "solutions", "systems" , "hosting"];
+const TABS: TabKey[] = ["web","hosting", "programming", "digital", "solutions", "systems"];
 
 export function ServicesSection() {
   const t = useTranslations("home.services");
@@ -56,14 +56,20 @@ export function ServicesSection() {
       </motion.div>
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-      <div className="w-full bg-background rounded-3xl border border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
+      <div className="w-full bg-background rounded-3xl border-2 border-border p-8 md:p-12 lg:p-16 flex flex-col items-center hover:shadow-md transition-shadow duration-300">
         
         {/* Header Section */}
-        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-          />
+        <FadeIn direction="up" className="w-full">
+          <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
         </FadeIn>
 
         {/* Content Layout */}
@@ -115,10 +121,10 @@ export function ServicesSection() {
               {cards.map((card, index) => (
                 <StaggerItem key={card.id}>
                   <div 
-                    className="bg-secondary rounded-[20px] p-8 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-md group cursor-default h-full"
+                    className="bg-secondary border-2 border-border rounded-[20px] p-6 px-14 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-md group cursor-default h-full"
                   >
                     <ZoomIn delay={index * 0.1}>
-                      <div className="relative w-24 h-24 md:w-32 md:h-32 mb-6 transition-transform duration-500 group-hover:scale-110">
+                      <div className="relative w-24 h-24 md:w-32 md:h-32 mb-6 transition-transform duration-500 group-hover:scale-110 overflow-hidden rounded-full">
                         <Image
                           src={card.image}
                           alt={t(`cards.${card.id}.title`)}
@@ -126,6 +132,8 @@ export function ServicesSection() {
                           sizes="128px"
                           className="object-contain"
                         />
+                        {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+                        <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
                       </div>
                     </ZoomIn>
                     <FadeIn delay={index * 0.1 + 0.1}>
@@ -134,7 +142,7 @@ export function ServicesSection() {
                       </h4>
                     </FadeIn>
                     <SlideIn delay={index * 0.1 + 0.2} direction="up">
-                      <p className="font-cairo text-sm text-muted-foreground leading-relaxed">
+                      <p className="font-cairo text-base text-muted-foreground leading-relaxed">
                         {t(`cards.${card.id}.description`)}
                       </p>
                     </SlideIn>

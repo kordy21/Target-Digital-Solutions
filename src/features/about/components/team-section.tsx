@@ -5,7 +5,6 @@ import { useTranslations, useLocale } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, ArrowLeft, ArrowRight } from "lucide-react";
-import { SectionHeading } from "@/components/shared/section-heading";
 
 import Logo from "@/assets/logo.svg";
 import { getTeamMembers } from "../data/about-data";
@@ -24,11 +23,17 @@ export function TeamSection() {
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
         
         {/* Header */}
-        <FadeIn direction="up" className="w-full mb-16">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-          />
+        <FadeIn direction="up" className="w-full">
+          <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
         </FadeIn>
 
         {/* Carousel / Grid Container */}
@@ -67,7 +72,7 @@ export function TeamSection() {
                     </div>
 
                     {/* Person Image */}
-                    <div className="relative w-full h-[95%] z-10">
+                    <div className="relative w-full h-[95%] z-10 overflow-hidden">
                       <Image 
                         src={member.image} 
                         alt={member.name}
@@ -75,6 +80,8 @@ export function TeamSection() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                       />
+                      {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+                      <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
                     </div>
                   </div>
 
@@ -104,7 +111,8 @@ export function TeamSection() {
           <MagneticButton>
             <Button 
               variant="outline" 
-              className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+              className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent"
             >
               <span>{t("cta")}</span>
               {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}

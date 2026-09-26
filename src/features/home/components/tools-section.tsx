@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 
 import ToolsImg from "@/assets/tools.png";
 import FigmaImg from "@/assets/figma.png";
@@ -13,10 +12,10 @@ import IllustratorImg from "@/assets/illustrator.png";
 import XDImg from "@/assets/xd.png";
 
 const tools = [
-  { id: "xd", image: XDImg },
-  { id: "illustrator", image: IllustratorImg },
-  { id: "photoshop", image: PhotoshopImg },
   { id: "figma", image: FigmaImg },
+  { id: "photoshop", image: PhotoshopImg },
+  { id: "illustrator", image: IllustratorImg },
+  { id: "xd", image: XDImg },
 ];
 
 export function ToolsSection() {
@@ -30,17 +29,21 @@ export function ToolsSection() {
         {/* Left Side (Content) */}
         <StaggerContainer className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-start">
           <StaggerItem className="w-full">
-            <SectionHeading 
-              eyebrow={t("eyebrow")}
-              title={t("title")}
-              disableParticles={true}
-              className="lg:items-start lg:text-start"
-            />
+            <div className={`flex flex-col w-full items-center text-center lg:items-start lg:text-start`}>
+              <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+                {t("eyebrow")}
+              </span>
+              <div className={`w-full flex flex-col mb-10`}>
+                <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                  {t("title")}
+                </h2>
+              </div>
+            </div>      
           </StaggerItem>
 
           <div className="flex flex-col items-center lg:items-start w-full">
             <StaggerItem>
-              <span className="bg-foreground text-background px-8 py-2 rounded-full font-cairo font-semibold text-lg mb-10 inline-block">
+              <span className="bg-foreground text-background px-8 rounded-full font-cairo font-semibold text-lg mb-10 inline-block">
                 {t("categories.design")}
               </span>
             </StaggerItem>

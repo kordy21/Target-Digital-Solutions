@@ -8,7 +8,6 @@ import { useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { FadeIn, ZoomIn } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 
 import Bubbles from "@/assets/bubbles.png";
@@ -58,11 +57,17 @@ export function PortfolioSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-16">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-          />
+        <FadeIn direction="up" className="w-full">
+          <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
         </FadeIn>
 
         {/* Carousel Section */}
@@ -115,7 +120,8 @@ export function PortfolioSection() {
 
         <div className="mb-2 mt-16 w-full flex justify-center">
           <MagneticButton>
-            <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+            <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent">
               <span>{t("button")}</span>
               {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
             </Button>

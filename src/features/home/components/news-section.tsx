@@ -1,7 +1,6 @@
 "use client";
 
 import { FadeIn, StaggerContainer, StaggerItem, ZoomIn } from "@/components/shared/animations";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -39,11 +38,17 @@ export function NewsSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
-          <SectionHeading 
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-          />
+        <FadeIn direction="up" className="w-full">
+          <div className={`flex flex-col w-full items-center text-center`}>
+  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+    {t("eyebrow")}
+  </span>
+  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+      {t("title")}
+    </h2>
+  </div>
+</div>
         </FadeIn>
 
         {/* Cards Grid */}
@@ -51,26 +56,26 @@ export function NewsSection() {
           {newsItems.map((item, index) => (
             <StaggerItem key={item.id} className="flex flex-col items-center text-center group cursor-pointer">
               {/* Card Container */}
-              <div className="w-full bg-card text-card-foreground rounded-3xl p-4 md:p-6 border border-border mb-6 transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-md">
+              <div className="w-full bg-background text-card-foreground rounded-3xl p-4 md:p-6 border border-border mb-6 transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-md">
                 <ZoomIn delay={index * 0.1}>
-                  <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-secondary">
+                  <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden">
                     <Image 
                       src={item.image} 
                       alt={t(`items.${item.id}.title`)}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
+                      className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
                     />
+                    {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+                    <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
                   </div>
                 </ZoomIn>
               </div>
               
               {/* Title & Description */}
-              <FadeIn delay={index * 0.1 + 0.1}>
-                <h3 className="font-cairo font-bold text-lg md:text-xl text-foreground px-4 leading-relaxed group-hover:text-primary group-hover:-translate-y-1 transition-all duration-300">
-                  {t(`items.${item.id}.title`)}
-                </h3>
-              </FadeIn>
+              <h3 className="font-cairo font-bold text-lg md:text-xl text-foreground px-4 leading-relaxed group-hover:text-primary group-hover:-translate-y-1 transition-all duration-300">
+                {t(`items.${item.id}.title`)}
+              </h3>
             </StaggerItem>
           ))}
         </StaggerContainer>

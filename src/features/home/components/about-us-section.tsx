@@ -1,6 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";import Bubbles from "@/assets/bubbles.png";
+import { useTranslations } from "next-intl";
+import Bubbles from "@/assets/bubbles.png";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
@@ -27,11 +28,15 @@ export function AboutUsSection() {
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-18 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
         
         {/* Image Section (Visual Left in RTL) */}
-        <FadeIn direction="up" className="order-2 flex flex-col items-center gap-8">
-          <div className="relative w-full aspect-4/3 md:aspect-16/10 lg:aspect-auto lg:h-125">
+        <FadeIn direction="up" className="order-2 flex flex-col items-center">
+          <motion.div 
+            animate={{ y: [-15, 15, -15] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="relative w-full aspect-4/3 md:aspect-16/10 lg:aspect-auto lg:h-125 group overflow-hidden rounded-3xl"
+          >
             <Image 
               src={UsImage} 
               alt="About Us" 
@@ -39,7 +44,9 @@ export function AboutUsSection() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-contain" 
             />
-          </div>
+            {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+            <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
+          </motion.div>
         </FadeIn>
 
         {/* Text Content (Visual Right in RTL) */}
@@ -51,7 +58,7 @@ export function AboutUsSection() {
           </ZoomIn>
           
           <div className="mb-8">
-            <h2 className="text-2xl md:text-4.5xl lg:text-5.5xl font-cairo font-extrabold text-foreground leading-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
               <SplitTextReveal text={t("title")} />
             </h2>
           </div>
@@ -70,7 +77,8 @@ export function AboutUsSection() {
           
           <FadeIn direction="up" delay={0.5}>
             <MagneticButton>
-              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent">
                 {t("cta")}
                 {isRtl ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
               </Button>

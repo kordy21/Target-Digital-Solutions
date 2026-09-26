@@ -2,7 +2,6 @@
 
 import { StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import { MagneticButton } from "@/components/shared/magnetic-button";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -18,10 +17,9 @@ export function CtaSection() {
   const isRTL = locale === "ar";
 
   return (
-    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-12 pb-16 md:pb-24 group">
+    <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-20 relative z-10">
-      <div className="relative w-full bg-background rounded-3xl border border-border overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-        
+      <div className="relative w-full bg-background rounded-3xl border border-border overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100 transition-all duration-300">
         {/* Background Pattern */}
         <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none">
           {/* We can use the bubbles pattern tiled, or just stretched */}
@@ -38,22 +36,29 @@ export function CtaSection() {
         </div>
 
         {/* Content Side */}
-        <StaggerContainer className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center items-start text-start p-10 md:p-16 lg:p-20 order-2 lg:order-0">
-          <StaggerItem className="w-full mb-8">
-            <SectionHeading 
-              eyebrow={t("eyebrow")}
-              title={t("title")}
-              description={t("description")}
-              align="left"
-              className="items-start text-start"
-            />
+        <StaggerContainer className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center items-start text-start p-10 md:p-16 order-2 lg:order-0">
+          <StaggerItem className="w-full">
+            <div className={`flex flex-col w-full`}>
+              <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+                {t("eyebrow")}
+              </span>
+              <div className={`w-full flex flex-col `}>
+                <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                  {t("title")}
+                </h2>
+              </div>
+              <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl mt-4">
+                {t("description")}
+              </p>
+            </div>
           </StaggerItem>
           
           <StaggerItem>
             <MagneticButton>
               <Button 
                 variant="outline" 
-                className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+                className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent"
               >
                 <span>{t("button")}</span>
                 {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
@@ -62,12 +67,11 @@ export function CtaSection() {
           </StaggerItem>
         </StaggerContainer>
 
-        {/* Image Side (Left in visual) */}
-        <div className="relative z-10 w-full lg:w-1/2 flex items-end justify-center pt-10 px-10 order-1 lg:order-0 bg-[#f8f9fc]/50 dark:bg-transparent lg:bg-transparent">
+        <div className="relative z-10 w-full lg:w-1/2 flex items-center justify-center">
           <motion.div 
             animate={{ y: [], x: [0, 15, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full max-w-100 aspect-square"
+            className="relative w-full max-w-100 aspect-square group overflow-hidden rounded-3xl"
           >
             <Image 
               src={LionImg} 
@@ -76,6 +80,8 @@ export function CtaSection() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               className="object-contain transition-transform duration-500 group-hover:scale-105" 
             />
+            {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
+            <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
           </motion.div>
         </div>
 

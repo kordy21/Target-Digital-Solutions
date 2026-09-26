@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/animations";
 import { motion } from "framer-motion";
-import { SectionHeading } from "@/components/shared/section-heading";
 
 import Bubbles from "@/assets/bubbles.png";
 
@@ -79,17 +78,21 @@ export function CertificatesSection() {
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 flex flex-col items-center relative z-10">
         {/* Section Header */}
-        <FadeIn direction="up" className="w-full mb-0 md:mb-12">
-            <SectionHeading 
-              eyebrow={t("eyebrow")}
-              title={t("title")}
-              align="center"
-              disableParticles={true}
-            />
+        <FadeIn direction="up" className="w-full">
+            <div className={`flex flex-col w-full items-center text-center`}>
+              <span className="text-primary font-cairo text-lg md:text-xl font-bold w-full">
+                {t("eyebrow")}
+              </span>
+              <div className={`w-full flex flex-col items-center text-center mb-10`}>
+                <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                  {t("title")}
+                </h2>
+              </div>
+            </div>
         </FadeIn>
 
         {/* Certificates Rows */}
-        <div className="w-full relative py-8 max-w-screen-2xl mx-auto">
+        <div className="w-full relative py-4 max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
             {certificates.map((cert, index) => {
               const rowIndex = Math.floor(index / 5);

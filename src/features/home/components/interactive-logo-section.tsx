@@ -40,7 +40,8 @@ export function InteractiveLogoSection() {
         <ZoomIn delay={0.6}>
           <MagneticButton>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group">
+              <Button variant="outline" size="lg" className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent">
                 {t("contactUs")}
               </Button>
             </Link>
@@ -49,15 +50,15 @@ export function InteractiveLogoSection() {
       </motion.div>
 
       {/* 2. التأثير (Interactive Grid) في الأسفل */}
-      <div className="relative w-full h-[40vh] -mt-40 flex flex-col items-center justify-center">
+      <div className="relative w-full h-[40vh] -mt-50 flex flex-col items-center justify-center">
         {/* حواف ناعمة للسكشن من فوق وتحت عشان تندمج مع الصفحة */}
         <div className="absolute inset-0 z-10 pointer-events-none" />
         <InteractiveGrid 
           particleColor="rgba(59, 130, 246, 1)" 
           highlightColor="transparent" 
           particleBaseSize={3} 
-          particleSpacing={25} 
-          interactionRadius={140}
+          particleSpacing={20} 
+          interactionRadius={80}
         />
       </div>
     </section>

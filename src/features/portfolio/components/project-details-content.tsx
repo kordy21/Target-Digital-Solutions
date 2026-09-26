@@ -122,7 +122,8 @@ export function ProjectDetailsContent({ project }: { project: ProjectData }) {
                     e.stopPropagation();
                     window.open(project.link, '_blank');
                   }}
-                  variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group"
+                  variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
+bg-transparent"
                 >
                   <span>{project.stats.visitWebsite || "لزيارة الموقع"}</span>
                   {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}

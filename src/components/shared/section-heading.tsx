@@ -42,17 +42,9 @@ export function SectionHeading({
       )}
       
       <div className={cn("w-full flex flex-col", alignmentClasses[align], subtitle ? "mb-4" : "mb-10")}>
-        {disableParticles ? (
-          <h2 className="text-xl md:text-4.5xl lg:text-5xl text-center md:text-start font-cairo font-extrabold text-foreground leading-tight">
-            <SplitTextReveal text={title} />
-          </h2>
-        ) : (
-          <ParticleHeading shape={shape} canvasPadding={60}>
-            <h2 className="text-xl md:text-4.5xl lg:text-5xl mb-6 text-center md:text-start font-cairo font-extrabold text-foreground leading-tight">
-              <SplitTextReveal text={title} />
-            </h2>
-          </ParticleHeading>
-        )}
+        <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+          {title}
+        </h2>
       </div>
 
       {subtitle && (
