@@ -18,7 +18,7 @@ export default function ServicesPage() {
       />
 
       {/* Services Blocks */}
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-12 py-12 md:py-24">
         {services.map((service, index) => (
           <ServiceBlock 
             key={service.id} 

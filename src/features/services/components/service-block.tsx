@@ -58,7 +58,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
   const currentBubble2 = bubble2Styles[index % bubble2Styles.length];
 
   return (
-    <section className="relative w-full py-12 overflow-hidden">
+    <section className="relative w-full overflow-hidden">
       {/* Alternating Background with Particles */}
 
       {/* Decorative Animated Bubbles */}
@@ -84,15 +84,15 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
         <Image src={Bubbles} alt="Bubbles Decoration" className="h-full w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-        <div className="w-full p-8 md:p-8 flex flex-col items-center">
+      <div className="w-full max-w-screen-2xl mx-auto px-8 md:px-18 relative z-10">
+        <div className="w-full flex flex-col items-center">
           <div className={cn(
             "flex flex-col gap-12 lg:gap-16 items-center w-full",
             !isEven ? "lg:flex-row-reverse" : "lg:flex-row"
           )}>
           
           {/* Text Side */}
-          <div className="w-full lg:w-1/2 flex flex-col text-start">
+          <div className="w-full lg:w-[45%] flex flex-col text-start">
             <FadeIn direction={!isEven ? "right" : "left"}>
               <h2 className="text-2xl md:text-3xl font-cairo font-bold text-primary mb-6 leading-snug hover:-translate-y-1 transition-transform duration-300 cursor-default">
                 {service.title}
@@ -106,8 +106,7 @@ export function ServiceBlock({ service, index }: ServiceBlockProps) {
               
               <div className="flex items-center gap-4">
                 <MagneticButton>
-                  <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
-bg-transparent">
+                  <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group bg-transparent">
                     <span>{t("learnMore")}</span>
                     {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
                   </Button>
@@ -121,12 +120,12 @@ bg-transparent">
             <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               {service.cards.map((card, cardIndex) => (
                 <StaggerItem key={cardIndex}>
-                  <div className="bg-background hover:shadow-lg hover:-translate-y-2 transition-all duration-300 rounded-[24px] border border-border/40 p-8 flex flex-col items-center text-center group h-full">
+                  <div className="bg-background hover:shadow-lg hover:-translate-y-2 transition-all duration-300 rounded-[24px] border border-border p-8 flex flex-col items-center text-center group h-full">
                     {/* Image */}
                     <motion.div 
                       animate={{ y: [], x: [0, 15, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: cardIndex * 0.2 }}
-                      className="relative w-32 h-32 md:w-40 md:h-40 mb-6 flex justify-center items-center"
+                      className="relative w-26 h-26 mb-2 flex justify-center items-center"
                     >
                       <Image 
                         src={card.image} 
@@ -138,7 +137,7 @@ bg-transparent">
                     </motion.div>
                     
                     {/* Content */}
-                    <h3 className="text-xl md:text-2xl font-cairo font-bold text-foreground mb-4 group-hover:-translate-y-1 transition-transform duration-300">
+                    <h3 className="text-xl md:text-xl font-cairo font-bold text-foreground mb-4 group-hover:-translate-y-1 transition-transform duration-300">
                       {card.title}
                     </h3>
                     <p className="text-muted-foreground font-cairo text-sm leading-relaxed group-hover:-translate-y-1 transition-transform duration-300 delay-75">
