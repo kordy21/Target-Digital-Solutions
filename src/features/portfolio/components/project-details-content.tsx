@@ -21,14 +21,14 @@ export function ProjectDetailsContent({ project }: { project: ProjectData }) {
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 right-10 h-40 md:h-64"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 right-10 h-40 md:h-64 will-change-transform"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [0, 40, 0], x: [0, -15, 0] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 left-10 h-32 md:h-48 rotate-180"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 left-10 h-32 md:h-48 rotate-180 will-change-transform"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>

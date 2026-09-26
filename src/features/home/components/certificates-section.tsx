@@ -67,7 +67,7 @@ export function CertificatesSection() {
       <motion.div 
         animate={{ y: [0, -15, 0], scale: [1, 1.05, 1], rotate: [0, -2, 2, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0"
+        className="opacity-40 dark:opacity-20 absolute top-0 left-0 h-1/3 pointer-events-none hidden md:block z-0 will-change-transform"
       >
         <Image 
           src={Bubbles} 

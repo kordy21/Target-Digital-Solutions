@@ -2,19 +2,21 @@
 import { AboutPreview } from "@/components/shared/about-preview";
 import { Hero } from "@/features/home/components/hero";
 import { AboutUsSection } from "@/features/home/components/about-us-section";
-import { ServicesSection } from "@/features/home/components/services-section";
-import { PortfolioSection } from "@/features/home/components/portfolio-section";
-import { ToolsSection } from "@/features/home/components/tools-section";
-import { StatsSection } from "@/features/home/components/stats-section";
-import { FeaturesSection } from "@/features/home/components/features-section";
-import { ExperienceSection } from "@/features/home/components/experience-section";
-import { NewsSection } from "@/features/home/components/news-section";
-import { CertificatesSection } from "@/features/home/components/certificates-section";
-import { TestimonialsSection } from "@/features/home/components/testimonials-section";
-import { StoriesSection } from "@/features/home/components/stories-section";
-import { BlogSection } from "@/features/home/components/blog-section";
-import { InteractiveLogoSection } from "@/features/home/components/interactive-logo-section";
-import { CtaSection } from "@/features/home/components/cta-section";
+import dynamic from "next/dynamic";
+
+const ServicesSection = dynamic(() => import("@/features/home/components/services-section").then(mod => mod.ServicesSection));
+const PortfolioSection = dynamic(() => import("@/features/home/components/portfolio-section").then(mod => mod.PortfolioSection));
+const ToolsSection = dynamic(() => import("@/features/home/components/tools-section").then(mod => mod.ToolsSection));
+const StatsSection = dynamic(() => import("@/features/home/components/stats-section").then(mod => mod.StatsSection));
+const FeaturesSection = dynamic(() => import("@/features/home/components/features-section").then(mod => mod.FeaturesSection));
+const ExperienceSection = dynamic(() => import("@/features/home/components/experience-section").then(mod => mod.ExperienceSection));
+const NewsSection = dynamic(() => import("@/features/home/components/news-section").then(mod => mod.NewsSection));
+const CertificatesSection = dynamic(() => import("@/features/home/components/certificates-section").then(mod => mod.CertificatesSection));
+const TestimonialsSection = dynamic(() => import("@/features/home/components/testimonials-section").then(mod => mod.TestimonialsSection));
+const StoriesSection = dynamic(() => import("@/features/home/components/stories-section").then(mod => mod.StoriesSection));
+const BlogSection = dynamic(() => import("@/features/home/components/blog-section").then(mod => mod.BlogSection));
+const InteractiveLogoSection = dynamic(() => import("@/features/home/components/interactive-logo-section").then(mod => mod.InteractiveLogoSection));
+const CtaSection = dynamic(() => import("@/features/home/components/cta-section").then(mod => mod.CtaSection));
 
 import { FadeIn, ZoomIn, SlideIn, ScaleIn, FlipIn } from "@/components/shared/animations";
 

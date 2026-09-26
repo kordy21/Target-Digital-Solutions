@@ -21,8 +21,8 @@ export function SplitTextReveal({ text, delay = 0, className = "", as: Component
     // Split text into words only to preserve Arabic ligatures
     const split = new SplitType(textRef.current, { types: "words" });
 
-    // Ensure we start hidden
-    gsap.set(split.words, { opacity: 0, y: 50, rotateX: -90 });
+    // Ensure we start hidden and add willChange for GPU acceleration
+    gsap.set(split.words, { opacity: 0, y: 50, rotateX: -90, willChange: "transform, opacity" });
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,6 +35,10 @@ export function SplitTextReveal({ text, delay = 0, className = "", as: Component
             stagger: 0.04,
             ease: "back.out(1.7)",
             delay: delay,
+            onComplete: () => {
+              // Free up GPU memory after animation finishes
+              gsap.set(split.words, { clearProps: "willChange" });
+            }
           });
           observer.disconnect();
         }

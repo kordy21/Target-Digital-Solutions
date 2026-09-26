@@ -35,14 +35,14 @@ export function ProjectTools({ project }: { project: ProjectData }) {
       <motion.div 
         animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-[20%] -left-5 h-32 md:h-48 rotate-90"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-[20%] -left-5 h-32 md:h-48 rotate-90 will-change-transform"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [0, 30, 0], x: [0, 15, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-[10%] right-10 h-40 md:h-56 -rotate-90"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-[10%] right-10 h-40 md:h-56 -rotate-90 will-change-transform"
       >
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>

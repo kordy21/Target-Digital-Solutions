@@ -36,7 +36,7 @@ export function NewsSection() {
       <motion.div 
         animate={{ y: [0, 20, 0], rotate: [0, 5, -5, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0"
+        className="opacity-40 dark:opacity-20 absolute top-0 right-12 h-1/3 pointer-events-none hidden md:block z-0 will-change-transform"
       >
         <Image 
           src={Bubbles} 

@@ -49,10 +49,10 @@ export function ServicesSection() {
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
       {/* Decorative Animated Bubbles */}
-      <motion.div animate={{ y: [0, -30, 0], x: [0, 20, 0] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block -top-10 left-1/4 h-32 md:h-56 rotate-90">
+      <motion.div animate={{ y: [0, -30, 0], x: [0, 20, 0] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block -top-10 left-1/4 h-32 md:h-56 rotate-90 will-change-transform">
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
-      <motion.div animate={{ y: [0, 40, 0], x: [0, -20, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 right-10 h-40 md:h-64 rotate-180">
+      <motion.div animate={{ y: [0, 40, 0], x: [0, -20, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 right-10 h-40 md:h-64 rotate-180 will-change-transform">
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
 

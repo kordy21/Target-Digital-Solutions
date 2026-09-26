@@ -22,7 +22,7 @@ export function CtaSection() {
       <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-20 relative z-10">
       <div className="relative w-full bg-background rounded-3xl border border-border overflow-hidden flex flex-col lg:flex-row items-stretch min-h-100 transition-all duration-300">
         {/* Background Pattern */}
-        <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none">
+        <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none will-change-transform">
           {/* We can use the bubbles pattern tiled, or just stretched */}
           <motion.div 
             animate={{ backgroundPosition: ["0px 0px", "200px 200px"] }}

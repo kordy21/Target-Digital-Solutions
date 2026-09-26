@@ -62,14 +62,14 @@ export function ClientVideosSection() {
       <motion.div 
         animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 top-20 right-10 h-32 md:h-64 rotate-90 hidden md:block"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 top-20 right-10 h-32 md:h-64 rotate-90 hidden md:block will-change-transform"
       >
         <Image src={Bubbles} alt="Bubbles" style={{ width: 'auto', height: 'auto' }} className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div 
         animate={{ y: [], x: [0, 15, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 bottom-20 left-10 h-40 md:h-56 -rotate-90 hidden md:block"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 bottom-20 left-10 h-40 md:h-56 -rotate-90 hidden md:block will-change-transform"
       >
         <Image src={Bubbles} alt="Bubbles" style={{ width: 'auto', height: 'auto' }} className="h-full w-auto object-contain" />
       </motion.div>

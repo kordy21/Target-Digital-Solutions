@@ -49,7 +49,7 @@ export function AboutPreview() {
       <motion.div 
         animate={{ y: [0, 20, 0], rotate: [0, 3, -3, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute top-2 left-0 h-1/2 pointer-events-none hidden md:block z-0"
+        className="opacity-40 dark:opacity-20 absolute top-2 left-0 h-1/2 pointer-events-none hidden md:block z-0 will-change-transform"
       >
         <Image 
           src={Bubbles} 

@@ -30,14 +30,14 @@ export function ManifestoSection() {
       <motion.div
         animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 -right-5 h-56 md:h-80"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block top-10 -right-5 h-56 md:h-80 will-change-transform"
       >
         <Image src={Bubbles} alt="" aria-hidden className="h-full w-auto object-contain" />
       </motion.div>
       <motion.div
         animate={{ y: [0, 40, 0], x: [0, -15, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 -left-5 h-40 md:h-64 rotate-180"
+        className="opacity-40 dark:opacity-20 absolute pointer-events-none z-0 hidden md:block bottom-10 -left-5 h-40 md:h-64 rotate-180 will-change-transform"
       >
         <Image src={Bubbles} alt="" aria-hidden className="h-full w-auto object-contain" />
       </motion.div>
@@ -47,7 +47,7 @@ export function ManifestoSection() {
         <div className="relative w-full bg-background border border-border rounded-[2.5rem] p-10 md:p-16 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden flex flex-col items-center gap-16">
 
           {/* Top glow accent */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-linear-to-r from-transparent via-primary/40 to-transparent pointer-events-none will-change-transform" />
 
           {/* Header */}
           <div className="flex flex-col items-center text-center gap-4 max-w-3xl">
@@ -115,7 +115,7 @@ export function ManifestoSection() {
           </FadeIn>
 
           {/* Bottom glow */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-linear-to-r from-transparent via-primary/30 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-linear-to-r from-transparent via-primary/30 to-transparent pointer-events-none will-change-transform" />
         </div>
       </div>
     </section>

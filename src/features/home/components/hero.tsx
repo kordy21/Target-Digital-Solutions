@@ -44,7 +44,7 @@ export function Hero() {
             alt={`Slide ${slide.id + 1}`}
             fill
             className="object-cover object-left ltr:-scale-x-100" 
-            priority
+            priority={index === 0}
           />
           
           {/* Content Overlay */}
