@@ -19,7 +19,7 @@ export function JobList() {
     : jobs.filter(job => job.categoryId === activeCategory);
 
   return (
-    <section className="w-full relative px-6 md:px-20 py-24">
+    <section className="w-full relative px-6 md:px-20 py-12 md:py-24">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, -10, 0] }}

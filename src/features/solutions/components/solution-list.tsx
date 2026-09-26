@@ -19,7 +19,7 @@ export function SolutionList() {
     : solutions.filter(sol => sol.categoryId === activeCategory);
 
   return (
-    <section className="w-full relative px-6 md:px-20 py-24">
+    <section className="w-full relative px-6 md:px-18">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, -10, 0] }}
@@ -36,8 +36,7 @@ export function SolutionList() {
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto flex flex-col relative z-10 overflow-hidden">
-      
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col relative z-10">
       {/* Filters */}
       <div className="w-full flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-16">
         {solutionCategories.map((cat, index) => {

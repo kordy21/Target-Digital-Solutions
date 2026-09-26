@@ -1,8 +1,7 @@
-import { getTranslations } from "next-intl/server";
-import { PageHero } from "@/components/shared/page-hero";
-import { FadeIn } from "@/components/shared/animations";
 import GlobalHeroImg from "@/assets/globalHero.png";
+import { PageHero } from "@/components/shared/page-hero";
 import { SolutionList } from "@/features/solutions/components/solution-list";
+import { getTranslations } from "next-intl/server";
 
 export default async function SolutionsPage() {
   const t = await getTranslations("solutionsPage.hero");
@@ -17,9 +16,9 @@ export default async function SolutionsPage() {
       />
       
       {/* Solutions Grid */}
-      <FadeIn direction="up" delay={0.2} className="w-full">
+      <div className="w-full py-12 md:py-24">
         <SolutionList />
-      </FadeIn>
+      </div>
     </main>
   );
 }
