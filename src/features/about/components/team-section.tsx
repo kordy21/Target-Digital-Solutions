@@ -28,7 +28,7 @@ export function TeamSection() {
   <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
     {t("eyebrow")}
   </span>
-  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+  <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
     <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
       {t("title")}
     </h2>
@@ -81,7 +81,7 @@ export function TeamSection() {
                         className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                       />
                       {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
-                      <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
+                      <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10 transform-gpu will-change-transform" />
                     </div>
                   </div>
 

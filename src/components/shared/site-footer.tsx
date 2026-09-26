@@ -56,31 +56,34 @@ export function SiteFooter() {
             </div>
           </StaggerItem>
 
-          {/* Column 2: Services */}
-          <StaggerItem className="flex flex-col lg:w-1/6">
-            <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("services")}</h4>
-            <div className="flex flex-col gap-4">
-              <FooterListLink>{t("servicesList.webDev")}</FooterListLink>
-              <FooterListLink>{t("servicesList.hosting")}</FooterListLink>
-              <FooterListLink>{t("servicesList.programming")}</FooterListLink>
-              <FooterListLink>{t("servicesList.digital")}</FooterListLink>
-              <FooterListLink>{t("servicesList.solutions")}</FooterListLink>
-              <FooterListLink>{t("servicesList.systems")}</FooterListLink>
-            </div>
-          </StaggerItem>
+          {/* Services & Company Wrapper for Mobile Grid */}
+          <div className="grid grid-cols-2 gap-8 lg:flex lg:flex-row lg:gap-8 lg:w-1/3">
+            {/* Column 2: Services */}
+            <StaggerItem className="flex flex-col lg:w-1/2">
+              <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("services")}</h4>
+              <div className="flex flex-col gap-4">
+                <FooterListLink>{t("servicesList.webDev")}</FooterListLink>
+                <FooterListLink>{t("servicesList.hosting")}</FooterListLink>
+                <FooterListLink>{t("servicesList.programming")}</FooterListLink>
+                <FooterListLink>{t("servicesList.digital")}</FooterListLink>
+                <FooterListLink>{t("servicesList.solutions")}</FooterListLink>
+                <FooterListLink>{t("servicesList.systems")}</FooterListLink>
+              </div>
+            </StaggerItem>
 
-          {/* Column 3: Company */}
-          <StaggerItem className="flex flex-col lg:w-1/6">
-            <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("company")}</h4>
-            <div className="flex flex-col gap-4">
-              <FooterListLink href="/about">{t("companyList.about")}</FooterListLink>
-              <FooterListLink href="/portfolio">{t("companyList.portfolio")}</FooterListLink>
-              <FooterListLink href="/contact">{t("companyList.contact")}</FooterListLink>
-              <FooterListLink href="/blog">{t("companyList.blog")}</FooterListLink>
-              <FooterListLink href="/careers">{t("companyList.careers")}</FooterListLink>
-              <FooterListLink href="/faq">{t("companyList.terms")}</FooterListLink>
-            </div>
-          </StaggerItem>
+            {/* Column 3: Company */}
+            <StaggerItem className="flex flex-col lg:w-1/2">
+              <h4 className="font-cairo font-bold text-lg mb-6 text-white">{t("company")}</h4>
+              <div className="flex flex-col gap-4">
+                <FooterListLink href="/about">{t("companyList.about")}</FooterListLink>
+                <FooterListLink href="/portfolio">{t("companyList.portfolio")}</FooterListLink>
+                <FooterListLink href="/contact">{t("companyList.contact")}</FooterListLink>
+                <FooterListLink href="/blog">{t("companyList.blog")}</FooterListLink>
+                <FooterListLink href="/careers">{t("companyList.careers")}</FooterListLink>
+                <FooterListLink href="/faq">{t("companyList.terms")}</FooterListLink>
+              </div>
+            </StaggerItem>
+          </div>
 
           {/* Column 4: Contact Info */}
           <StaggerItem className="flex flex-col lg:w-1/4">

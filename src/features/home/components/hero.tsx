@@ -48,7 +48,7 @@ export function Hero() {
           />
           
           {/* Content Overlay */}
-          <div className="absolute inset-0 w-full px-6 md:px-20 flex flex-col justify-center pb-20">
+          <div className="absolute inset-0 w-full px-6 md:px-18 flex flex-col justify-center">
             {/* Text & CTA (Visually Right in RTL, Left in LTR) */}
             <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-start rtl:lg:ml-auto">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-cairo font-extrabold text-white leading-tight drop-shadow-lg">
@@ -85,7 +85,7 @@ export function Hero() {
       <motion.div 
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -bottom-8 left-0 w-full z-20 pointer-events-none"
+        className="absolute -bottom-4.5 md:-bottom-8 left-0 w-full z-20 pointer-events-none"
       >
         <Image 
           src={HeroFooter} 
@@ -97,7 +97,7 @@ export function Hero() {
       </motion.div>
 
       {/* Carousel Dots */}
-      <div className="absolute bottom-14 rtl:left-6 rtl:md:left-16 ltr:right-6 ltr:md:right-16 z-30 flex items-center gap-6 bg-white/10 dark:bg-black/20 backdrop-blur-md px-8 py-2 rounded-full shadow-lg">
+      <div className="hidden md:flex absolute bottom-14 rtl:left-6 rtl:md:left-16 ltr:right-6 ltr:md:right-16 z-30 items-center gap-6 bg-white/10 dark:bg-black/20 backdrop-blur-md px-8 py-2 rounded-full shadow-lg">
         <span className="text-white font-cairo text-lg font-bold">
           {currentSlide + 1}
         </span>

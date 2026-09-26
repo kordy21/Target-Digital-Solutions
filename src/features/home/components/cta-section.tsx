@@ -47,7 +47,7 @@ export function CtaSection() {
                   {t("title")}
                 </h2>
               </div>
-              <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl mt-4">
+              <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl">
                 {t("description")}
               </p>
             </div>
@@ -57,8 +57,7 @@ export function CtaSection() {
             <MagneticButton>
               <Button 
                 variant="outline" 
-                className="flex items-center gap-3 justify-center mt-12 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
-bg-transparent"
+                className="flex items-center gap-3 justify-center mt-6 w-fit mx-auto rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group bg-transparent"
               >
                 <span>{t("button")}</span>
                 {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
@@ -67,7 +66,7 @@ bg-transparent"
           </StaggerItem>
         </StaggerContainer>
 
-        <div className="relative z-10 w-full lg:w-1/2 flex items-center justify-center">
+        <div className="relative z-10 w-full lg:w-1/2 flex items-center justify-center md:py-6">
           <motion.div 
             animate={{ y: [], x: [0, 15, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -81,7 +80,7 @@ bg-transparent"
               className="object-contain transition-transform duration-500 group-hover:scale-105" 
             />
             {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
-            <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
+            <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10 transform-gpu will-change-transform" />
           </motion.div>
         </div>
 

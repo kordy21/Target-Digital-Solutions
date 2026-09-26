@@ -33,7 +33,7 @@ export function InteractiveLogoSection() {
               className="object-contain dark:brightness-0 dark:invert transition-transform duration-700 group-hover:scale-105"
             />
             {/* تأثير الانعكاس (Shine/Reflection) عند الهوفر */}
-            <div className="absolute inset-0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-r from-transparent via-white/50 dark:via-white/20 to-transparent skew-x-12 z-10" />
+            <div className="absolute inset-0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-r from-transparent via-white/50 dark:via-white/20 to-transparent skew-x-12 z-10 transform-gpu will-change-transform" />
           </div>
         </ZoomIn>
 
@@ -57,8 +57,8 @@ bg-transparent">
           particleColor="rgba(59, 130, 246, 1)" 
           highlightColor="transparent" 
           particleBaseSize={3} 
-          particleSpacing={20} 
-          interactionRadius={80}
+          particleSpacing={17} 
+          interactionRadius={70}
         />
       </div>
     </section>

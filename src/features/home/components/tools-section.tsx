@@ -1,14 +1,16 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
-import { FadeIn, ZoomIn, SlideIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 
-import ToolsImg from "@/assets/tools.png";
 import FigmaImg from "@/assets/figma.png";
-import PhotoshopImg from "@/assets/photoshop.png";
 import IllustratorImg from "@/assets/illustrator.png";
+import PhotoshopImg from "@/assets/photoshop.png";
+import ToolsImg from "@/assets/tools.png";
 import XDImg from "@/assets/xd.png";
 
 const tools = [
@@ -18,8 +20,15 @@ const tools = [
   { id: "xd", image: XDImg },
 ];
 
+
 export function ToolsSection() {
   const t = useTranslations("home.tools");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
+  const [emblaRef] = useEmblaCarousel(
+    { loop: false, direction: isRTL ? "rtl" : "ltr", align: "start", slidesToScroll: 1 }, 
+    [Autoplay({ delay: 3500, stopOnInteraction: false })]
+  );
 
   return (
     <section className="relative w-full overflow-hidden flex flex-col items-center justify-center">
@@ -33,7 +42,7 @@ export function ToolsSection() {
               <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
                 {t("eyebrow")}
               </span>
-              <div className={`w-full flex flex-col mb-10`}>
+              <div className={`w-full flex flex-col mb-2 md:mb-10`}>
                 <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
                   {t("title")}
                 </h2>
@@ -48,29 +57,29 @@ export function ToolsSection() {
               </span>
             </StaggerItem>
 
-            <div className="grid grid-cols-4 md:flex md:flex-wrap justify-center lg:justify-start gap-4 md:gap-12 w-full">
-              {tools.map((tool, index) => (
-                <StaggerItem key={tool.id} className="flex flex-col items-center gap-2 md:gap-4 text-center">
-                  <ZoomIn delay={index * 0.1}>
-                    <motion.div 
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                      className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-transform hover:scale-110"
-                    >
-                      <Image 
-                        src={tool.image} 
-                        alt={t(`items.${tool.id}`)} 
-                        className="w-full h-full object-contain"
-                      />
-                    </motion.div>
-                  </ZoomIn>
-                  <SlideIn delay={index * 0.1 + 0.1} direction="up">
-                    <span className="font-cairo font-semibold text-foreground text-xs md:text-base leading-tight group-hover:-translate-y-1 group-hover:text-primary transition-all duration-300 inline-block">
-                      {t(`items.${tool.id}`)}
-                    </span>
-                  </SlideIn>
-                </StaggerItem>
-              ))}
+            <div className="w-full overflow-hidden py-4" ref={emblaRef} dir={isRTL ? "rtl" : "ltr"}>
+              <div className="flex -mx-2">
+                {tools.map((tool, index) => (
+                  <div key={`${tool.id}-${index}`} className="flex-[0_0_25%] sm:flex-[0_0_20%] min-w-0 px-2 cursor-grab active:cursor-grabbing">
+                    <div className="flex flex-col items-center gap-2 md:gap-4 text-center group">
+                      <motion.div 
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+                        className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-transform hover:scale-110"
+                      >
+                        <Image 
+                          src={tool.image} 
+                          alt={t(`items.${tool.id}`)} 
+                          className="w-full h-full object-contain"
+                        />
+                      </motion.div>
+                      <span className="font-cairo font-semibold text-foreground text-xs md:text-base leading-tight group-hover:-translate-y-1 group-hover:text-primary transition-all duration-300 inline-block">
+                        {t(`items.${tool.id}`)}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           

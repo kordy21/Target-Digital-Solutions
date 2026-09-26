@@ -33,7 +33,7 @@ export function ScrollShadow() {
   return (
     <div 
       className={cn(
-        "fixed bottom-0 left-0 right-0 h-32 pointer-events-none z-40 transition-opacity duration-500 backdrop-blur-xl [mask-image:linear-gradient(to_top,black,transparent)]",
+        "fixed bottom-0 left-0 right-0 h-32 pointer-events-none z-40 transition-opacity duration-500 transform-gpu bg-linear-to-t from-background via-background/80 to-transparent md:bg-transparent md:backdrop-blur-3xl md:mask-[linear-gradient(to_top,black,transparent)]",
         isVisible ? "opacity-100" : "opacity-0"
       )} 
     />

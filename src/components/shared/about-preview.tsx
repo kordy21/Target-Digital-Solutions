@@ -66,7 +66,7 @@ export function AboutPreview() {
   <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
     {t("eyebrow")}
   </span>
-  <div className={`w-full flex flex-col items-center text-center mb-10`}>
+  <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
     <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
       {t("title")}
     </h2>

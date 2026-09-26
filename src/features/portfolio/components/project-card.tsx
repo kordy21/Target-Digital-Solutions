@@ -123,7 +123,7 @@ export function ProjectCard({ project, index }: { project: ProjectData, index: n
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 {/* Reflection Effect on Hover (Top-Left to Bottom-Right) */}
-                <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10" />
+                <div className="absolute inset-0 translate-x-[-150%] translate-y-[-150%] group-hover:translate-x-[150%] group-hover:translate-y-[150%] transition-transform duration-1000 ease-in-out bg-linear-to-br from-transparent via-white/40 dark:via-white/10 to-transparent z-10 transform-gpu will-change-transform" />
               </motion.div>
             </TiltCard>
           </FadeIn>

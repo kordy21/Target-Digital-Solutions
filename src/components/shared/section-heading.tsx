@@ -1,9 +1,7 @@
-import { SplitTextReveal } from "@/components/shared/split-text-reveal";
 import { cn } from "@/lib/utils";
 
 
 
-import { ParticleHeading } from "@/components/shared/particle-heading";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -22,16 +20,12 @@ export function SectionHeading({
   description,
   align = "center",
   className,
-  disableParticles = false,
 }: SectionHeadingProps) {
   const alignmentClasses = {
     left: "items-start text-start",
     center: "items-center text-center",
     right: "items-end text-end",
   };
-
-  // Use the brand logo shape
-  const shape = "logo";
 
   return (
     <div className={cn("flex flex-col w-full", alignmentClasses[align], className)}>

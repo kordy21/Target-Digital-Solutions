@@ -1,34 +1,35 @@
 "use client";
 
+import { FadeIn } from "@/components/shared/animations";
+import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
+import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useCallback } from "react";
-import { useTranslations, useLocale } from "next-intl";
-import { motion } from "framer-motion";
-import { FadeIn, ZoomIn } from "@/components/shared/animations";
-import { Button } from "@/components/ui/button";
 
 import Bubbles from "@/assets/bubbles.png";
+import MarkaShip from "@/assets/markship.png";
 import R2M from "@/assets/R2M.png";
 import TRS from "@/assets/trs.png";
-import MarkaShip from "@/assets/markship.png";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 
-const projects = [
-  { id: "trs", image: TRS },
-  { id: "marka", image: MarkaShip },
+const baseProjects = [
   { id: "r2m", image: R2M },
+  { id: "marka", image: MarkaShip },
+  { id: "trs", image: TRS },
 ];
+const projects = [...baseProjects, ...baseProjects, ...baseProjects];
 
 export function PortfolioSection() {
   const t = useTranslations("home.portfolio");
   const locale = useLocale();
   const isRTL = locale === "ar";
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, direction: "rtl", align: "start", slidesToScroll: 1 }, 
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    { loop: true, direction: isRTL ? "rtl" : "ltr", align: "start", slidesToScroll: 1 }, 
+    [Autoplay({ delay: 2000, stopOnInteraction: false })]
   );
 
   const scrollPrev = useCallback(() => {
@@ -59,17 +60,16 @@ export function PortfolioSection() {
         {/* Section Header */}
         <FadeIn direction="up" className="w-full">
           <div className={`flex flex-col w-full items-center text-center`}>
-  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
-    {t("eyebrow")}
-  </span>
-  <div className={`w-full flex flex-col items-center text-center mb-10`}>
-    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-      {t("title")}
-    </h2>
-  </div>
-</div>
+            <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+              {t("eyebrow")}
+            </span>
+            <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
+              <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+                {t("title")}
+              </h2>
+            </div>
+          </div>
         </FadeIn>
-
         {/* Carousel Section */}
         <div className="w-full max-w-6xl mx-auto relative flex items-center">
           
@@ -82,16 +82,14 @@ export function PortfolioSection() {
           </button>
 
           {/* Embla Viewport */}
-          <div className="overflow-hidden w-full px-4" ref={emblaRef} dir="rtl">
+          <div className="overflow-hidden w-full px-4" ref={emblaRef} dir={isRTL ? "rtl" : "ltr"}>
             <div className="flex">
               {projects.map((project, index) => (
-                <ZoomIn
-                  delay={index * 0.1}
-                  key={project.id} 
+                <div
+                  key={`${project.id}-${index}`} 
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] min-w-0 flex flex-col items-center px-4"
                 >
                   <motion.div 
-                    whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className="w-full flex items-center justify-center mb-6 cursor-grab active:cursor-grabbing"
                   >
@@ -104,7 +102,7 @@ export function PortfolioSection() {
                   <h3 className="font-cairo text-xl md:text-2xl font-semibold text-foreground text-center group-hover:-translate-y-1 transition-transform duration-300">
                     {t(`projects.${project.id}`)}
                   </h3>
-                </ZoomIn>
+                </div>
               ))}
             </div>
           </div>
