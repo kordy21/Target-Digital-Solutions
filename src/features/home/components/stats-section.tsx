@@ -32,7 +32,7 @@ export function StatsSection() {
           </FadeIn>
 
           {/* Satisfaction Badge */}
-          <div className="absolute -bottom-12 -left-6 md:-left-12 lg:left-12 z-20">
+          <div className="absolute -bottom-12 -left-6 md:-left-12 lg:-left-8 lg:-bottom-6 z-20">
             <FadeIn direction="up" delay={0.5}>
               <motion.div 
                 animate={{ y: [0, -15, 0] }}
@@ -76,8 +76,8 @@ export function StatsSection() {
               </span>
               <div className="w-full flex flex-col items-center text-center lg:items-start lg:text-start">
                 <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-    <SplitTextReveal text={t("title")} />
-</h2>
+                    <SplitTextReveal text={t("title")} />
+                </h2>
               </div>
               <p className="font-cairo font-semibold text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl">
                 {t("description")}

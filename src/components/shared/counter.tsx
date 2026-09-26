@@ -20,7 +20,7 @@ export function Counter({
   formatter = (v) => Intl.NumberFormat("en-US").format(Math.round(v)),
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
   
   const startingValue = direction === "up" ? 0 : value + 100;
   const motionValue = useMotionValue(startingValue);

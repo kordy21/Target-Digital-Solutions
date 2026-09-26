@@ -3,6 +3,7 @@ import { MouseFollower } from "@/components/shared/mouse-follower";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { SiteHeader } from "@/components/shared/site-header";
 import { SmoothScroller } from "@/components/shared/smooth-scroller";
+import { Preloader } from "@/components/shared/preloader";
 import { routing } from '@/i18n/routing';
 import { QueryProvider } from '@/providers/query-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
@@ -32,6 +33,26 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning data-scroll-behavior="smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (sessionStorage.getItem('hasVisited')) {
+                  document.documentElement.dataset.hasVisited = 'true';
+                } else {
+                  document.documentElement.style.overflow = 'hidden';
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+        <style dangerouslySetInnerHTML={{ __html: `
+          html[data-has-visited="true"] #global-preloader {
+            display: none !important;
+          }
+        `}} />
+      </head>
       <body className="antialiased bg-secondary" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
@@ -55,6 +76,7 @@ export default async function RootLayout({
             </QueryProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
+        <Preloader />
       </body>
     </html>
   );
