@@ -6,6 +6,7 @@ import { ProjectData } from "./project-card";
 import { useTranslations } from "next-intl";
 import Bubbles from "@/assets/bubbles.png";
 import { motion } from "framer-motion";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function ProjectMockups({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -15,7 +16,7 @@ export function ProjectMockups({ project }: { project: ProjectData }) {
   }
 
   return (
-    <section className="w-full relative px-6 md:px-20">
+    <section className="w-full relative px-6 md:px-18">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -40, 0], x: [0, -15, 0] }}
@@ -43,8 +44,8 @@ export function ProjectMockups({ project }: { project: ProjectData }) {
           </FadeIn>
           <SlideIn direction="up" delay={0.2}>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-cairo font-black text-foreground max-w-4xl leading-tight">
-              {t('screensSubtitle')}
-            </h2>
+    <SplitTextReveal text={t('screensSubtitle')} />
+</h2>
           </SlideIn>
         </div>
 

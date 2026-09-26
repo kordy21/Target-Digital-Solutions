@@ -16,7 +16,7 @@ export function ProjectStatsBanner({ project }: { project: ProjectData }) {
   }
 
   return (
-    <div className="w-full relative px-6 md:px-20 z-20 overflow-hidden">
+    <div className="w-full relative px-6 md:px-18 z-20 overflow-hidden">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, 30, 0], x: [0, 15, 0] }}

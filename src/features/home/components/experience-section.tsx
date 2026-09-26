@@ -10,6 +10,7 @@ import Image from "next/image";
 import PeopleImg from "@/assets/people.png";
 import PeopleVector from "@/assets/peoplevector.png";
 import PersonVector from "@/assets/personvector.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function ExperienceSection() {
   const t = useTranslations("home.experience");
@@ -84,29 +85,37 @@ export function ExperienceSection() {
       {/* Left Side / Content Area */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 py-16 md:p-16 lg:p-24 bg-white dark:bg-transparent lg:bg-transparent relative z-10">
         <StaggerContainer className="max-w-xl flex flex-col items-start text-start w-full">
-          <StaggerItem className="w-full mb-8">
-            <div className={`flex flex-col w-full`}>
-  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
-    {t("eyebrow")}
-  </span>
-  <div className={`w-full flex flex-col items-start text-start`}>
-    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-      {t("title")}
-    </h2>
-  </div>
-  <h3 className="text-xl md:text-2xl font-cairo font-bold text-primary mb-4 w-full text-start">
-    {t("subtitle")}
-  </h3>
-  <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl mt-4">
-    {t("description")}
-  </p>
-</div>
-          </StaggerItem>
+          <div className="flex flex-col w-full mb-8">
+            <StaggerItem>
+              <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full block">
+                {t("eyebrow")}
+              </span>
+            </StaggerItem>
+            
+            <StaggerItem>
+              <div className="w-full flex flex-col items-start text-start">
+                <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+    <SplitTextReveal text={t("title")} />
+</h2>
+              </div>
+            </StaggerItem>
+            
+            <StaggerItem>
+              <h3 className="text-xl md:text-2xl font-cairo font-bold text-primary mb-4 w-full text-start">
+                {t("subtitle")}
+              </h3>
+            </StaggerItem>
+            
+            <StaggerItem>
+              <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl mt-4 block">
+                {t("description")}
+              </p>
+            </StaggerItem>
+          </div>
           
           <StaggerItem>
             <MagneticButton>
-              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
-bg-transparent">
+              <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group bg-transparent">
                 <span>{t("button")}</span>
                 {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
               </Button>

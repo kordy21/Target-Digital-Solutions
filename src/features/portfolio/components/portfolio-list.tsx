@@ -18,7 +18,7 @@ export function PortfolioList() {
     : projects.filter(p => p.categoryId === activeCategory);
 
   return (
-    <div className="w-full relative py-16 overflow-hidden">
+    <div className="w-full relative py-12 md:py-24 overflow-hidden">
       
       {/* Background Particles (applied broadly to the list area) */}
       <div className="absolute inset-0 z-0 pointer-events-auto opacity-5 dark:opacity-10">
@@ -29,8 +29,7 @@ export function PortfolioList() {
         <PortfolioFilter activeCategory={activeCategory} onSelect={setActiveCategory} />
 
         {/* List of Projects */}
-        <div className="flex flex-col w-full relative">
-          
+        <div className="flex flex-col w-full relative gap-12 md:gap-18">
           {/* Map Projects */}
           {filteredProjects.map((project, index) => (
             <FadeIn key={project.id} delay={index * 0.1}>

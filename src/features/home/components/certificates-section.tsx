@@ -26,6 +26,7 @@ import Mysql from "@/assets/mysql.png";
 import Norton from "@/assets/norton.png";
 import Plesx from "@/assets/plesx.png";
 import Ssl from "@/assets/ssl.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const certificates = [
   // Row 1 (Visual Right to Left)
@@ -85,8 +86,8 @@ export function CertificatesSection() {
               </span>
               <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
                 <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-                  {t("title")}
-                </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
               </div>
             </div>
         </FadeIn>

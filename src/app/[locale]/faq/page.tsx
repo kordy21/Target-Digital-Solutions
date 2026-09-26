@@ -2,7 +2,7 @@
 
 import Bubbles from "@/assets/bubbles.png";
 import GlobalHero from "@/assets/globalHero.png";
-import { StaggerContainer, StaggerItem } from "@/components/shared/animations";
+import { StaggerContainer, StaggerItem, FadeIn } from "@/components/shared/animations";
 import { PageHero } from "@/components/shared/page-hero";
 import { FAQItem } from "@/features/faq/components/faq-item";
 import { motion } from "framer-motion";
@@ -44,14 +44,16 @@ export default function FAQPage() {
         subtitle={t("hero.subtitle")} 
         image={GlobalHero}
       />
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-24 py-16 relative z-10">
-        <StaggerContainer className="flex flex-col gap-4">
-          {faqs.map((faq, idx) => (
-            <StaggerItem key={idx}>
-              <FAQItem question={faq.q} answer={faq.a} defaultOpen={idx === 0} />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-24 py-12 md:py-24 relative z-10">
+        <FadeIn direction="up" delay={0.2} className="w-full">
+          <StaggerContainer className="flex flex-col gap-4">
+            {faqs.map((faq, idx) => (
+              <StaggerItem key={idx}>
+                <FAQItem question={faq.q} answer={faq.a} defaultOpen={idx === 0} />
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </FadeIn>
       </div>
     </main>
   );

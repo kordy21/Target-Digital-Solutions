@@ -10,6 +10,7 @@ import Image from "next/image";
 
 import Bubbles from "@/assets/bubbles.png";
 import LionImg from "@/assets/lion.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function CtaSection() {
   const t = useTranslations("home.cta");
@@ -44,8 +45,8 @@ export function CtaSection() {
               </span>
               <div className={`w-full flex flex-col `}>
                 <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-                  {t("title")}
-                </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
               </div>
               <p className="font-cairo text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl">
                 {t("description")}

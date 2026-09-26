@@ -3,6 +3,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { ServiceBlock } from "@/features/services/components/service-block";
 import { getServices } from "@/features/services/data/services-data";
 import { useTranslations } from "next-intl";
+import { FadeIn } from "@/components/shared/animations";
 
 export default function ServicesPage() {
   const t = useTranslations("servicesPage");
@@ -18,15 +19,17 @@ export default function ServicesPage() {
       />
 
       {/* Services Blocks */}
-      <div className="flex flex-col gap-12 py-12 md:py-24">
-        {services.map((service, index) => (
-          <ServiceBlock 
-            key={service.id} 
-            service={service} 
-            index={index} 
-          />
-        ))}
-      </div>
+      <FadeIn direction="up" delay={0.2} className="w-full">
+        <div className="flex flex-col gap-12 py-12 md:py-24">
+          {services.map((service, index) => (
+            <ServiceBlock 
+              key={service.id} 
+              service={service} 
+              index={index} 
+            />
+          ))}
+        </div>
+      </FadeIn>
     </main>
   );
 }

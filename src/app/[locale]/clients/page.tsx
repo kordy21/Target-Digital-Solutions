@@ -19,7 +19,7 @@ export default function ClientsPage() {
       />
 
       {/* Clients Content */}
-      <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 py-16 relative z-10">
+      <div className="w-full mx-auto flex flex-col gap-12 md:gap-24 py-12 md:py-24 relative z-10">
         <FlipIn delay={0.1} direction="x"><CertificatesSection /></FlipIn>
         <FadeIn delay={0.1} direction="up"><TestimonialsSection /></FadeIn>
         <SlideIn delay={0.1} direction="left"><ClientVideosSection /></SlideIn>

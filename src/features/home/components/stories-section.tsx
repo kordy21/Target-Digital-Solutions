@@ -13,6 +13,7 @@ import Bubbles from "@/assets/bubbles.png";
 import Story1Img from "@/assets/story1.png";
 import Story2Img from "@/assets/story2.png";
 import Story3Img from "@/assets/story3.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const baseStories = [
   { id: "story3", image: Story3Img },
@@ -55,8 +56,8 @@ export function StoriesSection() {
   </span>
   <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
     <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-      {t("title")}
-    </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
   </div>
 </div>
         </FadeIn>

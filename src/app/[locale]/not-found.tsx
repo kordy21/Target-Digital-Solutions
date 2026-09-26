@@ -2,12 +2,14 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import Logo from '@/assets/logo.svg';
+import { FadeIn } from '@/components/shared/animations';
 
 export default function NotFoundPage() {
   const t = useTranslations('notFound');
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] pt-32 pb-16 px-6 text-center">
+      <FadeIn direction="up" delay={0.2} className="flex flex-col items-center">
       {/* Animated Logo Container */}
       <div className="relative mb-8">
         <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full animate-pulse" />
@@ -38,6 +40,7 @@ export default function NotFoundPage() {
       >
         {t('backHome')}
       </Link>
+      </FadeIn>
     </div>
   );
 }

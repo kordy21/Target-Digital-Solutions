@@ -212,3 +212,5 @@ export function SlideIn({ children, delay = 0, className = '', direction = 'left
     </motion.div>
   );
 }
+
+export * from "./split-text-reveal";

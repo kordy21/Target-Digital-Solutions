@@ -10,6 +10,7 @@ import { MagneticButton } from "@/components/shared/magnetic-button";
 import { FadeIn, SlideIn, ZoomIn } from "@/components/shared/animations";
 import { ParticleHeading } from "@/components/shared/particle-heading";
 import Bubbles from "@/assets/bubbles.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const pillars = [
   { key: "speed",    icon: "⚡" },
@@ -60,8 +61,8 @@ export function ManifestoSection() {
             {/* The ParticleHeading — rings shape wraps the big manifesto headline */}
             <ParticleHeading shape="rings" canvasPadding={70} className="w-full">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-cairo font-extrabold text-foreground leading-tight">
-                {t("title")}
-              </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
             </ParticleHeading>
 
             <SlideIn direction="up" delay={0.3}>

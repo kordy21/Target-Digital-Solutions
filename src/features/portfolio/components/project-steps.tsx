@@ -8,6 +8,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import Bubbles from "@/assets/bubbles.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function ProjectSteps({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -44,7 +45,7 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
 
   return (
     <section
-      className="w-full relative px-6 md:px-20"
+      className="w-full relative px-6 md:px-18"
       ref={containerRef}
     >
       {/* Decorative Animated Bubbles */}
@@ -63,7 +64,7 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
         <Image src={Bubbles} alt="Bubbles" className="h-full w-auto object-contain" />
       </motion.div>
 
-      <div className="w-full max-w-screen-2xl mx-auto flex flex-col items-center relative z-10 overflow-hidden">
+      <div className="w-full max-w-screen-2xl mx-auto flex flex-col items-center relative z-10">
 
         {/* ── Header ── */}
         <div className="flex flex-col items-center text-center gap-4 mb-16">
@@ -74,15 +75,15 @@ export function ProjectSteps({ project }: { project: ProjectData }) {
           </FadeIn>
           <SlideIn direction="up" delay={0.2}>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-cairo font-black text-foreground">
-              {t("stepsSubtitle")}
-            </h2>
+    <SplitTextReveal text={t("stepsSubtitle")} />
+</h2>
           </SlideIn>
         </div>
 
         {/* ── DESKTOP ── */}
         <div
           className="relative w-full hidden md:block"
-          style={{ height: "1100px" }}
+          style={{ height: "1200px" }}
         >
           {/* Snake SVG — mirrored for RTL */}
           <div

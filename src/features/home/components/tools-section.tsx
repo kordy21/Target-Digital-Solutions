@@ -12,6 +12,7 @@ import IllustratorImg from "@/assets/illustrator.png";
 import PhotoshopImg from "@/assets/photoshop.png";
 import ToolsImg from "@/assets/tools.png";
 import XDImg from "@/assets/xd.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const tools = [
   { id: "figma", image: FigmaImg },
@@ -52,8 +53,8 @@ export function ToolsSection() {
               </span>
               <div className={`w-full flex flex-col mb-2 md:mb-10`}>
                 <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-                  {t("title")}
-                </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
               </div>
             </div>      
           </StaggerItem>

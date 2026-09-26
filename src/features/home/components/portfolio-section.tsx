@@ -15,6 +15,7 @@ import MarkaShip from "@/assets/markship.png";
 import R2M from "@/assets/R2M.png";
 import TRS from "@/assets/trs.png";
 import { MagneticButton } from "@/components/shared/magnetic-button";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const baseProjects = [
   { id: "r2m", image: R2M },
@@ -65,8 +66,8 @@ export function PortfolioSection() {
             </span>
             <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
               <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-                {t("title")}
-              </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
             </div>
           </div>
         </FadeIn>

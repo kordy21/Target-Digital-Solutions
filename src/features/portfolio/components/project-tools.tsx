@@ -9,6 +9,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Bubbles from "@/assets/bubbles.png";
 import { motion } from "framer-motion";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function ProjectTools({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -57,8 +58,8 @@ export function ProjectTools({ project }: { project: ProjectData }) {
           </FadeIn>
           <SlideIn direction="up" delay={0.2}>
             <h2 className="text-2xl md:text-4xl font-cairo font-black text-foreground">
-              {t("toolsSubtitle")}
-            </h2>
+    <SplitTextReveal text={t("toolsSubtitle")} />
+</h2>
           </SlideIn>
         </div>
 

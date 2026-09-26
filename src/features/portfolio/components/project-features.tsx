@@ -6,6 +6,7 @@ import { ProjectData } from "./project-card";
 import { useTranslations } from "next-intl";
 import Bubbles from "@/assets/bubbles.png";
 import { motion } from "framer-motion";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function ProjectFeatures({ project }: { project: ProjectData }) {
   const t = useTranslations("portfolioPage.project");
@@ -13,7 +14,7 @@ export function ProjectFeatures({ project }: { project: ProjectData }) {
   if (!project.features || project.features.length === 0) return null;
 
   return (
-    <section className="w-full relative px-6 md:px-20 py-16">
+    <section className="w-full relative px-6 md:px-20">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
@@ -41,8 +42,8 @@ export function ProjectFeatures({ project }: { project: ProjectData }) {
           </FadeIn>
           <SlideIn direction="up" delay={0.2}>
             <h2 className="text-2xl md:text-4xl font-cairo font-black text-foreground">
-              {t("featuresSubtitle")}
-            </h2>
+    <SplitTextReveal text={t("featuresSubtitle")} />
+</h2>
           </SlideIn>
         </div>
 

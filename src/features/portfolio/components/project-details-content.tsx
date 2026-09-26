@@ -16,7 +16,7 @@ export function ProjectDetailsContent({ project }: { project: ProjectData }) {
   const isRTL = locale === "ar";
 
   return (
-    <div className="w-full relative py-12">
+    <div className="w-full relative">
       {/* Decorative Animated Bubbles */}
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, 10, 0] }}

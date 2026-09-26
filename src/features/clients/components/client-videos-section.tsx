@@ -12,6 +12,7 @@ import Client2 from "@/assets/client2.png";
 import Client3 from "@/assets/client3.png";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/shared/magnetic-button";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const CustomPlayIcon = ({ className }: { className?: string }) => (
   <svg 
@@ -74,20 +75,20 @@ export function ClientVideosSection() {
       </motion.div>
 
       <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-20 relative z-10">
-        <div className="w-full rounded-3xl p-8 md:p-12 lg:p-16 flex flex-col items-center">
+        <div className="w-full rounded-3xl flex flex-col items-center">
           
           {/* Header Section */}
           <FadeIn direction="up" className="w-full">
             <div className={`flex flex-col w-full items-center text-center`}>
-  <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
-    {t("eyebrow")}
-  </span>
-  <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
-    <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-      {t("title")}
-    </h2>
-  </div>
-</div>
+              <span className="text-primary font-cairo text-lg md:text-xl font-bold mb-4 w-full">
+                {t("eyebrow")}
+              </span>
+              <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
+                <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
+    <SplitTextReveal text={t("title")} />
+</h2>
+              </div>
+            </div>
           </FadeIn>
 
           {/* Videos Grid */}
@@ -125,8 +126,7 @@ export function ClientVideosSection() {
 
           {/* Action Button */}
           <MagneticButton>
-            <Button variant="outline" className="flex items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group
-bg-transparent">
+            <Button variant="outline" className="flex mt-8 items-center gap-3 justify-center w-fit rounded-full px-8 h-12 font-cairo text-base border-primary text-black dark:text-white hover:bg-primary hover:text-primary-foreground group bg-transparent">
               <span>{t("learnMore")}</span>
               {isRTL ? <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />}
             </Button>

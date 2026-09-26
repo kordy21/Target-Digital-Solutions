@@ -9,7 +9,7 @@ import { ProjectSteps } from "@/features/portfolio/components/project-steps";
 import { getProjects } from "@/features/portfolio/data/portfolio-data";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { ScaleIn } from "@/components/shared/animations";
+import { ScaleIn, FadeIn, SlideIn, ZoomIn } from "@/components/shared/animations";
 import { CtaSection } from "@/features/home/components/cta-section";
 
 export default async function ProjectDetailsPage() {
@@ -33,24 +33,24 @@ export default async function ProjectDetailsPage() {
         image={GlobalHeroImg}
       />
       
-      <div className="flex flex-col w-full gap-12 md:gap-26 py-16 overflow-hidden">
+      <div className="flex flex-col w-full gap-12 md:gap-24 py-12 md:py-24 overflow-hidden">
         {/* Details Section */}
-        <ProjectDetailsContent project={project} />
+        <FadeIn delay={0.1} direction="up" className="w-full"><ProjectDetailsContent project={project} /></FadeIn>
 
         {/* Stats Banner Section */}
-        <ProjectStatsBanner project={project} />
+        <ZoomIn delay={0.1} className="w-full"><ProjectStatsBanner project={project} /></ZoomIn>
 
         {/* Mockups Section */}
-        <ProjectMockups project={project} />
+        <SlideIn delay={0.1} direction="left" className="w-full"><ProjectMockups project={project} /></SlideIn>
 
         {/* Steps Section */}
-        <ProjectSteps project={project} />
+        <FadeIn delay={0.1} direction="up" className="w-full"><ProjectSteps project={project} /></FadeIn>
 
         {/* Features Section */}
-        <ProjectFeatures project={project} />
+        <SlideIn delay={0.1} direction="left" className="w-full"><ProjectFeatures project={project} /></SlideIn>
 
         {/* Tools Section */}
-        <ProjectTools project={project} />
+        <ScaleIn delay={0.1} className="w-full"><ProjectTools project={project} /></ScaleIn>
 
         <ScaleIn delay={0.1}><CtaSection /></ScaleIn>
       </div>

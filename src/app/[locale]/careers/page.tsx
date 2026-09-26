@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/shared/page-hero";
 import GlobalHeroImg from "@/assets/globalHero.png";
 import { JobList } from "@/features/careers/components/job-list";
+import { FadeIn } from "@/components/shared/animations";
 
 export default async function CareersPage() {
   const t = await getTranslations("careersPage.hero");
@@ -15,7 +16,9 @@ export default async function CareersPage() {
         image={GlobalHeroImg}
       />
       {/* Jobs Section */}
-      <JobList />
+      <FadeIn direction="up" delay={0.2} className="w-full">
+        <JobList />
+      </FadeIn>
     </main>
   );
 }

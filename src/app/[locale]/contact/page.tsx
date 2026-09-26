@@ -42,7 +42,7 @@ export default function ContactPage() {
         image={GlobalHero}
       />
       
-      <div className="relative z-10 w-full flex flex-col items-center bg-secondary">
+      <div className="relative z-10 w-full flex flex-col items-center bg-secondary pt-12 md:pt-24 gap-12 md:gap-24">
         <ScaleIn delay={0.1} className="w-full"><ContactInfoCards /></ScaleIn>
         <FadeIn delay={0.1} direction="up" className="w-full"><ContactFormSection /></FadeIn>
         <ZoomIn delay={0.1} className="w-full"><ContactMapSection /></ZoomIn>

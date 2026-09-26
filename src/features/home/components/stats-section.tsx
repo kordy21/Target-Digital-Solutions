@@ -6,6 +6,7 @@ import { Counter } from "@/components/shared/counter";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/shared/animations";
 import HandsImg from "@/assets/hands.png";
 import { motion } from "framer-motion";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 export function StatsSection() {
   const t = useTranslations("home.stats");
@@ -75,8 +76,8 @@ export function StatsSection() {
               </span>
               <div className="w-full flex flex-col items-center text-center lg:items-start lg:text-start">
                 <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-                  {t("title")}
-                </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
               </div>
               <p className="font-cairo font-semibold text-muted-foreground text-sm md:text-base leading-relaxed w-full max-w-2xl">
                 {t("description")}

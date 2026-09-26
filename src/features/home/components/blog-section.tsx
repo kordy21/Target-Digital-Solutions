@@ -59,7 +59,7 @@ export function BlogSection() {
         </FadeIn>
 
         {/* Carousel */}
-        <div className="w-full max-w-6xl mx-auto overflow-hidden" ref={emblaRef} dir={isRTL ? "rtl" : "ltr"}>
+        <div className="w-full mx-auto overflow-hidden" ref={emblaRef} dir={isRTL ? "rtl" : "ltr"}>
           <div className="flex -mx-4">
             {blogItems.map((item, index) => {
               const tags: string[] = t.raw(`items.${item.id}.tags`);

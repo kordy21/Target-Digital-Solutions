@@ -13,6 +13,7 @@ import Top3Img from "@/assets/top3.png";
 import Top4Img from "@/assets/top4.png";
 import Top5Img from "@/assets/top5.png";
 import Top6Img from "@/assets/top6.png";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 const features = [
   { id: "item1", image: Top1Img },
@@ -46,8 +47,8 @@ export function FeaturesSection() {
             </span>
             <div className={`w-full flex flex-col items-center text-center lg:items-start lg:text-start`}>
               <h2 className="text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-                {t("title")}
-              </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
             </div>
           </div>
         </FadeIn>

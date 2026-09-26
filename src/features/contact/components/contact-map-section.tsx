@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/shared/animations";
 
 export function ContactMapSection() {
   return (
-    <section className="w-full mt-12 relative z-10 overflow-hidden">
+    <section className="w-full relative z-10 overflow-hidden">
       <FadeIn direction="up">
         <div className="w-full h-112.5">
           <iframe 

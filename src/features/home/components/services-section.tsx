@@ -13,6 +13,7 @@ import Serv2 from "@/assets/serv2.png";
 import Serv3 from "@/assets/serv3.png";
 import Serv4 from "@/assets/serv4.png";
 import { cn } from "@/lib/utils";
+import { SplitTextReveal } from "@/components/shared/animations";
 
 type TabKey = "web" | "programming" | "digital" | "solutions" | "systems" | "hosting";
 
@@ -66,8 +67,8 @@ export function ServicesSection() {
   </span>
   <div className={`w-full flex flex-col items-center text-center mb-2 md:mb-10`}>
     <h2 className="mb-6 text-xl md:text-4xl lg:text-4.5xl font-cairo font-extrabold text-foreground leading-tight">
-      {t("title")}
-    </h2>
+    <SplitTextReveal text={t("title")} />
+</h2>
   </div>
 </div>
         </FadeIn>

@@ -114,6 +114,7 @@ export function SiteHeader() {
                   <>
                     <Link href="/faq" className="text-[14px] font-cairo font-semibold hover:text-primary transition-colors py-1 px-2 whitespace-nowrap block">{t("faq")}</Link>
                     <Link href="/careers" className="text-[14px] font-cairo font-semibold hover:text-primary transition-colors py-1 px-2 whitespace-nowrap block">{t("careers")}</Link>
+                    <Link href="/contact" className="text-[14px] font-cairo font-semibold hover:text-primary transition-colors py-1 px-2 whitespace-nowrap block">{t("contact")}</Link>
                   </>
                 }>
                   {t("more")}
@@ -201,6 +202,7 @@ export function SiteHeader() {
                     <div className="flex flex-col mt-1">
                       <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="text-[14px] font-cairo font-semibold hover:text-primary transition-colors p-2 block">{t("faq")}</Link>
                       <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)} className="text-[14px] font-cairo font-semibold hover:text-primary transition-colors p-2 block">{t("careers")}</Link>
+                      <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-[14px] font-cairo font-semibold hover:text-primary transition-colors p-2 block">{t("contact")}</Link>
                     </div>
                   }>
                     {t("more")}
